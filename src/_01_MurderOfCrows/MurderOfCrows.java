@@ -18,6 +18,17 @@ public class MurderOfCrows {
         //    through the stomach of each Crow, then print the name of the
         //    guilty Crow.
 
+    	for (int i = 0; i < theMurder.size(); i++) {
+    		
+    	    ArrayList<String> crowSearch = theMurder.get(i).getStomachContents();
+    		
+    	    for (int j = 0; j < crowSearch.size(); j++) {
+				
+    	    	
+			}
+    	    
+		}
+    	
         // 2. How many innocent crows had to die before the diamond was found?
 
     }

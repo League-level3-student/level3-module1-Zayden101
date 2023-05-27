@@ -19,18 +19,47 @@ public class ArrayListRemove {
             type = "dirt";
         }
     }
-
+    
     // 1. Write a method that removes the dirt in the yard and returns the
     //    ArrayList
     public static ArrayList<Stuff> cleanOutTheYard( ArrayList<Stuff> yard ) {
-        
-        return yard;
+    	ArrayList<Stuff> clean = new ArrayList<Stuff>();
+    	for (int i = 0; i < yard.size(); i++) {
+			
+    		if(!yard.get(i).type.equals("dirt")) {
+    			
+    			clean.add(yard.get(i));
+    			
+    		}    		
+    		
+		}
+    	
+    	
+       
+        return clean;
     }
     
     // 2. Write a method that removes the hash tag ('#') characters from the
     //    ArrayList and returns it
     public static ArrayList<Character> removeHashTags(ArrayList<Character> list) {
 
-        return list;
+    	
+    	ArrayList<Character> clean = new ArrayList<Character>();
+    	for (int i = 0; i < list.size(); i++) {
+			
+    		if(list.get(i) != ('#')) {
+    			
+    			clean.add(list.get(i));
+    			
+    		}    		
+    		
+		}
+    	
+
+    	
+    	
+    	
+    	
+        return clean;
     }
 }

@@ -12,6 +12,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import _03_RemovingStuffFromArrayLists.ArrayListRemove.Stuff;
+
 public class GameBoard extends JFrame implements ActionListener {
     private static final long serialVersionUID = 1L;
     static Card firstSelectedCard = null;
@@ -42,6 +44,7 @@ public class GameBoard extends JFrame implements ActionListener {
         }
         
         // 2. Initialize the ArrayList of Cards declared above
+        
         
         
         // 3. Create TOTAL_CARDS number of objects each with a value of 1.

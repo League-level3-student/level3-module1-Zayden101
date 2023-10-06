@@ -2,6 +2,7 @@ package _05_Retro_Sun;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import processing.core.PApplet;
 
@@ -12,7 +13,7 @@ import processing.core.PApplet;
  * see final image and what each step should look like.
  */
 
-public class RetroSun extends PApplet {
+public class RetroSun_broken extends PApplet {
     static final int WIDTH = 800;
     static final int HEIGHT = 600;
 //    float y = WIDTH / 2;
@@ -68,7 +69,19 @@ public class RetroSun extends PApplet {
         // Draw an ellipse for the sun in the center of the window
         // Use fill(sunColors[0]) to make it yellow
         // Use noStroke() to remove the black outline
-        fill(sunColors[0]);
+       
+        //fill(sunColors[0]);
+        int a1;
+    	a1 = new Random().nextInt(255);
+        int a2;
+    	a2 = new Random().nextInt(255);
+        int a3;
+    	a3 = new Random().nextInt(255);
+
+
+
+        fill(a1,a2,a3);
+        
         stroke(0,0,0,0);
         ellipse(400,300,300,300);
        
@@ -100,7 +113,7 @@ public class RetroSun extends PApplet {
         
 for (int i = 0; i < pixels.length; i++) {
         if(pixels[i]==sunColors[0]){
-        	
+     
         	int y = i / width;
             float step = map(y, 150, 450, 0, 1);
             int col = interpolateColor(sunColors, step);
@@ -160,9 +173,9 @@ for (int i = 0; i < pixels.length; i++) {
 			rect(rct.x,rct.y,rct.w,rct.h);
 			
 			
-	        rct.y-=0.5;
+	        rct.y-=25;
 	        
-	        if(rct.y<=305) {
+	        if(rct.y<=180) {
 	        	rct.y=480;
 	        	rct.h=40;
 	        }
@@ -239,7 +252,7 @@ for (int i = 0; i < pixels.length; i++) {
 
     
     static public void main(String[] passedArgs) {
-        PApplet.main(RetroSun.class.getName());
+        PApplet.main(RetroSun_broken.class.getName());
     }
 
     /*********************** DO NOT MODIFY THE CODE BELOW ********************/

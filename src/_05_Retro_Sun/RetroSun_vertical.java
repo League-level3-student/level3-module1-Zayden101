@@ -12,9 +12,9 @@ import processing.core.PApplet;
  * see final image and what each step should look like.
  */
 
-public class RetroSun extends PApplet {
+public class RetroSun_vertical extends PApplet {
     static final int WIDTH = 800;
-    static final int HEIGHT = 600;
+    static final int HEIGHT = 650;
 //    float y = WIDTH / 2;
 //    float h = 40;
 //    float x = 400 - 150;
@@ -44,18 +44,30 @@ public class RetroSun extends PApplet {
         // 2. Set bgColor as the background color
         background(bgColor);
         
-        Rectangle rct = new Rectangle(250, 450, 300, 250);
+        Rectangle rct = new Rectangle(550, 250, 500, 300);
         rects.add(rct);
 
         
-        Rectangle rct1 = new Rectangle(250, 495, 300, 250);
+        Rectangle rct1 = new Rectangle(595, 250, 500, 300);
         rects.add(rct1);
         
-        Rectangle rct2 = new Rectangle(250, 540, 300, 250);
+        Rectangle rct2 = new Rectangle(640, 250, 500, 300);
         rects.add(rct2);
         
-        Rectangle rct3 = new Rectangle(250, 585, 300, 250);
+        Rectangle rct3 = new Rectangle(685, 250, 500, 300);
         rects.add(rct3);
+        
+        Rectangle rcte = new Rectangle(730, 250, 500, 300);
+        rects.add(rcte);
+        
+        Rectangle rcte1 = new Rectangle(775, 250, 500, 300);
+        rects.add(rcte1);
+        
+        Rectangle rcte2 = new Rectangle(820, 250, 500, 300);
+        rects.add(rcte2);
+        
+        Rectangle rcte3 = new Rectangle(865, 250, 500, 300);
+        rects.add(rcte3);
     }
 
     @Override
@@ -157,17 +169,17 @@ for (int i = 0; i < pixels.length; i++) {
         //rect(x,y,w,h);
         
         for (Rectangle rct : rects) {
-			rect(rct.x,rct.y,rct.w,rct.h);
+			rect(rct.x,rct.y-100,rct.h,rct.w);
 			
 			
-	        rct.y-=0.5;
+	        rct.x-=1;
 	        
-	        if(rct.y<=305) {
-	        	rct.y=480;
+	  /*275*/      if(rct.x<=200) {
+	        	rct.x=560;
 	        	rct.h=40;
 	        }
 	       
-	        rct.h = map(rct.y-30, 275, 450, 1, 40);
+	        rct.h = map(rct.x-130, 275, 450, 1, 40);
 		}
         
         // Do you see a section missing from the sun like in the 3rd image?
@@ -239,7 +251,7 @@ for (int i = 0; i < pixels.length; i++) {
 
     
     static public void main(String[] passedArgs) {
-        PApplet.main(RetroSun.class.getName());
+        PApplet.main(RetroSun_vertical.class.getName());
     }
 
     /*********************** DO NOT MODIFY THE CODE BELOW ********************/

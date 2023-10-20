@@ -12,7 +12,7 @@ import processing.core.PApplet;
  * see final image and what each step should look like.
  */
 
-public class RetroSun_vertical extends PApplet {
+public class RetroSunVertical extends PApplet {
     static final int WIDTH = 800;
     static final int HEIGHT = 650;
 //    float y = WIDTH / 2;
@@ -251,7 +251,7 @@ for (int i = 0; i < pixels.length; i++) {
 
     
     static public void main(String[] passedArgs) {
-        PApplet.main(RetroSun_vertical.class.getName());
+        PApplet.main(RetroSunVertical.class.getName());
     }
 
     /*********************** DO NOT MODIFY THE CODE BELOW ********************/

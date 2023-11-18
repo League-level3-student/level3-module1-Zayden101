@@ -27,6 +27,7 @@ public class MeetingScheduler {
     public static Schedule getMutualAvailability(Schedule person1, Schedule person2) {
     	
     	
+    	
         return null;
     }
 }

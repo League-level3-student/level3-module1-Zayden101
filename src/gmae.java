@@ -1,5 +1,6 @@
 
 
+import java.awt.Rectangle;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,7 @@ public class gmae extends PApplet {
     int brdx = 0;
     int brdy = 0;
 
+    Rectangle player = new Rectangle(0,0,50,50);
     
     List<Rectangle> rects = new ArrayList<Rectangle>();
     
@@ -44,60 +46,86 @@ public class gmae extends PApplet {
 
         noCursor();
         
-        
+        rects.add(new Rectangle(250, 250, 50, 50 ));
+        rects.add(new Rectangle(450, 250, 50, 50 ));
+    
     }
 
     @Override
     public void draw() {
         background(bgColor);
         
-        rect(x1,y1,50,50);
+     //   rect(x1,y1,50,50);
+       
+        rect(player.x, player.y, player.width, player.height   ); // Draw player
         
-        if (y1>=550) {
-        	y1=550;
+        
+        if (player.y>=550) {
+        	player.y=550;
         }     
-        if (y1<=0) {
-        	y1=0;
+        if (player.y<=0) {
+        	player.y=0;
         }
-        if (x1>=750) {
-        	x1=750;
+        if (player.x>=750) {
+        	player.x=750;
         }
-        if (x1<=0) {
-        	x1=0;
+        if (player.x<=0) {
+        	player.x=0;
         }
         
         
+        for(Rectangle r: rects) {    // Draw all the blocking rects
+        	rect(r.x,r.y,r.width,r.height);
+        }
         
-        brdx = 250;
-        brdy = 250;
-        rect(brdx,brdy,50,50);
+        
+//        brdx = 250;
+//        brdy = 250;
+//        rect(brdx,brdy,50,50);
 
 
     	
         	}
     	
+    boolean playerInterectsBlock() {
+    	
+    	for(Rectangle r: rects) {
+    		if( r.intersects(player)){
+    			return true;
+    		}
+    	}
+    	
+    	
+    	return false;
+    }
+    
     
     public void keyPressed() {
     	  if (key == CODED) {
     	    if (keyCode == UP) {
-    	      y1-=50;
-    	      if(x1==brdx && y1==brdy) {
-    	    	  y1+=50;
-    	      }
+    	    	player.y-=50;
+    	    	
+    	    // if player Rectangle intersects with any of those in the list, move him back	
+    	    	if(playerInterectsBlock()) {
+    	    		player.y+=50;
+    	    	}
+//    	      if(x1==brdx && y1==brdy) {
+//    	    	  y1+=50;
+//    	      }
     	    } else if (keyCode == DOWN) {
-    	      y1+=50;
-    	      if(x1==brdx && y1==brdy) {
-    	    	  y1-=50;
+    	    	player.y+=50;
+    	      if(playerInterectsBlock()) {
+    	    	  player.y-=50;
     	      }
     	    } else if (keyCode == LEFT) {
-      	      x1-=50;
-    	      if(x1==brdx && y1==brdy) {
-    	    	  x1+=50;
+    	    	player.x-=50;
+    	      if(playerInterectsBlock()) {
+    	    	  player.x+=50;
     	      }
       	    } else if (keyCode == RIGHT) {
-      	      x1+=50;
-    	      if(x1==brdx && y1==brdy) {
-    	    	  x1-=50;
+      	    	player.x+=50;
+    	      if(playerInterectsBlock()) {
+    	    	  player.x-=50;
     	      }
       	    } 
 
@@ -141,15 +169,15 @@ public class gmae extends PApplet {
     // Feel free to use this class to create a list of missing
     // sections in the sun, for example:
     // ArrayList<Rectangle> sections = new ArrayList<Rectangle>();
-    class Rectangle {
-        float x, y, w, h;
-
-        Rectangle(float x, float y, float w, float h) {
-            this.x = x;
-            this.y = y;
-            this.w = w;
-            this.h = h;
-        }
-    }
+//    class Rectangle {
+//        float x, y, w, h;
+//
+//        Rectangle(float x, float y, float w, float h) {
+//            this.x = x;
+//            this.y = y;
+//            this.w = w;
+//            this.h = h;
+//        }
+//    }
     
 }

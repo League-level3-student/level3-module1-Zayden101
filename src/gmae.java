@@ -6,25 +6,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.swing.text.html.parser.Entity;
+
 import processing.core.PApplet;
 
-/*
- * Goal: Create an animated retro sun image!
- * 
- * Follow the inline instructions below. Open RetroSun.html in this folder to
- * see final image and what each step should look like.
- */
 
 public class gmae extends PApplet {
     static final int WIDTH = 800;
     static final int HEIGHT = 600;
     
-    int bgColor = color(31, 0, 48);
+    int bgColor = color(0, 0, 0);
+    //int bgColor = color(31, 0, 48);
 
     int value = 0;
     
     int x1 = 0;
     int y1 = 0;
+    
+    int att = 0;
+    int attx = 0;
+    int atty = 0;
+    
+    int emlv = 0;
     
     int brdx = 0;
     int brdy = 0;
@@ -32,6 +35,8 @@ public class gmae extends PApplet {
     Rectangle player = new Rectangle(0,0,50,50);
     
     List<Rectangle> rects = new ArrayList<Rectangle>();
+    List<Rectangle> enemy = new ArrayList<Rectangle>();
+
     
     @Override
     public void settings() {
@@ -46,9 +51,28 @@ public class gmae extends PApplet {
 
         noCursor();
         
+        rects.add(new Rectangle(0, 250, 50, 50 ));
+        rects.add(new Rectangle(50, 250, 50, 50 ));
+        rects.add(new Rectangle(100, 250, 50, 50 ));
+        rects.add(new Rectangle(150, 250, 50, 50 ));
+        rects.add(new Rectangle(200, 250, 50, 50 ));
         rects.add(new Rectangle(250, 250, 50, 50 ));
-        rects.add(new Rectangle(450, 250, 50, 50 ));
-    
+        rects.add(new Rectangle(300, 250, 50, 50 ));
+        rects.add(new Rectangle(350, 250, 50, 50 ));
+        rects.add(new Rectangle(400, 250, 50, 50 ));
+
+        rects.add(new Rectangle(400, 200, 50, 50 ));
+        rects.add(new Rectangle(400, 150, 50, 50 ));
+        rects.add(new Rectangle(400, 100, 50, 50 ));
+        
+        rects.add(new Rectangle(200, 0, 50, 50 ));
+        rects.add(new Rectangle(200, 50, 50, 50 ));
+        rects.add(new Rectangle(200, 100, 50, 50 ));
+
+    	fill(255,0,0);
+        enemy.add(new Rectangle(500, 500, 50, 50 ));
+    	fill(255,255,255);
+
     }
 
     @Override
@@ -56,7 +80,36 @@ public class gmae extends PApplet {
         background(bgColor);
         
      //   rect(x1,y1,50,50);
+        
+        emlv = 1;
+        
+        //Attack
+        if(att==1) {
+        	attx = player.x-50;
+        	atty = player.y-50;
+        	
+        	fill(0,0,255);
+        	rect(player.x-50, player.y-50, 150, 150);
+        	fill(255,255,255);
+        	att=0;
+        }
        
+        
+        
+        //Enemy
+        if(emlv==1) {
+        fill(255,0,0);
+    	rect(500,500,50,50);
+    	fill(255,255,255);
+        }else if(emlv==0) {
+        fill(0,0,0);
+        rect(500,500,50,50);
+        fill(255,255,255);
+        }
+        
+        
+        
+        
         rect(player.x, player.y, player.width, player.height   ); // Draw player
         
         
@@ -100,6 +153,8 @@ public class gmae extends PApplet {
     }
     
     
+    
+    
     public void keyPressed() {
     	  if (key == CODED) {
     	    if (keyCode == UP) {
@@ -127,11 +182,14 @@ public class gmae extends PApplet {
     	      if(playerInterectsBlock()) {
     	    	  player.x-=50;
     	      }
-      	    } 
+    	    } else if (keyCode == SHIFT) {
+    	    	att=1;
+    	    }
 
-    	    
-           
+    
+    
     	  }
+    	  
     	  
     	}
         

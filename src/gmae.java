@@ -35,7 +35,10 @@ public class gmae extends PApplet {
     Rectangle player = new Rectangle(0,0,50,50);
     
     List<Rectangle> rects = new ArrayList<Rectangle>();
-    List<Rectangle> enemy = new ArrayList<Rectangle>();
+    
+    Rectangle enemy = new Rectangle(500,500,50,50);
+
+    //List<Rectangle> enemy = new ArrayList<Rectangle>();
 
     
     @Override
@@ -68,10 +71,20 @@ public class gmae extends PApplet {
         rects.add(new Rectangle(200, 0, 50, 50 ));
         rects.add(new Rectangle(200, 50, 50, 50 ));
         rects.add(new Rectangle(200, 100, 50, 50 ));
+        
+        rects.add(new Rectangle(200, 550, 50, 50 ));
+        rects.add(new Rectangle(200, 500, 50, 50 ));
+        rects.add(new Rectangle(200, 400, 50, 50 ));
+        rects.add(new Rectangle(200, 350, 50, 50 ));
+        rects.add(new Rectangle(200, 300, 50, 50 ));
 
-    	fill(255,0,0);
-        enemy.add(new Rectangle(500, 500, 50, 50 ));
-    	fill(255,255,255);
+
+    	//fill(255,0,0);
+        //enemy.add(new Rectangle(500, 500, 50, 50 ));
+    	//fill(255,255,255);
+        
+        
+        emlv = 1;
 
     }
 
@@ -81,9 +94,59 @@ public class gmae extends PApplet {
         
      //   rect(x1,y1,50,50);
         
-        emlv = 1;
         
         //Attack
+//        if(att==1) {
+//        	attx = player.x-50;
+//        	atty = player.y-50;
+//        	
+//        	fill(0,0,255);
+//        	rect(player.x-50, player.y-50, 150, 150);
+//        	fill(255,255,255);
+//        	att=0;
+//        }
+        	
+        	
+        	//if enemy adjacent to player, remove enemy from List.
+        	//player.
+        
+        
+    	/*
+    	 fill(255,0,0);
+    	 
+        for(Rectangle r: enemy) {    // Draw all the enemy rects
+        	rect(r.x,r.y,r.width,r.height);
+        }
+    	fill(255,255,255);
+		*/
+
+
+        //Enemy
+        if(emlv==1) {
+        fill(255,0,0);
+        rect(enemy.x, enemy.y, enemy.width, enemy.height   ); // Draw enemy
+    	fill(255,255,255);
+        }else if(emlv==0) {
+        fill(0,0,0);
+        rect(enemy.x, enemy.y, enemy.width, enemy.height   ); // Draw enemy
+        fill(255,255,255);
+        }
+        
+        //rect(enemy.x, enemy.y, enemy.width, enemy.height   ); // Draw enemy
+        
+        if(att==1) {        	
+        if(50 == Math.abs(player.x-enemy.x) && 50 == Math.abs(player.y-enemy.y)){
+        	//System.out.println("dead");
+        	emlv=0;
+        }
+        if( (50 == Math.abs(player.x-enemy.x) && player.y == enemy.y) ||
+        	((50 == Math.abs(player.y-enemy.y) && player.x == enemy.x)) ){
+        	//System.out.println("dead");
+        	emlv=0;
+        }
+        }
+        
+        
         if(att==1) {
         	attx = player.x-50;
         	atty = player.y-50;
@@ -93,22 +156,6 @@ public class gmae extends PApplet {
         	fill(255,255,255);
         	att=0;
         }
-       
-        
-        
-        //Enemy
-        if(emlv==1) {
-        fill(255,0,0);
-    	rect(500,500,50,50);
-    	fill(255,255,255);
-        }else if(emlv==0) {
-        fill(0,0,0);
-        rect(500,500,50,50);
-        fill(255,255,255);
-        }
-        
-        
-        
         
         rect(player.x, player.y, player.width, player.height   ); // Draw player
         

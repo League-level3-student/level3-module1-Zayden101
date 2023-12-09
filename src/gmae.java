@@ -6,9 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
 import javax.swing.text.html.parser.Entity;
 
 import processing.core.PApplet;
+
+
+//WORK ON REMOVING LOCKED DOOR
 
 
 public class gmae extends PApplet {
@@ -27,16 +31,25 @@ public class gmae extends PApplet {
     int attx = 0;
     int atty = 0;
     
-    int emlv = 0;
+    int emliv = 0;
+    
+    int gol = 0;
     
     int brdx = 0;
     int brdy = 0;
+    
+    int doorlocked = 0;
 
     Rectangle player = new Rectangle(0,0,50,50);
     
     List<Rectangle> rects = new ArrayList<Rectangle>();
     
     Rectangle enemy = new Rectangle(500,500,50,50);
+    
+    Rectangle goal = new Rectangle(0,500,50,50);
+
+    Rectangle doorkey = new Rectangle(550,200,50,50);
+
 
     //List<Rectangle> enemy = new ArrayList<Rectangle>();
 
@@ -77,6 +90,32 @@ public class gmae extends PApplet {
         rects.add(new Rectangle(200, 400, 50, 50 ));
         rects.add(new Rectangle(200, 350, 50, 50 ));
         rects.add(new Rectangle(200, 300, 50, 50 ));
+        
+        rects.add(new Rectangle(450, 250, 50, 50 ));
+        rects.add(new Rectangle(500, 250, 50, 50 ));
+        rects.add(new Rectangle(550, 250, 50, 50 ));
+        rects.add(new Rectangle(600, 250, 50, 50 ));
+        rects.add(new Rectangle(700, 250, 50, 50 ));
+        rects.add(new Rectangle(750, 250, 50, 50 ));
+        rects.add(new Rectangle(600, 200, 50, 50 ));
+        rects.add(new Rectangle(600, 150, 50, 50 ));
+        rects.add(new Rectangle(650, 150, 50, 50 ));
+        rects.add(new Rectangle(500, 50, 50, 50 ));
+        rects.add(new Rectangle(500, 100, 50, 50 ));
+        rects.add(new Rectangle(500, 150, 50, 50 ));
+        rects.add(new Rectangle(600, 50, 50, 50 ));
+        rects.add(new Rectangle(550, 150, 50, 50 ));
+        rects.add(new Rectangle(700, 50, 50, 50 ));
+        rects.add(new Rectangle(600, 0, 50, 50 ));
+        rects.add(new Rectangle(700, 100, 50, 50 ));
+        rects.add(new Rectangle(700, 150, 50, 50 ));
+        rects.add(new Rectangle(400, 0, 50, 50 ));
+        rects.add(new Rectangle(300, 50, 50, 50 ));
+        rects.add(new Rectangle(300, 100, 50, 50 ));
+        rects.add(new Rectangle(300, 150, 50, 50 ));
+        rects.add(new Rectangle(350, 100, 50, 50 ));
+
+
 
 
     	//fill(255,0,0);
@@ -84,7 +123,7 @@ public class gmae extends PApplet {
     	//fill(255,255,255);
         
         
-        emlv = 1;
+        emliv = 1;
 
     }
 
@@ -93,6 +132,8 @@ public class gmae extends PApplet {
         background(bgColor);
         
      //   rect(x1,y1,50,50);
+        
+        
         
         
         //Attack
@@ -122,31 +163,60 @@ public class gmae extends PApplet {
 
 
         //Enemy
-        if(emlv==1) {
+        if(emliv==1) {
         fill(255,0,0);
-        rect(enemy.x, enemy.y, enemy.width, enemy.height   ); // Draw enemy
+        rect(enemy.x, enemy.y, enemy.width, enemy.height); // Draw enemy
     	fill(255,255,255);
-        }else if(emlv==0) {
+        }else if(emliv==0) {
         fill(0,0,0);
-        rect(enemy.x, enemy.y, enemy.width, enemy.height   ); // Draw enemy
+        rect(enemy.x, enemy.y, enemy.width, enemy.height); // Draw enemy
+        fill(255,255,255);
+        gol=1;
+        }
+        
+        
+        
+        
+        if (doorlocked==0) {
+        fill(255,255,0);
+        rect(doorkey.x, doorkey.y, doorkey.width, doorkey.height); // Draw key
+        fill(255,255,255);
+        }else {
+        fill(0,0,0);
+        rect(doorkey.x, doorkey.y, doorkey.width, doorkey.height); // Draw key
         fill(255,255,255);
         }
         
+        if(player.x==doorkey.x && player.y==doorkey.y) {
+        	doorlocked=1;
+        }
+
+        if(doorlocked==0) {
+        rects.add(new Rectangle(650, 250, 50, 50 ));
+        rects.add(new Rectangle(663, 263, 25, 25 ));
+        }else{
+            rects.add (new Rectangle(650, 250, 50, 50 ));
+            rects.add(new Rectangle(663, 263, 25, 25 ));
+        }
+        
+        
+        
         //rect(enemy.x, enemy.y, enemy.width, enemy.height   ); // Draw enemy
         
+        //Kill enemy
         if(att==1) {        	
         if(50 == Math.abs(player.x-enemy.x) && 50 == Math.abs(player.y-enemy.y)){
         	//System.out.println("dead");
-        	emlv=0;
+        	emliv=0;
         }
         if( (50 == Math.abs(player.x-enemy.x) && player.y == enemy.y) ||
         	((50 == Math.abs(player.y-enemy.y) && player.x == enemy.x)) ){
         	//System.out.println("dead");
-        	emlv=0;
+        	emliv=0;
         }
         }
         
-        
+        //Attack
         if(att==1) {
         	attx = player.x-50;
         	atty = player.y-50;
@@ -157,8 +227,20 @@ public class gmae extends PApplet {
         	att=0;
         }
         
-        rect(player.x, player.y, player.width, player.height   ); // Draw player
+        rect(player.x, player.y, player.width, player.height); // Draw player
         
+        if(gol==0) {
+        	
+        }else if(gol==1) {
+        fill(0,255,0);
+        rect(goal.x, goal.y, goal.width, goal.height); // Draw goal
+    	fill(255,255,255);
+        }
+
+        if(player.x==goal.x && player.y==goal.y && gol==1) {
+        	System.out.println("you win");
+        	System.exit(0);
+        }
         
         if (player.y>=550) {
         	player.y=550;

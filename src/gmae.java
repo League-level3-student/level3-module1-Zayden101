@@ -47,9 +47,14 @@ public class gmae extends PApplet {
 
 	int shoot;
 
+	int skip;
+	
+	int level = 1;
+
 	Rectangle player = new Rectangle(0,0,50,50);
 
 	List<Rectangle> rects = new ArrayList<Rectangle>();
+
 
 	Rectangle enemy = new Rectangle(500,500,50,50);
 
@@ -62,6 +67,9 @@ public class gmae extends PApplet {
 	Rectangle bullet;
 	Rectangle btv1, btv2;    //bullet trail vertical
 	Rectangle bth1, bth2;    //bullet trail horizontal
+	private boolean addlevel1Rects = true;
+	private boolean addlevel2Rects = true;
+
 
 
 	//List<Rectangle> enemy = new ArrayList<Rectangle>();
@@ -80,56 +88,9 @@ public class gmae extends PApplet {
 
 		noCursor();
 
-		rects.add(new Rectangle(0, 250, 50, 50 ));
-		rects.add(new Rectangle(50, 250, 50, 50 ));
-		rects.add(new Rectangle(100, 250, 50, 50 ));
-		rects.add(new Rectangle(150, 250, 50, 50 ));
-		rects.add(new Rectangle(200, 250, 50, 50 ));
-		rects.add(new Rectangle(250, 250, 50, 50 ));
-		rects.add(new Rectangle(300, 250, 50, 50 ));
-		rects.add(new Rectangle(350, 250, 50, 50 ));
-		rects.add(new Rectangle(400, 250, 50, 50 ));
+		level1Rects();
 
-		rects.add(new Rectangle(400, 200, 50, 50 ));
-		rects.add(new Rectangle(400, 150, 50, 50 ));
-		rects.add(new Rectangle(400, 100, 50, 50 ));
 
-		rects.add(new Rectangle(200, 0, 50, 50 ));
-		rects.add(new Rectangle(200, 50, 50, 50 ));
-		rects.add(new Rectangle(200, 100, 50, 50 ));
-
-		rects.add(new Rectangle(200, 550, 50, 50 ));
-		rects.add(new Rectangle(200, 500, 50, 50 ));
-		rects.add(new Rectangle(200, 400, 50, 50 ));
-		rects.add(new Rectangle(200, 350, 50, 50 ));
-		rects.add(new Rectangle(200, 300, 50, 50 ));
-
-		rects.add(new Rectangle(450, 250, 50, 50 ));
-		rects.add(new Rectangle(500, 250, 50, 50 ));
-		rects.add(new Rectangle(550, 250, 50, 50 ));
-		rects.add(new Rectangle(600, 250, 50, 50 ));
-		rects.add(new Rectangle(700, 250, 50, 50 ));
-		rects.add(new Rectangle(750, 250, 50, 50 ));
-		rects.add(new Rectangle(600, 200, 50, 50 ));
-		rects.add(new Rectangle(600, 150, 50, 50 ));
-		rects.add(new Rectangle(650, 150, 50, 50 ));
-		rects.add(new Rectangle(500, 50, 50, 50 ));
-		rects.add(new Rectangle(500, 100, 50, 50 ));
-		rects.add(new Rectangle(500, 150, 50, 50 ));
-		rects.add(new Rectangle(600, 50, 50, 50 ));
-		rects.add(new Rectangle(550, 150, 50, 50 ));
-		rects.add(new Rectangle(700, 50, 50, 50 ));
-		rects.add(new Rectangle(600, 0, 50, 50 ));
-		rects.add(new Rectangle(700, 100, 50, 50 ));
-		rects.add(new Rectangle(700, 150, 50, 50 ));
-		rects.add(new Rectangle(400, 0, 50, 50 ));
-		rects.add(new Rectangle(300, 50, 50, 50 ));
-		rects.add(new Rectangle(300, 100, 50, 50 ));
-		rects.add(new Rectangle(300, 150, 50, 50 ));
-		rects.add(new Rectangle(350, 100, 50, 50 ));
-
-		door1 = new Rectangle(650, 250, 50, 50 );
-		door2 = new Rectangle(663, 263, 25, 25 );
 
 		bullet = new Rectangle(player.x, player.y, 50, 50);
 
@@ -165,9 +126,25 @@ public class gmae extends PApplet {
 
 		//   rect(x1,y1,50,50);
 
+//		if(level==1) {
+//			if(addlevel1Rects) {
+//				level1Rects();
+//				addlevel1Rects = false;
+//			}
+//		}
+
+		if(level==2) {
+
+			rects.removeAll(rects);
+
+			level2Rects();
+			
+			door1 = new Rectangle(650, 250, 50, 50 );
+			door2 = new Rectangle(663, 263, 25, 25 );
+		}
 
 
-
+		//System.out.println(level);
 
 
 
@@ -218,9 +195,9 @@ public class gmae extends PApplet {
 			rect(doorkey.x, doorkey.y, doorkey.width, doorkey.height); // Draw key
 			fill(255,255,255);
 		}else {
-			fill(0,0,0);
-			rect(doorkey.x, doorkey.y, doorkey.width, doorkey.height); // Draw key
-			fill(255,255,255);
+//			fill(0,0,0);
+//			rect(doorkey.x, doorkey.y, doorkey.width, doorkey.height); // Draw key
+//			fill(255,255,255);
 		}
 
 		if(player.x==doorkey.x && player.y==doorkey.y) {
@@ -247,7 +224,7 @@ public class gmae extends PApplet {
 		btv1.y=player.y;
 		btv2.x=player.x+12;
 		btv2.y=player.y;
-		
+
 		rects.remove(bth1);
 		rects.remove(bth2);
 		rects.remove(btv1);
@@ -295,17 +272,17 @@ public class gmae extends PApplet {
 
 		if(bullet.x==enemy.x && bullet.y==enemy.y) {
 			emliv=0;
-			}
-		
-		
-		
-//		if (btv1.x==enemy.x && btv1.y==enemy.y || btv2.x==enemy.x && btv2.y==enemy.y || bth1.x==enemy.x && bth1.y==enemy.y || bth2.x==enemy.x && bth2.y==enemy.y){
-//			emliv=0;
-//		}
-		
-		
-			
-			//rect(enemy.x, enemy.y, enemy.width, enemy.height   ); // Draw enemy
+		}
+
+
+
+		//		if (btv1.x==enemy.x && btv1.y==enemy.y || btv2.x==enemy.x && btv2.y==enemy.y || bth1.x==enemy.x && bth1.y==enemy.y || bth2.x==enemy.x && bth2.y==enemy.y){
+		//			emliv=0;
+		//		}
+
+
+
+		//rect(enemy.x, enemy.y, enemy.width, enemy.height   ); // Draw enemy
 
 		//Kill enemy
 		if(att==1) {        	
@@ -319,12 +296,12 @@ public class gmae extends PApplet {
 				emliv=0;
 			}
 		}
-		
-//		if(shoot==1) {        	
-//		if(bullet.x==enemy.x && bullet.y==enemy.y){
-//			emliv=0;
-//			}
-//		}
+
+		//		if(shoot==1) {        	
+		//		if(bullet.x==enemy.x && bullet.y==enemy.y){
+		//			emliv=0;
+		//			}
+		//		}
 
 		//Attack
 		if(att==1) {
@@ -348,8 +325,10 @@ public class gmae extends PApplet {
 		}
 
 		if(player.x==goal.x && player.y==goal.y && gol==1) {
-			System.out.println("you win");
-			System.exit(0);
+			//			System.out.println("you win");
+			//			System.exit(0);
+			level=2;
+
 		}
 
 		if (player.y>=550) {
@@ -376,6 +355,111 @@ public class gmae extends PApplet {
 		//        brdy = 250;
 		//        rect(brdx,brdy,50,50);
 
+		if(skip==1) {
+			if(level==1);
+			level=2;
+			player.x=0;
+			player.y=500;
+		}
+		skip=0;
+
+	}
+
+	private void level1Rects() {
+		rects.add(new Rectangle(0, 250, 50, 50 ));
+		rects.add(new Rectangle(50, 250, 50, 50 ));
+		rects.add(new Rectangle(100, 250, 50, 50 ));
+		rects.add(new Rectangle(150, 250, 50, 50 ));
+		rects.add(new Rectangle(200, 250, 50, 50 ));
+		rects.add(new Rectangle(250, 250, 50, 50 ));
+		rects.add(new Rectangle(300, 250, 50, 50 ));
+		rects.add(new Rectangle(350, 250, 50, 50 ));
+		rects.add(new Rectangle(400, 250, 50, 50 ));
+
+		rects.add(new Rectangle(400, 200, 50, 50 ));
+		rects.add(new Rectangle(400, 150, 50, 50 ));
+		rects.add(new Rectangle(400, 100, 50, 50 ));
+
+		rects.add(new Rectangle(200, 0, 50, 50 ));
+		rects.add(new Rectangle(200, 50, 50, 50 ));
+		rects.add(new Rectangle(200, 100, 50, 50 ));
+
+		rects.add(new Rectangle(200, 550, 50, 50 ));
+		rects.add(new Rectangle(200, 500, 50, 50 ));
+		rects.add(new Rectangle(200, 400, 50, 50 ));
+		rects.add(new Rectangle(200, 350, 50, 50 ));
+		rects.add(new Rectangle(200, 300, 50, 50 ));
+
+		rects.add(new Rectangle(450, 250, 50, 50 ));
+		rects.add(new Rectangle(500, 250, 50, 50 ));
+		rects.add(new Rectangle(550, 250, 50, 50 ));
+		rects.add(new Rectangle(600, 250, 50, 50 ));
+		rects.add(new Rectangle(700, 250, 50, 50 ));
+		rects.add(new Rectangle(750, 250, 50, 50 ));
+		rects.add(new Rectangle(600, 200, 50, 50 ));
+		rects.add(new Rectangle(600, 150, 50, 50 ));
+		rects.add(new Rectangle(650, 150, 50, 50 ));
+		rects.add(new Rectangle(500, 50, 50, 50 ));
+		rects.add(new Rectangle(500, 100, 50, 50 ));
+		rects.add(new Rectangle(500, 150, 50, 50 ));
+		rects.add(new Rectangle(600, 50, 50, 50 ));
+		rects.add(new Rectangle(550, 150, 50, 50 ));
+		rects.add(new Rectangle(700, 50, 50, 50 ));
+		rects.add(new Rectangle(600, 0, 50, 50 ));
+		rects.add(new Rectangle(700, 100, 50, 50 ));
+		rects.add(new Rectangle(700, 150, 50, 50 ));
+		rects.add(new Rectangle(400, 0, 50, 50 ));
+		rects.add(new Rectangle(300, 50, 50, 50 ));
+		rects.add(new Rectangle(300, 100, 50, 50 ));
+		rects.add(new Rectangle(300, 150, 50, 50 ));
+		rects.add(new Rectangle(350, 100, 50, 50 ));
+
+		door1 = new Rectangle(650, 250, 50, 50 );
+		door2 = new Rectangle(663, 263, 25, 25 );
+	}
+
+	private void level2Rects() {
+		enemy.x=300;
+		enemy.y=350;
+		
+		rects.add(new Rectangle(350, 500, 50, 50 ));
+		rects.add(new Rectangle(150, 550, 50, 50 ));
+		
+		rects.add(new Rectangle(150, 500, 50, 50 ));
+		rects.add(new Rectangle(150, 450, 50, 50 ));
+		rects.add(new Rectangle(0, 400, 50, 50 ));
+		rects.add(new Rectangle(50, 400, 50, 50 ));
+		rects.add(new Rectangle(50, 350, 50, 50 ));
+		rects.add(new Rectangle(100, 350, 50, 50 ));
+		rects.add(new Rectangle(150, 350, 50, 50 ));
+		rects.add(new Rectangle(200, 350, 50, 50 ));
+		rects.add(new Rectangle(250, 350, 50, 50 ));
+		rects.add(new Rectangle(250, 400, 50, 50 ));
+		rects.add(new Rectangle(250, 450, 50, 50 ));
+		rects.add(new Rectangle(250, 500, 50, 50 ));
+		rects.add(new Rectangle(450, 550, 50, 50 ));
+		rects.add(new Rectangle(450, 500, 50, 50 ));
+		rects.add(new Rectangle(500, 500, 50, 50 ));
+		rects.add(new Rectangle(300, 400, 50, 50 ));
+		rects.add(new Rectangle(350, 400, 50, 50 ));
+		rects.add(new Rectangle(400, 400, 50, 50 ));
+		rects.add(new Rectangle(450, 400, 50, 50 ));
+		rects.add(new Rectangle(500, 400, 50, 50 ));
+
+		rects.add(new Rectangle(550, 400, 50, 50 ));
+		rects.add(new Rectangle(550, 350, 50, 50 ));
+		rects.add(new Rectangle(650, 400, 50, 50 ));
+		rects.add(new Rectangle(700, 400, 50, 50 ));
+		rects.add(new Rectangle(700, 450, 50, 50 ));
+
+		rects.add(new Rectangle(600, 500, 50, 50 ));
+		rects.add(new Rectangle(600, 550, 50, 50 ));
+		rects.add(new Rectangle(700, 550, 50, 50 ));
+		
+		rects.add(new Rectangle(550, 350, 50, 50 ));
+		rects.add(new Rectangle(550, 300, 50, 50 ));
+
+		rects.add(new Rectangle(600, 300, 50, 50 ));
 
 
 	}
@@ -389,102 +473,104 @@ public class gmae extends PApplet {
 					return true;
 				}
 			}
-			}
-
-
-			return false;
 		}
 
 
+		return false;
+	}
 
 
-		public void keyPressed() {
-			if (key == CODED) {
-				if (keyCode == UP) {
-					player.y-=50;
-					facing=1;
-					// if player Rectangle intersects with any of those in the list, move him back	
-					if(playerInterectsBlock()) {
-						player.y+=50;
-					}
-					//    	      if(x1==brdx && y1==brdy) {
-					//    	    	  y1+=50;
-					//    	      }
-				} else if (keyCode == DOWN) {
+
+
+	public void keyPressed() {
+		if (key == CODED) {
+			if (keyCode == UP) {
+				player.y-=50;
+				facing=1;
+				// if player Rectangle intersects with any of those in the list, move him back	
+				if(playerInterectsBlock()) {
 					player.y+=50;
-					facing=3;
-					if(playerInterectsBlock()) {
-						player.y-=50;
-					}
-				} else if (keyCode == LEFT) {
-					player.x-=50;
-					facing=2;
-					if(playerInterectsBlock()) {
-						player.x+=50;
-					}
-				} else if (keyCode == RIGHT) {
-					player.x+=50;
-					facing=4;
-					if(playerInterectsBlock()) {
-						player.x-=50;
-					}
-				} else if (keyCode == SHIFT) {
-					att=1;
-				} else if (keyCode == ALT) {
-					shoot=1;
 				}
-
-
-
-
+				//    	      if(x1==brdx && y1==brdy) {
+				//    	    	  y1+=50;
+				//    	      }
+			} else if (keyCode == DOWN) {
+				player.y+=50;
+				facing=3;
+				if(playerInterectsBlock()) {
+					player.y-=50;
+				}
+			} else if (keyCode == LEFT) {
+				player.x-=50;
+				facing=2;
+				if(playerInterectsBlock()) {
+					player.x+=50;
+				}
+			} else if (keyCode == RIGHT) {
+				player.x+=50;
+				facing=4;
+				if(playerInterectsBlock()) {
+					player.x-=50;
+				}
+			} else if (keyCode == SHIFT) {
+				att=1;
+			} else if (keyCode == ALT) {
+				shoot=1;
+			} else if (keyCode == CONTROL) {
+				skip=1;
 			}
 
 
+
+
 		}
 
-
-
-
-
-
-
-
-
-		static public void main(String[] passedArgs) {
-			PApplet.main(gmae.class.getName());
-		}
-
-		/*********************** DO NOT MODIFY THE CODE BELOW ********************/
-
-		// Placed here so it can be used by all classes
-		// Variable step should be between 0 and 1, inclusive
-		int interpolateColor(int[] arr, float step) {
-			int sz = arr.length;
-
-			if (sz == 1 || step <= 0.0) {
-				return arr[0];
-			} else if (step >= 1.0) {
-				return arr[sz - 1];
-			}
-
-			float scl = step * (sz - 1);
-			int i = (int) scl;
-
-			return lerpColor(arr[i], arr[i + 1], scl - i);
-		}
-
-		// Feel free to use this class to create a list of missing
-		// sections in the sun, for example:
-		// ArrayList<Rectangle> sections = new ArrayList<Rectangle>();
-		//    class Rectangle {
-		//        float x, y, w, h;
-		//
-		//        Rectangle(float x, float y, float w, float h) {
-		//            this.x = x;
-		//            this.y = y;
-		//            this.w = w;
-		//            this.h = h;
-		//        }
-		//    }
 
 	}
+
+
+
+
+
+
+
+
+
+	static public void main(String[] passedArgs) {
+		PApplet.main(gmae.class.getName());
+	}
+
+	/*********************** DO NOT MODIFY THE CODE BELOW ********************/
+
+	// Placed here so it can be used by all classes
+	// Variable step should be between 0 and 1, inclusive
+	int interpolateColor(int[] arr, float step) {
+		int sz = arr.length;
+
+		if (sz == 1 || step <= 0.0) {
+			return arr[0];
+		} else if (step >= 1.0) {
+			return arr[sz - 1];
+		}
+
+		float scl = step * (sz - 1);
+		int i = (int) scl;
+
+		return lerpColor(arr[i], arr[i + 1], scl - i);
+	}
+
+	// Feel free to use this class to create a list of missing
+	// sections in the sun, for example:
+	// ArrayList<Rectangle> sections = new ArrayList<Rectangle>();
+	//    class Rectangle {
+	//        float x, y, w, h;
+	//
+	//        Rectangle(float x, float y, float w, float h) {
+	//            this.x = x;
+	//            this.y = y;
+	//            this.w = w;
+	//            this.h = h;
+	//        }
+	//    }
+
+}

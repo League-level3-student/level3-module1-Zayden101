@@ -131,7 +131,7 @@ public class gmae extends PApplet {
 		door1 = new Rectangle(650, 250, 50, 50 );
 		door2 = new Rectangle(663, 263, 25, 25 );
 
-		bullet = new Rectangle(player.x+5, player.y-5, 40, 40);
+		bullet = new Rectangle(player.x, player.y, 50, 50);
 
 		btv1 = new Rectangle(player.x+12, player.y, 25, 50);
 		btv2 = new Rectangle(player.x+12, player.y, 25, 50);
@@ -247,33 +247,43 @@ public class gmae extends PApplet {
 		btv1.y=player.y;
 		btv2.x=player.x+12;
 		btv2.y=player.y;
+		
+		rects.remove(bth1);
+		rects.remove(bth2);
+		rects.remove(btv1);
+		rects.remove(btv2);
 
 
 		if(shoot==1) {
 			//for (int i = 0; i < 3; i++) {
 
 			if(facing==1) {
+				rects.add(btv1);
+				rects.add(btv2);
 				bullet.y-=150;
 				btv1.y-=50;
 				btv2.y-=100;
 			}
 			if(facing==2) {
+				rects.add(bth1);
+				rects.add(bth2);
 				bullet.x-=150;
 				bth1.x-=50;
 				bth2.x-=100;
-
 			}
 			if(facing==3) {
+				rects.add(btv1);
+				rects.add(btv2);
 				bullet.y+=150;
 				btv1.y+=50;
 				btv2.y+=100;
-
 			}
 			if(facing==4) {
+				rects.add(bth1);
+				rects.add(bth2);
 				bullet.x+=150;
 				bth1.x+=50;
 				bth2.x+=100;
-
 			}
 			System.out.println(bullet.x + " " + bullet.y + "  " + facing);
 		}
@@ -283,9 +293,19 @@ public class gmae extends PApplet {
 
 		//System.out.println(facing);
 
-
-
-		//rect(enemy.x, enemy.y, enemy.width, enemy.height   ); // Draw enemy
+		if(bullet.x==enemy.x && bullet.y==enemy.y) {
+			emliv=0;
+			}
+		
+		
+		
+//		if (btv1.x==enemy.x && btv1.y==enemy.y || btv2.x==enemy.x && btv2.y==enemy.y || bth1.x==enemy.x && bth1.y==enemy.y || bth2.x==enemy.x && bth2.y==enemy.y){
+//			emliv=0;
+//		}
+		
+		
+			
+			//rect(enemy.x, enemy.y, enemy.width, enemy.height   ); // Draw enemy
 
 		//Kill enemy
 		if(att==1) {        	
@@ -299,6 +319,12 @@ public class gmae extends PApplet {
 				emliv=0;
 			}
 		}
+		
+//		if(shoot==1) {        	
+//		if(bullet.x==enemy.x && bullet.y==enemy.y){
+//			emliv=0;
+//			}
+//		}
 
 		//Attack
 		if(att==1) {

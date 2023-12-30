@@ -35,6 +35,9 @@ public class gmae extends PApplet {
 	int atty = 0;
 
 	int emliv = 0;     //enemy alive
+	int emliv2 = 0;     //enemy2 alive
+
+	int lv2_setup = 0;
 
 	int gol = 0;	//goal
 
@@ -50,6 +53,13 @@ public class gmae extends PApplet {
 	int skip;
 	
 	int level = 1;
+	
+	int numOfKeys = 0;
+	int goalOfKeys = 1;
+	
+	int numOfEnemy = 0;
+	int goalOfEnemy = 0;
+
 
 	Rectangle player = new Rectangle(0,0,50,50);
 
@@ -57,10 +67,12 @@ public class gmae extends PApplet {
 
 
 	Rectangle enemy = new Rectangle(500,500,50,50);
+	Rectangle enemy2 = new Rectangle(-50,-50,50,50);
 
 	Rectangle goal = new Rectangle(0,500,50,50);
 
 	Rectangle doorkey = new Rectangle(550,200,50,50);
+	Rectangle doorkey2 = new Rectangle(550,200,50,50);
 
 	Rectangle door1, door2;
 
@@ -69,6 +81,7 @@ public class gmae extends PApplet {
 	Rectangle bth1, bth2;    //bullet trail horizontal
 	private boolean addlevel1Rects = true;
 	private boolean addlevel2Rects = true;
+	private boolean isLevel2Setup = false;
 
 
 
@@ -90,6 +103,8 @@ public class gmae extends PApplet {
 
 		level1Rects();
 
+		goalOfKeys = 1;
+		goalOfEnemy = 1;
 
 
 		bullet = new Rectangle(player.x, player.y, 50, 50);
@@ -117,6 +132,8 @@ public class gmae extends PApplet {
 
 
 		emliv = 1;
+		emliv2 = 1;
+
 
 	}
 
@@ -133,22 +150,25 @@ public class gmae extends PApplet {
 //			}
 //		}
 
-		if(level==2) {
+		if(level==2 && !isLevel2Setup) {
 
 			rects.removeAll(rects);
 
 			level2Rects();
 			
-			door1 = new Rectangle(650, 250, 50, 50 );
-			door2 = new Rectangle(663, 263, 25, 25 );
+			//door1 = new Rectangle(650, 250, 50, 50 );
+			//door2 = new Rectangle(663, 263, 25, 25 );
 		}
 
 
 		//System.out.println(level);
 
 
+		//System.out.println(numOfEnemy + "   " + goalOfEnemy);
+		//System.out.println(doorlocked);
+		//System.out.println(numOfKeys + "   " + goalOfKeys);
 
-
+		
 		//Attack
 		//        if(att==1) {
 		//        	attx = player.x-50;
@@ -184,15 +204,31 @@ public class gmae extends PApplet {
 			fill(0,0,0);
 			rect(enemy.x, enemy.y, enemy.width, enemy.height); // Draw enemy
 			fill(255,255,255);
+		}
+		
+		if(emliv2==1) {
+			fill(255,0,0);
+			rect(enemy2.x, enemy2.y, enemy2.width, enemy2.height); // Draw enemy
+			fill(255,255,255);
+		}else if(emliv2==0) {
+			fill(0,0,0);
+			rect(enemy2.x, enemy2.y, enemy2.width, enemy2.height); // Draw enemy
+			fill(255,255,255);
+		}
+		
+		if(numOfEnemy==goalOfEnemy) {
 			gol=1;
 		}
-
 
 
 		//door key
 		if (doorlocked==0) {
 			fill(255,255,0);
 			rect(doorkey.x, doorkey.y, doorkey.width, doorkey.height); // Draw key
+			fill(255,255,255);
+			
+			fill(255,255,0);
+			rect(doorkey2.x, doorkey2.y, doorkey2.width, doorkey2.height); // Draw key
 			fill(255,255,255);
 		}else {
 //			fill(0,0,0);
@@ -201,9 +237,20 @@ public class gmae extends PApplet {
 		}
 
 		if(player.x==doorkey.x && player.y==doorkey.y) {
-			doorlocked=1;
+			doorkey.x=-50;
+			doorkey.y=-50;
+			numOfKeys+=1;
+		}
+		
+		if(player.x==doorkey2.x && player.y==doorkey2.y) {
+			doorkey2.x=-50;
+			doorkey2.y=-50;
+			numOfKeys+=1;
 		}
 
+		if(numOfKeys==goalOfKeys) {
+		doorlocked=1;
+		}
 
 		//door
 		if(doorlocked==1) {
@@ -211,6 +258,7 @@ public class gmae extends PApplet {
 			rects.remove(door2);
 		}
 
+		
 
 		bullet.x=player.x;
 		bullet.y=player.y;
@@ -262,7 +310,7 @@ public class gmae extends PApplet {
 				bth1.x+=50;
 				bth2.x+=100;
 			}
-			System.out.println(bullet.x + " " + bullet.y + "  " + facing);
+			//System.out.println(bullet.x + " " + bullet.y + "  " + facing);
 		}
 
 		shoot=0;
@@ -271,10 +319,18 @@ public class gmae extends PApplet {
 		//System.out.println(facing);
 
 		if(bullet.x==enemy.x && bullet.y==enemy.y) {
+			if(emliv==1) {
+			numOfEnemy+=1;
+			}
 			emliv=0;
 		}
 
-
+		if(bullet.x==enemy2.x && bullet.y==enemy2.y) {
+			if(emliv2==1) {
+			numOfEnemy+=1;
+			}
+			emliv2=0;
+		}
 
 		//		if (btv1.x==enemy.x && btv1.y==enemy.y || btv2.x==enemy.x && btv2.y==enemy.y || bth1.x==enemy.x && bth1.y==enemy.y || bth2.x==enemy.x && bth2.y==enemy.y){
 		//			emliv=0;
@@ -288,13 +344,35 @@ public class gmae extends PApplet {
 		if(att==1) {        	
 			if(50 == Math.abs(player.x-enemy.x) && 50 == Math.abs(player.y-enemy.y)){
 				//System.out.println("dead");
-				emliv=0;
+				if(emliv==1) {
+					numOfEnemy+=1;
+					}
+					emliv=0;
 			}
 			if( (50 == Math.abs(player.x-enemy.x) && player.y == enemy.y) ||
 					((50 == Math.abs(player.y-enemy.y) && player.x == enemy.x)) ){
 				//System.out.println("dead");
-				emliv=0;
+				if(emliv==1) {
+					numOfEnemy+=1;
+					}
+					emliv=0;
 			}
+			if(50 == Math.abs(player.x-enemy2.x) && 50 == Math.abs(player.y-enemy2.y)){
+				//System.out.println("dead");
+				if(emliv2==1) {
+					numOfEnemy+=1;
+					}
+					emliv2=0;
+			}
+			if( (50 == Math.abs(player.x-enemy2.x) && player.y == enemy2.y) ||
+					((50 == Math.abs(player.y-enemy2.y) && player.x == enemy2.x)) ){
+				//System.out.println("dead");
+				if(emliv2==1) {
+					numOfEnemy+=1;
+					}
+					emliv2=0;
+			}
+
 		}
 
 		//		if(shoot==1) {        	
@@ -419,8 +497,48 @@ public class gmae extends PApplet {
 	}
 
 	private void level2Rects() {
+		
+		if(lv2_setup==0) {
+		emliv = 1;
+		emliv2 = 1;
+
 		enemy.x=300;
 		enemy.y=350;
+		
+		enemy2.x=500;	
+		enemy2.y=250;
+		
+		lv2_setup = 1;
+		
+		doorlocked = 0;
+		
+		gol = 0;
+		
+		goal.x=0;
+		goal.y=100;
+		
+		numOfEnemy = 0;
+		goalOfEnemy = 2;
+
+		numOfKeys = 0;
+		goalOfKeys = 2;
+		
+		rects.add(door1);
+		rects.add(door2);
+		
+		door1.x=500;
+		door1.y=0;
+		door2.x=513;
+		door2.y=13;
+
+		doorkey.x=550;
+		doorkey.y=200;
+		
+		doorkey2.x=0;
+		doorkey2.y=300;
+
+		}
+		
 		
 		rects.add(new Rectangle(350, 500, 50, 50 ));
 		rects.add(new Rectangle(150, 550, 50, 50 ));
@@ -458,10 +576,66 @@ public class gmae extends PApplet {
 		
 		rects.add(new Rectangle(550, 350, 50, 50 ));
 		rects.add(new Rectangle(550, 300, 50, 50 ));
+		
+		rects.add(new Rectangle(700, 350, 50, 50 ));
+		rects.add(new Rectangle(700, 300, 50, 50 ));
+		rects.add(new Rectangle(700, 250, 50, 50 ));
+		rects.add(new Rectangle(700, 200, 50, 50 ));
+		rects.add(new Rectangle(700, 150, 50, 50 ));
+		rects.add(new Rectangle(700, 100, 50, 50 ));
+		rects.add(new Rectangle(700, 50, 50, 50 ));
+		rects.add(new Rectangle(650, 50, 50, 50 ));
+		rects.add(new Rectangle(600, 50, 50, 50 ));
+		rects.add(new Rectangle(550, 50, 50, 50 ));
+		rects.add(new Rectangle(500, 50, 50, 50 ));
+		rects.add(new Rectangle(450, 50, 50, 50 ));
+		rects.add(new Rectangle(400, 50, 50, 50 ));
+		rects.add(new Rectangle(400, 100, 50, 50 ));
+		rects.add(new Rectangle(350, 100, 50, 50 ));
+		rects.add(new Rectangle(350, 150, 50, 50 ));
+		rects.add(new Rectangle(350, 200, 50, 50 ));
+		rects.add(new Rectangle(350, 300, 50, 50 ));
+		rects.add(new Rectangle(350, 350, 50, 50 ));
+		
+		rects.add(new Rectangle(300, 200, 50, 50 ));
+		rects.add(new Rectangle(250, 200, 50, 50 ));
+		rects.add(new Rectangle(250, 250, 50, 50 ));
+		rects.add(new Rectangle(200, 250, 50, 50 ));
+		rects.add(new Rectangle(150, 250, 50, 50 ));
+		rects.add(new Rectangle(100, 250, 50, 50 ));
+		rects.add(new Rectangle(50, 250, 50, 50 ));
+		rects.add(new Rectangle(0, 250, 50, 50 ));
 
 		rects.add(new Rectangle(600, 300, 50, 50 ));
 
+		rects.add(new Rectangle(600, 200, 50, 50 ));
+		rects.add(new Rectangle(600, 250, 50, 50 ));
+		rects.add(new Rectangle(600, 150, 50, 50 ));
+		rects.add(new Rectangle(550, 150, 50, 50 ));
+		rects.add(new Rectangle(500, 150, 50, 50 ));
+		rects.add(new Rectangle(500, 200, 50, 50 ));
+		rects.add(new Rectangle(450, 200, 50, 50 ));
+		rects.add(new Rectangle(450, 250, 50, 50 ));
+		rects.add(new Rectangle(450, 300, 50, 50 ));
+		
+		rects.add(new Rectangle(250, 0, 50, 50 ));
+		rects.add(new Rectangle(250, 50, 50, 50 ));
+		rects.add(new Rectangle(250, 100, 50, 50 ));
+		rects.add(new Rectangle(200, 100, 50, 50 ));
+		rects.add(new Rectangle(150, 100, 50, 50 ));
+		rects.add(new Rectangle(150, 50, 50, 50 ));
+		rects.add(new Rectangle(150, 200, 50, 50 ));
+		rects.add(new Rectangle(0, 200, 50, 50 ));
+		rects.add(new Rectangle(0, 150, 50, 50 ));
+		rects.add(new Rectangle(50, 150, 50, 50 ));
+		rects.add(new Rectangle(50, 100, 50, 50 ));
+		rects.add(new Rectangle(50, 50, 50, 50 ));
 
+
+		rects.add(new Rectangle(300, 0, 50, 50 ));
+
+
+		isLevel2Setup  = true;
 	}
 
 	boolean playerInterectsBlock() {

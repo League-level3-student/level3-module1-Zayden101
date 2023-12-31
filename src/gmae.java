@@ -134,7 +134,7 @@ public class gmae extends PApplet {
 		emliv = 1;
 		emliv2 = 1;
 
-
+		doorkey2.x=-50;
 	}
 
 	@Override
@@ -253,6 +253,7 @@ public class gmae extends PApplet {
 		}
 
 		//door
+		//System.out.println(doorlocked);
 		if(doorlocked==1) {
 			rects.remove(door1);
 			rects.remove(door2);

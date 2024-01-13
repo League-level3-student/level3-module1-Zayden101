@@ -185,7 +185,7 @@ public class gmae extends PApplet {
 
 			rects.removeAll(rects);
 
-			level2Rects();
+			level3Rects();
 
 			//yeldoor1 = new Rectangle(650, 250, 50, 50 );
 			//yeldoor2 = new Rectangle(663, 263, 25, 25 );

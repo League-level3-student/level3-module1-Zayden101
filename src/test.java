@@ -11,11 +11,11 @@ public class test extends PApplet {
 		
 		for (int i = 0; i < 1; i++) {
 			
-//		System.out.println("\t /t Hello");
-//		System.out.println("\n /n Hello");
-//		System.out.println("\r /r Hello");
-//		System.out.println("\f /f Hello");
-//		System.out.println("\b /b Hello");
+		System.out.println("\t /t Hello");
+		System.out.println("\n /n Hello");
+		System.out.println("\r /r Hello");
+		System.out.println("\f /f Hello");
+		System.out.println("\b /b Hello");
 
 //		JOptionPane.showMessageDialog(null, "hi" + "\nhello");
 		

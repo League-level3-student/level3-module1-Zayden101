@@ -60,7 +60,9 @@ public class gmae extends PApplet {
 	boolean purdoorlocked = true;
 	boolean oradoorlocked = true;
 	boolean cyadoorlocked = true;
+	boolean enmdoorlocked = true;
 
+	
 	int facing;
 
 	int shoot;
@@ -93,6 +95,8 @@ public class gmae extends PApplet {
 	ColorfulRectangle oradoorkey = new ColorfulRectangle(-50,-50,50,50,Color.ORANGE);
 	ColorfulRectangle cyadoorkey = new ColorfulRectangle(-50,-50,50,50,Color.CYAN);
 
+	ColorfulRectangle yeldoorkey2cuzidontwanttofixthefirstone = new ColorfulRectangle(-50,-50,50,50,Color.YELLOW);
+
 
 	ColorfulRectangle yeldoor1 = new ColorfulRectangle(550,200,50,50,Color.WHITE);
 	ColorfulRectangle yeldoor2 = new ColorfulRectangle(550,200,25,25,Color.YELLOW);
@@ -105,6 +109,10 @@ public class gmae extends PApplet {
 	ColorfulRectangle enmdoor1 = new ColorfulRectangle(550,200,50,50,Color.WHITE);
 	ColorfulRectangle enmdoor2 = new ColorfulRectangle(550,200,25,25,Color.RED);
 
+	ColorfulRectangle tp1 = new ColorfulRectangle(-50,-50,50,50,Color.PINK);
+	ColorfulRectangle tp2 = new ColorfulRectangle(-50,-50,50,50,Color.PINK);
+
+	boolean canTp = true;
 
 	ColorfulRectangle bullet;
 	ColorfulRectangle btv1, btv2;    //bullet trail vertical
@@ -120,7 +128,7 @@ public class gmae extends PApplet {
 	
 
 
-	boolean devmode = true;
+	boolean devmode = false;
 
 	boolean outline = false;
 
@@ -301,13 +309,12 @@ public class gmae extends PApplet {
 					Color.LIGHT_GRAY
 		(KEY)		Color.MAGENTA
 		(Key)		Color.ORANGE
-					Color.PINK
+		(TP)		Color.PINK
 		(ENEMY)		Color.RED
 		(KEY)		Color.YELLOW
 					Color.BLACK
 		 */
 
-		
 		
 		
 		
@@ -344,6 +351,10 @@ public class gmae extends PApplet {
     	fill(255,255,255);
 		 */
 
+
+		yeldoorkey2cuzidontwanttofixthefirstone.draw();
+		
+		
 		
 		//Enemy
 		if(emliv==true) {
@@ -373,7 +384,7 @@ public class gmae extends PApplet {
 			//enemy2.draw();
 			//fill(255,255,255);
 			
-		}if(emliv2==true) {
+		}if(emliv3==true) {
 			//fill(255,0,0);
 			//rect(enemy2.x, enemy2.y, enemy2.width, enemy2.height); // Draw enemy
 			enemy3.draw();
@@ -496,6 +507,25 @@ public class gmae extends PApplet {
 
 		//purdoorkey.draw();
 		
+		tp1.draw();
+		tp2.draw();
+		
+		if(player.x==tp1.x && player.y==tp1.y && canTp){
+			player.x=tp2.x;
+			player.y=tp2.y;
+			canTp = false;
+		}
+		
+		if(player.x==tp2.x && player.y==tp2.y && canTp){
+			player.x=tp1.x;
+			player.y=tp1.y;
+			canTp = false;
+		}
+		
+		
+		//System.out.println(canTp);
+		
+		
 		if(player.x==yeldoorkey.x && player.y==yeldoorkey.y  || bullet.x==yeldoorkey.x && bullet.y==yeldoorkey.y) {
 			yeldoorkey.x=-50;
 			yeldoorkey.y=-50;
@@ -505,6 +535,17 @@ public class gmae extends PApplet {
 			yeldoorlocked=false;
 			System.out.println("Yellow Door Unlocked");
 		}
+		
+		if(player.x==yeldoorkey2cuzidontwanttofixthefirstone.x && player.y==yeldoorkey2cuzidontwanttofixthefirstone.y  || bullet.x==yeldoorkey2cuzidontwanttofixthefirstone.x && bullet.y==yeldoorkey2cuzidontwanttofixthefirstone.y) {
+			yeldoorkey2cuzidontwanttofixthefirstone.x=-50;
+			yeldoorkey2cuzidontwanttofixthefirstone.y=-50;
+//			rects.remove(yeldoorkey);
+
+			
+			yeldoorlocked=false;
+			System.out.println("Yellow Door Unlocked");
+		}
+
 		
 		if(player.x==purdoorkey.x && player.y==purdoorkey.y || bullet.x==purdoorkey.x && bullet.y==purdoorkey.y) {
 			purdoorkey.x=-50;
@@ -527,6 +568,9 @@ public class gmae extends PApplet {
 			System.out.println("Cyan Door Unlocked");
 		}
 
+		if(numOfEnemy==goalOfEnemy) {
+			enmdoorlocked=false;
+		}
 
 		//if(numOfKeys==goalOfKeys) {
 		//	doorlocked=1;
@@ -550,14 +594,15 @@ public class gmae extends PApplet {
 		}
 
 		if(cyadoorlocked==false) {
-			rects.remove(oradoor1);
-			rects.remove(oradoor2);
+			rects.remove(cyadoor1);
+			rects.remove(cyadoor2);
 		}
 		
-		if(numOfEnemy==goalOfEnemy) {
+		if(enmdoorlocked==false) {
 			rects.remove(enmdoor1);
 			rects.remove(enmdoor2);
 		}
+
 
 		bullet.x=player.x;
 		bullet.y=player.y;
@@ -764,7 +809,7 @@ public class gmae extends PApplet {
 		//        rect(brdx,brdy,50,50);
 
 		if(skip==1) {
-			devmode=true;
+			//devmode=true;
 			if(level==1){
 				level=2;
 				player.x=0;
@@ -777,6 +822,10 @@ public class gmae extends PApplet {
 			level=4;
 			player.x=750;
 			player.y=450;
+		}else if(level==4){
+			level=5;
+			player.x=750;
+			player.y=550;
 		}
 		}
 
@@ -875,9 +924,10 @@ public class gmae extends PApplet {
 			rects.add(purdoor2);
 
 			rects.add(yeldoorkey);
+			rects.add(yeldoorkey2cuzidontwanttofixthefirstone);
+
 			rects.add(purdoorkey);
-
-
+			
 			yeldoor1.x=350;
 			yeldoor1.y=150;
 			yeldoor2.x=363;
@@ -887,9 +937,13 @@ public class gmae extends PApplet {
 			purdoor1.y=500;
 			purdoor2.x=713;
 			purdoor2.y=513;
-
+			
 			yeldoorkey.x=550;
 			yeldoorkey.y=200;
+			
+			yeldoorkey2cuzidontwanttofixthefirstone.x=550;
+			yeldoorkey2cuzidontwanttofixthefirstone.y=200;
+
 
 			purdoorkey.x=0;
 			purdoorkey.y=300;
@@ -1346,7 +1400,7 @@ public class gmae extends PApplet {
 			enemy.x=400;
 			enemy.y=550;
 
-			enemy2.x=100;	
+			enemy2.x=50;	
 			enemy2.y=50;
 			
 			enemy3.x=150;	
@@ -1360,6 +1414,10 @@ public class gmae extends PApplet {
 			oradoorlocked = true;
 			cyadoorlocked = true;
 
+			tp1.x = 600;
+			tp1.y = 500;
+			tp2.x = 650;
+			tp2.y = 0;
 
 			gol = 0;
 
@@ -1367,14 +1425,10 @@ public class gmae extends PApplet {
 			goal.y=550;
 
 			numOfEnemy = 0;
-			goalOfEnemy = 2;
+			goalOfEnemy = 3;			
 
-			numOfKeys = 0;
-			goalOfKeys = 3;
-			
-
-			yeldoor1.x=600;
-			yeldoor1.y=450;
+			yeldoor1.x=200;
+			yeldoor1.y=200;
 			yeldoor2.x=yeldoor1.x+13;;
 			yeldoor2.y=yeldoor1.y+13;;
 			
@@ -1399,17 +1453,17 @@ public class gmae extends PApplet {
 			enmdoor2.y=enmdoor1.y+13;;
 
 
-			yeldoorkey.x=700;
-			yeldoorkey.y=300;
+			yeldoorkey.x=400;
+			yeldoorkey.y=450;
 
-			purdoorkey.x=400;
-			purdoorkey.y=450;
+			purdoorkey.x=100;
+			purdoorkey.y=550;
 			
 			oradoorkey.x=350;
 			oradoorkey.y=150;
 			
-			cyadoorkey.x=100;
-			cyadoorkey.y=550;
+			cyadoorkey.x=250;
+			cyadoorkey.y=50;
 
 
 			rects.add(yeldoor1);
@@ -1429,6 +1483,9 @@ public class gmae extends PApplet {
 			rects.add(cyadoorkey);
 
 		}
+
+		rects.add(new ColorfulRectangle(600,0, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(600,450, 50, 50, Color.WHITE));
 
 
 		rects.add(new ColorfulRectangle(700,500, 50, 50, Color.WHITE));
@@ -1459,7 +1516,7 @@ public class gmae extends PApplet {
 		rects.add(new ColorfulRectangle(400,100, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(550,200, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(500,200, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(500,150, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(500,100, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(450,300, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(450,350, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(450,400, 50, 50, Color.WHITE));
@@ -1474,7 +1531,6 @@ public class gmae extends PApplet {
 		rects.add(new ColorfulRectangle(250,200, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(250,150, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(250,100, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(250,50, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(250,0, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(150,200, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(100,200, 50, 50, Color.WHITE));
@@ -1517,6 +1573,11 @@ public class gmae extends PApplet {
 		rects.add(new ColorfulRectangle(150,450, 50, 50, Color.WHITE));
 		
 		rects.add(new ColorfulRectangle(100,400, 50, 50, Color.WHITE));
+		
+		rects.add(new ColorfulRectangle(0,550, 50, 50, Color.WHITE));
+
+		rects.add(new ColorfulRectangle(300,100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(300,0, 50, 50, Color.WHITE));
 
 		
 		lv5_setup=1;
@@ -1565,10 +1626,22 @@ public class gmae extends PApplet {
 				player.y-=50;
 				}
 				facing=1;
+
+				
+				if(player.x!=tp1.x && player.y!=tp1.y){
+					canTp = true;
+				}
+				/*if(player.x!=tp2.x && player.y!=tp2.y){
+					canTp = true;
+				}*/
+
+				
 				// if player Rectangle intersects with any of those in the list, move him back	
 				if(playerInterectsBlock()) {
 					player.y+=50;
 				}
+				
+				
 				//    	      if(x1==brdx && y1==brdy) {
 				//    	    	  y1+=50;
 				//    	      }
@@ -1577,6 +1650,16 @@ public class gmae extends PApplet {
 				player.y+=50;
 				}
 				facing=3;
+
+				
+				if(player.x!=tp1.x && player.y!=tp1.y){
+					canTp = true;
+				}
+				if(player.x!=tp2.x && player.y!=tp2.y){
+					canTp = true;
+				}
+
+				
 				if(playerInterectsBlock()) {
 					player.y-=50;
 				}
@@ -1585,6 +1668,16 @@ public class gmae extends PApplet {
 					player.x-=50;
 				}
 				facing=2;
+
+				
+				if(player.x!=tp1.x && player.y!=tp1.y){
+					canTp = true;
+				}
+				if(player.x!=tp1.x && player.y!=tp1.y){
+					canTp = true;
+				}
+
+				
 				if(playerInterectsBlock()) {
 					player.x+=50;
 				}
@@ -1593,6 +1686,17 @@ public class gmae extends PApplet {
 				player.x+=50;
 				}
 				facing=4;
+
+				
+				if(player.x!=tp1.x && player.y!=tp1.y){
+					canTp = true;
+				}
+				
+				if(player.x!=tp2.x && player.y!=tp2.y){
+					canTp = true;
+				}
+				
+				
 				if(playerInterectsBlock()) {
 					player.x-=50;
 				}

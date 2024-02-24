@@ -23,8 +23,9 @@ rects.remove(enmdoor2);
 }*/
 
 
-WORK ON NOT MOVING ALL THE WAY WHEN TOUCHING BLOCK, SO YOU CAN NOT BE ALINGED
+//WORK ON NOT MOVING ALL THE WAY WHEN TOUCHING BLOCK, SO YOU CAN NOT BE ALINGED
 
+WORK ON LV 7
 
 
 public class gmae extends PApplet {
@@ -184,9 +185,8 @@ public class gmae extends PApplet {
 
 		
 		if(outline==true) {
-		level=5;
-		player.x=750;
-		player.y=550;
+		level=6;
+		
 		}
 		
 
@@ -315,8 +315,7 @@ public class gmae extends PApplet {
 
 		
 		
-		
-		
+		level=6;
 		
 		
 		/*
@@ -380,7 +379,6 @@ public class gmae extends PApplet {
 		 */
 
 
-		
 		
 		
 		
@@ -849,6 +847,8 @@ public class gmae extends PApplet {
 			level=4;
 		}else if(player.x==goal.x && player.y==goal.y && gol==1 && level==4) {
 			level=5;
+		}else if(player.x==goal.x && player.y==goal.y && gol==1 && level==5) {
+			level=6;
 		}
 
 		
@@ -895,8 +895,8 @@ public class gmae extends PApplet {
 			player.y=550;
 		}else if(level==5){
 			level=6;
-			player.x=750;
-			player.y=550;
+			player.x=100;
+			player.y=150;
 		}
 		}
 
@@ -1518,8 +1518,8 @@ public class gmae extends PApplet {
 
 			gol = 0;
 
-			goal.x=700;
-			goal.y=400;
+			goal.x=100;
+			goal.y=150;
 
 			numOfEnemy = 0;
 			goalOfEnemy = 3;			
@@ -1680,7 +1680,7 @@ public class gmae extends PApplet {
 		rects.add(new ColorfulRectangle(300,100, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(300,0, 50, 50, Color.WHITE));
 
-
+		
 		
 		lv5_setup=false;
 		
@@ -1692,18 +1692,19 @@ public class gmae extends PApplet {
 		int marker;
 
 		if(lv6_setup==true) {
+			
 			emliv = true;
 			emliv2 = true;
 			emliv3 = true;
 
-			enemy.x=400;
-			enemy.y=550;
+			enemy.x=-50;
+			enemy.y=-50;
 
-			enemy2.x=50;	
-			enemy2.y=50;
+			enemy2.x=-50;	
+			enemy2.y=-50;
 			
-			enemy3.x=150;	
-			enemy3.y=550;
+			enemy3.x=-50;	
+			enemy3.y=-50;
 
 
 			lv6_setup = false;
@@ -1713,10 +1714,10 @@ public class gmae extends PApplet {
 			oradoorlocked = true;
 			cyadoorlocked = true;
 
-			tp1.x = 600;
-			tp1.y = 500;
-			tp2.x = 650;
-			tp2.y = 0;
+			tp1.x = -50;
+			tp1.y = -50;
+			tp2.x = -50;
+			tp2.y = -50;
 
 			gol = 0;
 
@@ -1724,45 +1725,45 @@ public class gmae extends PApplet {
 			goal.y=550;
 
 			numOfEnemy = 0;
-			goalOfEnemy = 3;			
+			goalOfEnemy = 0;			
 
-			yeldoor1.x=200;
-			yeldoor1.y=200;
+			yeldoor1.x=425;
+			yeldoor1.y=450;
 			yeldoor2.x=yeldoor1.x+13;;
 			yeldoor2.y=yeldoor1.y+13;;
 			
-			purdoor1.x=0;
-			purdoor1.y=200;
+			purdoor1.x=550;
+			purdoor1.y=150;
 			purdoor2.x=purdoor1.x+13;
 			purdoor2.y=purdoor1.y+13;
 			
-			oradoor1.x=450;
-			oradoor1.y=200;
+			oradoor1.x=670;
+			oradoor1.y=550;
 			oradoor2.x=oradoor1.x+13;
 			oradoor2.y=oradoor1.y+13;
 			
-			cyadoor1.x=150;
-			cyadoor1.y=150;
+			cyadoor1.x=-50;
+			cyadoor1.y=-50;
 			cyadoor2.x=cyadoor1.x+13;
 			cyadoor2.y=cyadoor1.y+13;
 
-			enmdoor1.x=100;
-			enmdoor1.y=300;
+			enmdoor1.x=-50;
+			enmdoor1.y=-50;
 			enmdoor2.x=enmdoor1.x+13;;
 			enmdoor2.y=enmdoor1.y+13;;
 
 
-			yeldoorkey.x=400;
-			yeldoorkey.y=450;
+			yeldoorkey.x=325;
+			yeldoorkey.y=400;
 
-			purdoorkey.x=100;
-			purdoorkey.y=550;
+			purdoorkey.x=425;
+			purdoorkey.y=0;
 			
-			oradoorkey.x=350;
-			oradoorkey.y=150;
+			oradoorkey.x=575;
+			oradoorkey.y=0;
 			
-			cyadoorkey.x=250;
-			cyadoorkey.y=50;
+			cyadoorkey.x=-50;
+			cyadoorkey.y=-50;
 
 
 			rects.add(yeldoor1);
@@ -1780,10 +1781,117 @@ public class gmae extends PApplet {
 			rects.add(purdoorkey);
 			rects.add(oradoorkey);
 			rects.add(cyadoorkey);
+			
+			playerposX = 100;
+			playerposY = 150;
 
 		}
 
-		rects.add(new ColorfulRectangle(600,0, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(50,150, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(50,100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(50,50, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(100,50, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(50,200, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(100,200, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(150,200, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(150,50, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(150,150, 50, 50, Color.WHITE));
+
+		rects.add(new ColorfulRectangle(50,325, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(100,325, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(150,325, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(200,325, 50, 50, Color.WHITE));
+
+		rects.add(new ColorfulRectangle(325,200, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(325,250, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(325,300, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(325,350, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(325,150, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(325,100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(325,50, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(325,0, 50, 50, Color.WHITE));
+
+		rects.add(new ColorfulRectangle(250,450, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(150,450, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(200,450, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(100,450, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(50,450, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(0,550, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(50,550, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(100,550, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(150,550, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(200,550, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(250,550, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(300,550, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(350,550, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(400,550, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(400,400, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(400,400, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(350,450, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(300,450, 50, 50, Color.WHITE));
+
+		rects.add(new ColorfulRectangle(375,350, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(400,350, 50, 50, Color.WHITE));
+
+		
+		rects.add(new ColorfulRectangle(580,435, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(560,385, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(560,335, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(560,285, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(560,235, 50, 50, Color.WHITE));
+
+		rects.add(new ColorfulRectangle(500,350, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(775,100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(500,100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(475,0, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(650,0, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(600,350, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(700,350, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(650,350, 50, 50, Color.WHITE));
+
+
+		rects.add(new ColorfulRectangle(325,100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(375,100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(575,100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(625,100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(475,500, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(475,550, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(425,250, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(425,200, 50, 50, Color.WHITE));
+
+		rects.add(new ColorfulRectangle(670,450, 50, 50, Color.WHITE));
+
+		
+		rects.add(new ColorfulRectangle(675,150, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(675,200, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(675,250, 50, 50, Color.WHITE));
+
+		rects.add(new ColorfulRectangle(675,100, 50, 50, Color.WHITE));
+
+		rects.add(new ColorfulRectangle(525,0, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(525,50, 50, 50, Color.WHITE));
+		
+		rects.add(new ColorfulRectangle(670,500, 50, 50, Color.WHITE));
+
+		rects.add(new ColorfulRectangle(250,325, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(300,325, 50, 50, Color.WHITE));
+
+		rects.add(new ColorfulRectangle(375,425, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(375,400, 50, 50, Color.WHITE));
+
+		rects.add(new ColorfulRectangle(450,525, 50, 50, Color.WHITE));
+
+		rects.add(new ColorfulRectangle(750,350, 50, 50, Color.WHITE));
+
+		rects.add(new ColorfulRectangle(275,100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(275,250, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(670,400, 50, 50, Color.WHITE));
+		
+		rects.add(new ColorfulRectangle(450,550, 50, 50, Color.WHITE));
+
+		rects.add(new ColorfulRectangle(550,350, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(600,400, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(550,100, 50, 50, Color.WHITE));
 
 		
 		lv6_setup=false;
@@ -1844,8 +1952,9 @@ public class gmae extends PApplet {
 				
 
 				
-				if (player.y>=50) {
 				player.y-=50;
+				while (player.y<0) {
+				player.y+=5;
 				}
 				facing=1;
 
@@ -1859,7 +1968,7 @@ public class gmae extends PApplet {
 				// if player Rectangle intersects with any of those in the list, move him back	
 				if(playerInterectsBlock()) {
 					while (playerInterectsBlock()) {
-						player.y+=10;
+						player.y+=5;
 					}
 				}				
 				
@@ -1873,15 +1982,19 @@ public class gmae extends PApplet {
 				}
 				
 				
-				if (player.y<=500) {
 				player.y+=50;
+				while (player.y>550) {
+				player.y-=5;
 				}
+
 				facing=3;
 
 			
 				
 				if(playerInterectsBlock()) {
-					player.y-=50;
+					while (playerInterectsBlock()) {
+						player.y-=5;
+					}
 				}
 			} else if (keyCode == LEFT) {
 				
@@ -1894,14 +2007,17 @@ public class gmae extends PApplet {
 				
 				
 				
-				if (player.x>=50) {
 					player.x-=50;
-				}
+					while (player.x<0) {
+					player.x+=5;
+			}
 				facing=2;
 
 				
 				if(playerInterectsBlock()) {
-					player.x+=50;
+					while (playerInterectsBlock()) {
+						player.x+=5;
+					}
 				}
 			} else if (keyCode == RIGHT) {
 				
@@ -1914,15 +2030,19 @@ public class gmae extends PApplet {
 				
 				
 				
-				if (player.x<=700) {
 				player.x+=50;
-				}
+				while (player.x>750) {
+				player.x-=5;
+		}
+
 				facing=4;
 
 								
 				
 				if(playerInterectsBlock()) {
-					player.x-=50;
+					while (playerInterectsBlock()) {
+						player.x-=5;
+					}
 				}
 			} else if (keyCode == SHIFT) {
 				att=1;

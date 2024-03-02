@@ -25,8 +25,9 @@ rects.remove(enmdoor2);
 
 //WORK ON NOT MOVING ALL THE WAY WHEN TOUCHING BLOCK, SO YOU CAN NOT BE ALINGED
 
-WORK ON LV 7
+//WORK ON LV 7
 
+WORK ON MOVING BLOCKS AND LEVEL 7
 
 public class gmae extends PApplet {
 	static final int WIDTH = 800;
@@ -54,6 +55,7 @@ public class gmae extends PApplet {
 	boolean lv4_setup = true;
 	boolean lv5_setup = true;
 	boolean lv6_setup = true;
+	boolean lv7_setup = true;
 
 
 	int gol = 0;	//goal
@@ -116,6 +118,10 @@ public class gmae extends PApplet {
 	ColorfulRectangle tp1 = new ColorfulRectangle(-50,-50,50,50,Color.PINK);
 	ColorfulRectangle tp2 = new ColorfulRectangle(-50,-50,50,50,Color.PINK);
 
+	
+	ColorfulRectangle movingblock = new ColorfulRectangle(0,0,50,50,Color.GRAY);
+
+	
 	boolean canTp = true;
 
 	ColorfulRectangle bullet;
@@ -128,6 +134,7 @@ public class gmae extends PApplet {
 	private boolean isLevel4Setup = false;
 	private boolean isLevel5Setup = false;
 	private boolean isLevel6Setup = false;
+	private boolean isLevel7Setup = false;
 
 	
 	
@@ -174,7 +181,6 @@ public class gmae extends PApplet {
 		goalOfKeys = 1;
 		goalOfEnemy = 1;
 
-
 		bullet = new ColorfulRectangle(player.x, player.y, 50, 49, Color.BLUE);
 
 		btv1 = new ColorfulRectangle(player.x+12, player.y, 25, 50, Color.BLUE);
@@ -182,7 +188,7 @@ public class gmae extends PApplet {
 
 		bth1 = new ColorfulRectangle(player.x, player.y-12, 50, 25, Color.BLUE);
 		bth2 = new ColorfulRectangle(player.x, player.y-12, 50, 25, Color.BLUE);
-
+		
 		
 		if(outline==true) {
 		level=6;
@@ -208,6 +214,12 @@ public class gmae extends PApplet {
 		emliv2 = true;
 
 		purdoorkey.x=-50;
+		
+		
+		level=7;
+		player.x=750;
+		player.y=550;
+
 	}
 
 	@Override
@@ -253,7 +265,6 @@ public class gmae extends PApplet {
 		
 
 		//stroke();
-		
 
 		
 		for(Rectangle r : rects) {
@@ -310,12 +321,16 @@ public class gmae extends PApplet {
 
 			level6Rects();
 		}
+		
+		if(level==7 && !isLevel7Setup) {
 
+			rects.removeAll(rects);
+
+			level7Rects();
+		}
 		//System.out.println(level);
 
 		
-		
-		level=6;
 		
 		
 		/*
@@ -542,8 +557,13 @@ public class gmae extends PApplet {
 
 		//purdoorkey.draw();
 		
+		
+		//draw
 		tp1.draw();
 		tp2.draw();
+		movingblock.draw();
+		
+		
 		
 		if(player.x==tp1.x && player.y==tp1.y && canTp){
 			player.x=tp2.x;
@@ -636,6 +656,8 @@ public class gmae extends PApplet {
 		
 		
 		
+		//if()
+		
 
 		//if(numOfKeys==goalOfKeys) {
 		//	doorlocked=1;
@@ -668,7 +690,6 @@ public class gmae extends PApplet {
 			rects.remove(enmdoor2);
 		}
 
-
 		bullet.x=player.x;
 		bullet.y=player.y;
 
@@ -687,6 +708,8 @@ public class gmae extends PApplet {
 		rects.remove(btv1);
 		rects.remove(btv2);
 		rects.remove(bullet);
+
+
 		
 		if(shoot==1) {
 			//for (int i = 0; i < 3; i++) {
@@ -752,6 +775,16 @@ public class gmae extends PApplet {
 		//		if (btv1.x==enemy.x && btv1.y==enemy.y || btv2.x==enemy.x && btv2.y==enemy.y || bth1.x==enemy.x && bth1.y==enemy.y || bth2.x==enemy.x && bth2.y==enemy.y){
 		//			emliv=0;
 		//		}
+
+		
+		
+		
+		
+		if(level!=7) {
+
+		}else if(level==7) {
+
+		}
 
 
 
@@ -849,6 +882,8 @@ public class gmae extends PApplet {
 			level=5;
 		}else if(player.x==goal.x && player.y==goal.y && gol==1 && level==5) {
 			level=6;
+		}else if(player.x==goal.x && player.y==goal.y && gol==1 && level==6) {
+			level=7;
 		}
 
 		
@@ -866,7 +901,9 @@ public class gmae extends PApplet {
 //			player.x=0;
 //		}
 
-
+		//ColorfulRectangle player = new ColorfulRectangle(0,0,25,25,Color.BLUE);
+		
+//System.out.println(player.width);
 		//rect(bullet.x, bullet.y, 50 , 50);
 		bullet.draw();
 
@@ -897,6 +934,10 @@ public class gmae extends PApplet {
 			level=6;
 			player.x=100;
 			player.y=150;
+		}else if(level==6){
+			level=7;
+			player.x=750;
+			player.y=550;
 		}
 		}
 
@@ -1899,6 +1940,202 @@ public class gmae extends PApplet {
 		isLevel6Setup  = true;
 	}
 	
+	private void level7Rects() {
+		int marker;
+	
+	if(lv7_setup==true) {
+		
+		
+
+		emliv = true;
+		emliv2 = true;
+		emliv3 = true;
+
+		enemy.x=50;
+		enemy.y=0;
+
+		enemy2.x=-50;	
+		enemy2.y=-50;
+		
+		enemy3.x=-50;	
+		enemy3.y=-50;
+
+
+		lv7_setup = false;
+
+		yeldoorlocked = true;
+		purdoorlocked = true;
+		oradoorlocked = true;
+		cyadoorlocked = true;
+
+		tp1.x = -50;
+		tp1.y = -50;
+		tp2.x = -50;
+		tp2.y = -50;
+
+		gol = 0;
+
+		goal.x=0;
+		goal.y=250;
+
+		numOfEnemy = 0;
+		goalOfEnemy = 3;			
+
+		yeldoor1.x=0;
+		yeldoor1.y=200;
+		yeldoor2.x=yeldoor1.x+13;;
+		yeldoor2.y=yeldoor1.y+13;;
+		
+		purdoor1.x=0;
+		purdoor1.y=150;
+		purdoor2.x=purdoor1.x+13;
+		purdoor2.y=purdoor1.y+13;
+		
+		oradoor1.x=50;
+		oradoor1.y=150;
+		oradoor2.x=oradoor1.x+13;
+		oradoor2.y=oradoor1.y+13;
+		
+		cyadoor1.x=100;
+		cyadoor1.y=150;
+		cyadoor2.x=cyadoor1.x+13;
+		cyadoor2.y=cyadoor1.y+13;
+
+		enmdoor1.x=100;
+		enmdoor1.y=200;
+		enmdoor2.x=enmdoor1.x+13;;
+		enmdoor2.y=enmdoor1.y+13;;
+
+
+		yeldoorkey.x=300;
+		yeldoorkey.y=400;
+
+		purdoorkey.x=450;
+		purdoorkey.y=0;
+		
+		oradoorkey.x=550;
+		oradoorkey.y=0;
+		
+		cyadoorkey.x=50;
+		cyadoorkey.y=50;
+		
+		movingblock.x=650;
+		movingblock.y=400;
+
+
+		rects.add(yeldoor1);
+		rects.add(yeldoor2);
+		rects.add(purdoor1);
+		rects.add(purdoor2);
+		rects.add(oradoor1);
+		rects.add(oradoor2);
+		rects.add(cyadoor1);
+		rects.add(cyadoor2);
+		rects.add(enmdoor1);
+		rects.add(enmdoor2);
+
+		rects.add(yeldoorkey);
+		rects.add(purdoorkey);
+		rects.add(oradoorkey);
+		rects.add(cyadoorkey);
+		
+		playerposX = 750;
+		playerposY = 550;
+
+	}
+
+	rects.add(new ColorfulRectangle(650,550, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(650,500, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(750,450, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(650,450, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(500,450, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(550,450, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(500,500, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(600,550, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(400,450, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(400,400, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(450,400, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(500,400, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(700,350, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(650,350, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(550,300, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(450,300, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(500,300, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(500,200, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(500,250, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(350,300, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(350,200, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(350,250, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(400,200, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(300,400, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(300,450, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(300,550, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(400,550, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(350,550, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(150,500, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(200,450, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(150,450, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(200,350, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(150,350, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(150,300, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(250,450, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(50,400, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(50,450, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(0,450, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(0,550, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(50,550, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(250,550, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(50,300, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(0,300, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(50,250, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(50,200, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(150,200, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(200,200, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(150,150, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(250,250, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(250,200, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(250,100, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(300,100, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(400,100, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(450,100, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(500,100, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(600,150, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(600,200, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(650,300, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(750,250, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(750,200, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(700,200, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(700,150, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(700,100, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(650,0, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(600,0, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(750,0, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(500,0, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(450,0, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(400,0, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(350,0, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(300,0, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(250,0, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(200,0, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(0,0, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(0,50, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(150,0, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(150,50, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(600,50, 50, 50, Color.WHITE));
+	
+	rects.add(new ColorfulRectangle(0,100, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(50,100, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(100,100, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(150,100, 50, 50, Color.WHITE));
+	rects.add(new ColorfulRectangle(100,0, 50, 50, Color.WHITE));
+
+	
+	lv7_setup=false;
+	
+	isLevel7Setup = true;
+	
+}
+
 
 	boolean playerInterectsBlock() {
 		if(devmode==false) {
@@ -1951,27 +2188,38 @@ public class gmae extends PApplet {
 				}*/
 				
 
-				
+				//if(level==6) {
 				player.y-=50;
 				while (player.y<0) {
 				player.y+=5;
 				}
 				facing=1;
 
-				
-				/*if(player.x!=tp2.x && player.y!=tp2.y){
-					System.out.println("can tp2 up");
-					canTp = true;
-				}*/
-
-				
-				// if player Rectangle intersects with any of those in the list, move him back	
 				if(playerInterectsBlock()) {
 					while (playerInterectsBlock()) {
 						player.y+=5;
 					}
 				}				
-				
+				/*}else {
+					if (player.y>=50) {
+						player.y-=50;
+						}
+
+					facing=1;
+
+					if(playerInterectsBlock()) {
+							player.y+=50;
+						}
+					}				
+
+				}*/
+		
+			
+				/*if(player.x!=tp2.x && player.y!=tp2.y){
+				System.out.println("can tp2 up");
+				canTp = true;
+			}*/
+			// if player Rectangle intersects with any of those in the list, move him back	
 				
 			} else if (keyCode == DOWN) {
 				
@@ -1981,7 +2229,7 @@ public class gmae extends PApplet {
 					canTp = true;
 				}
 				
-				
+				if(level==6) {
 				player.y+=50;
 				while (player.y>550) {
 				player.y-=5;
@@ -1989,15 +2237,25 @@ public class gmae extends PApplet {
 
 				facing=3;
 
-			
-				
 				if(playerInterectsBlock()) {
 					while (playerInterectsBlock()) {
 						player.y-=5;
 					}
 				}
+				}else {
+					if (player.y<=500) {
+						player.y+=50;
+						}
+
+
+					facing=3;
+
+					if(playerInterectsBlock()) {
+							player.y-=50;
+					}
+
+				}
 			} else if (keyCode == LEFT) {
-				
 				
 				if(player.x==tp1.x && player.y==tp1.y || player.x==tp2.x && player.y==tp2.y){
 					canTp = false;
@@ -2005,8 +2263,7 @@ public class gmae extends PApplet {
 					canTp = true;
 				}
 				
-				
-				
+				//if(level==6) {
 					player.x-=50;
 					while (player.x<0) {
 					player.x+=5;
@@ -2019,6 +2276,20 @@ public class gmae extends PApplet {
 						player.x+=5;
 					}
 				}
+				
+				/*}else {
+					if (player.x>=50) {
+						player.x-=50;
+					}
+				facing=2;
+
+				
+				if(playerInterectsBlock()) {
+						player.x+=50;
+					}
+				
+
+				}*/
 			} else if (keyCode == RIGHT) {
 				
 				
@@ -2029,7 +2300,7 @@ public class gmae extends PApplet {
 				}
 				
 				
-				
+				//if(level==6) {
 				player.x+=50;
 				while (player.x>750) {
 				player.x-=5;
@@ -2044,6 +2315,22 @@ public class gmae extends PApplet {
 						player.x-=5;
 					}
 				}
+				/*}else {
+					
+					if (player.x<=700) {
+						player.x+=50;
+						}
+
+
+					facing=4;
+				
+									
+					
+					if(playerInterectsBlock()) {
+							player.x-=50;
+						
+					}
+				}*/
 			} else if (keyCode == SHIFT) {
 				att=1;
 			} else if (keyCode == ALT) {
@@ -2051,14 +2338,14 @@ public class gmae extends PApplet {
 			} else if (keyCode == CONTROL) {
 				skip=1;
 			}
+	
 
-
-
+		}
 
 		}
 
 
-	}
+
 
 
 public void mousePressed() {
@@ -2070,7 +2357,6 @@ public void mousePressed() {
 	rects.add(new ColorfulRectangle(moX,moY, 50, 50, Color.WHITE));
 
 }
-
 
 
 
@@ -2099,6 +2385,7 @@ public void mousePressed() {
 		return lerpColor(arr[i], arr[i + 1], scl - i);
 	}
 
+	@SuppressWarnings("serial")
 	// Feel free to use this class to create a list of missing
 	// sections in the sun, for example:
 	// ArrayList<Rectangle> sections = new ArrayList<Rectangle>();
@@ -2131,8 +2418,8 @@ public void mousePressed() {
 
 		}
 
+	}
+	
+
 
 	}
-
-
-}

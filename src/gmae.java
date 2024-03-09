@@ -27,7 +27,9 @@ rects.remove(enmdoor2);
 
 //WORK ON LV 7
 
-WORK ON MOVING BLOCKS AND LEVEL 7
+//WORK ON MOVING BLOCKS AND LEVEL 7
+
+Finish menu screen and fix moving block showing up for level 7, and many start lv 8
 
 public class gmae extends PApplet {
 	static final int WIDTH = 800;
@@ -120,6 +122,14 @@ public class gmae extends PApplet {
 
 	
 	ColorfulRectangle movingblock = new ColorfulRectangle(0,0,50,50,Color.GRAY);
+	ColorfulRectangle movingblock2 = new ColorfulRectangle(400,500,50,50,Color.GRAY);
+	ColorfulRectangle movingblock3 = new ColorfulRectangle(450,350,50,50,Color.GRAY);
+	ColorfulRectangle movingblock4 = new ColorfulRectangle(300,200,50,50,Color.GRAY);
+	ColorfulRectangle movingblock5 = new ColorfulRectangle(100,450,50,50,Color.GRAY);
+	ColorfulRectangle movingblock6 = new ColorfulRectangle(650,250,50,50,Color.GRAY);
+	ColorfulRectangle movingblock7 = new ColorfulRectangle(300,50,50,50,Color.GRAY);
+	ColorfulRectangle movingblock8 = new ColorfulRectangle(500,150,50,50,Color.GRAY);
+	ColorfulRectangle movingblock9 = new ColorfulRectangle(150,250,50,50,Color.GRAY);
 
 	
 	boolean canTp = true;
@@ -147,6 +157,7 @@ public class gmae extends PApplet {
 
 	boolean outline = false;
 
+	boolean intro = true;
 
 	//List<Rectangle> enemy = new ArrayList<Rectangle>();
 
@@ -155,11 +166,92 @@ public class gmae extends PApplet {
 	public void settings() {
 		size(WIDTH, HEIGHT);
 
-		/*
-		level = 5;
-		player.x=750;
-		player.y=550;
-		*/
+		//level=7;
+		//player.x=750;
+		//player.y=550;
+		
+		
+		for (int i = 0; i < 100; i++) {
+			
+		if(intro==true) {
+			int menu = JOptionPane.showOptionDialog(null, "Choose an option", null, 0, JOptionPane.INFORMATION_MESSAGE, null,
+			new String[] { "PLAY", "Tutorial", "Level Select", "Quit"}, null);
+			
+			if (menu==0) {
+				break;
+			}
+			
+			if (menu==1) {
+				int toutorial = JOptionPane.showOptionDialog(null, "What do you want ot learn about?", null, 0, JOptionPane.INFORMATION_MESSAGE, null,
+						new String[] { "Buttons", "Colors"}, null);
+				if(toutorial==0)
+				JOptionPane.showMessageDialog(null, "Arrow Keys to Move    |    Shift to Surround Attack     |     Alt to Shoot    |    Control to Skip Level");
+				if(toutorial==1)
+				JOptionPane.showMessageDialog(null, "<html>Blue = Player     |     Red = Enemy    |     White = Walls     |     Yellow/Orange/Pink/Cyan/Red = Keys and Doors<br>Pink = Teleporter     |     Grey = Movable Block");
+
+			}
+			
+			
+			if (menu==2) {
+				int levelSelect = JOptionPane.showOptionDialog(null, "", null, 0, JOptionPane.INFORMATION_MESSAGE, null,
+						new String[] { "1", "2", "3", "4", "5", "6", "7"}, null);
+				if(levelSelect==0) {
+				level=1;
+				player.x=0;
+				player.y=0;
+				break;
+				}
+			
+				if(levelSelect==1) {
+				level=2;
+				player.x=0;
+				player.y=500;
+				break;
+				}
+				
+				if(levelSelect==2) {
+				level=3;
+				player.x=0;
+				player.y=100;
+				break;
+				}
+				
+				if(levelSelect==3) {
+				level=4;
+				player.x=750;
+				player.y=450;
+				break;
+				}
+				
+				if(levelSelect==4) {
+				level=5;
+				player.x=750;
+				player.y=450;
+				break;
+				}
+				
+				if(levelSelect==5) {
+				level=6;
+				player.x=100;
+				player.y=150;
+				break;
+				}
+				
+				if(levelSelect==6) {
+				level=7;
+				player.x=750;
+				player.y=550;
+				break;
+				}
+			}
+
+			if (menu==3) {
+				System.exit(0);
+			}
+			}
+	
+		}
+
 		
 	}
 
@@ -168,11 +260,11 @@ public class gmae extends PApplet {
 	public void setup() {
 		
 		int marker;
-
 		
 		//JOptionPane.showMessageDialog(null, "Arrow keys to move \n*Shift* to surround attack \n*Alt* to shoot bullet (shoots through walls cuz im too lazy to fix it)");
 		
 		background(bgColor);
+
 
 		//noCursor();
 
@@ -216,10 +308,26 @@ public class gmae extends PApplet {
 		purdoorkey.x=-50;
 		
 		
-		level=7;
-		player.x=750;
-		player.y=550;
 
+
+		movingblock.x=-50;
+		movingblock.y=-50;
+		movingblock2.x=-50;
+		movingblock2.y=-50;
+		movingblock3.x=-50;
+		movingblock3.y=-50;
+		movingblock4.x=-50;
+		movingblock4.y=-50;
+		movingblock5.x=-50;
+		movingblock5.y=-50;
+		movingblock6.x=-50;
+		movingblock6.y=-50;
+		movingblock7.x=-50;
+		movingblock7.y=-50;
+		movingblock8.x=-50;
+		movingblock8.y=-50;
+		movingblock9.x=-50;
+		movingblock9.y=-50;
 	}
 
 	@Override
@@ -562,7 +670,15 @@ public class gmae extends PApplet {
 		tp1.draw();
 		tp2.draw();
 		movingblock.draw();
-		
+		movingblock2.draw();
+		movingblock3.draw();
+		movingblock4.draw();
+		movingblock5.draw();
+		movingblock6.draw();
+		movingblock7.draw();
+		movingblock8.draw();
+		movingblock9.draw();
+
 		
 		
 		if(player.x==tp1.x && player.y==tp1.y && canTp){
@@ -655,6 +771,225 @@ public class gmae extends PApplet {
 		}
 		
 		
+		
+		
+		
+		
+		
+		//System.out.println(movingblockInterectsBlock());
+
+		//MB1
+		if(player.x==movingblock.x && player.y==movingblock.y && facing==1) {
+			movingblock.y-=50;
+				if(movingblockInterectsBlock()) {
+					player.y+=50;
+					movingblock.y+=50;}
+		}else if(player.x==movingblock.x && player.y==movingblock.y && facing==2) {
+			movingblock.x-=50;
+				if(movingblockInterectsBlock()) {
+					player.x+=50;
+					movingblock.x+=50;}
+		}else if(player.x==movingblock.x && player.y==movingblock.y && facing==3) {
+			movingblock.y+=50;
+				if(movingblockInterectsBlock()) {
+					player.y-=50;
+					movingblock.y-=50;}	
+		}else if(player.x==movingblock.x && player.y==movingblock.y && facing==4) {
+			movingblock.x+=50;
+				if(movingblockInterectsBlock()) {
+					player.x-=50;
+					movingblock.x-=50;}
+		}  
+		
+		//MB2
+		if(player.x==movingblock2.x && player.y==movingblock2.y && facing==1) {
+			movingblock2.y-=50;
+				if(movingblock2InterectsBlock()) {
+					player.y+=50;
+					movingblock2.y+=50;}
+		}else if(player.x==movingblock2.x && player.y==movingblock2.y && facing==2) {
+			movingblock2.x-=50;
+				if(movingblock2InterectsBlock()) {
+					player.x+=50;
+					movingblock2.x+=50;}
+		}else if(player.x==movingblock2.x && player.y==movingblock2.y && facing==3) {
+			movingblock2.y+=50;
+				if(movingblock2InterectsBlock()) {
+					player.y-=50;
+					movingblock2.y-=50;}	
+		}else if(player.x==movingblock2.x && player.y==movingblock2.y && facing==4) {
+			movingblock2.x+=50;
+				if(movingblock2InterectsBlock()) {
+					player.x-=50;
+					movingblock2.x-=50;}
+		}  
+		
+		//MB3
+		if(player.x==movingblock3.x && player.y==movingblock3.y && facing==1) {
+			movingblock3.y-=50;
+				if(movingblock3InterectsBlock()) {
+					player.y+=50;
+					movingblock3.y+=50;}
+		}else if(player.x==movingblock3.x && player.y==movingblock3.y && facing==2) {
+			movingblock3.x-=50;
+				if(movingblock3InterectsBlock()) {
+					player.x+=50;
+					movingblock3.x+=50;}
+		}else if(player.x==movingblock3.x && player.y==movingblock3.y && facing==3) {
+			movingblock3.y+=50;
+				if(movingblock3InterectsBlock()) {
+					player.y-=50;
+					movingblock3.y-=50;}	
+		}else if(player.x==movingblock3.x && player.y==movingblock3.y && facing==4) {
+			movingblock3.x+=50;
+				if(movingblock3InterectsBlock()) {
+					player.x-=50;
+					movingblock3.x-=50;}
+		}  
+		
+		//MB4
+		if(player.x==movingblock4.x && player.y==movingblock4.y && facing==1) {
+			movingblock4.y-=50;
+				if(movingblock4InterectsBlock()) {
+					player.y+=50;
+					movingblock4.y+=50;}
+		}else if(player.x==movingblock4.x && player.y==movingblock4.y && facing==2) {
+			movingblock4.x-=50;
+				if(movingblock4InterectsBlock()) {
+					player.x+=50;
+					movingblock4.x+=50;}
+		}else if(player.x==movingblock4.x && player.y==movingblock4.y && facing==3) {
+			movingblock4.y+=50;
+				if(movingblock4InterectsBlock()) {
+					player.y-=50;
+					movingblock4.y-=50;}	
+		}else if(player.x==movingblock4.x && player.y==movingblock4.y && facing==4) {
+			movingblock4.x+=50;
+				if(movingblock4InterectsBlock()) {
+					player.x-=50;
+					movingblock4.x-=50;}
+		}  
+		
+		//MB5
+		if(player.x==movingblock5.x && player.y==movingblock5.y && facing==1) {
+			movingblock5.y-=50;
+				if(movingblock5InterectsBlock()) {
+					player.y+=50;
+					movingblock5.y+=50;}
+		}else if(player.x==movingblock5.x && player.y==movingblock5.y && facing==2) {
+			movingblock5.x-=50;
+				if(movingblock5InterectsBlock()) {
+					player.x+=50;
+					movingblock5.x+=50;}
+		}else if(player.x==movingblock5.x && player.y==movingblock5.y && facing==3) {
+			movingblock5.y+=50;
+				if(movingblock5InterectsBlock()) {
+					player.y-=50;
+					movingblock5.y-=50;}	
+		}else if(player.x==movingblock5.x && player.y==movingblock5.y && facing==4) {
+			movingblock5.x+=50;
+				if(movingblock5InterectsBlock()) {
+					player.x-=50;
+					movingblock5.x-=50;}
+		}  
+		
+		//MB6
+		if(player.x==movingblock6.x && player.y==movingblock6.y && facing==1) {
+			movingblock6.y-=50;
+				if(movingblock6InterectsBlock()) {
+					player.y+=50;
+					movingblock6.y+=50;}
+		}else if(player.x==movingblock6.x && player.y==movingblock6.y && facing==2) {
+			movingblock6.x-=50;
+				if(movingblock6InterectsBlock()) {
+					player.x+=50;
+					movingblock6.x+=50;}
+		}else if(player.x==movingblock6.x && player.y==movingblock6.y && facing==3) {
+			movingblock6.y+=50;
+				if(movingblock6InterectsBlock()) {
+					player.y-=50;
+					movingblock6.y-=50;}	
+		}else if(player.x==movingblock6.x && player.y==movingblock6.y && facing==4) {
+			movingblock6.x+=50;
+				if(movingblock6InterectsBlock()) {
+					player.x-=50;
+					movingblock6.x-=50;}
+		}  
+
+		//MB7
+		if(player.x==movingblock7.x && player.y==movingblock7.y && facing==1) {
+			movingblock7.y-=50;
+				if(movingblock7InterectsBlock()) {
+					player.y+=50;
+					movingblock7.y+=50;}
+		}else if(player.x==movingblock7.x && player.y==movingblock7.y && facing==2) {
+			movingblock7.x-=50;
+				if(movingblock7InterectsBlock()) {
+					player.x+=50;
+					movingblock7.x+=50;}
+		}else if(player.x==movingblock7.x && player.y==movingblock7.y && facing==3) {
+			movingblock7.y+=50;
+				if(movingblock7InterectsBlock()) {
+					player.y-=50;
+					movingblock7.y-=50;}	
+		}else if(player.x==movingblock7.x && player.y==movingblock7.y && facing==4) {
+			movingblock7.x+=50;
+				if(movingblock7InterectsBlock()) {
+					player.x-=50;
+					movingblock7.x-=50;}
+		}  
+
+		//MB8
+		if(player.x==movingblock8.x && player.y==movingblock8.y && facing==1) {
+			movingblock8.y-=50;
+				if(movingblock8InterectsBlock()) {
+					player.y+=50;
+					movingblock8.y+=50;}
+		}else if(player.x==movingblock8.x && player.y==movingblock8.y && facing==2) {
+			movingblock8.x-=50;
+				if(movingblock8InterectsBlock()) {
+					player.x+=50;
+					movingblock8.x+=50;}
+		}else if(player.x==movingblock8.x && player.y==movingblock8.y && facing==3) {
+			movingblock8.y+=50;
+				if(movingblock8InterectsBlock()) {
+					player.y-=50;
+					movingblock8.y-=50;}	
+		}else if(player.x==movingblock8.x && player.y==movingblock8.y && facing==4) {
+			movingblock8.x+=50;
+				if(movingblock8InterectsBlock()) {
+					player.x-=50;
+					movingblock8.x-=50;}
+		}  
+
+		//MB9
+		if(player.x==movingblock9.x && player.y==movingblock9.y && facing==1) {
+			movingblock9.y-=50;
+				if(movingblock9InterectsBlock()) {
+					player.y+=50;
+					movingblock9.y+=50;}
+		}else if(player.x==movingblock9.x && player.y==movingblock9.y && facing==2) {
+			movingblock9.x-=50;
+				if(movingblock9InterectsBlock()) {
+					player.x+=50;
+					movingblock9.x+=50;}
+		}else if(player.x==movingblock9.x && player.y==movingblock9.y && facing==3) {
+			movingblock9.y+=50;
+				if(movingblock9InterectsBlock()) {
+					player.y-=50;
+					movingblock9.y-=50;}	
+		}else if(player.x==movingblock9.x && player.y==movingblock9.y && facing==4) {
+			movingblock9.x+=50;
+				if(movingblock9InterectsBlock()) {
+					player.x-=50;
+					movingblock9.x-=50;}
+		}  
+
+		
+		
+		
+
+
 		
 		//if()
 		
@@ -1954,11 +2289,11 @@ public class gmae extends PApplet {
 		enemy.x=50;
 		enemy.y=0;
 
-		enemy2.x=-50;	
-		enemy2.y=-50;
+		enemy2.x=450;	
+		enemy2.y=450;
 		
-		enemy3.x=-50;	
-		enemy3.y=-50;
+		enemy3.x=700;	
+		enemy3.y=0;
 
 
 		lv7_setup = false;
@@ -1981,7 +2316,7 @@ public class gmae extends PApplet {
 		numOfEnemy = 0;
 		goalOfEnemy = 3;			
 
-		yeldoor1.x=0;
+		yeldoor1.x=100;
 		yeldoor1.y=200;
 		yeldoor2.x=yeldoor1.x+13;;
 		yeldoor2.y=yeldoor1.y+13;;
@@ -2001,17 +2336,17 @@ public class gmae extends PApplet {
 		cyadoor2.x=cyadoor1.x+13;
 		cyadoor2.y=cyadoor1.y+13;
 
-		enmdoor1.x=100;
+		enmdoor1.x=0;
 		enmdoor1.y=200;
 		enmdoor2.x=enmdoor1.x+13;;
 		enmdoor2.y=enmdoor1.y+13;;
 
 
-		yeldoorkey.x=300;
+		yeldoorkey.x=0;
 		yeldoorkey.y=400;
 
-		purdoorkey.x=450;
-		purdoorkey.y=0;
+		purdoorkey.x=750;
+		purdoorkey.y=150;
 		
 		oradoorkey.x=550;
 		oradoorkey.y=0;
@@ -2154,7 +2489,96 @@ public class gmae extends PApplet {
 		return false;
 	}
 
-
+	boolean movingblockInterectsBlock() {
+		for(Rectangle r: rects) {
+			if(r!=bullet && r!=btv1 && r!=btv2 && r!=bth1 && r!=bth2 && r!=yeldoorkey && r!=purdoorkey && r!=oradoorkey) {
+				if( r.intersects(movingblock)){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	boolean movingblock2InterectsBlock() {
+		for(Rectangle r: rects) {
+			if(r!=bullet && r!=btv1 && r!=btv2 && r!=bth1 && r!=bth2 && r!=yeldoorkey && r!=purdoorkey && r!=oradoorkey) {
+				if( r.intersects(movingblock2)){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	boolean movingblock3InterectsBlock() {
+		for(Rectangle r: rects) {
+			if(r!=bullet && r!=btv1 && r!=btv2 && r!=bth1 && r!=bth2 && r!=yeldoorkey && r!=purdoorkey && r!=oradoorkey) {
+				if( r.intersects(movingblock3)){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	boolean movingblock4InterectsBlock() {
+		for(Rectangle r: rects) {
+			if(r!=bullet && r!=btv1 && r!=btv2 && r!=bth1 && r!=bth2 && r!=yeldoorkey && r!=purdoorkey && r!=oradoorkey) {
+				if( r.intersects(movingblock4)){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	boolean movingblock5InterectsBlock() {
+		for(Rectangle r: rects) {
+			if(r!=bullet && r!=btv1 && r!=btv2 && r!=bth1 && r!=bth2 && r!=yeldoorkey && r!=purdoorkey && r!=oradoorkey) {
+				if( r.intersects(movingblock5)){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	boolean movingblock6InterectsBlock() {
+		for(Rectangle r: rects) {
+			if(r!=bullet && r!=btv1 && r!=btv2 && r!=bth1 && r!=bth2 && r!=yeldoorkey && r!=purdoorkey && r!=oradoorkey) {
+				if( r.intersects(movingblock6)){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	boolean movingblock7InterectsBlock() {
+		for(Rectangle r: rects) {
+			if(r!=bullet && r!=btv1 && r!=btv2 && r!=bth1 && r!=bth2 && r!=yeldoorkey && r!=purdoorkey && r!=oradoorkey) {
+				if( r.intersects(movingblock7)){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	boolean movingblock8InterectsBlock() {
+		for(Rectangle r: rects) {
+			if(r!=bullet && r!=btv1 && r!=btv2 && r!=bth1 && r!=bth2 && r!=yeldoorkey && r!=purdoorkey && r!=oradoorkey) {
+				if( r.intersects(movingblock8)){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	boolean movingblock9InterectsBlock() {
+		for(Rectangle r: rects) {
+			if(r!=bullet && r!=btv1 && r!=btv2 && r!=bth1 && r!=bth2 && r!=yeldoorkey && r!=purdoorkey && r!=oradoorkey) {
+				if( r.intersects(movingblock9)){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 /*
 	if (player.y>=550) {
 		player.y=550;

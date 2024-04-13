@@ -36,9 +36,9 @@ rects.remove(enmdoor2);
 //do fill blocks
 
 //finish working on enemy moving
-R
 
-work on fill blocks and lv 10
+
+//work on fill blocks and lv 10
 
 
 public class gmae extends PApplet {

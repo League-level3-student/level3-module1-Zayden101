@@ -41,7 +41,9 @@ rects.remove(enmdoor2);
 //work on fill blocks and lv 10
 
 
-fix stupid enemy collision
+//fix stupid enemy collision
+
+//work on adding keys
 
 
 public class explore extends PApplet {
@@ -113,11 +115,31 @@ public class explore extends PApplet {
 	ColorfulRectangle enemy3 = new ColorfulRectangle(-100,500,50,50, Color.RED);
 
 	
-	ColorfulRectangle enemy1up = new ColorfulRectangle(enemy.x,enemy.y-50,50,50,Color.RED);
-	ColorfulRectangle enemy1down = new ColorfulRectangle(enemy.x,enemy.y+50,50,50, Color.RED);
-	ColorfulRectangle enemy1left = new ColorfulRectangle(enemy.x-50,enemy.y,50,50, Color.RED);
-	ColorfulRectangle enemy1right = new ColorfulRectangle(enemy.x+50,enemy.y,50,50, Color.RED);
+	ColorfulRectangle playerup = new ColorfulRectangle(enemy.x,enemy.y-50,10,10,Color.BLUE);
+	ColorfulRectangle playerdown = new ColorfulRectangle(enemy.x,enemy.y+50,10,10, Color.BLUE);
+	ColorfulRectangle playerleft = new ColorfulRectangle(enemy.x-50,enemy.y,10,10, Color.BLUE);
+	ColorfulRectangle playerright = new ColorfulRectangle(enemy.x+50,enemy.y,10,10, Color.BLUE);
 
+	
+	ColorfulRectangle enemy1up = new ColorfulRectangle(enemy.x,enemy.y-50,10,10,Color.RED);
+	ColorfulRectangle enemy1down = new ColorfulRectangle(enemy.x,enemy.y+50,10,10, Color.RED);
+	ColorfulRectangle enemy1left = new ColorfulRectangle(enemy.x-50,enemy.y,10,10, Color.RED);
+	ColorfulRectangle enemy1right = new ColorfulRectangle(enemy.x+50,enemy.y,10,10, Color.RED);
+
+	
+	ColorfulRectangle enemy2up = new ColorfulRectangle(enemy2.x,enemy2.y-50,10,10,Color.RED);
+	ColorfulRectangle enemy2down = new ColorfulRectangle(enemy2.x,enemy2.y+50,10,10, Color.RED);
+	ColorfulRectangle enemy2left = new ColorfulRectangle(enemy2.x-50,enemy2.y,10,10, Color.RED);
+	ColorfulRectangle enemy2right = new ColorfulRectangle(enemy2.x+50,enemy2.y,10,10, Color.RED);
+	
+	
+	ColorfulRectangle enemy3up = new ColorfulRectangle(enemy3.x,enemy3.y-50,10,10,Color.RED);
+	ColorfulRectangle enemy3down = new ColorfulRectangle(enemy3.x,enemy3.y+50,10,10, Color.RED);
+	ColorfulRectangle enemy3left = new ColorfulRectangle(enemy3.x-50,enemy3.y,10,10, Color.RED);
+	ColorfulRectangle enemy3right = new ColorfulRectangle(enemy3.x+50,enemy3.y,10,10, Color.RED);
+	
+	
+	
 	
 	ColorfulRectangle bullet;
 	ColorfulRectangle btv1, btv2;    //bullet trail vertical
@@ -136,6 +158,24 @@ public class explore extends PApplet {
 	int enemyfacing3 = 0;
 	
 	boolean enemy1moved = false;
+	
+
+
+	
+	String enemy1upDisplay = "";
+	String enemy1downDisplay = "";
+	String enemy1leftDisplay = "";
+	String enemy1rightDisplay = "";
+	
+	String enemy2upDisplay = "";
+	String enemy2downDisplay = "";
+	String enemy2leftDisplay = "";
+	String enemy2rightDisplay = "";
+	
+	String enemy3upDisplay = "";
+	String enemy3downDisplay = "";
+	String enemy3leftDisplay = "";
+	String enemy3rightDisplay = "";
 
 	//List<Rectangle> enemy = new ArrayList<Rectangle>();
 
@@ -148,11 +188,6 @@ public class explore extends PApplet {
 	public void settings() {
 		size(WIDTH, HEIGHT);
 
-		//level=7;
-		//player.x=750;
-		//player.y=550;
-					
-		
 	}
 
 
@@ -347,6 +382,42 @@ public class explore extends PApplet {
 	
 		buildings();
 		
+		playerup.x=player.x;
+		playerup.y=player.y-50;
+		playerdown.x=player.x;
+		playerdown.y=player.y+50;
+		playerleft.x=player.x-50;
+		playerleft.y=player.y;
+		playerright.x=player.x+50;
+		playerright.y=player.y;
+		
+		enemy1up.x=enemy.x;
+		enemy1up.y=enemy.y-50;
+		enemy1down.x=enemy.x;
+		enemy1down.y=enemy.y+50;
+		enemy1left.x=enemy.x-50;
+		enemy1left.y=enemy.y;
+		enemy1right.x=enemy.x+50;
+		enemy1right.y=enemy.y;
+		
+		enemy2up.x=enemy2.x;
+		enemy2up.y=enemy2.y-50;
+		enemy2down.x=enemy2.x;
+		enemy2down.y=enemy2.y+50;
+		enemy2left.x=enemy2.x-50;
+		enemy2left.y=enemy2.y;
+		enemy2right.x=enemy2.x+50;
+		enemy2right.y=enemy2.y;
+		
+		enemy3up.x=enemy3.x;
+		enemy3up.y=enemy3.y-50;
+		enemy3down.x=enemy3.x;
+		enemy3down.y=enemy3.y+50;
+		enemy3left.x=enemy3.x-50;
+		enemy3left.y=enemy3.y;
+		enemy3right.x=enemy3.x+50;
+		enemy3right.y=enemy3.y;
+		
 		
 		//System.out.println("x:" + yeldoorkey.x + "  y:" + yeldoorkey.y);
 		//System.out.println(firered.x + " " + firered.y);
@@ -361,23 +432,90 @@ public class explore extends PApplet {
 		enemy3.y=movey+enemy3movey;
 		
 		
+		/*
+		if(enemy1upInterectsBlock()==false) {
+			enemy1upDisplay = "Yes";
+		}else {
+			enemy1upDisplay = "";
+		}
+		if(enemy1downInterectsBlock()==false) {
+			enemy1downDisplay = "Yes";
+		}else {
+			enemy1downDisplay = "";
+		}
+		if(enemy1leftInterectsBlock()==false) {
+			enemy1leftDisplay = "Yes";
+		}else {
+			enemy1leftDisplay = "";
+		}
+		if(enemy1rightInterectsBlock()==false) {
+			enemy1rightDisplay = "Yes";
+		}else {
+			enemy1rightDisplay = "";
+		}
 		
-		System.out.println("up:" + enemy1upInterectsBlock() + "    down:" + enemy1downInterectsBlock() + "      left:"  + enemy1leftInterectsBlock() + "     right:"   + enemy1rightInterectsBlock());
+		
+		if(enemy2upInterectsBlock()==false) {
+			enemy2upDisplay = "Yes";
+		}else {
+			enemy2upDisplay = "";
+		}
+		if(enemy2downInterectsBlock()==false) {
+			enemy2downDisplay = "Yes";
+		}else {
+			enemy2downDisplay = "";
+		}
+		if(enemy2leftInterectsBlock()==false) {
+			enemy2leftDisplay = "Yes";
+		}else {
+			enemy2leftDisplay = "";
+		}
+		if(enemy2rightInterectsBlock()==false) {
+			enemy2rightDisplay = "Yes";
+		}else {
+			enemy2rightDisplay = "";
+		}
+		
+		
+		if(enemy3upInterectsBlock()==false) {
+			enemy3upDisplay = "Yes";
+		}else {
+			enemy3upDisplay = "";
+		}
+		if(enemy3downInterectsBlock()==false) {
+			enemy3downDisplay = "Yes";
+		}else {
+			enemy3downDisplay = "";
+		}
+		if(enemy3leftInterectsBlock()==false) {
+			enemy3leftDisplay = "Yes";
+		}else {
+			enemy3leftDisplay = "";
+		}
+		if(enemy3rightInterectsBlock()==false) {
+			enemy3rightDisplay = "Yes";
+		}else {
+			enemy3rightDisplay = "";
+		}
+		*/
+		
+		//System.out.println("up:" + enemy1upDisplay + "    down:" + enemy1downDisplay + "      left:"  + enemy1leftDisplay + "     right:"   + enemy1rightDisplay);
+		//System.out.println("up:" + enemy2upDisplay + "    down:" + enemy2downDisplay + "      left:"  + enemy2leftDisplay + "     right:"   + enemy2rightDisplay);
 
 //		enemy1upInterectsBlock();
 //		enemy1downInterectsBlock();
 //		enemy1leftInterectsBlock();
 //		enemy1rightInterectsBlock();
 		
-		
+		//frameRate(1);
 		
 		if(enemymove == true) {
 					
 		wait+=1;
 		
-		if(wait>=100) {
+		if(wait>=25) {
 			wait=0;
-	
+
 
 		if(enemymove1 = true) {
 			for (int i = 0; i < 100; i++) {
@@ -387,33 +525,33 @@ public class explore extends PApplet {
 			if(enemyRandomMove1==0) {
 				enemymovey-=50;
 				enemyfacing1=1;
+				//System.out.println("UP  " + enemy1upInterectsBlock());
 				break;
-				//left
 			}
 		}
 				if(enemy1downInterectsBlock()==false) {
 			 if(enemyRandomMove1==1) {
-				enemymovex-=50;
-				enemyfacing1=2;
+				enemymovey+=50;
+				enemyfacing1=2;	
+				//System.out.println("DOWN  " + enemy1downInterectsBlock());
 				break;
-				//down
 			}
 		}
 				if(enemy1rightInterectsBlock()==false) {
 			if(enemyRandomMove1==2) {
-				enemymovey+=50;
+				enemymovex+=50;
 				enemyfacing1=3;
+				//System.out.println("RIGHT  " + enemy1rightInterectsBlock());
 				break;
-				//right
 			}
 		}
 				if(enemy1leftInterectsBlock()==false) {
 				if(enemyRandomMove1==3) {
-				enemymovex+=50;
+				enemymovex-=50;
 				enemyfacing1=4;
+				//System.out.println("LEFT  " + enemy1leftInterectsBlock());
 				break;
-				//left
-			}
+				}
 		}
 				
 			}
@@ -421,62 +559,83 @@ public class explore extends PApplet {
 		}
 		
 		
-		
+
 		if(enemymove2 = true) {
-			enemyRandomMove2 = new Random().nextInt(4);
-			//up
+			for (int i = 0; i < 100; i++) {
+				enemyRandomMove2 = new Random().nextInt(4);
+
+				if(enemy2upInterectsBlock()==false) {
 			if(enemyRandomMove2==0) {
 				enemy2movey-=50;
 				enemyfacing2=1;
+				break;
 			}
-			//left
-			if(enemyRandomMove2==1) {
-				enemy2movex-=50;
-				enemyfacing2=2;
-			}
-			//down
-			if(enemyRandomMove2==2) {
+		}
+				if(enemy2downInterectsBlock()==false) {
+			 if(enemyRandomMove2==1) {
 				enemy2movey+=50;
-				enemyfacing2=3;
+				enemyfacing2=2;	
+				break;
 			}
-			//right
-			if(enemyRandomMove2==3) {
+		}
+				if(enemy2rightInterectsBlock()==false) {
+			if(enemyRandomMove2==2) {
 				enemy2movex+=50;
-				enemyfacing2=4;
+				enemyfacing2=3;
+				break;
 			}
-		
+		}
+				if(enemy2leftInterectsBlock()==false) {
+				if(enemyRandomMove2==3) {
+				enemy2movex-=50;
+				enemyfacing2=4;
+				break;
+				}
+		}
+				
+			}
+			
 		}
 		
 		
 		if(enemymove3 = true) {
-			enemyRandomMove3 = new Random().nextInt(4);
-			//up
+			for (int i = 0; i < 100; i++) {
+				enemyRandomMove3 = new Random().nextInt(4);
+
+				if(enemy3upInterectsBlock()==false) {
 			if(enemyRandomMove3==0) {
 				enemy3movey-=50;
 				enemyfacing3=1;
+				break;
 			}
-			//left
-			if(enemyRandomMove3==1) {
-				enemy3movex-=50;
-				enemyfacing3=2;
-			}
-			//down
-			if(enemyRandomMove3==2) {
-				enemy3movey+=50;
-				enemyfacing3=3;
-			}
-			//right
-			if(enemyRandomMove3==3) {
-				enemy3movex+=50;
-				enemyfacing3=4;
-			}
-			}
-
-		
-		
-		
 		}
-		
+				if(enemy3downInterectsBlock()==false) {
+			 if(enemyRandomMove3==1) {
+				enemy3movey+=50;
+				enemyfacing3=2;	
+				break;
+			}
+		}
+				if(enemy3rightInterectsBlock()==false) {
+			if(enemyRandomMove3==2) {
+				enemy3movex+=50;
+				enemyfacing3=3;
+				break;
+			}
+		}
+				if(enemy3leftInterectsBlock()==false) {
+				if(enemyRandomMove3==3) {
+				enemy3movex-=50;
+				enemyfacing3=4;
+				break;
+				}
+		}
+				
+			}
+			
+		}
+
+		}
 		}
 		
 		
@@ -488,15 +647,15 @@ public class explore extends PApplet {
 			}		
 			
 			if(enemyfacing1==2) {
-			enemymovex+=50;
-			}
-			
-			if(enemyfacing1==3) {
 			enemymovey-=50;
 			}
 			
-			if(enemyfacing1==4) {
+			if(enemyfacing1==3) {
 			enemymovex-=50;
+			}
+			
+			if(enemyfacing1==4) {
+			enemymovex+=50;
 			}
 		}
 		
@@ -506,15 +665,15 @@ public class explore extends PApplet {
 			}		
 			
 			if(enemyfacing2==2) {
-			enemy2movex+=50;
-			}
-			
-			if(enemyfacing2==3) {
 			enemy2movey-=50;
 			}
 			
-			if(enemyfacing2==4) {
+			if(enemyfacing2==3) {
 			enemy2movex-=50;
+			}
+			
+			if(enemyfacing2==4) {
+			enemy2movex+=50;
 			}
 		}
 		
@@ -524,32 +683,42 @@ public class explore extends PApplet {
 			}		
 			
 			if(enemyfacing3==2) {
-			enemy3movex+=50;
-			}
-			
-			if(enemyfacing3==3) {
 			enemy3movey-=50;
 			}
 			
-			if(enemyfacing3==4) {
+			if(enemyfacing3==3) {
 			enemy3movex-=50;
 			}
+			
+			if(enemyfacing3==4) {
+			enemy3movex+=50;
+			}
 		}
+		
+
 
 		
-		ColorfulRectangle enemy1up = new ColorfulRectangle(enemy.x,enemy.y-50,10,10,Color.RED);
-		ColorfulRectangle enemy1down = new ColorfulRectangle(enemy.x,enemy.y+50,10,10, Color.RED);
-		ColorfulRectangle enemy1left = new ColorfulRectangle(enemy.x-50,enemy.y,10,10, Color.RED);
-		ColorfulRectangle enemy1right = new ColorfulRectangle(enemy.x+50,enemy.y,10,10, Color.RED);
-
-		
-		
-		
+		/*
+		playerup.draw();
+		playerdown.draw();
+		playerleft.draw();
+		playerright.draw();
+		 
 		enemy1up.draw();
 		enemy1down.draw();
 		enemy1left.draw();
 		enemy1right.draw();
-		 
+		
+		enemy2up.draw();
+		enemy2down.draw();
+		enemy2left.draw();
+		enemy2right.draw();
+		
+		enemy3up.draw();
+		enemy3down.draw();
+		enemy3left.draw();
+		enemy3right.draw();
+		*/
 		
 		
 		//System.out.println(movingblockInterectsBlock());
@@ -1043,6 +1212,45 @@ public class explore extends PApplet {
 		return false;
 	}
 	
+	
+	boolean playerupInterectsBlock() {
+		for(Rectangle r: rects) {
+				if( r.intersects(playerup)){
+					return true;
+				}
+		}
+		return false;
+	}
+	
+	boolean playerdownInterectsBlock() {
+		for(Rectangle r: rects) {
+				if( r.intersects(playerdown)){
+					return true;
+			}
+		}
+		return false;
+	}
+
+	boolean playerleftInterectsBlock() {
+		for(Rectangle r: rects) {
+				if( r.intersects(playerleft)){
+					return true;
+			}
+		}
+		return false;
+	}
+
+	boolean playerrightInterectsBlock() {
+		for(Rectangle r: rects) {
+				if( r.intersects(playerright)){
+					return true;
+				}
+		}
+		return false;
+	}
+
+	
+	
 	boolean enemy1upInterectsBlock() {
 		for(Rectangle r: rects) {
 				if( r.intersects(enemy1up)){
@@ -1080,6 +1288,81 @@ public class explore extends PApplet {
 	}
 
 	
+	boolean enemy2upInterectsBlock() {
+		for(Rectangle r: rects) {
+				if( r.intersects(enemy2up)){
+					return true;
+				}
+		}
+		return false;
+	}
+	
+	boolean enemy2downInterectsBlock() {
+		for(Rectangle r: rects) {
+				if( r.intersects(enemy2down)){
+					return true;
+			}
+		}
+		return false;
+	}
+
+	boolean enemy2leftInterectsBlock() {
+		for(Rectangle r: rects) {
+				if( r.intersects(enemy2left)){
+					return true;
+			}
+		}
+		return false;
+	}
+
+	boolean enemy2rightInterectsBlock() {
+		for(Rectangle r: rects) {
+				if( r.intersects(enemy2right)){
+					return true;
+				}
+		}
+		return false;
+	}
+
+	boolean enemy3upInterectsBlock() {
+		for(Rectangle r: rects) {
+				if( r.intersects(enemy3up)){
+					return true;
+				}
+		}
+		return false;
+	}
+	
+	boolean enemy3downInterectsBlock() {
+		for(Rectangle r: rects) {
+				if( r.intersects(enemy3down)){
+					return true;
+			}
+		}
+		return false;
+	}
+
+	boolean enemy3leftInterectsBlock() {
+		for(Rectangle r: rects) {
+				if( r.intersects(enemy3left)){
+					return true;
+			}
+		}
+		return false;
+	}
+
+	boolean enemy3rightInterectsBlock() {
+		for(Rectangle r: rects) {
+				if( r.intersects(enemy3right)){
+					return true;
+				}
+		}
+		return false;
+	}
+
+	
+	
+	
 /*
 	if (player.y>=550) {
 		player.y=550;
@@ -1100,9 +1383,10 @@ public class explore extends PApplet {
 		if (key == CODED) {
 			if (keyCode == UP) {
 				
+				if(playerupInterectsBlock()==false) {
 				movey+=50;
-				
 				facing=1;
+				}
 				
 				if(build==true){
 				  rects.clear();
@@ -1114,9 +1398,10 @@ public class explore extends PApplet {
 				
 			} else if (keyCode == DOWN) {
 				
+				if(playerdownInterectsBlock()==false) { 
 					movey-=50;
-
 					facing=3;
+				}
 					
 					if(build==true){
 					rects.clear();
@@ -1128,9 +1413,10 @@ public class explore extends PApplet {
 
 			} else if (keyCode == LEFT) {
 								
+				if(playerleftInterectsBlock()==false) {
 					movex+=50;
-					
 					facing=2;
+				}
 					
 					if(build==true){
 					rects.clear();
@@ -1142,9 +1428,10 @@ public class explore extends PApplet {
 
 			} else if (keyCode == RIGHT) {
 				
-				movex-=50;
-
-				facing=4;
+				if(playerrightInterectsBlock()==false) {
+					movex-=50;
+					facing=4;
+				}
 				
 				if(build==true){
 				rects.clear();

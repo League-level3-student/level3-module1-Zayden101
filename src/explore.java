@@ -111,8 +111,16 @@ public class explore extends PApplet {
 
 	List<Rectangle> rects = new ArrayList<Rectangle>();
 	List<Rectangle> elips = new ArrayList<Rectangle>();
+	
+	List<Enemy> enemies = new ArrayList<Enemy>();
 
 
+	Enemy emeny = new Enemy(100,250,50,50);
+	Enemy emeny2 = new Enemy(0,-250,50,50);
+	Enemy emeny3 = new Enemy(-100,500,50,50);
+
+	
+	
 	ColorfulRectangle enemy = new ColorfulRectangle(100,250,50,50,Color.RED);
 	ColorfulRectangle enemy2 = new ColorfulRectangle(0,-250,50,50, Color.RED);
 	ColorfulRectangle enemy3 = new ColorfulRectangle(-100,500,50,50, Color.RED);
@@ -165,6 +173,7 @@ public class explore extends PApplet {
 	
 	boolean wall1 = true;
 	
+	boolean spookydead = false;
 	
 	int wall1buttonx = 500;
 	int wall1buttony = -150;
@@ -181,6 +190,8 @@ public class explore extends PApplet {
 	int key3x = -300;
 	int key3y = -550;
 
+	int waitTime = 25;
+	
 	
 	String enemy1upDisplay = "";
 	String enemy1downDisplay = "";
@@ -201,7 +212,7 @@ public class explore extends PApplet {
 
 	
 	boolean build = false;
-	
+	boolean spooky = false;
 	
 
 	@Override
@@ -252,6 +263,11 @@ public class explore extends PApplet {
 		rects.add(bth1);
 		rects.add(bth2);
 
+		
+		enemies.add(emeny);
+		enemies.add(emeny2);
+		enemies.add(emeny3);
+
 
 		//fill(255,0,0);
 		//enemy.add(new Rectangle(500, 500, 50, 50 ));
@@ -262,6 +278,9 @@ public class explore extends PApplet {
 		emliv2 = true;
 		emliv3 = true;
 
+		
+
+		
 	}
 
 	@Override
@@ -269,10 +288,11 @@ public class explore extends PApplet {
 		background(bgColor);
 
 		int marker;
-				
+		
+
 
 		//stroke();
-
+		
 		
 		for(Rectangle r : rects) {
 			if(r instanceof ColorfulRectangle) {
@@ -283,6 +303,12 @@ public class explore extends PApplet {
 		}
 
 		
+		for(Enemy e : enemies) {
+			e.draw();
+			e.update();
+			
+		}
+
 		
 		/*
 		(WALLS)		Color.WHITE
@@ -302,48 +328,41 @@ public class explore extends PApplet {
 
 	
 		
-		//Enemy
-		if(emliv==true) {
-			//fill(255,0,0);
-			//rect(enemy.x, enemy.y, enemy.width, enemy.height); // Draw enemy
-			enemy.draw();
-			//fill(255,255,255);
-		}else if(emliv==false) {
-			//fill(0,0,0);
-			enemy.x=-50;
-			enemy.y=-50;
-			//rect(enemy.x, enemy.y, enemy.width, enemy.height); // Draw enemy
-			//enemy.draw();
-			//fill(255,255,255);
-		}
-
-		if(emliv2==true) {
-			//fill(255,0,0);
-			//rect(enemy2.x, enemy2.y, enemy2.width, enemy2.height); // Draw enemy
-			enemy2.draw();
-			//fill(255,255,255);
-		}else if(emliv2==false) {
-			//fill(0,0,0);
-			enemy2.x=-50;
-			enemy2.y=-50;
-			//rect(enemy2.x, enemy2.y, enemy2.width, enemy2.height); // Draw enemy
-			//enemy2.draw();
-			//fill(255,255,255);
-			
-		}if(emliv3==true) {
-			//fill(255,0,0);
-			//rect(enemy2.x, enemy2.y, enemy2.width, enemy2.height); // Draw enemy
-			enemy3.draw();
-			//fill(255,255,255);
-		}else if(emliv3==false) {
-			//fill(0,0,0);
-			enemy3.x=-50;
-			enemy3.y=-50;
-			//rect(enemy2.x, enemy2.y, enemy2.width, enemy2.height); // Draw enemy
-			//enemy2.draw();
-			//fill(255,255,255);
-		}
-		
+//		//Enemy
+//		if(emliv==true) {
+//			enemy.draw();
+//		}else if(emliv==false) {
+//			enemy.x=-50;
+//			enemy.y=-50;
+//		}
+//
+//		if(emliv2==true) {
+//			//fill(255,0,0);
+//			//rect(enemy2.x, enemy2.y, enemy2.width, enemy2.height); // Draw enemy
+//			enemy2.draw();
+//			//fill(255,255,255);
+//		}else if(emliv2==false) {
+//			//fill(0,0,0);
+//			enemy2.x=-50;
+//			enemy2.y=-50;
+//			//rect(enemy2.x, enemy2.y, enemy2.width, enemy2.height); // Draw enemy
+//			//enemy2.draw();
+//			//fill(255,255,255);
+//			
+//		}if(emliv3==true) {
+//			//fill(255,0,0);
+//			//rect(enemy2.x, enemy2.y, enemy2.width, enemy2.height); // Draw enemy
+//			enemy3.draw();
+//			//fill(255,255,255);
+//		}else if(emliv3==false) {
+//			//fill(0,0,0);
+//			enemy3.x=-50;
+//			enemy3.y=-50;
+//			//rect(enemy2.x, enemy2.y, enemy2.width, enemy2.height); // Draw enemy
+//			//enemy2.draw();
+//			//fill(255,255,255);
+//		}
+//		
 
 	
 			//playerDead=true;
@@ -411,45 +430,45 @@ public class explore extends PApplet {
 		playerright.x=player.x+50;
 		playerright.y=player.y;
 		
-		enemy1up.x=enemy.x;
-		enemy1up.y=enemy.y-50;
-		enemy1down.x=enemy.x;
-		enemy1down.y=enemy.y+50;
-		enemy1left.x=enemy.x-50;
-		enemy1left.y=enemy.y;
-		enemy1right.x=enemy.x+50;
-		enemy1right.y=enemy.y;
-		
-		enemy2up.x=enemy2.x;
-		enemy2up.y=enemy2.y-50;
-		enemy2down.x=enemy2.x;
-		enemy2down.y=enemy2.y+50;
-		enemy2left.x=enemy2.x-50;
-		enemy2left.y=enemy2.y;
-		enemy2right.x=enemy2.x+50;
-		enemy2right.y=enemy2.y;
-		
-		enemy3up.x=enemy3.x;
-		enemy3up.y=enemy3.y-50;
-		enemy3down.x=enemy3.x;
-		enemy3down.y=enemy3.y+50;
-		enemy3left.x=enemy3.x-50;
-		enemy3left.y=enemy3.y;
-		enemy3right.x=enemy3.x+50;
-		enemy3right.y=enemy3.y;
+//		enemy1up.x=enemy.x;
+//		enemy1up.y=enemy.y-50;
+//		enemy1down.x=enemy.x;
+//		enemy1down.y=enemy.y+50;
+//		enemy1left.x=enemy.x-50;
+//		enemy1left.y=enemy.y;
+//		enemy1right.x=enemy.x+50;
+//		enemy1right.y=enemy.y;
+//		
+//		enemy2up.x=enemy2.x;
+//		enemy2up.y=enemy2.y-50;
+//		enemy2down.x=enemy2.x;
+//		enemy2down.y=enemy2.y+50;
+//		enemy2left.x=enemy2.x-50;
+//		enemy2left.y=enemy2.y;
+//		enemy2right.x=enemy2.x+50;
+//		enemy2right.y=enemy2.y;
+//		
+//		enemy3up.x=enemy3.x;
+//		enemy3up.y=enemy3.y-50;
+//		enemy3down.x=enemy3.x;
+//		enemy3down.y=enemy3.y+50;
+//		enemy3left.x=enemy3.x-50;
+//		enemy3left.y=enemy3.y;
+//		enemy3right.x=enemy3.x+50;
+//		enemy3right.y=enemy3.y;
 		
 		
 		//System.out.println("x:" + yeldoorkey.x + "  y:" + yeldoorkey.y);
 		//System.out.println(firered.x + " " + firered.y);
 		
-		enemy.x=movex+enemymovex;
-		enemy.y=movey+enemymovey;
-		
-		enemy2.x=movex+enemy2movex;
-		enemy2.y=movey+enemy2movey;
-		
-		enemy3.x=movex+enemy3movex;
-		enemy3.y=movey+enemy3movey;
+//		enemy.x=movex+enemymovex;
+//		enemy.y=movey+enemymovey;
+//		
+//		enemy2.x=movex+enemy2movex;
+//		enemy2.y=movey+enemy2movey;
+//		
+//		enemy3.x=movex+enemy3movex;
+//		enemy3.y=movey+enemy3movey;
 		
 		
 		
@@ -654,7 +673,7 @@ public class explore extends PApplet {
 					
 		wait+=1;
 		
-		if(wait>=25) {
+		if(wait>=waitTime) {
 			wait=0;
 
 
@@ -700,7 +719,7 @@ public class explore extends PApplet {
 			
 			
 			
-		if(enemymove1 = true) {
+		if(enemymove1 == true) {
 			for (int i = 0; i < 100; i++) {
 				enemyRandomMove1 = new Random().nextInt(4);
 				
@@ -751,7 +770,7 @@ public class explore extends PApplet {
 		
 		
 
-		if(enemymove2 = true) {
+		if(enemymove2 == true) {
 			for (int i = 0; i < 100; i++) {
 				enemyRandomMove2 = new Random().nextInt(4);
 
@@ -797,7 +816,7 @@ public class explore extends PApplet {
 		}
 		
 		
-		if(enemymove3 = true) {
+		if(enemymove3== true) {
 			for (int i = 0; i < 100; i++) {
 				enemyRandomMove3 = new Random().nextInt(4);
 
@@ -1119,6 +1138,30 @@ public class explore extends PApplet {
 		//        brdy = 250;
 		//        rect(brdx,brdy,50,50);
 	
+		
+		
+		if(spooky==true) {
+			waitTime = 3;
+			
+			ColorfulRectangle spooky1 = new ColorfulRectangle(0,0,800,150,Color.BLACK);
+			ColorfulRectangle spooky2 = new ColorfulRectangle(0,0,250,600,Color.BLACK);
+			ColorfulRectangle spooky3 = new ColorfulRectangle(500,0,300,600,Color.BLACK);
+			ColorfulRectangle spooky4 = new ColorfulRectangle(0,400,800,200,Color.BLACK);
+
+			spooky1.draw();
+			spooky2.draw();
+			spooky3.draw();
+			spooky4.draw();
+			
+			if(enemy.x==player.x && enemy.y==player.y || enemy2.x==player.x && enemy2.y==player.y || enemy3.x==player.x && enemy3.y==player.y) {
+				spookydead = true;
+			}
+			if(spookydead==true) {
+				ColorfulRectangle jumpscare = new ColorfulRectangle(0,0,800,600,Color.red);
+				jumpscare.draw();
+			}
+		}	
+		
 	}
 	
 	public void buildings() {
@@ -1391,7 +1434,26 @@ public class explore extends PApplet {
 		rects.add(new ColorfulRectangle(movex+200,movey+550, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(movex+250,movey+550, 50, 50, Color.WHITE));
 
-		
+		rects.add(new ColorfulRectangle(movex+550,movey+0, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+600,movey+0, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+650,movey+0, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+650,movey+-50, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+650,movey+-100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+700,movey+-100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+700,movey+-150, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+750,movey+-150, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+800,movey+-150, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+800,movey+-100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+800,movey+-50, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+800,movey+0, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+750,movey+0, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+750,movey+50, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+750,movey+100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+700,movey+100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+650,movey+100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+600,movey+100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+550,movey+100, 50, 50, Color.WHITE));
+
 		
 		
 		
@@ -1801,6 +1863,8 @@ public void mousePressed() {
 	//        }
 	//    }
 
+	
+	
 	class ColorfulRectangle extends Rectangle{
 
 		Color col;
@@ -1810,6 +1874,8 @@ public void mousePressed() {
 			this.col=col;
 		}
 
+
+	
 
 		void draw(){
 
@@ -1836,6 +1902,76 @@ public void mousePressed() {
 			fill(col.getRGB());
 			
 			ellipse(x, y, width, height);
+
+		}
+
+	}
+	
+	
+	
+	
+	class Enemy extends ColorfulRectangle{
+		boolean alive = true;
+		
+		int enemyfacing = 0;
+
+		int emovedx;
+		int emovedy;
+		
+		ColorfulRectangle enemyup = new ColorfulRectangle(x,y-50,10,10,Color.RED);
+		ColorfulRectangle enemydown = new ColorfulRectangle(x,y+50,10,10, Color.RED);
+		ColorfulRectangle enemyleft = new ColorfulRectangle(x-50,y,10,10, Color.RED);
+		ColorfulRectangle enemyright = new ColorfulRectangle(x+50,y,10,10, Color.RED);
+		
+		List<ColorfulRectangle> direction = new ArrayList<ColorfulRectangle>();
+
+		public Enemy(int x, int y, int width, int height) {
+			
+			
+			super(x, y, width, height, Color.RED);
+			
+			direction.add(enemyup);
+			direction.add(enemydown);
+			direction.add(enemyright);
+			direction.add(enemyleft);
+
+			
+			
+		}
+		void draw() {
+			if(alive) {
+				super.draw();
+			}
+		}
+		
+		boolean intersectsRects() {
+			for(Rectangle r: rects) {
+				for(ColorfulRectangle d : direction)
+				if( r.intersects(d)){
+					return true;
+			}
+		}
+		return false;
+		}
+		
+			public void update() {
+				if(!alive){
+					x=-10000;
+					y=-10000;
+				}
+				
+				
+				enemyup.x=x;
+				enemyup.y=y-50;
+				enemydown.x=x;
+				enemydown.y=y+50;
+				enemyleft.x=x-50;
+				enemyleft.y=y;
+				enemyright.x=x+50;
+				enemyright.y=y;		
+				
+				x=movex+enemymovex;
+				y=movey+enemymovey;
 
 		}
 

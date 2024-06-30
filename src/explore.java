@@ -46,6 +46,7 @@ rects.remove(enmdoor2);
 //work on adding keys
 
 
+
 public class explore extends PApplet {
 	static final int WIDTH = 800;
 	static final int HEIGHT = 600;
@@ -1756,6 +1757,12 @@ emeny.update();
 		ColorfulRectangle enemydown = new ColorfulRectangle(x,y+50,10,10, Color.RED);
 		ColorfulRectangle enemyleft = new ColorfulRectangle(x-50,y,10,10, Color.RED);
 		ColorfulRectangle enemyright = new ColorfulRectangle(x+50,y,10,10, Color.RED);
+		
+		ColorfulRectangle enemyup_green = new ColorfulRectangle(x,y-10,10,10,Color.GREEN);
+		ColorfulRectangle enemydown_green = new ColorfulRectangle(x,y+50,10,10, Color.GREEN);
+		ColorfulRectangle enemyleft_green = new ColorfulRectangle(x-10,y,10,10, Color.GREEN);
+		ColorfulRectangle enemyright_green = new ColorfulRectangle(x+50,y,10,10, Color.GREEN);
+
 
 		List<ColorfulRectangle> direction = new ArrayList<ColorfulRectangle>();
 
@@ -1798,41 +1805,41 @@ emeny.update();
 		}
 
 
-		//		boolean enemyupInterectsBlock() {
-		//			for(Rectangle r: rects) {
-		//					if( r.intersects(enemyup)){
-		//						return true;
-		//					}
-		//			}
-		//			return false;
-		//		}
-		//		
-		//		boolean enemydownInterectsBlock() {
-		//			for(Rectangle r: rects) {
-		//					if( r.intersects(enemydown)){
-		//						return true;
-		//				}
-		//			}
-		//			return false;
-		//		}
-		//
-		//		boolean enemyleftInterectsBlock() {
-		//			for(Rectangle r: rects) {
-		//					if( r.intersects(enemyleft)){
-		//						return true;
-		//				}
-		//			}
-		//			return false;
-		//		}
-		//
-		//		boolean enemyrightInterectsBlock() {
-		//			for(Rectangle r: rects) {
-		//					if( r.intersects(enemyright)){
-		//						return true;
-		//					}
-		//			}
-		//			return false;
-		//		}
+				boolean enemyupInterectsBlock() {
+					for(Rectangle r: rects) {
+							if( r.intersects(enemyup)){
+								return true;
+							}
+					}
+					return false;
+				}
+				
+				boolean enemydownInterectsBlock() {
+					for(Rectangle r: rects) {
+							if( r.intersects(enemydown)){
+								return true;
+						}
+					}
+					return false;
+				}
+		
+				boolean enemyleftInterectsBlock() {
+					for(Rectangle r: rects) {
+							if( r.intersects(enemyleft)){
+								return true;
+						}
+					}
+					return false;
+				}
+		
+				boolean enemyrightInterectsBlock() {
+					for(Rectangle r: rects) {
+							if( r.intersects(enemyright)){
+								return true;
+							}
+					}
+					return false;
+				}
 
 		public void update() {
 
@@ -1841,6 +1848,7 @@ emeny.update();
 				y=-10000;
 			}
 
+			
 
 			enemyup.x=x;
 			enemyup.y=y-50;
@@ -1849,8 +1857,9 @@ emeny.update();
 			enemyleft.x=x-50;
 			enemyleft.y=y;
 			enemyright.x=x+50;
-			enemyright.y=y;		
-
+			enemyright.y=y;
+			
+		
 			x=movex+emovedx;
 			y=movey+emovedy;
 
@@ -1875,7 +1884,7 @@ emeny.update();
 
 				wait+=1;
 
-				if(wait>=waitTime) {
+				if(wait>=150) {
 					wait=0;
 
 
@@ -1893,6 +1902,7 @@ emeny.update();
 //						if(enemyfacing==4) {
 //							enemymovex-=50;
 //						}
+						
 						
 						for (int i = 0; i < 100; i++) {
 							enemyRandomMove = new Random().nextInt(4);
@@ -1950,10 +1960,42 @@ emeny.update();
 							}
 						}
 
-					}
+					}					
+					
+					
+					//System.out.println("up: " + enemyup + "right: " + enemyright);
+					System.out.println(enemyfacing);
+
 				}
 			}
 
+			
+//			enemyup.draw();
+//			enemydown.draw();
+//			enemyright.draw();
+//			enemyleft.draw();
+			
+			enemyup_green.x=x+20;
+			enemyup_green.y=y;
+			enemydown_green.x=x+20;
+			enemydown_green.y=y+40;
+			enemyleft_green.x=x;
+			enemyleft_green.y=y+20;
+			enemyright_green.x=x+40;
+			enemyright_green.y=y+20;	
+			
+			if(!enemyupInterectsBlock()) {
+				enemyup_green.draw();
+			}
+			if(!enemydownInterectsBlock()) {
+				enemydown_green.draw();
+			}
+			if(!enemyrightInterectsBlock()) {
+				enemyright_green.draw();
+			}
+			if(!enemyleftInterectsBlock()) {
+				enemyleft_green.draw();
+			}
 
 
 

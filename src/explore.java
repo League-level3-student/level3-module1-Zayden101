@@ -45,7 +45,7 @@ rects.remove(enmdoor2);
 
 //work on adding keys
 
-
+fix weapon
 
 public class explore extends PApplet {
 	static final int WIDTH = 800;
@@ -106,9 +106,10 @@ public class explore extends PApplet {
 	int createBuilding = 4;
 
 
+	int atmovx = 50;
+	int atmovy = 50;
+	
 	int collectedKeys = 0;
-
-
 
 	ColorfulRectangle player = new ColorfulRectangle(350,250,50,50,Color.BLUE);
 
@@ -153,7 +154,11 @@ public class explore extends PApplet {
 	ColorfulRectangle enemy3right = new ColorfulRectangle(enemy3.x+50,enemy3.y,10,10, Color.RED);
 
 
+	ColorfulRectangle weapon = new ColorfulRectangle(100005+movex,100005+movey, 40, 40, Color.GRAY);
 
+	int weaponx;
+	int weapony;
+	boolean weaponShot;
 
 	ColorfulRectangle bullet;
 	ColorfulRectangle btv1, btv2;    //bullet trail vertical
@@ -595,91 +600,83 @@ emeny.update();
 			keynum3.draw();		
 		}
 
+		
+		weapon.draw();
 
 
-		/*
-		if(enemy1upInterectsBlock()==false) {
-			enemy1upDisplay = "Yes";
-		}else {
-			enemy1upDisplay = "";
+
+		if(att==1) {
+			weapon.x=player.x+5;
+			weapon.y=player.y+5;
+			
+			if(facing==1) {
+				att=0;
+				while (!weaponInterectsBlock()) {
+					weapon.y-=50;
+				}
+				if(weaponInterectsBlock());{
+					weapon.y+=50;
+					weapony=weapon.x;
+					weapony=weapon.y;
+				}
+			}
+			
+			if(facing==2) {
+				att=0;
+				while (!weaponInterectsBlock()) {
+					weapon.y+=50;
+				}
+				if(weaponInterectsBlock());{
+					weapon.y-=50;
+					weapony=player.x;
+					weapony=weapon.y;
+				}
+			}
+			
+			if(facing==3) {
+				att=0;
+				while (!weaponInterectsBlock()) {
+					weapon.x+=50;
+				}
+				if(weaponInterectsBlock());{
+					weapon.x-=50;
+					weaponx=weapon.x;
+					weapony=weapon.y;
+				}
+			}
+			
+			if(facing==4) {
+				att=0;
+				while (!weaponInterectsBlock()) {
+					weapon.x-=50;
+				}
+				if(weaponInterectsBlock());{
+					weapon.x+=50;
+					weaponx=weapon.x;
+					weapony=weapon.y;
+				}
+			}
+			weaponShot=true;
 		}
-		if(enemy1downInterectsBlock()==false) {
-			enemy1downDisplay = "Yes";
+
+		
+		if(weaponShot==true) {
+			weapon.x=weaponx+movex;
+			weapon.y=weapony+movey;
 		}else {
-			enemy1downDisplay = "";
+			weapon.x=100005;
+			weapon.y=100005;
 		}
-		if(enemy1leftInterectsBlock()==false) {
-			enemy1leftDisplay = "Yes";
-		}else {
-			enemy1leftDisplay = "";
-		}
-		if(enemy1rightInterectsBlock()==false) {
-			enemy1rightDisplay = "Yes";
-		}else {
-			enemy1rightDisplay = "";
+
+		if(player.x==weapon.x && player.y==weapon.y) {
+			weaponShot=false;
 		}
 
 
-		if(enemy2upInterectsBlock()==false) {
-			enemy2upDisplay = "Yes";
-		}else {
-			enemy2upDisplay = "";
-		}
-		if(enemy2downInterectsBlock()==false) {
-			enemy2downDisplay = "Yes";
-		}else {
-			enemy2downDisplay = "";
-		}
-		if(enemy2leftInterectsBlock()==false) {
-			enemy2leftDisplay = "Yes";
-		}else {
-			enemy2leftDisplay = "";
-		}
-		if(enemy2rightInterectsBlock()==false) {
-			enemy2rightDisplay = "Yes";
-		}else {
-			enemy2rightDisplay = "";
-		}
-
-
-		if(enemy3upInterectsBlock()==false) {
-			enemy3upDisplay = "Yes";
-		}else {
-			enemy3upDisplay = "";
-		}
-		if(enemy3downInterectsBlock()==false) {
-			enemy3downDisplay = "Yes";
-		}else {
-			enemy3downDisplay = "";
-		}
-		if(enemy3leftInterectsBlock()==false) {
-			enemy3leftDisplay = "Yes";
-		}else {
-			enemy3leftDisplay = "";
-		}
-		if(enemy3rightInterectsBlock()==false) {
-			enemy3rightDisplay = "Yes";
-		}else {
-			enemy3rightDisplay = "";
-		}
-		 */
-
-		//System.out.println("up:" + enemy1upDisplay + "    down:" + enemy1downDisplay + "      left:"  + enemy1leftDisplay + "     right:"   + enemy1rightDisplay);
-		//System.out.println("up:" + enemy2upDisplay + "    down:" + enemy2downDisplay + "      left:"  + enemy2leftDisplay + "     right:"   + enemy2rightDisplay);
-
-		//		enemy1upInterectsBlock();
-		//		enemy1downInterectsBlock();
-		//		enemy1leftInterectsBlock();
-		//		enemy1rightInterectsBlock();
-
-		//frameRate(1);
-
-
-
-
-
-
-
+		
+	System.out.println(player.x + " " + weaponx);
+		
+		//System.out.println(weapon.x+movex + " " + weapon.y);
 
 
 		/*
@@ -705,196 +702,9 @@ emeny.update();
 		 */
 
 
-		//System.out.println(movingblockInterectsBlock());
-
-		//if()
-
-
-		//if(numOfKeys==goalOfKeys) {
-		//	doorlocked=1;
-		//}
-
-		//door
-		//System.out.println(doorlocked);
-
-
-
-
-		//SHOOTING
-		/*
-		bullet.x=player.x;
-		bullet.y=player.y;
-
-		bth1.x=player.x;
-		bth1.y=player.y+12;
-		bth2.x=player.x;
-		bth2.y=player.y+12;
-
-		btv1.x=player.x+12;
-		btv1.y=player.y;
-		btv2.x=player.x+12;
-		btv2.y=player.y;
-
-		rects.remove(bth1);
-		rects.remove(bth2);
-		rects.remove(btv1);
-		rects.remove(btv2);
-		rects.remove(bullet);
-
-
-
-		if(shoot==1) {
-			//for (int i = 0; i < 3; i++) {
-			rects.add(bullet);
-			if(facing==1) {
-				rects.add(btv1);
-				rects.add(btv2);
-				bullet.y-=150;
-				btv1.y-=50;
-				btv2.y-=100;
-			}
-			if(facing==2) {
-				rects.add(bth1);
-				rects.add(bth2);
-				bullet.x-=150;
-				bth1.x-=50;
-				bth2.x-=100;
-			}
-			if(facing==3) {
-				rects.add(btv1);
-				rects.add(btv2);
-				bullet.y+=150;
-				btv1.y+=50;
-				btv2.y+=100;
-			}
-			if(facing==4) {
-				rects.add(bth1);
-				rects.add(bth2);
-				bullet.x+=150;
-				bth1.x+=50;
-				bth2.x+=100;
-			}
-			//System.out.println(bullet.x + " " + bullet.y + "  " + facing);
-		}
-
-		shoot=0;
-		//}
-
-		//System.out.println(facing);
-
-		if(bullet.x==enemy.x && bullet.y==enemy.y) {
-
-			emliv=false;
-		}
-
-		if(bullet.x==enemy2.x && bullet.y==enemy2.y) {
-
-			emliv2=false;
-		}
-
-		if(bullet.x==enemy3.x && bullet.y==enemy3.y) {
-
-			emliv3=false;
-		}
-
-		bullet.draw();
-		 */
-
-		//		if (btv1.x==enemy.x && btv1.y==enemy.y || btv2.x==enemy.x && btv2.y==enemy.y || bth1.x==enemy.x && bth1.y==enemy.y || bth2.x==enemy.x && bth2.y==enemy.y){
-		//			emliv=0;
-		//		}
-
-
-
-		//System.out.println(firemove);
-		//System.out.println(firelit);
-
-
-
-
-		//rect(enemy.x, enemy.y, enemy.width, enemy.height   ); // Draw enemy
-
-		//Kill enemy
-
-		/*ATTACK
-		if(att==1) {        	
-			if(50 == Math.abs(player.x-enemy.x) && 50 == Math.abs(player.y-enemy.y)){
-				//System.out.println("dead");
-				emliv=false;
-			}
-			if( (50 == Math.abs(player.x-enemy.x) && player.y == enemy.y) ||
-					((50 == Math.abs(player.y-enemy.y) && player.x == enemy.x)) ){
-				//System.out.println("dead");
-				emliv=false;
-			}
-			if(50 == Math.abs(player.x-enemy2.x) && 50 == Math.abs(player.y-enemy2.y)){
-				//System.out.println("dead");
-				emliv2=false;
-			}
-			if( (50 == Math.abs(player.x-enemy2.x) && player.y == enemy2.y) ||
-					((50 == Math.abs(player.y-enemy2.y) && player.x == enemy2.x)) ){
-				//System.out.println("dead");
-				emliv2=false;
-			}
-			if(50 == Math.abs(player.x-enemy3.x) && 50 == Math.abs(player.y-enemy3.y)){
-				//System.out.println("dead");
-				emliv3=false;
-			}
-			if( (50 == Math.abs(player.x-enemy3.x) && player.y == enemy3.y) ||
-					((50 == Math.abs(player.y-enemy3.y) && player.x == enemy3.x)) ){
-				//System.out.println("dead");
-				emliv3=false;
-			}
-
-
-		}
-		 */
-
-		//		if(shoot==1) {        	
-		//		if(bullet.x==enemy.x && bullet.y==enemy.y){
-		//			emliv=0;
-		//			}
-		//		}
-
-		/*
-		//Attack
-		if(att==1) {
-			attx = player.x-50;
-			atty = player.y-50;
-
-			fill(0,0,255);
-			rect(player.x-50, player.y-50, 150, 150);
-			//fill(255,255,255);
-			att=0;
-		}
-		 */
 		//rect(player.x, player.y, player.width, player.height); // Draw player
 		player.draw();
 
-
-
-		//		if (player.y>=550) {
-		//			player.y=550;
-		//		}     
-		//		if (player.y<=0) {
-		//			player.y=0;
-		//		}
-		//		if (player.x>=750) {
-		//			player.x=750;
-		//		}
-		//		if (player.x<=0) {
-		//			player.x=0;
-		//		}
-
-		//ColorfulRectangle player = new ColorfulRectangle(0,0,25,25,Color.BLUE);
-
-		//System.out.println(player.width);
-		//rect(bullet.x, bullet.y, 50 , 50);
-
-
-		//        brdx = 250;
-		//        brdy = 250;
-		//        rect(brdx,brdy,50,50);
 
 
 
@@ -1389,6 +1199,18 @@ emeny.update();
 		return false;
 	}
 
+	
+	boolean weaponInterectsBlock() {
+		for(Rectangle r: rects) {
+			if( r.intersects(weapon)){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	
+	
 
 	boolean playerupInterectsBlock() {
 		for(Rectangle r: rects) {
@@ -1868,7 +1690,6 @@ emeny.update();
 			if(intersectsBlock(enemydown) && intersectsBlock(enemyright) && intersectsBlock(enemyleft)) {
 				enemyfacing=1;
 			}
-
 			if(intersectsBlock(enemyup) && intersectsBlock(enemyright) && intersectsBlock(enemyleft)) {
 				enemyfacing=2;
 			}
@@ -1906,7 +1727,8 @@ emeny.update();
 						
 						for (int i = 0; i < 100; i++) {
 							enemyRandomMove = new Random().nextInt(4);
-
+							//System.out.println(enemyRandomMove);
+							
 							if(enemyfacing!=2) {
 								if(!intersectsBlock(enemyup)) {
 									if(enemyRandomMove==0) {
@@ -1935,7 +1757,7 @@ emeny.update();
 								}
 							}
 							if(enemyfacing!=3) {
-								if(intersectsBlock(enemyleft)) {
+								if(!intersectsBlock(enemyleft)) {
 									if(enemyRandomMove==3) {
 										emovedx-=50;
 										enemyfacing=4;
@@ -1945,7 +1767,7 @@ emeny.update();
 							}
 
 						}
-						if(enemyInterectsBlock(this)) {
+					/*	if(enemyInterectsBlock(this)) {
 							if(enemyfacing==1) {
 								emovedy+=50;
 							}		
@@ -1958,14 +1780,14 @@ emeny.update();
 							if(enemyfacing==4) {
 								emovedx+=50;
 							}
-						}
+						}*/
 
 					}					
 					
 					
 					//System.out.println("up: " + enemyup + "right: " + enemyright);
-					System.out.println(enemyfacing);
-
+					//System.out.println(enemyfacing);
+					//System.out.println(enemyInterectsBlock(this));
 				}
 			}
 
@@ -1975,6 +1797,7 @@ emeny.update();
 //			enemyright.draw();
 //			enemyleft.draw();
 			
+			/*
 			enemyup_green.x=x+20;
 			enemyup_green.y=y;
 			enemydown_green.x=x+20;
@@ -1996,7 +1819,7 @@ emeny.update();
 			if(!enemyleftInterectsBlock()) {
 				enemyleft_green.draw();
 			}
-
+			 */
 
 
 

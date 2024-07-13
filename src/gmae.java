@@ -403,9 +403,9 @@ public class gmae extends PApplet {
 
 		purdoorkey.x=-50;
 		
-		level=10;
-		player.x=0;
-		player.y=350;
+		//level=10;
+		//player.x=0;
+		//player.y=350;
 
 
 		movingblock.x=-50;

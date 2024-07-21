@@ -181,23 +181,15 @@ public class explore extends PApplet {
 	Door door3 = new Door(movex+650,movey+500,50,50);
 	Door door4 = new Door(movex+800,movey+200,50,50);
 	Door door5 = new Door(movex+950,movey+250,50,50);
+	Door door6 = new Door(movex+0,movey+1250,50,50);
+
 
 	PinkDoor pinkdoor1 = new PinkDoor(movex-850,movey+800,50,50);
 	PinkDoor pinkdoor2 = new PinkDoor(movex-1000,movey-600,50,50);
+	
+	OrangeDoor orangedoor1 = new OrangeDoor(movex+800,movey+850,50,50);
 
 	
-//	int key1x = 500;
-//	int key1y = -500;
-//
-//	int key2x = -800;
-//	int key2y = 550;
-//
-//	int key3x = -300;
-//	int key3y = -550;
-//	
-//	int key4x = -350;
-//	int key4y = 850;
-
 	
 	Key key1 = new Key(movex+500,movey-500,50,50);
 	Key key2 = new Key(movex-800,movey+550,50,50);
@@ -568,7 +560,9 @@ if(endswitch==1) {
 		pinkdoor2.draw();
 		pinkdoor2.update();
 
-		
+		orangedoor1.draw();
+		orangedoor1.update();
+
 
 		ColorfulRectangle displaykey = new ColorfulRectangle(660,10, 30, 30, Color.YELLOW);
 		displaykey.draw();
@@ -680,6 +674,67 @@ if(endswitch==1) {
 		
 		
 		//PINK KEY COUNTER
+		if(collectedPinkKeys==0) {
+			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum2 = new ColorfulRectangle(560,10, 10, 30, Color.WHITE);
+			ColorfulRectangle keynum3 = new ColorfulRectangle(560,40, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum4 = new ColorfulRectangle(580,10, 10, 30, Color.WHITE);
+			keynum1.draw();
+			keynum2.draw();
+			keynum3.draw();
+			keynum4.draw();
+
+		}else if(collectedPinkKeys==1) {
+			ColorfulRectangle keynum1 = new ColorfulRectangle(570,0, 10, 50, Color.WHITE);
+			keynum1.draw();
+
+		}else if(collectedPinkKeys==2) {
+			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum2 = new ColorfulRectangle(580,10, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum3 = new ColorfulRectangle(560,20, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum4 = new ColorfulRectangle(560,30, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum5 = new ColorfulRectangle(560,40, 30, 10, Color.WHITE);
+			keynum1.draw();
+			keynum2.draw();
+			keynum3.draw();
+			keynum4.draw();
+			keynum5.draw();
+
+		}else if(collectedPinkKeys==3) {
+			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum2 = new ColorfulRectangle(580,10, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum3 = new ColorfulRectangle(560,20, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum4 = new ColorfulRectangle(580,30, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum5 = new ColorfulRectangle(560,40, 30, 10, Color.WHITE);
+			keynum1.draw();
+			keynum2.draw();
+			keynum3.draw();
+			keynum4.draw();
+			keynum5.draw();
+
+		}else if(collectedPinkKeys==4) {
+			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 10, 30, Color.WHITE);
+			ColorfulRectangle keynum2 = new ColorfulRectangle(560,20, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum3 = new ColorfulRectangle(580,0, 10, 50, Color.WHITE);		
+			keynum1.draw();
+			keynum2.draw();
+			keynum3.draw();		
+		}else if(collectedPinkKeys==5) {
+			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum2 = new ColorfulRectangle(560,10, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum3 = new ColorfulRectangle(560,20, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum4 = new ColorfulRectangle(580,30, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum5 = new ColorfulRectangle(560,40, 30, 10, Color.WHITE);
+			keynum1.draw();
+			keynum2.draw();
+			keynum3.draw();
+			keynum4.draw();
+			keynum5.draw();
+		}
+
+		
+		
+		//ORANGE KEY COUNTER
 		if(collectedPinkKeys==0) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(560,10, 10, 30, Color.WHITE);
@@ -3403,6 +3458,65 @@ if(endswitch==1) {
 	}
 
 
-	
+	class OrangeDoor extends ColorfulRectangle{
+
+		int orangedoorx=x;
+		int orangedoory=y;
+		
+		boolean open = false;
+
+		public OrangeDoor(int x, int y, int width, int height) {
+
+			super(x, y, width, height, Color.WHITE);
+
+
+		}
+		
+		
+		void draw() {
+			
+			if(!open) {
+				super.draw();
+			}	
+		}
+		
+		public void update() {
+		
+			ColorfulRectangle OrangeDoorin = new ColorfulRectangle(x+10,y+10,30,30,Color.ORANGE);
+			OrangeDoorin.draw();
+			
+		x=orangedoorx+movex;
+		y=orangedoory+movey;
+		
+		if(x==player.x && y==player.y && collectedPinkKeys>=1){
+			collectedPinkKeys-=1;
+			orangedoorx=-10000;
+			orangedoory=-10000;
+			OrangeDoorin.x=-10000;
+			OrangeDoorin.y=-10000;
+
+		}else if(x==player.x && y==player.y && collectedOrangeKeys==0){
+			if(facing==1) {
+				movey-=50;
+			}		
+
+			if(facing==2) {
+				movex-=50;
+			}
+
+			if(facing==3) {
+				movey+=50;
+			}
+
+			if(facing==4) {
+				movex+=50;
+			}
+			
+		}
+		
+		}
+
+	}
+
 	
 }

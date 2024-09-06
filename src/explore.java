@@ -109,6 +109,7 @@ public class explore extends PApplet {
 	int collectedKeys = 0;
 	int collectedPinkKeys = 0;
 	int collectedOrangeKeys = 0;
+	int collectedBlueKeys = 0;
 
 
 	//int endswitch = 1;
@@ -182,12 +183,22 @@ public class explore extends PApplet {
 	Door door4 = new Door(movex+800,movey+200,50,50);
 	Door door5 = new Door(movex+950,movey+250,50,50);
 	Door door6 = new Door(movex+0,movey+1250,50,50);
+	Door door7 = new Door(movex-1500,movey+350,50,50);
 
 
 	PinkDoor pinkdoor1 = new PinkDoor(movex-850,movey+800,50,50);
 	PinkDoor pinkdoor2 = new PinkDoor(movex-1000,movey-600,50,50);
+	PinkDoor pinkdoor3 = new PinkDoor(movex-1550,movey+350,50,50);
+	PinkDoor pinkdoor4 = new PinkDoor(movex-600,movey-850,50,50);
+
 	
-	OrangeDoor orangedoor1 = new OrangeDoor(movex+800,movey+850,50,50);
+	OrangeDoor orangedoor1 = new OrangeDoor(movex+150,movey+1350,50,50);
+	OrangeDoor orangedoor2 = new OrangeDoor(movex-850,movey-800,50,50);
+	OrangeDoor orangedoor3 = new OrangeDoor(movex+150,movey+1350,50,50);
+	OrangeDoor orangedoor4 = new OrangeDoor(movex-850,movey-800,50,50);
+
+	BlueDoor bluedoor1 = new BlueDoor(movex-2150,movey-1050,50,50);
+	BlueDoor bluedoor2 = new BlueDoor(movex-2200,movey-1150,50,50);
 
 	
 	
@@ -197,6 +208,7 @@ public class explore extends PApplet {
 	Key key4 = new Key(movex-350,movey+850,50,50);
 	Key key5 = new Key(movex+150,movey+500,50,50);
 	Key key6 = new Key(movex-2250,movey-400,50,50);
+	Key key7 = new Key(movex-700,movey-1150,50,50);
 
 
 	PinkKey pinkkey1 = new PinkKey(movex+1000,movey+550,50,50);
@@ -205,8 +217,13 @@ public class explore extends PApplet {
 	PinkKey pinkkey4 = new PinkKey(movex-800,movey-1150,50,50);
 
 	OrangeKey orangekey1 = new OrangeKey(movex-1300,movey-450,50,50);
+	OrangeKey orangekey2 = new OrangeKey(movex+1200,movey+150,50,50);
+	OrangeKey orangekey3 = new OrangeKey(movex+1450,movey-150,50,50);
+	OrangeKey orangekey4 = new OrangeKey(movex-1550,movey+450,50,50);
 
-	
+	BlueKey bluekey1 = new BlueKey(movex-750,movey-850,50,50);
+	BlueKey bluekey2 = new BlueKey(movex+100,movey+1200,50,50);
+
 	
 	int waitTime = 25;
 
@@ -553,15 +570,49 @@ if(endswitch==1) {
 
 		door5.draw();
 		door5.update();
+		
+		door6.draw();
+		door6.update();
+		
+		door7.draw();
+		door7.update();
+
+
 
 		pinkdoor1.draw();
 		pinkdoor1.update();
 
 		pinkdoor2.draw();
 		pinkdoor2.update();
+		
+		pinkdoor3.draw();
+		pinkdoor3.update();
+		
+		pinkdoor4.draw();
+		pinkdoor4.update();
+
+
 
 		orangedoor1.draw();
 		orangedoor1.update();
+		
+		orangedoor2.draw();
+		orangedoor2.update();
+		
+		orangedoor3.draw();
+		orangedoor3.update();
+
+		orangedoor4.draw();
+		orangedoor4.update();
+
+
+		
+		bluedoor1.draw();
+		bluedoor1.update();
+		
+		bluedoor2.draw();
+		bluedoor2.update();
+
 
 
 		ColorfulRectangle displaykey = new ColorfulRectangle(660,10, 30, 30, Color.YELLOW);
@@ -569,6 +620,12 @@ if(endswitch==1) {
 
 		ColorfulRectangle displaypinkkey = new ColorfulRectangle(510,10, 30, 30, Color.PINK);
 		displaypinkkey.draw();
+
+		ColorfulRectangle displayorangekey = new ColorfulRectangle(360,10, 30, 30, Color.ORANGE);
+		displayorangekey.draw();
+
+		ColorfulRectangle displaybluekey = new ColorfulRectangle(210,10, 30, 30, Color.CYAN);
+		displaybluekey.draw();
 
 		
 		
@@ -590,7 +647,9 @@ if(endswitch==1) {
 		key6.draw();
 		key6.update();
 
-		
+		key7.draw();
+		key7.update();
+
 		
 		pinkkey1.draw();
 		pinkkey1.update();
@@ -607,8 +666,24 @@ if(endswitch==1) {
 		
 		orangekey1.draw();
 		orangekey1.update();
-
 		
+		orangekey2.draw();
+		orangekey2.update();
+		
+		orangekey3.draw();
+		orangekey3.update();
+
+		orangekey4.draw();
+		orangekey4.update();
+
+
+
+		bluekey1.draw();
+		bluekey1.update();
+
+		bluekey2.draw();
+		bluekey2.update();
+
 
 		//KEY COUNTER
 		if(collectedKeys==0) {
@@ -735,57 +810,57 @@ if(endswitch==1) {
 		
 		
 		//ORANGE KEY COUNTER
-		if(collectedPinkKeys==0) {
-			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum2 = new ColorfulRectangle(560,10, 10, 30, Color.WHITE);
-			ColorfulRectangle keynum3 = new ColorfulRectangle(560,40, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum4 = new ColorfulRectangle(580,10, 10, 30, Color.WHITE);
+		if(collectedOrangeKeys==0) {
+			ColorfulRectangle keynum1 = new ColorfulRectangle(410,0, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum2 = new ColorfulRectangle(410,10, 10, 30, Color.WHITE);
+			ColorfulRectangle keynum3 = new ColorfulRectangle(410,40, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum4 = new ColorfulRectangle(430,10, 10, 30, Color.WHITE);
 			keynum1.draw();
 			keynum2.draw();
 			keynum3.draw();
 			keynum4.draw();
 
-		}else if(collectedPinkKeys==1) {
-			ColorfulRectangle keynum1 = new ColorfulRectangle(570,0, 10, 50, Color.WHITE);
+		}else if(collectedOrangeKeys==1) {
+			ColorfulRectangle keynum1 = new ColorfulRectangle(420,0, 10, 50, Color.WHITE);
 			keynum1.draw();
 
-		}else if(collectedPinkKeys==2) {
-			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum2 = new ColorfulRectangle(580,10, 10, 20, Color.WHITE);
-			ColorfulRectangle keynum3 = new ColorfulRectangle(560,20, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum4 = new ColorfulRectangle(560,30, 10, 20, Color.WHITE);
-			ColorfulRectangle keynum5 = new ColorfulRectangle(560,40, 30, 10, Color.WHITE);
-			keynum1.draw();
-			keynum2.draw();
-			keynum3.draw();
-			keynum4.draw();
-			keynum5.draw();
-
-		}else if(collectedPinkKeys==3) {
-			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum2 = new ColorfulRectangle(580,10, 10, 20, Color.WHITE);
-			ColorfulRectangle keynum3 = new ColorfulRectangle(560,20, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum4 = new ColorfulRectangle(580,30, 10, 20, Color.WHITE);
-			ColorfulRectangle keynum5 = new ColorfulRectangle(560,40, 30, 10, Color.WHITE);
+		}else if(collectedOrangeKeys==2) {
+			ColorfulRectangle keynum1 = new ColorfulRectangle(410,0, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum2 = new ColorfulRectangle(430,10, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum3 = new ColorfulRectangle(410,20, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum4 = new ColorfulRectangle(410,30, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum5 = new ColorfulRectangle(410,40, 30, 10, Color.WHITE);
 			keynum1.draw();
 			keynum2.draw();
 			keynum3.draw();
 			keynum4.draw();
 			keynum5.draw();
 
-		}else if(collectedPinkKeys==4) {
-			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 10, 30, Color.WHITE);
-			ColorfulRectangle keynum2 = new ColorfulRectangle(560,20, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum3 = new ColorfulRectangle(580,0, 10, 50, Color.WHITE);		
+		}else if(collectedOrangeKeys==3) {
+			ColorfulRectangle keynum1 = new ColorfulRectangle(410,0, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum2 = new ColorfulRectangle(430,10, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum3 = new ColorfulRectangle(410,20, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum4 = new ColorfulRectangle(430,30, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum5 = new ColorfulRectangle(410,40, 30, 10, Color.WHITE);
+			keynum1.draw();
+			keynum2.draw();
+			keynum3.draw();
+			keynum4.draw();
+			keynum5.draw();
+
+		}else if(collectedOrangeKeys==4) {
+			ColorfulRectangle keynum1 = new ColorfulRectangle(410,0, 10, 30, Color.WHITE);
+			ColorfulRectangle keynum2 = new ColorfulRectangle(410,20, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum3 = new ColorfulRectangle(430,0, 10, 50, Color.WHITE);		
 			keynum1.draw();
 			keynum2.draw();
 			keynum3.draw();		
-		}else if(collectedPinkKeys==5) {
-			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum2 = new ColorfulRectangle(560,10, 10, 20, Color.WHITE);
-			ColorfulRectangle keynum3 = new ColorfulRectangle(560,20, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum4 = new ColorfulRectangle(580,30, 10, 20, Color.WHITE);
-			ColorfulRectangle keynum5 = new ColorfulRectangle(560,40, 30, 10, Color.WHITE);
+		}else if(collectedOrangeKeys==5) {
+			ColorfulRectangle keynum1 = new ColorfulRectangle(410,0, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum2 = new ColorfulRectangle(410,10, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum3 = new ColorfulRectangle(410,20, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum4 = new ColorfulRectangle(430,30, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum5 = new ColorfulRectangle(410,40, 30, 10, Color.WHITE);
 			keynum1.draw();
 			keynum2.draw();
 			keynum3.draw();
@@ -793,6 +868,67 @@ if(endswitch==1) {
 			keynum5.draw();
 		}
 
+		
+		
+		//BLUE KEY COUNTER
+		if(collectedBlueKeys==0) {
+			ColorfulRectangle keynum1 = new ColorfulRectangle(260,0, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum2 = new ColorfulRectangle(260,10, 10, 30, Color.WHITE);
+			ColorfulRectangle keynum3 = new ColorfulRectangle(260,40, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum4 = new ColorfulRectangle(280,10, 10, 30, Color.WHITE);
+			keynum1.draw();
+			keynum2.draw();
+			keynum3.draw();
+			keynum4.draw();
+
+		}else if(collectedBlueKeys==1) {
+			ColorfulRectangle keynum1 = new ColorfulRectangle(270,0, 10, 50, Color.WHITE);
+			keynum1.draw();
+
+		}else if(collectedBlueKeys==2) {
+			ColorfulRectangle keynum1 = new ColorfulRectangle(260,0, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum2 = new ColorfulRectangle(280,10, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum3 = new ColorfulRectangle(260,20, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum4 = new ColorfulRectangle(260,30, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum5 = new ColorfulRectangle(260,40, 30, 10, Color.WHITE);
+			keynum1.draw();
+			keynum2.draw();
+			keynum3.draw();
+			keynum4.draw();
+			keynum5.draw();
+
+		}else if(collectedBlueKeys==3) {
+			ColorfulRectangle keynum1 = new ColorfulRectangle(260,0, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum2 = new ColorfulRectangle(280,10, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum3 = new ColorfulRectangle(260,20, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum4 = new ColorfulRectangle(280,30, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum5 = new ColorfulRectangle(260,40, 30, 10, Color.WHITE);
+			keynum1.draw();
+			keynum2.draw();
+			keynum3.draw();
+			keynum4.draw();
+			keynum5.draw();
+
+		}else if(collectedBlueKeys==4) {
+			ColorfulRectangle keynum1 = new ColorfulRectangle(260,0, 10, 30, Color.WHITE);
+			ColorfulRectangle keynum2 = new ColorfulRectangle(260,20, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum3 = new ColorfulRectangle(280,0, 10, 50, Color.WHITE);		
+			keynum1.draw();
+			keynum2.draw();
+			keynum3.draw();		
+		}else if(collectedBlueKeys==5) {
+			ColorfulRectangle keynum1 = new ColorfulRectangle(260,0, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum2 = new ColorfulRectangle(260,10, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum3 = new ColorfulRectangle(260,20, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum4 = new ColorfulRectangle(280,30, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum5 = new ColorfulRectangle(260,40, 30, 10, Color.WHITE);
+			keynum1.draw();
+			keynum2.draw();
+			keynum3.draw();
+			keynum4.draw();
+			keynum5.draw();
+		}
+		
 		
 		weapon.draw();
 
@@ -2296,23 +2432,6 @@ if(endswitch==1) {
 		rects.add(new ColorfulRectangle(movex+1850,movey+-1200, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(movex+1900,movey+-1200, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(movex+1950,movey+-1200, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2000,movey+-1200, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2050,movey+-1200, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2100,movey+-1200, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2150,movey+-1200, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2200,movey+-1200, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2250,movey+-1200, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2300,movey+-1200, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2350,movey+-1200, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2400,movey+-1200, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2450,movey+-1200, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2500,movey+-1200, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2550,movey+-1200, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2600,movey+-1200, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2650,movey+-1200, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2700,movey+-1200, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2750,movey+-1200, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2800,movey+-1200, 50, 50, Color.WHITE));
 		
 		
 		//LEFT BORDER
@@ -2460,30 +2579,6 @@ if(endswitch==1) {
 		rects.add(new ColorfulRectangle(movex+1850,movey+1450, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(movex+1900,movey+1450, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(movex+1950,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2000,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2050,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2100,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2150,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2200,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2250,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2300,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2350,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2400,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2450,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2500,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2550,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2600,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2650,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2700,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2750,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2800,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2850,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2900,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+2950,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+3000,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+3050,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+3100,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+3150,movey+1450, 50, 50, Color.WHITE));
 
 		
 				
@@ -2669,6 +2764,131 @@ if(endswitch==1) {
 		rects.add(new ColorfulRectangle(movex+-2100,movey+-550, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(movex+-2100,movey+-500, 50, 50, Color.WHITE));
 
+		rects.add(new ColorfulRectangle(movex+-2300,movey+-1150, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2300,movey+-1100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2300,movey+-1050, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2300,movey+-1000, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2350,movey+-900, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2300,movey+-900, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2250,movey+-900, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2200,movey+-900, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2200,movey+-950, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2200,movey+-1000, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2200,movey+-1050, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2200,movey+-1100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2000,movey+-1150, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2000,movey+-1100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2000,movey+-1050, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2050,movey+-1050, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2100,movey+-1050, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2150,movey+-900, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2100,movey+-900, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2050,movey+-900, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2000,movey+-950, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2000,movey+-900, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1950,movey+-950, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1900,movey+-950, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1900,movey+-1000, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1900,movey+-1050, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1900,movey+-1100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1800,movey+-1150, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1800,movey+-1100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1800,movey+-1050, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1800,movey+-1000, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1800,movey+-950, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1800,movey+-900, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1800,movey+-850, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1850,movey+-850, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1900,movey+-850, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1900,movey+-800, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1950,movey+-800, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2000,movey+-800, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2050,movey+-800, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2100,movey+-800, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2150,movey+-800, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2200,movey+-800, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2250,movey+-800, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2300,movey+-800, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2350,movey+-700, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2300,movey+-700, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2250,movey+-700, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2200,movey+-700, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2150,movey+-700, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2100,movey+-700, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2050,movey+-700, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2000,movey+-700, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1950,movey+-700, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1900,movey+-700, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1850,movey+-700, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1800,movey+-700, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1800,movey+-750, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1750,movey+-750, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1700,movey+-750, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1700,movey+-850, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1700,movey+-900, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1700,movey+-950, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1700,movey+-1000, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1700,movey+-1050, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1700,movey+-1100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1700,movey+-1150, 50, 50, Color.WHITE));
+		
+		rects.add(new ColorfulRectangle(movex+-550,movey+-850, 50, 50, Color.WHITE));
+		
+		rects.add(new ColorfulRectangle(movex+900,movey+-650, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+950,movey+-650, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+1400, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+1350, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+1300, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+1250, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+1200, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+1150, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+1100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+1050, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+1000, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+950, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+900, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+850, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+800, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+750, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+700, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+650, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+600, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+550, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+500, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+450, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+400, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+350, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+300, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+250, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+200, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+150, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+50, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+0, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-50, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-150, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-200, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-250, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-300, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-350, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-400, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-450, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-500, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-550, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-600, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-650, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-700, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-750, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-800, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-850, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-900, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-950, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-1000, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-1050, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-1100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-1150, 50, 50, Color.WHITE));
+		
 	}
 
 	boolean playerInterectsBlock() {
@@ -2870,9 +3090,13 @@ if(endswitch==1) {
 					wall2=true;
 				}
 				
-				shoot=1;
+				collectedKeys+=1;
+				collectedPinkKeys+=1;
+				collectedOrangeKeys+=1;
+				collectedBlueKeys+=1;
 
-				//collectedKeys+=1;
+				
+				//shoot=1;
 
 				//rects.clear();
 
@@ -3488,14 +3712,115 @@ if(endswitch==1) {
 		x=orangedoorx+movex;
 		y=orangedoory+movey;
 		
-		if(x==player.x && y==player.y && collectedPinkKeys>=1){
-			collectedPinkKeys-=1;
+		if(x==player.x && y==player.y && collectedOrangeKeys>=1){
+			collectedOrangeKeys-=1;
 			orangedoorx=-10000;
 			orangedoory=-10000;
 			OrangeDoorin.x=-10000;
 			OrangeDoorin.y=-10000;
 
 		}else if(x==player.x && y==player.y && collectedOrangeKeys==0){
+			if(facing==1) {
+				movey-=50;
+			}		
+
+			if(facing==2) {
+				movex-=50;
+			}
+
+			if(facing==3) {
+				movey+=50;
+			}
+
+			if(facing==4) {
+				movex+=50;
+			}
+			
+		}
+		
+		}
+
+	}	
+
+	class BlueKey extends ColorfulRectangle{
+
+		int bluekeyx=x;
+		int bluekeyy=y;
+		
+
+		boolean collected = false;
+
+		public BlueKey(int x, int y, int width, int height) {
+
+			super(x, y, width, height, Color.CYAN);
+
+		}
+		
+		
+		
+		void draw() {
+			
+
+			if(!collected) {
+				super.draw();
+			}	
+		}
+		
+		public void update() {
+		
+		x=bluekeyx+movex;
+		y=bluekeyy+movey;
+		
+		if(x==player.x && y==player.y){
+			collectedBlueKeys+=1;
+			bluekeyx=-10000;
+			bluekeyy=-10000;
+		}
+		
+		}
+
+	}
+
+	
+	
+	class BlueDoor extends ColorfulRectangle{
+
+		int bluedoorx=x;
+		int bluedoory=y;
+		
+		boolean open = false;
+
+		public BlueDoor(int x, int y, int width, int height) {
+
+			super(x, y, width, height, Color.WHITE);
+
+
+		}
+		
+		
+		void draw() {
+			
+			if(!open) {
+				super.draw();
+			}	
+		}
+		
+		public void update() {
+		
+			ColorfulRectangle BlueDoorin = new ColorfulRectangle(x+10,y+10,30,30,Color.CYAN);
+			BlueDoorin.draw();
+			
+		x=bluedoorx+movex;
+		y=bluedoory+movey;
+		
+		if(x==player.x && y==player.y && collectedBlueKeys>=1){
+			collectedBlueKeys-=1;
+			bluedoorx=-10000;
+			bluedoory=-10000;
+			BlueDoorin.x=-10000;
+			BlueDoorin.y=-10000;
+
+		}else if(x==player.x && y==player.y && collectedBlueKeys==0){
 			if(facing==1) {
 				movey-=50;
 			}		

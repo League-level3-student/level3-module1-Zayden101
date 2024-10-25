@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.util.Iterator;
 
+
 public class explo {
 
 	static int x = 324;
@@ -11,13 +12,15 @@ public static void main(String[] args) {
 		//System.out.println("rects.add(buildings2ChangeColorRect" + x + ");");
 		//System.out.println("buildings2ChangeColorRect" + x + ".col = Color.MAGENTA;");
 		//System.out.println("buildings2ChangeColorRect" + x + ".col = Color.PINK;");
-		System.out.println("buildings2ChangeColorRect" + x + ".col = Color.BLUE;");
+		//System.out.println("buildings2ChangeColorRect" + x + ".col = Color.BLUE;");
 
-		x+=1;
+		//x+=1;
 	}
 	
+
+
+
+
 }
-
-
 
 }

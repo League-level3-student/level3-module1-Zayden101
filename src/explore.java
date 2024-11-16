@@ -14,7 +14,7 @@ import javax.swing.text.html.parser.Entity;
 
 import processing.core.PApplet;
 
-
+//FIX NOCLIP, OVERLAPPING OF KEYS AND DOORS
 
 //fix stupid enemy collision
 
@@ -119,14 +119,15 @@ public class explore extends PApplet {
 	
 	
 	
-
-
+	int noclip = 0;
+	boolean nocliped = false;
 
 	
 	boolean finished = false;
 	boolean displayEndingkey = false;
 	
 	boolean map = false;
+	boolean mapshown = false;
 	
 	int arandomxred = 0;
 	int arandomyred = 0;
@@ -346,11 +347,13 @@ public class explore extends PApplet {
 				rect(r.x, r.y, r.width, r.height);
 			}
 		}
-
-emeny.draw();
-emeny.update();
-
-
+		
+		if(finished==false) {
+		if(mapshown==false) {
+			emeny.draw();
+			emeny.update();
+			}
+		}
 
 //System.out.println("rects.add(new ColorfulRectangle(movex+" + count + ",movey+1450, 50, 50, Color.WHITE));");
 //count=count+50;
@@ -529,7 +532,10 @@ if(map==false) {
 		//		enemy3.x=movex+enemy3movex;
 		//		enemy3.y=movey+enemy3movey;
 
-
+		if(noclip==8) {
+			nocliped=true;
+		}
+		
 		
 		//movex+100,movey+750
 		//movex+600,movey+1000
@@ -1265,7 +1271,7 @@ if(map==false) {
 
 		
 		
-		
+
 		
 		if(map==true) {
 			mapp();
@@ -1385,15 +1391,16 @@ if(map==false) {
 
 		
 		//rect(player.x, player.y, player.width, player.height); // Draw player
+		
+		if(mapshown==false) {
 		player.draw();
-
-
-
+		}
 
 	}
 	
 	public void mapp() {	
 	int marker;
+	rects.add(new ColorfulRectangle(160,160, 440, 270, Color.BLACK));
 	rects.add(new ColorfulRectangle(400+10,280+5, 5, 5, Color.WHITE));
 	rects.add(new ColorfulRectangle(400+15,280+5, 5, 5, Color.WHITE));
 	rects.add(new ColorfulRectangle(400+20,280+5, 5, 5, Color.WHITE));
@@ -3544,20 +3551,20 @@ if(map==false) {
 
 
 		
-		rects.add(new ColorfulRectangle(400+-215,280+-105, 5, 5, Color.BLUE));
-		rects.add(new ColorfulRectangle(402+-215,282+-105, 1, 1, Color.BLUE));
+		rects.add(new ColorfulRectangle(400+-215,280+-105, 5, 5, Color.CYAN));
+		rects.add(new ColorfulRectangle(402+-215,282+-105, 1, 1, Color.WHITE));
 
-		rects.add(new ColorfulRectangle(400+-220,280+-115, 5, 5, Color.BLUE));
-		rects.add(new ColorfulRectangle(402+-220,282+-115, 1, 1, Color.BLUE));
+		rects.add(new ColorfulRectangle(400+-220,280+-115, 5, 5, Color.CYAN));
+		rects.add(new ColorfulRectangle(402+-220,282+-115, 1, 1, Color.WHITE));
 
-		rects.add(new ColorfulRectangle(400+-235,280+80, 5, 5, Color.BLUE));
-		rects.add(new ColorfulRectangle(402+-235,282+80, 1, 1, Color.BLUE));
+		rects.add(new ColorfulRectangle(400+-235,280+80, 5, 5, Color.CYAN));
+		rects.add(new ColorfulRectangle(402+-235,282+80, 1, 1, Color.WHITE));
 
-		rects.add(new ColorfulRectangle(400+-195,280+-115, 5, 5, Color.BLUE));
-		rects.add(new ColorfulRectangle(402+-195,282+-115, 1, 1, Color.BLUE));
+		rects.add(new ColorfulRectangle(400+-195,280+-115, 5, 5, Color.CYAN));
+		rects.add(new ColorfulRectangle(402+-195,282+-115, 1, 1, Color.WHITE));
 
-		rects.add(new ColorfulRectangle(400+-180,280+-80, 5, 5, Color.BLUE));
-		rects.add(new ColorfulRectangle(402+-180,282+-80, 1, 1, Color.BLUE));
+		rects.add(new ColorfulRectangle(400+-180,280+-80, 5, 5, Color.CYAN));
+		rects.add(new ColorfulRectangle(402+-180,282+-80, 1, 1, Color.WHITE));
 
 
 		rects.add(new ColorfulRectangle(400+45,280+-120, 5, 5, Color.WHITE));
@@ -3585,12 +3592,16 @@ if(map==false) {
 		rects.add(new ColorfulRectangle(400+-155,280+45, 5, 5, Color.ORANGE));
 		rects.add(new ColorfulRectangle(400+70,280+-105, 5, 5, Color.ORANGE));
 
-		rects.add(new ColorfulRectangle(400+-75,280+-85, 5, 5, Color.BLUE));
-		rects.add(new ColorfulRectangle(400+10,280+120, 5, 5, Color.BLUE));
-		rects.add(new ColorfulRectangle(400+190,280+125, 5, 5, Color.BLUE));
-		rects.add(new ColorfulRectangle(400+165,280+-40, 5, 5, Color.BLUE));
-		rects.add(new ColorfulRectangle(400+180,280+-95, 5, 5, Color.BLUE));
+		rects.add(new ColorfulRectangle(400+-75,280+-85, 5, 5, Color.CYAN));
+		rects.add(new ColorfulRectangle(400+10,280+120, 5, 5, Color.CYAN));
+		rects.add(new ColorfulRectangle(400+190,280+125, 5, 5, Color.CYAN));
+		rects.add(new ColorfulRectangle(400+165,280+-40, 5, 5, Color.CYAN));
+		rects.add(new ColorfulRectangle(400+180,280+-95, 5, 5, Color.CYAN));
 		
+		
+		
+		rects.add(new ColorfulRectangle(433+-movex/10,303+-movey/10, 9, 9, Color.RED));
+		rects.add(new ColorfulRectangle(435+-movex/10,305+-movey/10, 5, 5, Color.BLUE));
 	}
 
 	public void endingBlocks() {
@@ -9999,6 +10010,7 @@ if(map==false) {
 
 	boolean playerInterectsBlock() {
 
+
 		for(Rectangle r: rects) {
 
 			if(r!=bullet && r!=btv1 && r!=btv2 && r!=bth1 && r!=bth2) {
@@ -10008,11 +10020,9 @@ if(map==false) {
 			}
 		}
 
-
-
 		return false;
 	}
-
+	
 
 	boolean enemyInterectsBlock(Enemy e) {
 		for(Rectangle r: rects) {
@@ -10058,7 +10068,7 @@ if(map==false) {
 	}
 
 	
-	
+
 
 	boolean playerupInterectsBlock() {
 		for(Rectangle r: rects) {
@@ -10096,7 +10106,7 @@ if(map==false) {
 		return false;
 	}
 
-
+	
 
 
 
@@ -10136,7 +10146,16 @@ if(map==false) {
 
 				if(playerInterectsBlock()) {
 					movey-=50;
-				}				
+				}
+				
+				if(noclip==0) {
+					noclip=1;
+				}else if(noclip==1) {
+					noclip=2;
+				}else{
+					noclip=0;
+				}
+				
 
 			} else if (keyCode == DOWN) {
 
@@ -10152,6 +10171,15 @@ if(map==false) {
 				if(playerInterectsBlock()) {
 					movey+=50;
 				}
+				
+				if(noclip==2) {
+					noclip=3;
+				}else if(noclip==3) {
+					noclip=4;
+				}else{
+					noclip=0;
+				}
+				
 
 			} else if (keyCode == LEFT) {
 
@@ -10167,6 +10195,14 @@ if(map==false) {
 				if(playerInterectsBlock()) {
 					movex-=50;
 				}	
+				
+				if(noclip==4) {
+					noclip=5;
+				}else if(noclip==6) {
+					noclip=7;
+				}else{
+					noclip=0;
+				}
 
 			} else if (keyCode == RIGHT) {
 
@@ -10182,14 +10218,26 @@ if(map==false) {
 				if(playerInterectsBlock()) {
 					movex+=50;
 				}
+				
+				if(noclip==5) {
+					noclip=6;
+				}else if(noclip==7) {
+					noclip=8;
+				}else{
+					noclip=0;
+				}
+				
 			}
 			}
 			if (keyCode == SHIFT) {
 				//att=1;
 				if(map==false) {
 					map=true;
+					mapshown=true;
+					facing=-1;
 				}else if(map==true) {
 					map=false;
+					mapshown=false;
 				}
 				
 			} else if (keyCode == ALT) {
@@ -10206,10 +10254,10 @@ if(map==false) {
 					wall2=true;
 				}
 				
-				collectedKeys-=1;
-				collectedPinkKeys-=1;
-				collectedOrangeKeys-=1;
-				collectedBlueKeys-=1;
+				collectedKeys+=1;
+				collectedPinkKeys+=1;
+				collectedOrangeKeys+=1;
+				collectedBlueKeys+=1;
 
 				
 				//shoot=1;

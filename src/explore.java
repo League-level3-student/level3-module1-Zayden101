@@ -263,13 +263,15 @@ public class explore extends PApplet {
 	PinkKey pinkkey4 = new PinkKey(movex-800,movey-1150,50,50);
 	PinkKey pinkkey5 = new PinkKey(movex+-100,movey+1050,50,50);
 
+	//rects.add(new ColorfulRectangle(movex+1450,movey+-150, 50, 50, Color.MAGENTA));
 
 	OrangeKey orangekey1 = new OrangeKey(movex-1300,movey-450,50,50);
 	OrangeKey orangekey2 = new OrangeKey(movex+1200,movey+150,50,50);
-	OrangeKey orangekey3 = new OrangeKey(movex+1450,movey-150,50,50);
+	OrangeKey orangekey3 = new OrangeKey(movex-2000,movey+600,50,50);
 	OrangeKey orangekey4 = new OrangeKey(movex-1550,movey+450,50,50);
-	OrangeKey orangekey5 = new OrangeKey(movex+700,movey-1050,50,50);
+	OrangeKey orangekey5 = new OrangeKey(movex+1450,movey-150,50,50);
 	
+	//OrangeKey orangekey5 = new OrangeKey(movex+700,movey-1050,50,50);
 
 
 	BlueKey bluekey1 = new BlueKey(movex-750,movey-850,50,50);
@@ -281,6 +283,35 @@ public class explore extends PApplet {
 	
 	
 	Ending Ending = new Ending(movex-2350,movey-1150,50,50);
+
+	
+	
+	
+	boolean key1collected = false;
+	boolean key2collected = false;
+	boolean key3collected = false;
+	boolean key4collected = false;
+	boolean key5collected = false;
+	boolean key6collected = false;
+	boolean key7collected = false;
+
+	boolean pinkkey1collected = false;
+	boolean pinkkey2collected = false;
+	boolean pinkkey3collected = false;
+	boolean pinkkey4collected = false;
+	boolean pinkkey5collected = false;
+
+	boolean orangekey1collected = false;
+	boolean orangekey2collected = false;
+	boolean orangekey3collected = false;
+	boolean orangekey4collected = false;
+	boolean orangekey5collected = false;
+
+	boolean bluekey1collected = false;
+	boolean bluekey2collected = false;
+	boolean bluekey3collected = false;
+	boolean bluekey4collected = false;
+	boolean bluekey5collected = false;
 
 	
 	
@@ -478,10 +509,10 @@ if(map==false) {
 			rects.clear();
 		}	
 
-
+		if(mapshown==false) {
 		buildings();
 		buildings2();
-
+		}
 
 		playerup.x=player.x;
 		playerup.y=player.y-50;
@@ -698,7 +729,7 @@ if(map==false) {
 		endingBlocks();
 		}
 
-
+		if(mapshown==false) {
 		ColorfulRectangle wall1button = new ColorfulRectangle(movex+wall1buttonx,movey+wall1buttony,50,50, Color.GREEN);
 		if(player.x==wall1button.x && player.y==wall1button.y) {
 			wall1=false;
@@ -714,7 +745,7 @@ if(map==false) {
 			wall2buttony=10000;
 		}
 		wall2button.draw();
-
+		}
 		
 
 
@@ -1110,6 +1141,9 @@ if(map==false) {
 		
 		
 		if(finished==false){
+			
+			if(mapshown==false) {
+
 		door1.draw();
 		door1.update();
 
@@ -1186,7 +1220,6 @@ if(map==false) {
 		
 		
 		
-		
 		key1.draw();
 		key1.update();
 		
@@ -1256,6 +1289,9 @@ if(map==false) {
 
 		bluekey5.draw();
 		bluekey5.update();
+		
+			}
+		
 	}
 		
 		
@@ -1280,7 +1316,87 @@ if(map==false) {
 		
 
 		
+		//System.out.println(movex + " " + movey);
 		
+		//System.out.println(key1collected + " " + key2collected + " " + key3collected + " " + key4collected + " " + key5collected + " " + key6collected + " " + key7collected);
+
+		
+		
+		//KEY
+		if(player.x==movex+500 && player.y==movey-500) {
+			key1collected = true;
+		}
+		if(player.x==movex-800 && player.y==movey+550) {
+			key2collected = true;
+		}
+		if(player.x==movex-300 && player.y==movey-550) {
+			key3collected = true;
+		}
+		if(player.x==movex-350 && player.y==movey+850) {
+			key4collected = true;
+		}
+		if(player.x==movex+150 && player.y==movey+500) {
+			key5collected = true;
+		}
+		if(player.x==movex-2250 && player.y==movey-400) {
+			key6collected = true;
+		}
+		if(player.x==movex-100 && player.y==movey-1050) {
+			key7collected = true;
+		}
+
+		//PINK KEY
+		if(player.x==movex+1000 && player.y==movey+550) {
+			pinkkey1collected = true;
+		}
+		if(player.x==movex+800 && player.y==movey+1250) {
+			pinkkey2collected = true;
+		}
+		if(player.x==movex-2150 && player.y==movey+100) {
+			pinkkey3collected = true;
+		}
+		if(player.x==movex-800 && player.y==movey-1150) {
+			pinkkey4collected = true;
+		}
+		if(player.x==movex-100 && player.y==movey+1050) {
+			pinkkey5collected = true;
+		}
+
+		//ORANGE KEY
+		if(player.x==movex-1300 && player.y==movey-450) {
+			orangekey1collected = true;
+		}
+		if(player.x==movex+1200 && player.y==movey+150) {
+			orangekey2collected = true;
+		}
+		if(player.x==movex-2000 && player.y==movey+600) {
+			orangekey3collected = true;
+		}
+		if(player.x==movex-1550 && player.y==movey+450) {
+			orangekey4collected = true;
+		}
+		if(player.x==movex+700 && player.y==movey-1050) {
+			orangekey5collected = true;
+		}
+		
+		//BLUE KEY
+		if(player.x==movex-750 && player.y==movey-850) {
+			bluekey1collected = true;
+		}
+		if(player.x==movex+100 && player.y==movey+1200) {
+			bluekey2collected = true;
+		}
+		if(player.x==movex+1900 && player.y==movey+1250) {
+			bluekey3collected = true;
+		}
+		if(player.x==movex+1650 && player.y==movey-400) {
+			bluekey4collected = true;
+		}
+		if(player.x==movex+1800 && player.y==movey-950) {
+			bluekey5collected = true;
+		}
+			
+	
 		
 		weapon.draw();
 /*
@@ -3481,40 +3597,27 @@ if(map==false) {
 		
 		//MINI DOORS
 		//noStroke();
-		if(door1.x<=5000) {
 		rects.add(new ColorfulRectangle(400+35,280+-45, 5, 5, Color.YELLOW));
 		rects.add(new ColorfulRectangle(402+35,282+-45, 1, 1, Color.WHITE));
-		}
-
-		if(door2.x<=5000) {
+		
 		rects.add(new ColorfulRectangle(400+-100,280+10, 5, 5, Color.YELLOW));
 		rects.add(new ColorfulRectangle(402+-100,282+10, 1, 1, Color.WHITE));
-		}
-
-		if(door3.x<=5000) {
+		
 		rects.add(new ColorfulRectangle(400+65,280+50, 5, 5, Color.YELLOW));
 		rects.add(new ColorfulRectangle(402+65,282+50, 1, 1, Color.WHITE));
-		}
-
-		if(door4.x<=5000) {
+		
 		rects.add(new ColorfulRectangle(400+80,280+20, 5, 5, Color.YELLOW));
 		rects.add(new ColorfulRectangle(402+80,282+20, 1, 1, Color.WHITE));
-		}
 		
-		if(door5.x<=5000) {
 		rects.add(new ColorfulRectangle(400+95,280+25, 5, 5, Color.YELLOW));
 		rects.add(new ColorfulRectangle(402+95,282+25, 1, 1, Color.WHITE));
-		}
 		
-		if(door6.x<=5000) {
 		rects.add(new ColorfulRectangle(400+0,280+125, 5, 5, Color.YELLOW));
 		rects.add(new ColorfulRectangle(402+0,282+125, 1, 1, Color.WHITE));
-		}
-
-		if(door7.x<=5000) {
+		
 		rects.add(new ColorfulRectangle(400+-150,280+35, 5, 5, Color.YELLOW));
 		rects.add(new ColorfulRectangle(402+-150,282+35, 1, 1, Color.WHITE));
-		}
+		
 		
 
 		rects.add(new ColorfulRectangle(400+-85,280+80, 5, 5, Color.PINK));
@@ -3557,8 +3660,8 @@ if(map==false) {
 		rects.add(new ColorfulRectangle(400+-220,280+-115, 5, 5, Color.CYAN));
 		rects.add(new ColorfulRectangle(402+-220,282+-115, 1, 1, Color.WHITE));
 
-		rects.add(new ColorfulRectangle(400+-235,280+80, 5, 5, Color.CYAN));
-		rects.add(new ColorfulRectangle(402+-235,282+80, 1, 1, Color.WHITE));
+		rects.add(new ColorfulRectangle(400+-235,280+-80, 5, 5, Color.CYAN));
+		rects.add(new ColorfulRectangle(402+-235,282+-80, 1, 1, Color.WHITE));
 
 		rects.add(new ColorfulRectangle(400+-195,280+-115, 5, 5, Color.CYAN));
 		rects.add(new ColorfulRectangle(402+-195,282+-115, 1, 1, Color.WHITE));
@@ -3572,32 +3675,78 @@ if(map==false) {
 
 
 		
-		rects.add(new ColorfulRectangle(400+50,280+-50, 5, 5, Color.YELLOW));
-		rects.add(new ColorfulRectangle(400+-80,280+55, 5, 5, Color.YELLOW));
-		rects.add(new ColorfulRectangle(400+-30,280+-55, 5, 5, Color.YELLOW));
-		rects.add(new ColorfulRectangle(400+-35,280+85, 5, 5, Color.YELLOW));
-		rects.add(new ColorfulRectangle(400+15,280+50, 5, 5, Color.YELLOW));
-		rects.add(new ColorfulRectangle(400+-225,280+-40, 5, 5, Color.YELLOW));
-		rects.add(new ColorfulRectangle(400+-10,280+-105, 5, 5, Color.YELLOW));
-
-		rects.add(new ColorfulRectangle(400+100,280+55, 5, 5, Color.PINK));
-		rects.add(new ColorfulRectangle(400+80,280+125, 5, 5, Color.PINK));
-		rects.add(new ColorfulRectangle(400+-215,280+10, 5, 5, Color.PINK));
-		rects.add(new ColorfulRectangle(400+-80,280+-115, 5, 5, Color.PINK));
-		rects.add(new ColorfulRectangle(400+-10,280+105, 5, 5, Color.PINK));
-
-		rects.add(new ColorfulRectangle(400+-130,280+-45, 5, 5, Color.ORANGE));
-		rects.add(new ColorfulRectangle(400+120,280+15, 5, 5, Color.ORANGE));
-		rects.add(new ColorfulRectangle(400+145,280+-15, 5, 5, Color.ORANGE));
-		rects.add(new ColorfulRectangle(400+-155,280+45, 5, 5, Color.ORANGE));
-		rects.add(new ColorfulRectangle(400+70,280+-105, 5, 5, Color.ORANGE));
-
-		rects.add(new ColorfulRectangle(400+-75,280+-85, 5, 5, Color.CYAN));
-		rects.add(new ColorfulRectangle(400+10,280+120, 5, 5, Color.CYAN));
-		rects.add(new ColorfulRectangle(400+190,280+125, 5, 5, Color.CYAN));
-		rects.add(new ColorfulRectangle(400+165,280+-40, 5, 5, Color.CYAN));
-		rects.add(new ColorfulRectangle(400+180,280+-95, 5, 5, Color.CYAN));
 		
+		//KEY
+		
+		if(key1collected==false) {
+		rects.add(new ColorfulRectangle(400+50,280+-50, 5, 5, Color.YELLOW));
+		}
+		if(key2collected==false) {
+		rects.add(new ColorfulRectangle(400+-80,280+55, 5, 5, Color.YELLOW));
+		}
+		if(key3collected==false) {
+		rects.add(new ColorfulRectangle(400+-30,280+-55, 5, 5, Color.YELLOW));
+		}
+		if(key4collected==false) {
+		rects.add(new ColorfulRectangle(400+-35,280+85, 5, 5, Color.YELLOW));
+		}
+		if(key5collected==false) {
+		rects.add(new ColorfulRectangle(400+15,280+50, 5, 5, Color.YELLOW));
+		}
+		if(key6collected==false) {
+		rects.add(new ColorfulRectangle(400+-225,280+-40, 5, 5, Color.YELLOW));
+		}
+		if(key7collected==false) {
+		rects.add(new ColorfulRectangle(400+-10,280+-105, 5, 5, Color.YELLOW));
+		}
+
+		if(pinkkey1collected==false) {
+		rects.add(new ColorfulRectangle(400+100,280+55, 5, 5, Color.PINK));
+		}
+		if(pinkkey2collected==false) {
+		rects.add(new ColorfulRectangle(400+80,280+125, 5, 5, Color.PINK));
+		}
+		if(pinkkey3collected==false) {
+		rects.add(new ColorfulRectangle(400+-215,280+10, 5, 5, Color.PINK));
+		}
+		if(pinkkey4collected==false) {
+		rects.add(new ColorfulRectangle(400+-80,280+-115, 5, 5, Color.PINK));
+		}
+		if(pinkkey5collected==false) {
+		rects.add(new ColorfulRectangle(400+-10,280+105, 5, 5, Color.PINK));
+		}
+
+		if(orangekey1collected==false) {
+		rects.add(new ColorfulRectangle(400+-130,280+-45, 5, 5, Color.ORANGE));
+		}
+		if(orangekey2collected==false) {
+		rects.add(new ColorfulRectangle(400+120,280+15, 5, 5, Color.ORANGE));
+		}
+		if(orangekey3collected==false) {
+		rects.add(new ColorfulRectangle(400+145,280+-15, 5, 5, Color.ORANGE));
+		}
+		if(orangekey4collected==false) {
+		rects.add(new ColorfulRectangle(400+-155,280+45, 5, 5, Color.ORANGE));
+		}
+		if(orangekey5collected==false) {
+		rects.add(new ColorfulRectangle(400-200,280+60, 5, 5, Color.ORANGE));
+		}
+
+		if(bluekey1collected==false) {
+		rects.add(new ColorfulRectangle(400+-75,280+-85, 5, 5, Color.CYAN));
+		}
+		if(bluekey2collected==false) {
+		rects.add(new ColorfulRectangle(400+10,280+120, 5, 5, Color.CYAN));
+		}
+		if(bluekey3collected==false) {
+		rects.add(new ColorfulRectangle(400+190,280+125, 5, 5, Color.CYAN));
+		}
+		if(bluekey4collected==false) {
+		rects.add(new ColorfulRectangle(400+165,280+-40, 5, 5, Color.CYAN));
+		}
+		if(bluekey5collected==false) {
+		rects.add(new ColorfulRectangle(400+180,280+-95, 5, 5, Color.CYAN));
+		}
 		
 		
 		rects.add(new ColorfulRectangle(433+-movex/10,303+-movey/10, 9, 9, Color.RED));

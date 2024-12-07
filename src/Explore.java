@@ -23,7 +23,7 @@ import processing.core.PApplet;
 
 //add new keys, and maybe map
 
-public class explore extends PApplet {
+public class Explore extends PApplet {
 	static final int WIDTH = 800;
 	static final int HEIGHT = 600;
 
@@ -456,100 +456,6 @@ public class explore extends PApplet {
 			}
 		}
 
-		//System.out.println("rects.add(new ColorfulRectangle(movex+" + count + ",movey+1450, 50, 50, Color.WHITE));");
-		//count=count+50;
-
-
-
-		//Enemy enemy1 = new Enemy(movex+100, movey+250, 50, 50);
-		//enemy1.draw();
-		//enemy1.update();
-
-
-		//		for(Enemy e : enemies) {
-		//			e.draw();
-		//			e.update();
-		//
-		//		}
-
-
-		/*
-		(WALLS)		Color.WHITE
-		(PLAYER)	Color.BLUE
-		(KEY)		Color.CYAN
-					Color.DARK_GRAY
-		(MOVABLE)	Color.GRAY
-		(GOAL)		Color.GREEN
-					Color.LIGHT_GRAY
-		(KEY)		Color.MAGENTA
-		(Key)		Color.ORANGE
-		(TP)		Color.PINK
-		(ENEMY)		Color.RED
-		(KEY)		Color.YELLOW
-					Color.BLACK
-		 */
-
-
-
-		//		//Enemy
-		//		if(emliv==true) {
-		//			enemy.draw();
-		//		}else if(emliv==false) {
-		//			enemy.x=-50;
-		//			enemy.y=-50;
-		//		}
-		//
-		//		if(emliv2==true) {
-		//			//fill(255,0,0);
-		//			//rect(enemy2.x, enemy2.y, enemy2.width, enemy2.height); // Draw enemy
-		//			enemy2.draw();
-		//			//fill(255,255,255);
-		//		}else if(emliv2==false) {
-		//			//fill(0,0,0);
-		//			enemy2.x=-50;
-		//			enemy2.y=-50;
-		//			//rect(enemy2.x, enemy2.y, enemy2.width, enemy2.height); // Draw enemy
-		//			//enemy2.draw();
-		//			//fill(255,255,255);
-		//			
-		//		}if(emliv3==true) {
-		//			//fill(255,0,0);
-		//			//rect(enemy2.x, enemy2.y, enemy2.width, enemy2.height); // Draw enemy
-		//			enemy3.draw();
-		//			//fill(255,255,255);
-		//		}else if(emliv3==false) {
-		//			//fill(0,0,0);
-		//			enemy3.x=-50;
-		//			enemy3.y=-50;
-		//			//rect(enemy2.x, enemy2.y, enemy2.width, enemy2.height); // Draw enemy
-		//			//enemy2.draw();
-		//			//fill(255,255,255);
-		//		}
-		//		
-
-
-		//playerDead=true;
-
-
-		/**ColorfulRectangle end1 = new ColorfulRectangle(-850,1250,50,50,Color.RED);
-ColorfulRectangle end2 = new ColorfulRectangle(-850,1250,50,50,Color.YELLOW);
-ColorfulRectangle end3 = new ColorfulRectangle(-850,1250,50,50,Color.GREEN);
-ColorfulRectangle end4 = new ColorfulRectangle(-850,1250,50,50,Color.WHITE);
-ColorfulRectangle end5 = new ColorfulRectangle(-850,1250,50,50,Color.CYAN);
-
-endswitch=+1;
-
-if(endswitch==1) {
-	end1.draw();
-}else if(endswitch==2) {
-	end2.draw();
-}else if(endswitch==3) {
-	end3.draw();
-}else if(endswitch==4) {
-	end4.draw();
-}else if(endswitch==5) {
-	end5.draw();
-}**/
 
 		if(map==false) {
 			if(playerInterectsBlock()) {
@@ -572,7 +478,6 @@ if(endswitch==1) {
 		}
 
 
-
 		//draw
 
 		if(build==false){
@@ -593,45 +498,7 @@ if(endswitch==1) {
 		playerright.x=player.x+50;
 		playerright.y=player.y;
 
-		//		enemy1up.x=enemy.x;
-		//		enemy1up.y=enemy.y-50;
-		//		enemy1down.x=enemy.x;
-		//		enemy1down.y=enemy.y+50;
-		//		enemy1left.x=enemy.x-50;
-		//		enemy1left.y=enemy.y;
-		//		enemy1right.x=enemy.x+50;
-		//		enemy1right.y=enemy.y;
-		//		
-		//		enemy2up.x=enemy2.x;
-		//		enemy2up.y=enemy2.y-50;
-		//		enemy2down.x=enemy2.x;
-		//		enemy2down.y=enemy2.y+50;
-		//		enemy2left.x=enemy2.x-50;
-		//		enemy2left.y=enemy2.y;
-		//		enemy2right.x=enemy2.x+50;
-		//		enemy2right.y=enemy2.y;
-		//		
-		//		enemy3up.x=enemy3.x;
-		//		enemy3up.y=enemy3.y-50;
-		//		enemy3down.x=enemy3.x;
-		//		enemy3down.y=enemy3.y+50;
-		//		enemy3left.x=enemy3.x-50;
-		//		enemy3left.y=enemy3.y;
-		//		enemy3right.x=enemy3.x+50;
-		//		enemy3right.y=enemy3.y;
 
-
-		//System.out.println("x:" + yeldoorkey.x + "  y:" + yeldoorkey.y);
-		//System.out.println(firered.x + " " + firered.y);
-
-		//		enemy.x=movex+enemymovex;
-		//		enemy.y=movey+enemymovey;
-		//		
-		//		enemy2.x=movex+enemy2movex;
-		//		enemy2.y=movey+enemy2movey;
-		//		
-		//		enemy3.x=movex+enemy3movex;
-		//		enemy3.y=movey+enemy3movey;
 
 		if(noclip==8) {
 			nocliped=true;
@@ -731,70 +598,6 @@ if(endswitch==1) {
 		}
 
 
-		//Need To Add Doors: 
-		//rects.add(new ColorfulRectangle(movex+800,movey+200, 50, 50, Color.WHITE));
-		//rects.add(new ColorfulRectangle(movex+950,movey+250, 50, 50, Color.WHITE));
-		//rects.add(new ColorfulRectangle(movex+950,movey+450, 50, 50, Color.WHITE));
-		//rects.add(new ColorfulRectangle(movex+650,movey+500, 50, 50, Color.WHITE));
-
-
-
-		//		ColorfulRectangle yellowdoor1 = new ColorfulRectangle(movex+yellowdoor1x,movey+-450, 50, 50, Color.WHITE);
-		//		ColorfulRectangle yellowdoor1in = new ColorfulRectangle(movex+yellowdoor1inx,movey+-440, 30, 30, Color.YELLOW);
-		//
-		//		yellowdoor1.draw();
-		//		yellowdoor1in.draw();
-		//
-		//		if(player.x==yellowdoor1.x && player.y==yellowdoor1.y) {
-		//			if(collectedKeys==0) {
-		//				if(facing==1) {
-		//					movey+=50;
-		//				}		
-		//				if(facing==2) {
-		//					movey-=50;
-		//				}
-		//				if(facing==3) {
-		//					movex-=50;
-		//				}
-		//				if(facing==4) {
-		//					movex+=50;
-		//				}
-		//			}else {
-		//				collectedKeys-=1;
-		//				yellowdoor1x=10000;
-		//				yellowdoor1inx=10000;
-		//			}
-		//		}
-
-		//		ColorfulRectangle yellowdoor2 = new ColorfulRectangle(movex+yellowdoor2x,movey+100, 50, 50, Color.WHITE);
-		//		ColorfulRectangle yellowdoor2in = new ColorfulRectangle(movex+yellowdoor2inx,movey+110, 30, 30, Color.YELLOW);
-		//
-		//		yellowdoor2.draw();
-		//		yellowdoor2in.draw();
-		//
-		//		if(player.x==yellowdoor2.x && player.y==yellowdoor2.y) {
-		//			if(collectedKeys==0) {
-		//				if(facing==1) {
-		//					movey+=50;
-		//				}		
-		//				if(facing==2) {
-		//					movey-=50;
-		//				}
-		//				if(facing==3) {
-		//					movex-=50;
-		//				}
-		//				if(facing==4) {
-		//					movex+=50;
-		//				}
-		//			}else {
-		//				collectedKeys-=1;
-		//				yellowdoor2x=10000;
-		//				yellowdoor2inx=10000;
-		//			}
-		//		}
-
-
-
 		if(finished==true) {
 			endingBlocks();
 		}
@@ -817,6 +620,109 @@ if(endswitch==1) {
 			wall2button.draw();
 		}
 
+		if(finished==false){
+
+			if(mapshown==false) {
+
+				door1.draw();
+				door1.update();
+				door2.draw();
+				door2.update();
+				door3.draw();
+				door3.update();
+				door4.draw();
+				door4.update();
+				door5.draw();
+				door5.update();
+				door6.draw();
+				door6.update();
+				door7.draw();
+				door7.update();
+				
+				pinkdoor1.draw();
+				pinkdoor1.update();
+				pinkdoor2.draw();
+				pinkdoor2.update();
+				pinkdoor3.draw();
+				pinkdoor3.update();
+				pinkdoor4.draw();
+				pinkdoor4.update();
+				pinkdoor5.draw();
+				pinkdoor5.update();
+
+				orangedoor1.draw();
+				orangedoor1.update();
+				orangedoor2.draw();
+				orangedoor2.update();
+				orangedoor3.draw();
+				orangedoor3.update();
+				orangedoor4.draw();
+				orangedoor4.update();
+				orangedoor5.draw();
+				orangedoor5.update();
+
+				bluedoor1.draw();
+				bluedoor1.update();
+				bluedoor2.draw();
+				bluedoor2.update();
+				bluedoor3.draw();
+				bluedoor3.update();
+				bluedoor4.draw();
+				bluedoor4.update();
+				bluedoor5.draw();
+				bluedoor5.update();
+
+				key1.draw();
+				key1.update();
+				key2.draw();
+				key2.update();
+				key3.draw();
+				key3.update();
+				key4.draw();
+				key4.update();
+				key5.draw();
+				key5.update();
+				key6.draw();
+				key6.update();
+				key7.draw();
+				key7.update();
+
+				pinkkey1.draw();
+				pinkkey1.update();
+				pinkkey2.draw();
+				pinkkey2.update();
+				pinkkey3.draw();
+				pinkkey3.update();
+				pinkkey4.draw();
+				pinkkey4.update();
+				pinkkey5.draw();
+				pinkkey5.update();
+				
+				orangekey1.draw();
+				orangekey1.update();
+				orangekey2.draw();
+				orangekey2.update();
+				orangekey3.draw();
+				orangekey3.update();
+				orangekey4.draw();
+				orangekey4.update();
+				orangekey5.draw();
+				orangekey5.update();
+
+				bluekey1.draw();
+				bluekey1.update();
+				bluekey2.draw();
+				bluekey2.update();
+				bluekey3.draw();
+				bluekey3.update();
+				bluekey4.draw();
+				bluekey4.update();
+				bluekey5.draw();
+				bluekey5.update();
+
+			}
+
+		}
 
 
 
@@ -865,6 +771,11 @@ if(endswitch==1) {
 				colorSwitchdoor=0;
 			}
 		}
+		
+		ColorfulRectangle backdisplaybluekey = new ColorfulRectangle(200,0, 550, 50, Color.BLACK);
+		backdisplaybluekey.draw();
+
+		
 
 		//KEY COUNTER
 		if(yellowKeyCount.keys==0) {
@@ -1210,159 +1121,6 @@ if(endswitch==1) {
 
 
 
-		if(finished==false){
-
-			if(mapshown==false) {
-
-				door1.draw();
-				door1.update();
-
-				door2.draw();
-				door2.update();
-
-				door3.draw();
-				door3.update();
-
-				door4.draw();
-				door4.update();
-
-				door5.draw();
-				door5.update();
-
-				door6.draw();
-				door6.update();
-
-				door7.draw();
-				door7.update();
-
-
-
-				pinkdoor1.draw();
-				pinkdoor1.update();
-
-				pinkdoor2.draw();
-				pinkdoor2.update();
-
-				pinkdoor3.draw();
-				pinkdoor3.update();
-
-				pinkdoor4.draw();
-				pinkdoor4.update();
-
-				pinkdoor5.draw();
-				pinkdoor5.update();
-
-
-
-				orangedoor1.draw();
-				orangedoor1.update();
-
-				orangedoor2.draw();
-				orangedoor2.update();
-
-				orangedoor3.draw();
-				orangedoor3.update();
-
-				orangedoor4.draw();
-				orangedoor4.update();
-
-				orangedoor5.draw();
-				orangedoor5.update();
-
-
-
-				bluedoor1.draw();
-				bluedoor1.update();
-
-				bluedoor2.draw();
-				bluedoor2.update();
-
-				bluedoor3.draw();
-				bluedoor3.update();
-
-				bluedoor4.draw();
-				bluedoor4.update();
-
-				bluedoor5.draw();
-				bluedoor5.update();
-
-
-
-
-
-				key1.draw();
-				key1.update();
-
-				key2.draw();
-				key2.update();
-
-				key3.draw();
-				key3.update();
-
-				key4.draw();
-				key4.update();
-
-				key5.draw();
-				key5.update();
-
-				key6.draw();
-				key6.update();
-
-				key7.draw();
-				key7.update();
-
-
-				pinkkey1.draw();
-				pinkkey1.update();
-
-				pinkkey2.draw();
-				pinkkey2.update();
-
-				pinkkey3.draw();
-				pinkkey3.update();
-
-				pinkkey4.draw();
-				pinkkey4.update();
-
-				pinkkey5.draw();
-				pinkkey5.update();
-
-
-				orangekey1.draw();
-				orangekey1.update();
-
-				orangekey2.draw();
-				orangekey2.update();
-
-				orangekey3.draw();
-				orangekey3.update();
-
-				orangekey4.draw();
-				orangekey4.update();
-
-				orangekey5.draw();
-				orangekey5.update();
-
-
-
-				bluekey1.draw();
-				bluekey1.update();
-
-				bluekey2.draw();
-				bluekey2.update();
-
-				bluekey3.draw();
-				bluekey3.update();
-
-				bluekey4.draw();
-				bluekey4.update();
-
-				bluekey5.draw();
-				bluekey5.update();
-
-			}
-
-		}
 
 
 		Ending.draw();
@@ -1374,9 +1132,6 @@ if(endswitch==1) {
 
 		endingdoor2.draw();
 		endingdoor2.update();
-
-
-
 
 
 		if(map==true) {
@@ -1469,111 +1224,8 @@ if(endswitch==1) {
 
 
 		weapon.draw();
-		/*
 		//System.out.println(endingBlockSwitch);
 
-
-
-
-
-
-		//WEAPON
-
-		/*if(att==1) {
-			weapon.x=player.x+5;
-			weapon.y=player.y+5;
-
-			if(facing==1) {
-				att=0;
-				while (!weaponInterectsBlock()) {
-					weapon.y-=50;
-				}
-				if(weaponInterectsBlock());{
-					weapon.y+=50;
-					weapony=weapon.x;
-					weapony=weapon.y;
-				}
-			}
-
-			if(facing==2) {
-				att=0;
-				while (!weaponInterectsBlock()) {
-					weapon.y+=50;
-				}
-				if(weaponInterectsBlock());{
-					weapon.y-=50;
-					weapony=player.x;
-					weapony=weapon.y;
-				}
-			}
-
-			if(facing==3) {
-				att=0;
-				while (!weaponInterectsBlock()) {
-					weapon.x+=50;
-				}
-				if(weaponInterectsBlock());{
-					weapon.x-=50;
-					weaponx=weapon.x;
-					weapony=weapon.y;
-				}
-			}
-
-			if(facing==4) {
-				att=0;
-				while (!weaponInterectsBlock()) {
-					weapon.x-=50;
-				}
-				if(weaponInterectsBlock());{
-					weapon.x+=50;
-					weaponx=weapon.x;
-					weapony=weapon.y;
-				}
-			}
-			weaponShot=true;
-		}
-
-
-		if(weaponShot==true) {
-			weapon.x=weaponx+movex;
-			weapon.y=weapony+movey;
-		}else {
-			weapon.x=100005;
-			weapon.y=100005;
-		}
-
-		if(player.x==weapon.x && player.y==weapon.y) {
-			weaponShot=false;
-		}*/
-
-
-
-		//System.out.println(player.x + " " + weaponx);
-
-		//System.out.println(weapon.x+movex + " " + weapon.y);
-
-
-		/*
-		playerup.draw();
-		playerdown.draw();
-		playerleft.draw();
-		playerright.draw();
-
-		enemy1up.draw();
-		enemy1down.draw();
-		enemy1left.draw();
-		enemy1right.draw();
-
-		enemy2up.draw();
-		enemy2down.draw();
-		enemy2left.draw();
-		enemy2right.draw();
-
-		enemy3up.draw();
-		enemy3down.draw();
-		enemy3left.draw();
-		enemy3right.draw();
-		 */
 
 
 		//rect(player.x, player.y, player.width, player.height); // Draw player
@@ -10685,7 +10337,7 @@ if(endswitch==1) {
 
 
 	static public void main(String[] passedArgs) {
-		PApplet.main(explore.class.getName());
+		PApplet.main(Explore.class.getName());
 	}
 
 	/*********************** DO NOT MODIFY THE CODE BELOW ********************/

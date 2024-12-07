@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Random;
 
 import processing.core.PApplet;
@@ -217,34 +218,34 @@ public class explore extends PApplet {
 	//	int yellowdoor2x = -1000;
 	//	int yellowdoor2inx = -990;
 
-	Door door1 = new Door(movex+350,movey-450,50,50);
-	Door door2 = new Door(movex+-1000,movey+100,50,50);
-	Door door3 = new Door(movex+650,movey+500,50,50);
-	Door door4 = new Door(movex+800,movey+200,50,50);
-	Door door5 = new Door(movex+950,movey+250,50,50);
-	Door door6 = new Door(movex+0,movey+1250,50,50);
-	Door door7 = new Door(movex-1500,movey+350,50,50);
+	Door door1 = new Door(movex+350,movey-450,50,50, Color.yellow);
+	Door door2 = new Door(movex+-1000,movey+100,50,50, Color.yellow);
+	Door door3 = new Door(movex+650,movey+500,50,50, Color.yellow);
+	Door door4 = new Door(movex+800,movey+200,50,50, Color.yellow);
+	Door door5 = new Door(movex+950,movey+250,50,50,Color.yellow);
+	Door door6 = new Door(movex+0,movey+1250,50,50,Color.yellow );
+	Door door7 = new Door(movex-1500,movey+350,50,50,Color.yellow);
 
 
-	PinkDoor pinkdoor1 = new PinkDoor(movex-850,movey+800,50,50);
-	PinkDoor pinkdoor2 = new PinkDoor(movex-1000,movey-600,50,50);
-	PinkDoor pinkdoor3 = new PinkDoor(movex-1550,movey+350,50,50);
-	PinkDoor pinkdoor4 = new PinkDoor(movex-600,movey-850,50,50);
-	PinkDoor pinkdoor5 = new PinkDoor(movex+1750,movey-300,50,50);
+	Door pinkdoor1 = new Door(movex-850,movey+800,50,50, Color.pink);
+	Door pinkdoor2 = new Door(movex-1000,movey-600,50,50, Color.pink);
+	Door pinkdoor3 = new Door(movex-1550,movey+350,50,50, Color.pink);
+	Door pinkdoor4 = new Door(movex-600,movey-850,50,50, Color.pink);
+	Door pinkdoor5 = new Door(movex+1750,movey-300,50,50, Color.pink);
 
 
-	OrangeDoor orangedoor1 = new OrangeDoor(movex+150,movey+1350,50,50);
-	OrangeDoor orangedoor2 = new OrangeDoor(movex-850,movey-800,50,50);
-	OrangeDoor orangedoor3 = new OrangeDoor(movex+1000,movey-600,50,50);
-	OrangeDoor orangedoor4 = new OrangeDoor(movex-1700,movey-800,50,50);
-	OrangeDoor orangedoor5 = new OrangeDoor(movex+1450,movey+1350,50,50);
+	Door orangedoor1 = new Door(movex+150,movey+1350,50,50, Color.orange);
+	Door orangedoor2 = new Door(movex-850,movey-800,50,50, Color.orange);
+	Door orangedoor3 = new Door(movex+1000,movey-600,50,50, Color.orange);
+	Door orangedoor4 = new Door(movex-1700,movey-800,50,50, Color.orange);
+	Door orangedoor5 = new Door(movex+1450,movey+1350,50,50, Color.orange);
 
 
-	BlueDoor bluedoor1 = new BlueDoor(movex-2150,movey-1050,50,50);
-	BlueDoor bluedoor2 = new BlueDoor(movex-2200,movey-1150,50,50);
-	BlueDoor bluedoor3 = new BlueDoor(movex-2350,movey-800,50,50);
-	BlueDoor bluedoor4 = new BlueDoor(movex-1900,movey-1150,50,50);
-	BlueDoor bluedoor5 = new BlueDoor(movex-1800,movey-800,50,50);
+	Door bluedoor1 = new Door(movex-2150,movey-1050,50,50, Color.cyan);
+	Door bluedoor2 = new Door(movex-2200,movey-1150,50,50, Color.cyan);
+	Door bluedoor3 = new Door(movex-2350,movey-800,50,50, Color.cyan);
+	Door bluedoor4 = new Door(movex-1900,movey-1150,50,50, Color.cyan);
+	Door bluedoor5 = new Door(movex-1800,movey-800,50,50, Color.cyan);
 
 	Endingdoor endingdoor1 = new Endingdoor(movex+450,movey-1200,50,50);
 	Endingdoor endingdoor2 = new Endingdoor(movex+400,movey+1050,50,50);
@@ -252,37 +253,37 @@ public class explore extends PApplet {
 
 
 
-	Key key1 = new Key(movex+500,movey-500,50,50);
-	Key key2 = new Key(movex-800,movey+550,50,50);
-	Key key3 = new Key(movex-300,movey-550,50,50);
-	Key key4 = new Key(movex-350,movey+850,50,50);
-	Key key5 = new Key(movex+150,movey+500,50,50);
-	Key key6 = new Key(movex-2250,movey-400,50,50);
-	Key key7 = new Key(movex-100,movey-1050,50,50);
+	Key key1 = new Key(movex+500,movey-500,50,50, Color.yellow);
+	Key key2 = new Key(movex-800,movey+550,50,50, Color.yellow);
+	Key key3 = new Key(movex-300,movey-550,50,50, Color.yellow);
+	Key key4 = new Key(movex-350,movey+850,50,50, Color.yellow);
+	Key key5 = new Key(movex+150,movey+500,50,50, Color.yellow);
+	Key key6 = new Key(movex-2250,movey-400,50,50, Color.yellow);
+	Key key7 = new Key(movex-100,movey-1050,50,50, Color.yellow);
 
 
-	PinkKey pinkkey1 = new PinkKey(movex+1000,movey+550,50,50);
-	PinkKey pinkkey2 = new PinkKey(movex+800,movey+1250,50,50);
-	PinkKey pinkkey3 = new PinkKey(movex-2150,movey+100,50,50);
-	PinkKey pinkkey4 = new PinkKey(movex-800,movey-1150,50,50);
-	PinkKey pinkkey5 = new PinkKey(movex+-100,movey+1050,50,50);
+	Key pinkkey1 = new Key(movex+1000,movey+550,50,50, Color.pink);
+	Key pinkkey2 = new Key(movex+800,movey+1250,50,50, Color.pink);
+	Key pinkkey3 = new Key(movex-2150,movey+100,50,50, Color.pink);
+	Key pinkkey4 = new Key(movex-800,movey-1150,50,50, Color.pink);
+	Key pinkkey5 = new Key(movex+-100,movey+1050,50,50, Color.pink);
 
 	//rects.add(new ColorfulRectangle(movex+1450,movey+-150, 50, 50, Color.MAGENTA));
 
-	OrangeKey orangekey1 = new OrangeKey(movex-1300,movey-450,50,50);
-	OrangeKey orangekey2 = new OrangeKey(movex+1200,movey+150,50,50);
-	OrangeKey orangekey3 = new OrangeKey(movex-2000,movey+600,50,50);
-	OrangeKey orangekey4 = new OrangeKey(movex-1550,movey+450,50,50);
-	OrangeKey orangekey5 = new OrangeKey(movex+1450,movey-150,50,50);
+	Key orangekey1 = new Key(movex-1300,movey-450,50,50, Color.orange);
+	Key orangekey2 = new Key(movex+1200,movey+150,50,50, Color.orange);
+	Key orangekey3 = new Key(movex-2000,movey+600,50,50, Color.orange);
+	Key orangekey4 = new Key(movex-1550,movey+450,50,50, Color.orange);
+	Key orangekey5 = new Key(movex+1450,movey-150,50,50, Color.orange);
 
 	//OrangeKey orangekey5 = new OrangeKey(movex+700,movey-1050,50,50);
 
 
-	BlueKey bluekey1 = new BlueKey(movex-750,movey-850,50,50);
-	BlueKey bluekey2 = new BlueKey(movex+100,movey+1200,50,50);
-	BlueKey bluekey3 = new BlueKey(movex+1900,movey+1250,50,50);
-	BlueKey bluekey4 = new BlueKey(movex+1650,movey-400,50,50);
-	BlueKey bluekey5 = new BlueKey(movex+1800,movey-950,50,50);
+	Key bluekey1 = new Key(movex-750,movey-850,50,50, Color.cyan);
+	Key bluekey2 = new Key(movex+100,movey+1200,50,50, Color.cyan);
+	Key bluekey3 = new Key(movex+1900,movey+1250,50,50, Color.cyan);
+	Key bluekey4 = new Key(movex+1650,movey-400,50,50, Color.cyan);
+	Key bluekey5 = new Key(movex+1800,movey-950,50,50, Color.cyan);
 
 
 
@@ -866,7 +867,7 @@ if(endswitch==1) {
 		}
 
 		//KEY COUNTER
-		if(collectedKeys==0) {
+		if(yellowKeyCount.keys==0) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(710,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(710,10, 10, 30, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(710,40, 30, 10, Color.WHITE);
@@ -876,11 +877,11 @@ if(endswitch==1) {
 			keynum3.draw();
 			keynum4.draw();
 
-		}else if(collectedKeys==1) {
+		}else if(yellowKeyCount.keys==1) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(720,0, 10, 50, Color.WHITE);
 			keynum1.draw();
 
-		}else if(collectedKeys==2) {
+		}else if(yellowKeyCount.keys==2) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(710,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(730,10, 10, 20, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(710,20, 30, 10, Color.WHITE);
@@ -892,7 +893,7 @@ if(endswitch==1) {
 			keynum4.draw();
 			keynum5.draw();
 
-		}else if(collectedKeys==3) {
+		}else if(yellowKeyCount.keys==3) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(710,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(730,10, 10, 20, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(710,20, 30, 10, Color.WHITE);
@@ -904,7 +905,7 @@ if(endswitch==1) {
 			keynum4.draw();
 			keynum5.draw();
 
-		}else if(collectedKeys==4) {
+		}else if(yellowKeyCount.keys==4) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(710,0, 10, 30, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(710,20, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(730,0, 10, 50, Color.WHITE);		
@@ -912,7 +913,7 @@ if(endswitch==1) {
 			keynum2.draw();
 			keynum3.draw();		
 
-		}else if(collectedKeys==5) {
+		}else if(yellowKeyCount.keys==5) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(710,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(710,10, 10, 20, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(710,20, 30, 10, Color.WHITE);
@@ -929,7 +930,7 @@ if(endswitch==1) {
 
 
 		//PINK KEY COUNTER
-		if(collectedPinkKeys==0) {
+		if(pinkKeyCount.keys==0) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(560,10, 10, 30, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(560,40, 30, 10, Color.WHITE);
@@ -939,11 +940,11 @@ if(endswitch==1) {
 			keynum3.draw();
 			keynum4.draw();
 
-		}else if(collectedPinkKeys==1) {
+		}else if(pinkKeyCount.keys==1) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(570,0, 10, 50, Color.WHITE);
 			keynum1.draw();
 
-		}else if(collectedPinkKeys==2) {
+		}else if(pinkKeyCount.keys==2) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(580,10, 10, 20, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(560,20, 30, 10, Color.WHITE);
@@ -955,7 +956,7 @@ if(endswitch==1) {
 			keynum4.draw();
 			keynum5.draw();
 
-		}else if(collectedPinkKeys==3) {
+		}else if(pinkKeyCount.keys==3) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(580,10, 10, 20, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(560,20, 30, 10, Color.WHITE);
@@ -967,14 +968,14 @@ if(endswitch==1) {
 			keynum4.draw();
 			keynum5.draw();
 
-		}else if(collectedPinkKeys==4) {
+		}else if(pinkKeyCount.keys==4) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 10, 30, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(560,20, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(580,0, 10, 50, Color.WHITE);		
 			keynum1.draw();
 			keynum2.draw();
 			keynum3.draw();		
-		}else if(collectedPinkKeys==5) {
+		}else if(pinkKeyCount.keys==5) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(560,10, 10, 20, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(560,20, 30, 10, Color.WHITE);
@@ -990,7 +991,7 @@ if(endswitch==1) {
 
 
 		//ORANGE KEY COUNTER
-		if(collectedOrangeKeys==0) {
+		if(orangeKeyCount.keys==0) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(410,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(410,10, 10, 30, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(410,40, 30, 10, Color.WHITE);
@@ -1000,11 +1001,11 @@ if(endswitch==1) {
 			keynum3.draw();
 			keynum4.draw();
 
-		}else if(collectedOrangeKeys==1) {
+		}else if(orangeKeyCount.keys==1) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(420,0, 10, 50, Color.WHITE);
 			keynum1.draw();
 
-		}else if(collectedOrangeKeys==2) {
+		}else if(orangeKeyCount.keys==2) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(410,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(430,10, 10, 20, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(410,20, 30, 10, Color.WHITE);
@@ -1016,7 +1017,7 @@ if(endswitch==1) {
 			keynum4.draw();
 			keynum5.draw();
 
-		}else if(collectedOrangeKeys==3) {
+		}else if(orangeKeyCount.keys==3) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(410,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(430,10, 10, 20, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(410,20, 30, 10, Color.WHITE);
@@ -1028,14 +1029,14 @@ if(endswitch==1) {
 			keynum4.draw();
 			keynum5.draw();
 
-		}else if(collectedOrangeKeys==4) {
+		}else if(orangeKeyCount.keys==4) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(410,0, 10, 30, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(410,20, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(430,0, 10, 50, Color.WHITE);		
 			keynum1.draw();
 			keynum2.draw();
 			keynum3.draw();		
-		}else if(collectedOrangeKeys==5) {
+		}else if(orangeKeyCount.keys==5) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(410,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(410,10, 10, 20, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(410,20, 30, 10, Color.WHITE);
@@ -1051,7 +1052,7 @@ if(endswitch==1) {
 
 
 		//BLUE KEY COUNTER
-		if(collectedBlueKeys==0) {
+		if(blueKeyCount.keys==0) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(260,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(260,10, 10, 30, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(260,40, 30, 10, Color.WHITE);
@@ -1061,11 +1062,11 @@ if(endswitch==1) {
 			keynum3.draw();
 			keynum4.draw();
 
-		}else if(collectedBlueKeys==1) {
+		}else if(blueKeyCount.keys==1) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(270,0, 10, 50, Color.WHITE);
 			keynum1.draw();
 
-		}else if(collectedBlueKeys==2) {
+		}else if(blueKeyCount.keys==2) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(260,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(280,10, 10, 20, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(260,20, 30, 10, Color.WHITE);
@@ -1077,7 +1078,7 @@ if(endswitch==1) {
 			keynum4.draw();
 			keynum5.draw();
 
-		}else if(collectedBlueKeys==3) {
+		}else if(blueKeyCount.keys==3) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(260,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(280,10, 10, 20, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(260,20, 30, 10, Color.WHITE);
@@ -1089,14 +1090,14 @@ if(endswitch==1) {
 			keynum4.draw();
 			keynum5.draw();
 
-		}else if(collectedBlueKeys==4) {
+		}else if(blueKeyCount.keys==4) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(260,0, 10, 30, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(260,20, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(280,0, 10, 50, Color.WHITE);		
 			keynum1.draw();
 			keynum2.draw();
 			keynum3.draw();		
-		}else if(collectedBlueKeys==5) {
+		}else if(blueKeyCount.keys==5) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(260,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(260,10, 10, 20, Color.WHITE);
 			ColorfulRectangle keynum3 = new ColorfulRectangle(260,20, 30, 10, Color.WHITE);
@@ -11010,13 +11011,22 @@ if(endswitch==1) {
 
 		boolean collected = false;
 
-		public Key(int x, int y, int width, int height) {
+		public Key(int x, int y, int width, int height, Color color) {
 
-			super(x, y, width, height, Color.YELLOW);
+			super(x, y, width, height, color);
 
 		}
 
-
+		@Override
+		public boolean equals(Object obj) {
+			// TODO Auto-generated method stub
+			return this==obj;
+		}
+		@Override
+		public int hashCode() {
+			// TODO Auto-generated method stub
+			return Objects.hash(keyx, keyy);
+		}
 
 		void draw() {
 
@@ -11033,8 +11043,10 @@ if(endswitch==1) {
 
 			if(x==player.x && y==player.y){
 			//	collectedKeys+=1;
-				KeyCount collectedKeys = keyToKeyCount.get(this);
-				collectedKeys.keys+=1;
+				
+				KeyCount keyCount = keyToKeyCount.get(this);
+				
+				keyCount.keys+=1;
 				
 				keyx=-10000;
 				keyy=-10000;
@@ -11052,14 +11064,12 @@ if(endswitch==1) {
 
 		int doorx=x;
 		int doory=y;
-
+		Color innerColor;
 		boolean open = false;
 
-		public Door(int x, int y, int width, int height) {
-
+		public Door(int x, int y, int width, int height, Color color) {
 			super(x, y, width, height, Color.WHITE);
-
-
+			this.innerColor = color;
 		}
 
 
@@ -11070,9 +11080,20 @@ if(endswitch==1) {
 			}	
 		}
 
+		@Override
+		public boolean equals(Object obj) {
+			// TODO Auto-generated method stub
+			return this==obj;
+		}
+		@Override
+		public int hashCode() {
+			// TODO Auto-generated method stub
+			return Objects.hash(doorx, doory);
+		}
+		
 		public void update() {
 
-			ColorfulRectangle Doorin = new ColorfulRectangle(x+10,y+10,30,30,Color.YELLOW);
+			ColorfulRectangle Doorin = new ColorfulRectangle(x+10,y+10,30,30,innerColor);
 			Doorin.draw();
 
 			x=doorx+movex;
@@ -11110,314 +11131,6 @@ if(endswitch==1) {
 
 
 
-	class PinkKey extends ColorfulRectangle{
-
-		int pinkkeyx=x;
-		int pinkkeyy=y;
-
-
-		boolean collected = false;
-
-		public PinkKey(int x, int y, int width, int height) {
-
-			super(x, y, width, height, Color.PINK);
-
-		}
-
-
-
-		void draw() {
-
-
-			if(!collected) {
-				super.draw();
-			}	
-		}
-
-		public void update() {
-
-			x=pinkkeyx+movex;
-			y=pinkkeyy+movey;
-
-			if(x==player.x && y==player.y){
-				collectedPinkKeys+=1;
-				pinkkeyx=-10000;
-				pinkkeyy=-10000;
-
-				totalPinkKeyCollected+=1;
-			}
-
-		}
-
-	}
-
-
-
-	class PinkDoor extends ColorfulRectangle{
-
-		int pinkdoorx=x;
-		int pinkdoory=y;
-
-		boolean open = false;
-
-		public PinkDoor(int x, int y, int width, int height) {
-
-			super(x, y, width, height, Color.WHITE);
-
-
-		}
-
-
-		void draw() {
-
-			if(!open) {
-				super.draw();
-			}	
-		}
-
-		public void update() {
-
-			ColorfulRectangle PinkDoorin = new ColorfulRectangle(x+10,y+10,30,30,Color.PINK);
-			PinkDoorin.draw();
-
-			x=pinkdoorx+movex;
-			y=pinkdoory+movey;
-
-			if(x==player.x && y==player.y && collectedPinkKeys>=1){
-				collectedPinkKeys-=1;
-				pinkdoorx=-10000;
-				pinkdoory=-10000;
-				PinkDoorin.x=-10000;
-				PinkDoorin.y=-10000;
-
-			}else if(x==player.x && y==player.y && collectedPinkKeys==0){
-				if(facing==1) {
-					movey-=50;
-				}		
-
-				if(facing==2) {
-					movex-=50;
-				}
-
-				if(facing==3) {
-					movey+=50;
-				}
-
-				if(facing==4) {
-					movex+=50;
-				}
-
-			}
-
-		}
-
-	}
-
-
-	class OrangeKey extends ColorfulRectangle{
-
-		int orangekeyx=x;
-		int orangekeyy=y;
-
-
-		boolean collected = false;
-
-		public OrangeKey(int x, int y, int width, int height) {
-
-			super(x, y, width, height, Color.ORANGE);
-
-		}
-
-
-
-		void draw() {
-
-
-			if(!collected) {
-				super.draw();
-			}	
-		}
-
-		public void update() {
-
-			x=orangekeyx+movex;
-			y=orangekeyy+movey;
-
-			if(x==player.x && y==player.y){
-				collectedOrangeKeys+=1;		
-				orangekeyx=-10000;
-				orangekeyy=-10000;
-
-				totalOrangeKeyCollected+=1;
-			}
-
-		}
-
-	}
-
-
-	class OrangeDoor extends ColorfulRectangle{
-
-		int orangedoorx=x;
-		int orangedoory=y;
-
-		boolean open = false;
-
-		public OrangeDoor(int x, int y, int width, int height) {
-
-			super(x, y, width, height, Color.WHITE);
-
-
-		}
-
-
-		void draw() {
-
-			if(!open) {
-				super.draw();
-			}	
-		}
-
-		public void update() {
-
-			ColorfulRectangle OrangeDoorin = new ColorfulRectangle(x+10,y+10,30,30,Color.ORANGE);
-			OrangeDoorin.draw();
-
-			x=orangedoorx+movex;
-			y=orangedoory+movey;
-
-			if(x==player.x && y==player.y && collectedOrangeKeys>=1){
-				collectedOrangeKeys-=1;
-				orangedoorx=-10000;
-				orangedoory=-10000;
-				OrangeDoorin.x=-10000;
-				OrangeDoorin.y=-10000;
-
-			}else if(x==player.x && y==player.y && collectedOrangeKeys==0){
-				if(facing==1) {
-					movey-=50;
-				}		
-
-				if(facing==2) {
-					movex-=50;
-				}
-
-				if(facing==3) {
-					movey+=50;
-				}
-
-				if(facing==4) {
-					movex+=50;
-				}
-
-			}
-
-		}
-
-	}	
-
-	class BlueKey extends ColorfulRectangle{
-
-		int bluekeyx=x;
-		int bluekeyy=y;
-
-
-		boolean collected = false;
-
-		public BlueKey(int x, int y, int width, int height) {
-
-			super(x, y, width, height, Color.CYAN);
-
-		}
-
-
-
-		void draw() {
-
-
-			if(!collected) {
-				super.draw();
-			}	
-		}
-
-		public void update() {
-
-			x=bluekeyx+movex;
-			y=bluekeyy+movey;
-
-			if(x==player.x && y==player.y){
-				collectedBlueKeys+=1;
-				bluekeyx=-10000;
-				bluekeyy=-10000;
-
-				totalBlueKeyCollected+=1;
-			}
-
-		}
-
-	}
-
-
-
-	class BlueDoor extends ColorfulRectangle{
-
-		int bluedoorx=x;
-		int bluedoory=y;
-
-		boolean open = false;
-
-		public BlueDoor(int x, int y, int width, int height) {
-
-			super(x, y, width, height, Color.WHITE);
-
-
-		}
-
-
-		void draw() {
-
-			if(!open) {
-				super.draw();
-			}	
-		}
-
-		public void update() {
-
-			ColorfulRectangle BlueDoorin = new ColorfulRectangle(x+10,y+10,30,30,Color.CYAN);
-			BlueDoorin.draw();
-
-			x=bluedoorx+movex;
-			y=bluedoory+movey;
-
-			if(x==player.x && y==player.y && collectedBlueKeys>=1){
-				collectedBlueKeys-=1;
-				bluedoorx=-10000;
-				bluedoory=-10000;
-				BlueDoorin.x=-10000;
-				BlueDoorin.y=-10000;
-
-			}else if(x==player.x && y==player.y && collectedBlueKeys==0){
-				if(facing==1) {
-					movey-=50;
-				}		
-
-				if(facing==2) {
-					movex-=50;
-				}
-
-				if(facing==3) {
-					movey+=50;
-				}
-
-				if(facing==4) {
-					movex+=50;
-				}
-
-			}
-
-		}
-
-	}
 
 
 

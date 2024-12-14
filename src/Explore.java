@@ -11,6 +11,8 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 import processing.core.PApplet;
 
 //FIX NOCLIP, OVERLAPPING OF KEYS AND DOORS
@@ -62,6 +64,7 @@ public class Explore extends PApplet {
 	int enemyRandomMove3=4;
 
 	int wait = 0;
+
 
 
 	int movex = 0;
@@ -133,6 +136,8 @@ public class Explore extends PApplet {
 
 	boolean map = false;
 	boolean mapshown = false;
+	
+	boolean option = false;
 
 	int arandomxred = 0;
 	int arandomyred = 0;
@@ -167,15 +172,8 @@ public class Explore extends PApplet {
 
 
 	Enemy emeny = new Enemy(100,250,50,50);
-	//	Enemy emeny2 = new Enemy(0,-250,50,50);
-	//	Enemy emeny3 = new Enemy(-100,500,50,50);
-	//
-	//
-	//
-	ColorfulRectangle enemy = new ColorfulRectangle(100,250,50,50,Color.RED);
-	//	ColorfulRectangle enemy2 = new ColorfulRectangle(0,-250,50,50, Color.RED);
-	//	ColorfulRectangle enemy3 = new ColorfulRectangle(-100,500,50,50, Color.RED);
 
+	ColorfulRectangle enemy = new ColorfulRectangle(100,250,50,50,Color.RED);
 
 	ColorfulRectangle playerup = new ColorfulRectangle(enemy.x,enemy.y-50,10,10,Color.BLUE);
 	ColorfulRectangle playerdown = new ColorfulRectangle(enemy.x,enemy.y+50,10,10, Color.BLUE);
@@ -211,12 +209,6 @@ public class Explore extends PApplet {
 	int wall2buttonx = -900;
 	int wall2buttony = 900;
 
-
-	//	int yellowdoor1x = 350;
-	//	int yellowdoor1inx = 360;
-	//
-	//	int yellowdoor2x = -1000;
-	//	int yellowdoor2inx = -990;
 
 	Door door1 = new Door(movex+350,movey-450,50,50, Color.yellow);
 	Door door2 = new Door(movex+-1000,movey+100,50,50, Color.yellow);
@@ -289,7 +281,7 @@ public class Explore extends PApplet {
 
 	Ending Ending = new Ending(movex-2350,movey-1150,50,50);
 
-
+	Random randon = new Random();
 
 
 	boolean key1collected = false;
@@ -318,12 +310,24 @@ public class Explore extends PApplet {
 	boolean bluekey4collected = false;
 	boolean bluekey5collected = false;
 
+	ColorfulRectangle aEndingred2 = new ColorfulRectangle(movex-2350,movey-1150,50,50,Color.RED);
+	ColorfulRectangle aEndingorange2 = new ColorfulRectangle(movex-2350,movey-1150,45,45,Color.ORANGE);
+	ColorfulRectangle aEndingyellow2 = new ColorfulRectangle(movex-2350,movey-1150,40,40,Color.YELLOW);
+	ColorfulRectangle aEndinggreen2 = new ColorfulRectangle(movex-2350,movey-1150,35,35,Color.GREEN);
+	ColorfulRectangle aEndingblue2 = new ColorfulRectangle(movex-2350,movey-1150,30,30,Color.BLUE);
+	ColorfulRectangle aEndingpurple2 = new ColorfulRectangle(movex-2350,movey-1150,25,25,Color.MAGENTA);
+	ColorfulRectangle aEndinggray2 = new ColorfulRectangle(movex-2350,movey-1150,20,20,Color.LIGHT_GRAY);
+	ColorfulRectangle aEndingwhite2 = new ColorfulRectangle(movex-2350,movey-1150,15,15,Color.WHITE);
+	
+	ColorfulRectangle Endingred2 = new ColorfulRectangle(movex+randomxred+100,movey+randomyred+750,50,50,Color.RED);
+	ColorfulRectangle Endingorange2 = new ColorfulRectangle(movex+randomxorange+100,movey+randomyorange+750,45,45,Color.ORANGE);
+	ColorfulRectangle Endingyellow2 = new ColorfulRectangle(movex+randomxyellow+100,movey+randomyyellow+750,40,40,Color.YELLOW);
+	ColorfulRectangle Endinggreen2 = new ColorfulRectangle(movex+randomxgreen+100,movey+randomygreen+750,35,35,Color.GREEN);
+	ColorfulRectangle Endingblue2 = new ColorfulRectangle(movex+randomxblue+100,movey+randomyblue+750,30,30,Color.BLUE);
+	ColorfulRectangle Endingpurple2 = new ColorfulRectangle(movex+randomxpurple+100,movey+randomypurple+750,25,25,Color.MAGENTA);
+	ColorfulRectangle Endinggray2 = new ColorfulRectangle(movex+randomxgrey+100,movey+randomygrey+750,20,20,Color.LIGHT_GRAY);
+	ColorfulRectangle Endingwhite2 = new ColorfulRectangle(movex+randomxwhite+100,movey+randomywhite+750,15,15,Color.WHITE);
 
-
-
-
-	//rects.add(new ColorfulRectangle(movex+600,movey+1000, 50, 50, Color.WHITE));
-	//rects.add(new ColorfulRectangle(movex+100,movey+750, 50, 50, Color.WHITE));
 
 
 	int waitTime = 25;
@@ -340,7 +344,10 @@ public class Explore extends PApplet {
 	Map<ColorfulRectangle, KeyCount> keyToKeyCount= new HashMap<ColorfulRectangle, KeyCount>();
 	boolean build = false;
 	boolean spooky = false;
+	boolean options = true;
 
+	boolean NoStroke;
+	boolean NoUIBackground;
 
 	@Override
 	public void settings() {
@@ -412,10 +419,6 @@ public class Explore extends PApplet {
 		keyToKeyCount.put(bluekey4, blueKeyCount);
 		keyToKeyCount.put(bluekey5, blueKeyCount);
 		
-		//keyToKeyCount.put(Ending, endingKeyCount);
-		//keyToKeyCount.put(endingdoor2, endingKeyCount);
-
-
 		
 		//JOptionPane.showMessageDialog(null, "Arrow keys to move \n*Shift* to surround attack \n*Alt* to shoot bullet (shoots through walls cuz im too lazy to fix it)");
 
@@ -434,13 +437,6 @@ public class Explore extends PApplet {
 		//ENEMY 1=up, 2=down, 3=right, 4=left
 		//PLAYER 1=up, 2=left, 3=down, 4=right
 
-		//Key key_1 = new Key(movex+350,movey+150,50,50);
-
-		//System.out.println(collectedKeys);
-
-		//stroke();
-
-
 		for(Rectangle r : rects) {
 			if(r instanceof ColorfulRectangle) {
 				((ColorfulRectangle) r).draw();
@@ -458,6 +454,7 @@ public class Explore extends PApplet {
 
 
 		if(map==false) {
+			if(nocliped==false) {
 			if(playerInterectsBlock()) {
 				if(facing==1) {
 					movey-=50;
@@ -475,9 +472,10 @@ public class Explore extends PApplet {
 					movex+=50;
 				}
 			}
+			}
 		}
-
-
+		
+		
 		//draw
 
 		if(build==false){
@@ -497,45 +495,51 @@ public class Explore extends PApplet {
 		playerleft.y=player.y;
 		playerright.x=player.x+50;
 		playerright.y=player.y;
-
-
-
+		
+		
+		if(nocliped==true) {
+		playerup.x=99999;
+		playerup.y=99999;
+		playerdown.x=99999;
+		playerdown.y=99999;
+		playerleft.x=99999;
+		playerleft.y=99999;
+		playerright.x=99999;
+		playerright.y=99999;
+		}
+			
+		//System.out.println(nocliped);
+		
 		if(noclip==8) {
 			nocliped=true;
 		}
 
-
-		//movex+100,movey+750
-		//movex+600,movey+1000
-
-
-		randomxred = new Random().nextInt(500);
-		randomyred = new Random().nextInt(250);
-		randomxorange = new Random().nextInt(500);
-		randomyorange = new Random().nextInt(250);
-		randomxyellow = new Random().nextInt(500);
-		randomyyellow = new Random().nextInt(250);
-		randomxgreen = new Random().nextInt(500);
-		randomygreen = new Random().nextInt(250);
-		randomxblue = new Random().nextInt(500);
-		randomyblue = new Random().nextInt(250);
-		randomxpurple = new Random().nextInt(500);
-		randomypurple = new Random().nextInt(250);
-		randomxgrey = new Random().nextInt(500);
-		randomygrey = new Random().nextInt(250);
-		randomxwhite = new Random().nextInt(500);
-		randomywhite = new Random().nextInt(250);
+		randomxred = randon.nextInt(500);
+		randomyred = randon.nextInt(250);
+		randomxorange = randon.nextInt(500);
+		randomyorange = randon.nextInt(250);
+		randomxyellow = randon.nextInt(500);
+		randomyyellow = randon.nextInt(250);
+		randomxgreen = randon.nextInt(500);
+		randomygreen = randon.nextInt(250);
+		randomxblue = randon.nextInt(500);
+		randomyblue = randon.nextInt(250);
+		randomxpurple = randon.nextInt(500);
+		randomypurple = randon.nextInt(250);
+		randomxgrey = randon.nextInt(500);
+		randomygrey = randon.nextInt(250);
+		randomxwhite = randon.nextInt(500);
+		randomywhite = randon.nextInt(250);
 
 
-
-		ColorfulRectangle Endingred2 = new ColorfulRectangle(movex+randomxred+100,movey+randomyred+750,50,50,Color.RED);
-		ColorfulRectangle Endingorange2 = new ColorfulRectangle(movex+randomxorange+100,movey+randomyorange+750,45,45,Color.ORANGE);
-		ColorfulRectangle Endingyellow2 = new ColorfulRectangle(movex+randomxyellow+100,movey+randomyyellow+750,40,40,Color.YELLOW);
-		ColorfulRectangle Endinggreen2 = new ColorfulRectangle(movex+randomxgreen+100,movey+randomygreen+750,35,35,Color.GREEN);
-		ColorfulRectangle Endingblue2 = new ColorfulRectangle(movex+randomxblue+100,movey+randomyblue+750,30,30,Color.BLUE);
-		ColorfulRectangle Endingpurple2 = new ColorfulRectangle(movex+randomxpurple+100,movey+randomypurple+750,25,25,Color.MAGENTA);
-		ColorfulRectangle Endinggray2 = new ColorfulRectangle(movex+randomxgrey+100,movey+randomygrey+750,20,20,Color.LIGHT_GRAY);
-		ColorfulRectangle Endingwhite2 = new ColorfulRectangle(movex+randomxwhite+100,movey+randomywhite+750,15,15,Color.WHITE);
+		Endingred2.setBounds(movex+randomxred+100,movey+randomyred+750,50,50);
+		Endingorange2.setBounds(movex+randomxorange+100,movey+randomyorange+750,45,45);
+		Endingyellow2.setBounds(movex+randomxyellow+100,movey+randomyyellow+750,40,40);
+		Endinggreen2.setBounds(movex+randomxgreen+100,movey+randomygreen+750,35,35);
+		Endingblue2.setBounds(movex+randomxblue+100,movey+randomyblue+750,30,30);
+		Endingpurple2.setBounds(movex+randomxpurple+100,movey+randomypurple+750,25,25);
+		Endinggray2.setBounds(movex+randomxgrey+100,movey+randomygrey+750,20,20);
+		Endingwhite2.setBounds(movex+randomxwhite+100,movey+randomywhite+750,15,15);
 
 		Endingred2.draw();
 		Endingorange2.draw();
@@ -548,10 +552,6 @@ public class Explore extends PApplet {
 
 
 
-		//300-800
-
-
-
 		if(player.x==movex-2350 && player.y==movey-1150) {
 			movex=50;
 			movey=-600;
@@ -561,30 +561,32 @@ public class Explore extends PApplet {
 
 
 		if(finished==true) {
-			arandomxred = new Random().nextInt(4300);
-			arandomyred = new Random().nextInt(3100);
-			arandomxorange = new Random().nextInt(4300);
-			arandomyorange = new Random().nextInt(3100);
-			arandomxyellow = new Random().nextInt(4300);
-			arandomyyellow = new Random().nextInt(3100);
-			arandomxgreen = new Random().nextInt(4300);
-			arandomygreen = new Random().nextInt(3100);
-			arandomxblue = new Random().nextInt(4300);
-			arandomyblue = new Random().nextInt(3100);
-			arandomxpurple = new Random().nextInt(4300);
-			arandomypurple = new Random().nextInt(3100);
-			arandomxgrey = new Random().nextInt(4300);
-			arandomygrey = new Random().nextInt(3100);
-			arandomxwhite = new Random().nextInt(4300);
-			arandomywhite = new Random().nextInt(3100);
-			ColorfulRectangle aEndingred2 = new ColorfulRectangle(movex+arandomxred-2350,movey+arandomyred-1150,50,50,Color.RED);
-			ColorfulRectangle aEndingorange2 = new ColorfulRectangle(movex+arandomxorange-2350,movey+arandomyorange-1150,45,45,Color.ORANGE);
-			ColorfulRectangle aEndingyellow2 = new ColorfulRectangle(movex+arandomxyellow-2350,movey+arandomyyellow-1150,40,40,Color.YELLOW);
-			ColorfulRectangle aEndinggreen2 = new ColorfulRectangle(movex+arandomxgreen-2350,movey+arandomygreen-1150,35,35,Color.GREEN);
-			ColorfulRectangle aEndingblue2 = new ColorfulRectangle(movex+arandomxblue-2350,movey+arandomyblue-1150,30,30,Color.BLUE);
-			ColorfulRectangle aEndingpurple2 = new ColorfulRectangle(movex+arandomxpurple-2350,movey+arandomypurple-1150,25,25,Color.MAGENTA);
-			ColorfulRectangle aEndinggray2 = new ColorfulRectangle(movex+arandomxgrey-2350,movey+arandomygrey-1150,20,20,Color.LIGHT_GRAY);
-			ColorfulRectangle aEndingwhite2 = new ColorfulRectangle(movex+arandomxwhite-2350,movey+arandomywhite-1150,15,15,Color.WHITE);
+			arandomxred = randon.nextInt(4300);
+			arandomyred = randon.nextInt(3100);
+			arandomxorange = randon.nextInt(4300);
+			arandomyorange = randon.nextInt(3100);
+			arandomxyellow = randon.nextInt(4300);
+			arandomyyellow = randon.nextInt(3100);
+			arandomxgreen = randon.nextInt(4300);
+			arandomygreen = randon.nextInt(3100);
+			arandomxblue = randon.nextInt(4300);
+			arandomyblue = randon.nextInt(3100);
+			arandomxpurple = randon.nextInt(4300);
+			arandomypurple = randon.nextInt(3100);
+			arandomxgrey = randon.nextInt(4300);
+			arandomygrey = randon.nextInt(3100);
+			arandomxwhite = randon.nextInt(4300);
+			arandomywhite = randon.nextInt(3100);
+			
+			aEndingred2.setBounds(movex+arandomxred-2350,movey+arandomyred-1150,50,50);
+			aEndingorange2.setBounds(movex+arandomxorange-2350,movey+arandomyorange-1150,45,45);
+			aEndingyellow2.setBounds(movex+arandomxyellow-2350,movey+arandomyyellow-1150,40,40);
+			aEndinggreen2.setBounds(movex+arandomxgreen-2350,movey+arandomygreen-1150,35,35);
+			aEndingblue2.setBounds(movex+arandomxblue-2350,movey+arandomyblue-1150,30,30);
+			aEndingpurple2.setBounds(movex+arandomxpurple-2350,movey+arandomypurple-1150,25,25);
+			aEndinggray2.setBounds(movex+arandomxgrey-2350,movey+arandomygrey-1150,20,20);
+			aEndingwhite2.setBounds(movex+arandomxwhite-2350,movey+arandomywhite-1150,15,15);
+			
 			aEndingred2.draw();
 			aEndingorange2.draw();
 			aEndingyellow2.draw();
@@ -1085,28 +1087,28 @@ public class Explore extends PApplet {
 		}
 
 
+//System.out.println(totalYellowKeyCollected + " " + collectedKeys);
 
-
-		if(totalYellowKeyCollected==7 && collectedKeys<=0) {
-			collectedKeys=-1;
+		if(totalYellowKeyCollected==7 && yellowKeyCount.keys<=0) {
+			yellowKeyCount.keys=-1;
 		}else {
 			displaykey.draw();
 		}
 
-		if(totalPinkKeyCollected==5 && collectedPinkKeys<=0) {
-			collectedPinkKeys=-1;
+		if(totalPinkKeyCollected==5 && pinkKeyCount.keys<=0) {
+			pinkKeyCount.keys=-1;
 		}else {
 			displaypinkkey.draw();
 		}
 
-		if(totalOrangeKeyCollected==5 && collectedOrangeKeys<=0) {
-			collectedOrangeKeys=-1;
+		if(totalOrangeKeyCollected==5 && orangeKeyCount.keys<=0) {
+			orangeKeyCount.keys=-1;
 		}else {
 			displayorangekey.draw();
 		}
 
-		if(totalBlueKeyCollected==5 && collectedBlueKeys<=0) {
-			collectedBlueKeys=-1;
+		if(totalBlueKeyCollected==5 && blueKeyCount.keys<=0) {
+			blueKeyCount.keys=-1;
 		}else {
 			displaybluekey.draw();
 		}
@@ -1118,9 +1120,6 @@ public class Explore extends PApplet {
 				displayendingkey.draw();
 			}
 		}
-
-
-
 
 
 		Ending.draw();
@@ -9906,28 +9905,6 @@ public class Explore extends PApplet {
 		return false;
 	}
 
-	//	boolean enemy2InterectsBlock() {
-	//		for(Rectangle r: rects) {
-	//			if(r!=bullet && r!=btv1 && r!=btv2 && r!=bth1 && r!=bth2) {
-	//				if( r.intersects(enemy2)){
-	//					return true;
-	//				}
-	//			}
-	//		}
-	//		return false;
-	//	}
-	//
-	//	boolean enemy3InterectsBlock() {
-	//		for(Rectangle r: rects) {
-	//			if(r!=bullet && r!=btv1 && r!=btv2 && r!=bth1 && r!=bth2) {
-	//				if( r.intersects(enemy3)){
-	//					return true;
-	//				}
-	//			}
-	//		}
-	//		return false;
-	//	}
-
 
 	boolean weaponInterectsBlock() {
 		for(Rectangle r: rects) {
@@ -10034,65 +10011,6 @@ public class Explore extends PApplet {
 		return returnValue;
 	}
 
-
-
-
-
-	//	boolean playerupInterectsDoor() {
-	//		for(Rectangle r: rects) {
-	//			if( r.intersects(Door)){
-	//				return true;
-	//			}
-	//		}
-	//		return false;
-	//	}
-	//
-	//	boolean playerdownInterectsDoor() {
-	//		for(Rectangle r: rects) {
-	//			if( r.intersects(playerdown)){
-	//				return true;
-	//			}
-	//		}
-	//		return false;
-	//	}
-	//
-	//	boolean playerleftInterectsDoor() {
-	//		for(Rectangle r: rects) {
-	//			if( r.intersects(playerleft)){
-	//				return true;
-	//			}
-	//		}
-	//		return false;
-	//	}
-	//
-	//	boolean playerrightInterectsDoor() {
-	//		for(Rectangle r: rects) {
-	//			if( r.intersects(playerright)){
-	//				return true;
-	//			}
-	//		}
-	//		return false;
-	//	}
-
-
-
-
-
-	/*
-	if (player.y>=550) {
-		player.y=550;
-	}     
-	if (player.y<=0) {
-		player.y=0;
-	}
-	if (player.x>=750) {
-		player.x=750;
-	}
-	if (player.x<=0) {
-		player.x=0;
-	}*/
-
-
 	public void keyPressed() {
 		int marker;
 
@@ -10111,8 +10029,10 @@ public class Explore extends PApplet {
 						rects.clear();
 					}
 
+					if(nocliped==false) {
 					if(playerInterectsBlock()) {
 						movey-=50;
+					}
 					}
 
 					if(noclip==0) {
@@ -10137,8 +10057,10 @@ public class Explore extends PApplet {
 						rects.clear();
 					}
 
+					if(nocliped==false) {
 					if(playerInterectsBlock()) {
 						movey+=50;
+					}
 					}
 
 					if(noclip==2) {
@@ -10164,9 +10086,11 @@ public class Explore extends PApplet {
 						rects.clear();
 					}
 
+					if(nocliped==false) {
 					if(playerInterectsBlock()) {
 						movex-=50;
 					}	
+					}
 
 					if(noclip==4) {
 						noclip=5;
@@ -10192,8 +10116,10 @@ public class Explore extends PApplet {
 							rects.clear();
 						}
 
+						if(nocliped==false) {
 						if(playerInterectsBlock()) {
 							movex+=50;
+						}
 						}
 
 						if(noclip==5) {
@@ -10219,6 +10145,20 @@ public class Explore extends PApplet {
 
 			} else if (keyCode == ALT) {
 
+				if(options==true) {
+					int OptionsMenu = JOptionPane.showOptionDialog(null, "Options", "Title", 0, JOptionPane.INFORMATION_MESSAGE, null,
+							new String[] { "No Stroke", "No UI Background"}, null);
+
+						if (OptionsMenu==0) {
+						
+						if(NoStroke==false) {
+							NoStroke=true;
+						}else if (NoStroke==true) {
+							NoStroke=false;
+						}
+						
+						}
+				}else {
 				if(wall1==true) {
 					wall1=false;
 				}else if(wall1==false) {
@@ -10230,7 +10170,8 @@ public class Explore extends PApplet {
 				}else if(wall2==false) {
 					wall2=true;
 				}
-
+				}
+				
 				collectedKeys+=1;
 				collectedPinkKeys+=1;
 				collectedOrangeKeys+=1;
@@ -10671,12 +10612,10 @@ public class Explore extends PApplet {
 
 		@Override
 		public boolean equals(Object obj) {
-			// TODO Auto-generated method stub
 			return this==obj;
 		}
 		@Override
 		public int hashCode() {
-			// TODO Auto-generated method stub
 			return Objects.hash(keyx, keyy);
 		}
 

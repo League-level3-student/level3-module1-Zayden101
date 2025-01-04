@@ -138,6 +138,7 @@ public class Explore extends PApplet {
 	boolean mapshown = false;
 	
 	boolean option = false;
+	int optionselected = 1;
 
 	int arandomxred = 0;
 	int arandomyred = 0;
@@ -193,6 +194,8 @@ public class Explore extends PApplet {
 	//private boolean addlevel1Rects = true;
 	//private boolean addlevel2Rects = true;
 
+	int timer = 60;
+	int timetrack = 65;
 
 	boolean enemymove = true;
 
@@ -373,11 +376,14 @@ public class Explore extends PApplet {
 	Map<ColorfulRectangle, KeyCount> keyToKeyCount= new HashMap<ColorfulRectangle, KeyCount>();
 	boolean build = false;
 	boolean spooky = false;
-	boolean options = true;
+	boolean options = false;
 
 	boolean NoStroke;
 	boolean NoUIBackground;
 	boolean SwitchBackgroundColor;
+
+	
+	
 
 	@Override
 	public void settings() {
@@ -455,6 +461,7 @@ public class Explore extends PApplet {
 		background(bgColor);
 
 		finished=false;
+
 
 	}
 
@@ -762,7 +769,72 @@ public class Explore extends PApplet {
 
 		}
 
+		
+		if(finished==true) {
 
+System.out.println(timer);
+		timer-=1;
+		if(timer<0) {
+			timer=60;
+			timetrack-=1;
+			//TIME 60/65/70
+			//System.out.println("time " + timetrack);
+
+		}
+//		if(timetrack>=60) {
+//		//6
+//		rects.add(new ColorfulRectangle(360, 0, 30, 10, Color.WHITE));
+//		rects.add(new ColorfulRectangle(360, 0, 10, 50, Color.WHITE));
+//		rects.add(new ColorfulRectangle(380, 30, 10, 30, Color.WHITE));
+//		rects.add(new ColorfulRectangle(360, 30, 30, 10, Color.WHITE));
+//		rects.add(new ColorfulRectangle(360, 50, 30, 10, Color.WHITE));
+//		}else if(timetrack>=50) {
+//		//5
+//		rects.add(new ColorfulRectangle(360, 0, 30, 10, Color.WHITE));
+//		rects.add(new ColorfulRectangle(360, 0, 10, 30, Color.WHITE));
+//		rects.add(new ColorfulRectangle(380, 30, 10, 30, Color.WHITE));
+//		rects.add(new ColorfulRectangle(360, 25, 30, 10, Color.WHITE));
+//		rects.add(new ColorfulRectangle(360, 50, 30, 10, Color.WHITE));
+//		}else if(timetrack>=40) {
+//		//4
+//		rects.add(new ColorfulRectangle(360, 0, 10, 30, Color.WHITE));
+//		rects.add(new ColorfulRectangle(380, 0, 10, 50, Color.WHITE));
+//		rects.add(new ColorfulRectangle(360, 20, 30, 10, Color.WHITE));
+//		}else if(timetrack>=30) {
+//		//5 MAKE 30
+//		rects.add(new ColorfulRectangle(340, 0, 50, 10, Color.WHITE));
+//		rects.add(new ColorfulRectangle(340, 0, 10, 30, Color.WHITE));
+//		rects.add(new ColorfulRectangle(380, 30, 10, 30, Color.WHITE));
+//		rects.add(new ColorfulRectangle(340, 30, 50, 10, Color.WHITE));
+//		rects.add(new ColorfulRectangle(340, 50, 50, 10, Color.WHITE));
+//		}
+		
+		
+		if(timetrack==0) {
+		
+		}
+
+		}
+		
+//		//6
+//		rects.add(new ColorfulRectangle(360, 0, 30, 10, Color.WHITE));
+//		rects.add(new ColorfulRectangle(360, 0, 10, 50, Color.WHITE));
+//		rects.add(new ColorfulRectangle(380, 30, 10, 30, Color.WHITE));
+//		rects.add(new ColorfulRectangle(360, 30, 30, 10, Color.WHITE));
+//		rects.add(new ColorfulRectangle(360, 50, 30, 10, Color.WHITE));
+//		//5
+//		rects.add(new ColorfulRectangle(410, 0, 30, 10, Color.WHITE));
+//		rects.add(new ColorfulRectangle(410, 0, 10, 30, Color.WHITE));
+//		rects.add(new ColorfulRectangle(430, 30, 10, 30, Color.WHITE));
+//		rects.add(new ColorfulRectangle(410, 25, 30, 10, Color.WHITE));
+//		rects.add(new ColorfulRectangle(410, 50, 30, 10, Color.WHITE));
+//		//4
+//		rects.add(new ColorfulRectangle(360, 0, 10, 30, Color.WHITE));
+//		rects.add(new ColorfulRectangle(380, 0, 10, 50, Color.WHITE));
+//		rects.add(new ColorfulRectangle(360, 20, 30, 10, Color.WHITE));
+		
+
+		/*
 		ColorfulRectangle displaykey = new ColorfulRectangle(660,10, 30, 30, Color.YELLOW);
 
 		ColorfulRectangle displaypinkkey = new ColorfulRectangle(510,10, 30, 30, Color.PINK);
@@ -773,6 +845,25 @@ public class Explore extends PApplet {
 
 		ColorfulRectangle displayendingkey = new ColorfulRectangle(6000,10, 30, 30, Color.WHITE);
 
+		
+		if(finished==false) {
+		if(NoUIBackground==false) {
+		ColorfulRectangle backdisplaykey = new ColorfulRectangle(200,0, 550, 50, Color.BLACK);
+		backdisplaykey.draw();
+		}else if(NoUIBackground==true){
+		//nothing
+		}
+		}if(finished==true) {
+		if(NoUIBackground==false) {
+		ColorfulRectangle backdisplaykey = new ColorfulRectangle(650,0, 100, 50, Color.BLACK);
+		backdisplaykey.draw();
+		}else if(NoUIBackground==true){
+		//nothing
+		}
+		}
+
+		
+		
 		if(finished==true) {
 			ColorfulRectangle displayEndingred = new ColorfulRectangle(660,10,30,30,Color.RED);
 			ColorfulRectangle displayEndingorange = new ColorfulRectangle(660,10,30,30,Color.ORANGE);
@@ -783,7 +874,7 @@ public class Explore extends PApplet {
 			ColorfulRectangle displayEndinggray = new ColorfulRectangle(660,10,30,30,Color.LIGHT_GRAY);
 			ColorfulRectangle displayEndingwhite = new ColorfulRectangle(660,10,30,30,Color.WHITE);
 
-
+//System.out.println(colorSwitchdoor);
 			if(colorSwitchdoor==0) {
 				displayEndingred.draw();
 			}else if(colorSwitchdoor==1) {
@@ -808,15 +899,8 @@ public class Explore extends PApplet {
 				colorSwitchdoor=0;
 			}
 		}
-		
-		if(NoUIBackground==false) {
-		ColorfulRectangle backdisplaykey = new ColorfulRectangle(200,0, 550, 50, Color.BLACK);
-		backdisplaykey.draw();
-		}else if(NoUIBackground==true){
-			//nothing
-		}
-			
 
+		
 
 		//KEY COUNTER
 		if(yellowKeyCount.keys==0) {
@@ -1156,7 +1240,7 @@ public class Explore extends PApplet {
 				displayendingkey.draw();
 			}
 		}
-
+*/
 
 		Ending.draw();
 		Ending.update();
@@ -9898,29 +9982,47 @@ public class Explore extends PApplet {
 				}
 
 			} else if (keyCode == ALT) {
-
 				if(options==true) {
-					int OptionsMenu = JOptionPane.showOptionDialog(null, "Options", "Title", 0, JOptionPane.INFORMATION_MESSAGE, null,
-							new String[] { "No Stroke", "No UI Background", "Switch BG Color"}, null);
+					if(optionselected == 0) {
+						NoStroke = false;
+						NoUIBackground = false;
+					}else if(optionselected == 1) {
+						NoStroke = true;
+						NoUIBackground = false;
+					}else if(optionselected == 2) {
+						NoUIBackground = true;
+						NoStroke = false;
+					}else if(optionselected == 3) {
+						NoStroke = true;
+						NoUIBackground = true;
+					}
+					optionselected+=1;
 
-						if (OptionsMenu==0) {
-						if(NoStroke==false) {
-							NoStroke=true;
-						}else if (NoStroke==true) {
-							NoStroke=false;
-						}
-						
-						}else if (OptionsMenu==1) {
-						if(NoUIBackground==false) {
-							NoUIBackground=true;
-						}else if (NoUIBackground==true) {
-							NoUIBackground=false;
-						}
-													
-						}else if (OptionsMenu==2) {
-							String bcolorg = JOptionPane.showInputDialog("still working on");
-							bgColor = color(0,0,0);
-						}
+					if(optionselected>3) {
+						optionselected=0;
+					}
+					
+//					int OptionsMenu = JOptionPane.showOptionDialog(null, "Options", "Title", 0, JOptionPane.INFORMATION_MESSAGE, null,
+//							new String[] { "No Stroke", "No UI Background", "Switch BG Color"}, null);
+//
+//						if (OptionsMenu==0) {
+//						if(NoStroke==false) {
+//							NoStroke=true;
+//						}else if (NoStroke==true) {
+//							NoStroke=false;
+//						}
+//						
+//						}else if (OptionsMenu==1) {
+//						if(NoUIBackground==false) {
+//							NoUIBackground=true;
+//						}else if (NoUIBackground==true) {
+//							NoUIBackground=false;
+//						}
+//													
+//						}else if (OptionsMenu==2) {
+//							String bcolorg = JOptionPane.showInputDialog("still working on");
+//							bgColor = color(0,0,0);
+//						}
 						
 
 				}else {

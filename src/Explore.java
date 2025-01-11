@@ -455,6 +455,10 @@ public class Explore extends PApplet {
 		keyToKeyCount.put(bluekey4, blueKeyCount);
 		keyToKeyCount.put(bluekey5, blueKeyCount);
 		
+		keyToKeyCount.put(endingdoor1, endingKeyCount);
+		keyToKeyCount.put(endingdoor2, endingKeyCount);
+
+		
 		
 		//JOptionPane.showMessageDialog(null, "Arrow keys to move \n*Shift* to surround attack \n*Alt* to shoot bullet (shoots through walls cuz im too lazy to fix it)");
 
@@ -547,8 +551,12 @@ public class Explore extends PApplet {
 			
 		//System.out.println(nocliped);
 		
-		if(noclip==8) {
+		if(noclip==8 && nocliped==false) {
 			nocliped=true;
+			noclip=0;
+		}else if(noclip==8 && nocliped==true) {
+			nocliped=false;
+			noclip=0;
 		}
 		
 		if(NoStroke==true) {
@@ -769,10 +777,9 @@ public class Explore extends PApplet {
 
 		}
 
-		
 		if(finished==true) {
 
-System.out.println(timer);
+//System.out.println(timer);
 		timer-=1;
 		if(timer<0) {
 			timer=60;
@@ -781,60 +788,108 @@ System.out.println(timer);
 			//System.out.println("time " + timetrack);
 
 		}
-//		if(timetrack>=60) {
-//		//6
-//		rects.add(new ColorfulRectangle(360, 0, 30, 10, Color.WHITE));
-//		rects.add(new ColorfulRectangle(360, 0, 10, 50, Color.WHITE));
-//		rects.add(new ColorfulRectangle(380, 30, 10, 30, Color.WHITE));
-//		rects.add(new ColorfulRectangle(360, 30, 30, 10, Color.WHITE));
-//		rects.add(new ColorfulRectangle(360, 50, 30, 10, Color.WHITE));
-//		}else if(timetrack>=50) {
-//		//5
-//		rects.add(new ColorfulRectangle(360, 0, 30, 10, Color.WHITE));
-//		rects.add(new ColorfulRectangle(360, 0, 10, 30, Color.WHITE));
-//		rects.add(new ColorfulRectangle(380, 30, 10, 30, Color.WHITE));
-//		rects.add(new ColorfulRectangle(360, 25, 30, 10, Color.WHITE));
-//		rects.add(new ColorfulRectangle(360, 50, 30, 10, Color.WHITE));
-//		}else if(timetrack>=40) {
-//		//4
-//		rects.add(new ColorfulRectangle(360, 0, 10, 30, Color.WHITE));
-//		rects.add(new ColorfulRectangle(380, 0, 10, 50, Color.WHITE));
-//		rects.add(new ColorfulRectangle(360, 20, 30, 10, Color.WHITE));
-//		}else if(timetrack>=30) {
-//		//5 MAKE 30
-//		rects.add(new ColorfulRectangle(340, 0, 50, 10, Color.WHITE));
-//		rects.add(new ColorfulRectangle(340, 0, 10, 30, Color.WHITE));
-//		rects.add(new ColorfulRectangle(380, 30, 10, 30, Color.WHITE));
-//		rects.add(new ColorfulRectangle(340, 30, 50, 10, Color.WHITE));
-//		rects.add(new ColorfulRectangle(340, 50, 50, 10, Color.WHITE));
-//		}
+		if(timetrack>=60) {
+		//6
+		rects.add(new ColorfulRectangle(360, 0, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(360, 0, 10, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(380, 30, 10, 30, Color.WHITE));
+		rects.add(new ColorfulRectangle(360, 25, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(360, 50, 30, 10, Color.WHITE));
+		}else if(timetrack>=50) {
+		//5
+		rects.add(new ColorfulRectangle(360, 0, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(360, 0, 10, 30, Color.WHITE));
+		rects.add(new ColorfulRectangle(380, 30, 10, 30, Color.WHITE));
+		rects.add(new ColorfulRectangle(360, 25, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(360, 50, 30, 10, Color.WHITE));
+		}else if(timetrack>=40) {
+		//4
+		rects.add(new ColorfulRectangle(360, 0, 10, 30, Color.WHITE));
+		rects.add(new ColorfulRectangle(380, 0, 10, 60, Color.WHITE));
+		rects.add(new ColorfulRectangle(360, 20, 30, 10, Color.WHITE));
+		}else if(timetrack>=30) {
+		//3
+		rects.add(new ColorfulRectangle(360, 0, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(380, 0, 10, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(360, 25, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(360, 50, 30, 10, Color.WHITE));
+		}else if(timetrack>=20) {
+		//2
+		rects.add(new ColorfulRectangle(360, 0, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(380, 0, 10, 30, Color.WHITE));
+		rects.add(new ColorfulRectangle(360, 30, 10, 30, Color.WHITE));
+		rects.add(new ColorfulRectangle(360, 25, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(360, 50, 30, 10, Color.WHITE));
+		}else if(timetrack>=10) {
+		//1
+		rects.add(new ColorfulRectangle(380, 0, 10, 50, Color.WHITE));
+		}else if(timetrack>=0) {
+		//0
+		rects.add(new ColorfulRectangle(360, 0, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(360, 0, 10, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(360, 50, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(380, 0, 10, 50, Color.WHITE));
+		}
 		
 		
+		if(timetrack==0 || timetrack==10 || timetrack==20 || timetrack==30 || timetrack==40 || timetrack==50 || timetrack==60) {
+		rects.add(new ColorfulRectangle(410, 0, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 0, 10, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 50, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(430, 0, 10, 50, Color.WHITE));
+		}else if(timetrack==1 || timetrack==11 || timetrack==21 || timetrack==31 || timetrack==41 || timetrack==51 || timetrack==61) {
+		rects.add(new ColorfulRectangle(430, 0, 10, 60, Color.WHITE));
+		}else if(timetrack==2 || timetrack==12 || timetrack==22 || timetrack==32 || timetrack==42 || timetrack==52 || timetrack==62) {
+		rects.add(new ColorfulRectangle(410, 0, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(430, 0, 10, 30, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 30, 10, 30, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 25, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 50, 30, 10, Color.WHITE));
+		}else if(timetrack==3 || timetrack==13 || timetrack==23 || timetrack==33 || timetrack==43 || timetrack==53 || timetrack==63) {
+		rects.add(new ColorfulRectangle(410, 0, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(430, 0, 10, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 25, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 50, 30, 10, Color.WHITE));
+		}else if(timetrack==4 || timetrack==14 || timetrack==24 || timetrack==34 || timetrack==44 || timetrack==54 || timetrack==64) {
+		rects.add(new ColorfulRectangle(410, 0, 10, 30, Color.WHITE));
+		rects.add(new ColorfulRectangle(430, 0, 10, 60, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 25, 30, 10, Color.WHITE));
+		}else if(timetrack==5 || timetrack==15 || timetrack==25 || timetrack==35 || timetrack==45 || timetrack==55 || timetrack==65) {
+		rects.add(new ColorfulRectangle(410, 0, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 0, 10, 30, Color.WHITE));
+		rects.add(new ColorfulRectangle(430, 30, 10, 30, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 25, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 50, 30, 10, Color.WHITE));
+		}else if(timetrack==6 || timetrack==16 || timetrack==26 || timetrack==36 || timetrack==46 || timetrack==56) {
+		rects.add(new ColorfulRectangle(410, 0, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 0, 10, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(430, 30, 10, 30, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 25, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 50, 30, 10, Color.WHITE));
+		}else if(timetrack==7 || timetrack==17 || timetrack==27 || timetrack==37 || timetrack==47 || timetrack==57) {
+		rects.add(new ColorfulRectangle(410, 0, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(430, 0, 10, 60, Color.WHITE));
+		}else if(timetrack==8 || timetrack==18 || timetrack==28 || timetrack==38 || timetrack==48 || timetrack==58) {
+		rects.add(new ColorfulRectangle(410, 0, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 0, 10, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 50, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(430, 0, 10, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 25, 30, 10, Color.WHITE));
+		}else if(timetrack==9 || timetrack==19 || timetrack==29 || timetrack==39 || timetrack==49 || timetrack==59) {
+		rects.add(new ColorfulRectangle(410, 0, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 0, 10, 30, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 50, 30, 10, Color.WHITE));
+		rects.add(new ColorfulRectangle(430, 0, 10, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(410, 25, 30, 10, Color.WHITE));
+		}
+
 		if(timetrack==0) {
+		System.exit(0);
+		}
 		
 		}
 
-		}
 		
-//		//6
-//		rects.add(new ColorfulRectangle(360, 0, 30, 10, Color.WHITE));
-//		rects.add(new ColorfulRectangle(360, 0, 10, 50, Color.WHITE));
-//		rects.add(new ColorfulRectangle(380, 30, 10, 30, Color.WHITE));
-//		rects.add(new ColorfulRectangle(360, 30, 30, 10, Color.WHITE));
-//		rects.add(new ColorfulRectangle(360, 50, 30, 10, Color.WHITE));
-//		//5
-//		rects.add(new ColorfulRectangle(410, 0, 30, 10, Color.WHITE));
-//		rects.add(new ColorfulRectangle(410, 0, 10, 30, Color.WHITE));
-//		rects.add(new ColorfulRectangle(430, 30, 10, 30, Color.WHITE));
-//		rects.add(new ColorfulRectangle(410, 25, 30, 10, Color.WHITE));
-//		rects.add(new ColorfulRectangle(410, 50, 30, 10, Color.WHITE));
-//		//4
-//		rects.add(new ColorfulRectangle(360, 0, 10, 30, Color.WHITE));
-//		rects.add(new ColorfulRectangle(380, 0, 10, 50, Color.WHITE));
-//		rects.add(new ColorfulRectangle(360, 20, 30, 10, Color.WHITE));
-		
-
-		/*
 		ColorfulRectangle displaykey = new ColorfulRectangle(660,10, 30, 30, Color.YELLOW);
 
 		ColorfulRectangle displaypinkkey = new ColorfulRectangle(510,10, 30, 30, Color.PINK);
@@ -844,7 +899,7 @@ System.out.println(timer);
 		ColorfulRectangle displaybluekey = new ColorfulRectangle(210,10, 30, 30, Color.CYAN);
 
 		ColorfulRectangle displayendingkey = new ColorfulRectangle(6000,10, 30, 30, Color.WHITE);
-
+		
 		
 		if(finished==false) {
 		if(NoUIBackground==false) {
@@ -1240,7 +1295,7 @@ System.out.println(timer);
 				displayendingkey.draw();
 			}
 		}
-*/
+
 
 		Ending.draw();
 		Ending.update();
@@ -9814,9 +9869,14 @@ System.out.println(timer);
 		for(Entry<ColorfulRectangle,KeyCount> e: doorToKey.entrySet()) {
 		ColorfulRectangle door = e.getKey();
 		KeyCount collectedKeys = e.getValue();
-		
+		ColorfulRectangle Endingdoor1 = e.getKey();
+		KeyCount collectedEndingKeys = e.getValue();
+
 		if(playerdown.intersects(door) && collectedKeys.keys==0) {
 			returnValue = true;
+		}
+		if(playerdown.intersects(Endingdoor1) && collectedEndingKeys.keys==0) {
+			returnValue = false;
 		}
 		}
 		return returnValue;
@@ -10642,6 +10702,17 @@ System.out.println(timer);
 			}	
 		}
 
+		@Override
+		public boolean equals(Object obj) {
+			// TODO Auto-generated method stub
+			return this==obj;
+		}
+		@Override
+		public int hashCode() {
+			// TODO Auto-generated method stub
+			return Objects.hash(endingdoorx, endingdoory);
+		}
+		
 		public void update() {
 
 			ColorfulRectangle Endingred = new ColorfulRectangle(x+10,y+10,30,30,Color.RED);
@@ -10677,9 +10748,10 @@ System.out.println(timer);
 			if(colorSwitchdoor>=8) {
 				colorSwitchdoor=0;
 			}
-
 			x=endingdoorx+movex;
 			y=endingdoory+movey;
+			KeyCount collectedKeys = doorToKey.get(this);
+			System.out.println(collectedEndingKeys);
 
 			if(x==player.x && y==player.y && collectedEndingKeys>=1){
 				collectedEndingKeys-=1;
@@ -10695,7 +10767,7 @@ System.out.println(timer);
 				Endingwhite.x=-10000;
 
 
-			}else if(x==player.x && y==player.y && collectedEndingKeys==0){
+			}else if(x==player.x && y==player.y && collectedEndingKeys>=1){
 				if(facing==1) {
 					movey-=50;
 				}		

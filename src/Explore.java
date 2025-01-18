@@ -15,6 +15,9 @@ import javax.swing.JOptionPane;
 
 import processing.core.PApplet;
 
+//16/12 blocks
+
+
 //FIX NOCLIP, OVERLAPPING OF KEYS AND DOORS
 
 //fix stupid enemy collision
@@ -773,6 +776,7 @@ public class Explore extends PApplet {
 				bluekey5.draw();
 				bluekey5.update();
 
+				
 			}
 
 		}
@@ -900,26 +904,34 @@ public class Explore extends PApplet {
 
 		ColorfulRectangle displayendingkey = new ColorfulRectangle(6000,10, 30, 30, Color.WHITE);
 		
-		
-		if(finished==false) {
-		if(NoUIBackground==false) {
-		ColorfulRectangle backdisplaykey = new ColorfulRectangle(200,0, 550, 50, Color.BLACK);
-		backdisplaykey.draw();
-		}else if(NoUIBackground==true){
-		//nothing
+		if(yellowKeyCount.keys>0) {
+		ColorfulRectangle backdisplayyellowkey = new ColorfulRectangle(650,0, 100, 50, Color.BLACK);
+		backdisplayyellowkey.draw();
+		}else if(pinkKeyCount.keys>0) {
+		ColorfulRectangle backdisplaypinkkey = new ColorfulRectangle(500,0, 100, 50, Color.BLACK);
+		backdisplaypinkkey.draw();
+		}else if(orangeKeyCount.keys>0) {
+		ColorfulRectangle backdisplayorangekey = new ColorfulRectangle(350,0, 100, 50, Color.BLACK);
+		backdisplayorangekey.draw();
+		}else if(blueKeyCount.keys>0) {
+		ColorfulRectangle backdisplaybluekey = new ColorfulRectangle(200,0, 100, 50, Color.BLACK);
+		backdisplaybluekey.draw();
+		}else if(finished==true) {
+		ColorfulRectangle backdisplayendingkey = new ColorfulRectangle(650,0, 100, 50, Color.BLACK);
+		backdisplayendingkey.draw();
 		}
-		}if(finished==true) {
-		if(NoUIBackground==false) {
-		ColorfulRectangle backdisplaykey = new ColorfulRectangle(650,0, 100, 50, Color.BLACK);
-		backdisplaykey.draw();
-		}else if(NoUIBackground==true){
-		//nothing
-		}
-		}
+//		if(finished==false) {
+//		ColorfulRectangle backdisplaykey = new ColorfulRectangle(200,0, 550, 50, Color.BLACK);
+//		backdisplaykey.draw();
+//		}if(finished==true) {
+//		ColorfulRectangle backdisplaykey = new ColorfulRectangle(650,0, 100, 50, Color.BLACK);
+//		backdisplaykey.draw();
+//		}
 
 		
 		
 		if(finished==true) {
+			if(collectedEndingKeys>=1) {
 			ColorfulRectangle displayEndingred = new ColorfulRectangle(660,10,30,30,Color.RED);
 			ColorfulRectangle displayEndingorange = new ColorfulRectangle(660,10,30,30,Color.ORANGE);
 			ColorfulRectangle displayEndingyellow = new ColorfulRectangle(660,10,30,30,Color.YELLOW);
@@ -954,19 +966,19 @@ public class Explore extends PApplet {
 				colorSwitchdoor=0;
 			}
 		}
-
+		}
 		
 
 		//KEY COUNTER
 		if(yellowKeyCount.keys==0) {
-			ColorfulRectangle keynum1 = new ColorfulRectangle(710,0, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum2 = new ColorfulRectangle(710,10, 10, 30, Color.WHITE);
-			ColorfulRectangle keynum3 = new ColorfulRectangle(710,40, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum4 = new ColorfulRectangle(730,10, 10, 30, Color.WHITE);
-			keynum1.draw();
-			keynum2.draw();
-			keynum3.draw();
-			keynum4.draw();
+//			ColorfulRectangle keynum1 = new ColorfulRectangle(710,0, 30, 10, Color.WHITE);
+//			ColorfulRectangle keynum2 = new ColorfulRectangle(710,10, 10, 30, Color.WHITE);
+//			ColorfulRectangle keynum3 = new ColorfulRectangle(710,40, 30, 10, Color.WHITE);
+//			ColorfulRectangle keynum4 = new ColorfulRectangle(730,10, 10, 30, Color.WHITE);
+//			keynum1.draw();
+//			keynum2.draw();
+//			keynum3.draw();
+//			keynum4.draw();
 
 		}else if(yellowKeyCount.keys==1) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(720,0, 10, 50, Color.WHITE);
@@ -1022,14 +1034,14 @@ public class Explore extends PApplet {
 
 		//PINK KEY COUNTER
 		if(pinkKeyCount.keys==0) {
-			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum2 = new ColorfulRectangle(560,10, 10, 30, Color.WHITE);
-			ColorfulRectangle keynum3 = new ColorfulRectangle(560,40, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum4 = new ColorfulRectangle(580,10, 10, 30, Color.WHITE);
-			keynum1.draw();
-			keynum2.draw();
-			keynum3.draw();
-			keynum4.draw();
+//			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
+//			ColorfulRectangle keynum2 = new ColorfulRectangle(560,10, 10, 30, Color.WHITE);
+//			ColorfulRectangle keynum3 = new ColorfulRectangle(560,40, 30, 10, Color.WHITE);
+//			ColorfulRectangle keynum4 = new ColorfulRectangle(580,10, 10, 30, Color.WHITE);
+//			keynum1.draw();
+//			keynum2.draw();
+//			keynum3.draw();
+//			keynum4.draw();
 
 		}else if(pinkKeyCount.keys==1) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(570,0, 10, 50, Color.WHITE);
@@ -1083,14 +1095,14 @@ public class Explore extends PApplet {
 
 		//ORANGE KEY COUNTER
 		if(orangeKeyCount.keys==0) {
-			ColorfulRectangle keynum1 = new ColorfulRectangle(410,0, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum2 = new ColorfulRectangle(410,10, 10, 30, Color.WHITE);
-			ColorfulRectangle keynum3 = new ColorfulRectangle(410,40, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum4 = new ColorfulRectangle(430,10, 10, 30, Color.WHITE);
-			keynum1.draw();
-			keynum2.draw();
-			keynum3.draw();
-			keynum4.draw();
+//			ColorfulRectangle keynum1 = new ColorfulRectangle(410,0, 30, 10, Color.WHITE);
+//			ColorfulRectangle keynum2 = new ColorfulRectangle(410,10, 10, 30, Color.WHITE);
+//			ColorfulRectangle keynum3 = new ColorfulRectangle(410,40, 30, 10, Color.WHITE);
+//			ColorfulRectangle keynum4 = new ColorfulRectangle(430,10, 10, 30, Color.WHITE);
+//			keynum1.draw();
+//			keynum2.draw();
+//			keynum3.draw();
+//			keynum4.draw();
 
 		}else if(orangeKeyCount.keys==1) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(420,0, 10, 50, Color.WHITE);
@@ -1144,14 +1156,14 @@ public class Explore extends PApplet {
 
 		//BLUE KEY COUNTER
 		if(blueKeyCount.keys==0) {
-			ColorfulRectangle keynum1 = new ColorfulRectangle(260,0, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum2 = new ColorfulRectangle(260,10, 10, 30, Color.WHITE);
-			ColorfulRectangle keynum3 = new ColorfulRectangle(260,40, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum4 = new ColorfulRectangle(280,10, 10, 30, Color.WHITE);
-			keynum1.draw();
-			keynum2.draw();
-			keynum3.draw();
-			keynum4.draw();
+//			ColorfulRectangle keynum1 = new ColorfulRectangle(260,0, 30, 10, Color.WHITE);
+//			ColorfulRectangle keynum2 = new ColorfulRectangle(260,10, 10, 30, Color.WHITE);
+//			ColorfulRectangle keynum3 = new ColorfulRectangle(260,40, 30, 10, Color.WHITE);
+//			ColorfulRectangle keynum4 = new ColorfulRectangle(280,10, 10, 30, Color.WHITE);
+//			keynum1.draw();
+//			keynum2.draw();
+//			keynum3.draw();
+//			keynum4.draw();
 
 		}else if(blueKeyCount.keys==1) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(270,0, 10, 50, Color.WHITE);
@@ -1199,20 +1211,21 @@ public class Explore extends PApplet {
 			keynum3.draw();
 			keynum4.draw();
 			keynum5.draw();
-		}
-
-
+		}else if(blueKeyCount.keys==-1) {
+			//nothing
+		} 
+//System.out.println(blueKeyCount.keys + "  " + totalBlueKeyCollected);
 		if(finished==true) {
 			//ENDING KEY COUNTER
 			if(collectedEndingKeys==0) {
-				ColorfulRectangle keynum1 = new ColorfulRectangle(710,0, 30, 10, Color.WHITE);
-				ColorfulRectangle keynum2 = new ColorfulRectangle(710,10, 10, 30, Color.WHITE);
-				ColorfulRectangle keynum3 = new ColorfulRectangle(710,40, 30, 10, Color.WHITE);
-				ColorfulRectangle keynum4 = new ColorfulRectangle(730,10, 10, 30, Color.WHITE);
-				keynum1.draw();
-				keynum2.draw();
-				keynum3.draw();
-				keynum4.draw();
+//				ColorfulRectangle keynum1 = new ColorfulRectangle(710,0, 30, 10, Color.WHITE);
+//				ColorfulRectangle keynum2 = new ColorfulRectangle(710,10, 10, 30, Color.WHITE);
+//				ColorfulRectangle keynum3 = new ColorfulRectangle(710,40, 30, 10, Color.WHITE);
+//				ColorfulRectangle keynum4 = new ColorfulRectangle(730,10, 10, 30, Color.WHITE);
+//				keynum1.draw();
+//				keynum2.draw();
+//				keynum3.draw();
+//				keynum4.draw();
 
 			}else if(collectedEndingKeys==1) {
 				ColorfulRectangle keynum1 = new ColorfulRectangle(720,0, 10, 50, Color.WHITE);
@@ -1264,26 +1277,30 @@ public class Explore extends PApplet {
 			}
 		}
 
-		if(totalYellowKeyCollected==7 && yellowKeyCount.keys<=0) {
-			yellowKeyCount.keys=-1;
+		if(yellowKeyCount.keys<=0) {
+			//yellowKeyCount.keys=-1;
+			displaykey.x=9999;
 		}else {
 			displaykey.draw();
 		}
 
-		if(totalPinkKeyCollected==5 && pinkKeyCount.keys<=0) {
-			pinkKeyCount.keys=-1;
+		if(pinkKeyCount.keys<=0) {
+			//pinkKeyCount.keys=-1;
+			displaypinkkey.x=9999;
 		}else {
 			displaypinkkey.draw();
 		}
 
-		if(totalOrangeKeyCollected==5 && orangeKeyCount.keys<=0) {
-			orangeKeyCount.keys=-1;
+		if(orangeKeyCount.keys<=0) {
+			//orangeKeyCount.keys=-1;
+			displayorangekey.x=9999;
 		}else {
 			displayorangekey.draw();
 		}
 
-		if(totalBlueKeyCollected==5 && blueKeyCount.keys<=0) {
-			blueKeyCount.keys=-1;
+		if(blueKeyCount.keys<=0) {
+			//blueKeyCount.keys=-1;
+			displaybluekey.x=9999;
 		}else {
 			displaybluekey.draw();
 		}
@@ -1300,7 +1317,6 @@ public class Explore extends PApplet {
 		Ending.draw();
 		Ending.update();
 
-
 		endingdoor1.draw();
 		endingdoor1.update();
 
@@ -1309,6 +1325,7 @@ public class Explore extends PApplet {
 
 
 		if(map==true) {
+			mappdarkness();
 			mapp();
 			mapp2();
 		}
@@ -1472,7 +1489,1159 @@ public class Explore extends PApplet {
 		}
 
 	}
-
+	
+	
+	//x:-240/+195     y:-120/+145
+	//x:400			  y:280
+	//88			  54	
+	public void mappdarkness() {
+	rects.add(new ColorfulRectangle(400+190,280+80, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+195,280+80, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-240,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-235,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-230,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-225,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-220,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-215,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-210,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-205,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-200,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-195,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-190,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-185,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-180,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-175,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-170,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-165,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-160,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-155,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-150,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-145,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-140,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-135,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-130,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-125,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-120,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-115,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-110,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-105,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-100,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-95,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-90,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-85,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-80,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-75,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-70,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-65,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-60,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-55,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-50,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-45,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-40,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-35,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-30,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-25,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-20,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-15,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-10,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-5,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+0,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+5,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+10,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+15,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+20,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+25,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+30,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+35,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+40,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+45,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+50,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+55,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+60,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+65,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+70,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+75,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+80,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+85,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+90,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+95,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+100,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+105,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+110,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+115,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+120,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+125,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+130,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+135,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+140,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+145,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+150,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+155,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+160,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+165,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+170,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+175,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+180,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+185,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+190,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+195,280+85, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-240,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-235,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-230,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-225,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-220,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-215,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-210,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-205,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-200,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-195,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-190,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-185,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-180,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-175,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-170,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-165,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-160,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-155,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-150,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-145,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-140,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-135,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-130,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-125,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-120,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-115,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-110,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-105,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-100,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-95,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-90,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-85,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-80,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-75,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-70,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-65,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-60,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-55,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-50,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-45,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-40,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-35,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-30,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-25,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-20,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-15,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-10,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-5,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+0,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+5,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+10,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+15,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+20,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+25,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+30,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+35,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+40,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+45,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+50,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+55,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+60,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+65,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+70,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+75,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+80,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+85,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+90,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+95,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+100,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+105,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+110,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+115,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+120,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+125,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+130,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+135,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+140,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+145,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+150,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+155,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+160,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+165,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+170,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+175,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+180,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+185,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+190,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+195,280+90, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-240,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-235,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-230,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-225,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-220,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-215,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-210,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-205,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-200,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-195,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-190,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-185,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-180,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-175,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-170,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-165,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-160,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-155,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-150,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-145,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-140,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-135,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-130,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-125,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-120,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-115,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-110,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-105,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-100,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-95,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-90,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-85,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-80,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-75,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-70,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-65,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-60,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-55,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-50,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-45,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-40,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-35,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-30,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-25,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-20,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-15,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-10,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-5,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+0,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+5,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+10,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+15,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+20,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+25,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+30,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+35,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+40,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+45,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+50,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+55,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+60,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+65,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+70,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+75,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+80,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+85,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+90,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+95,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+100,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+105,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+110,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+115,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+120,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+125,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+130,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+135,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+140,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+145,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+150,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+155,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+160,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+165,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+170,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+175,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+180,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+185,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+190,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+195,280+95, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-240,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-235,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-230,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-225,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-220,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-215,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-210,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-205,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-200,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-195,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-190,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-185,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-180,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-175,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-170,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-165,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-160,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-155,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-150,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-145,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-140,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-135,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-130,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-125,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-120,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-115,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-110,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-105,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-100,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-95,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-90,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-85,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-80,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-75,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-70,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-65,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-60,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-55,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-50,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-45,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-40,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-35,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-30,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-25,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-20,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-15,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-10,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-5,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+0,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+5,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+10,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+15,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+20,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+25,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+30,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+35,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+40,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+45,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+50,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+55,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+60,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+65,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+70,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+75,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+80,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+85,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+90,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+95,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+100,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+105,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+110,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+115,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+120,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+125,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+130,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+135,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+140,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+145,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+150,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+155,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+160,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+165,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+170,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+175,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+180,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+185,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+190,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+195,280+100, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-240,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-235,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-230,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-225,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-220,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-215,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-210,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-205,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-200,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-195,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-190,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-185,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-180,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-175,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-170,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-165,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-160,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-155,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-150,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-145,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-140,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-135,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-130,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-125,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-120,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-115,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-110,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-105,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-100,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-95,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-90,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-85,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-80,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-75,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-70,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-65,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-60,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-55,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-50,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-45,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-40,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-35,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-30,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-25,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-20,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-15,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-10,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-5,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+0,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+5,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+10,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+15,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+20,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+25,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+30,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+35,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+40,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+45,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+50,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+55,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+60,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+65,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+70,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+75,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+80,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+85,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+90,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+95,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+100,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+105,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+110,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+115,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+120,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+125,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+130,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+135,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+140,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+145,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+150,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+155,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+160,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+165,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+170,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+175,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+180,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+185,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+190,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+195,280+105, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-240,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-235,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-230,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-225,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-220,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-215,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-210,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-205,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-200,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-195,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-190,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-185,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-180,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-175,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-170,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-165,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-160,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-155,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-150,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-145,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-140,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-135,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-130,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-125,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-120,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-115,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-110,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-105,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-100,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-95,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-90,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-85,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-80,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-75,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-70,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-65,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-60,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-55,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-50,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-45,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-40,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-35,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-30,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-25,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-20,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-15,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-10,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-5,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+0,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+5,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+10,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+15,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+20,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+25,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+30,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+35,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+40,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+45,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+50,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+55,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+60,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+65,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+70,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+75,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+80,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+85,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+90,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+95,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+100,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+105,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+110,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+115,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+120,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+125,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+130,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+135,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+140,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+145,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+150,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+155,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+160,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+165,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+170,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+175,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+180,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+185,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+190,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+195,280+110, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-240,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-235,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-230,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-225,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-220,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-215,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-210,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-205,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-200,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-195,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-190,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-185,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-180,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-175,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-170,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-165,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-160,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-155,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-150,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-145,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-140,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-135,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-130,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-125,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-120,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-115,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-110,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-105,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-100,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-95,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-90,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-85,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-80,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-75,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-70,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-65,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-60,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-55,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-50,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-45,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-40,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-35,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-30,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-25,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-20,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-15,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-10,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-5,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+0,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+5,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+10,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+15,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+20,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+25,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+30,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+35,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+40,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+45,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+50,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+55,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+60,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+65,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+70,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+75,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+80,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+85,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+90,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+95,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+100,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+105,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+110,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+115,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+120,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+125,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+130,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+135,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+140,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+145,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+150,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+155,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+160,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+165,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+170,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+175,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+180,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+185,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+190,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+195,280+115, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-240,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-235,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-230,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-225,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-220,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-215,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-210,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-205,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-200,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-195,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-190,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-185,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-180,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-175,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-170,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-165,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-160,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-155,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-150,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-145,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-140,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-135,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-130,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-125,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-120,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-115,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-110,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-105,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-100,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-95,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-90,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-85,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-80,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-75,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-70,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-65,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-60,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-55,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-50,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-45,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-40,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-35,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-30,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-25,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-20,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-15,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-10,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-5,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+0,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+5,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+10,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+15,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+20,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+25,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+30,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+35,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+40,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+45,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+50,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+55,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+60,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+65,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+70,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+75,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+80,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+85,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+90,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+95,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+100,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+105,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+110,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+115,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+120,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+125,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+130,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+135,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+140,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+145,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+150,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+155,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+160,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+165,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+170,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+175,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+180,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+185,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+190,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+195,280+120, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-240,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-235,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-230,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-225,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-220,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-215,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-210,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-205,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-200,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-195,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-190,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-185,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-180,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-175,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-170,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-165,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-160,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-155,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-150,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-145,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-140,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-135,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-130,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-125,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-120,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-115,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-110,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-105,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-100,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-95,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-90,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-85,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-80,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-75,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-70,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-65,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-60,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-55,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-50,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-45,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-40,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-35,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-30,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-25,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-20,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-15,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-10,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-5,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+0,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+5,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+10,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+15,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+20,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+25,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+30,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+35,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+40,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+45,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+50,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+55,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+60,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+65,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+70,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+75,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+80,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+85,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+90,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+95,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+100,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+105,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+110,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+115,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+120,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+125,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+130,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+135,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+140,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+145,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+150,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+155,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+160,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+165,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+170,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+175,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+180,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+185,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+190,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+195,280+125, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-240,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-235,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-230,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-225,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-220,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-215,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-210,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-205,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-200,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-195,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-190,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-185,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-180,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-175,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-170,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-165,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-160,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-155,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-150,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-145,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-140,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-135,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-130,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-125,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-120,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-115,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-110,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-105,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-100,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-95,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-90,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-85,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-80,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-75,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-70,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-65,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-60,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-55,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-50,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-45,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-40,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-35,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-30,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-25,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-20,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-15,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-10,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-5,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+0,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+5,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+10,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+15,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+20,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+25,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+30,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+35,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+40,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+45,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+50,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+55,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+60,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+65,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+70,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+75,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+80,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+85,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+90,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+95,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+100,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+105,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+110,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+115,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+120,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+125,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+130,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+135,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+140,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+145,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+150,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+155,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+160,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+165,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+170,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+175,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+180,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+185,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+190,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+195,280+130, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-240,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-235,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-230,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-225,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-220,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-215,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-210,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-205,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-200,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-195,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-190,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-185,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-180,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-175,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-170,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-165,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-160,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-155,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-150,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-145,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-140,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-135,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-130,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-125,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-120,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-115,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-110,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-105,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-100,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-95,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-90,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-85,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-80,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-75,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-70,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-65,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-60,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-55,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-50,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-45,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-40,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-35,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-30,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-25,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-20,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-15,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-10,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-5,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+0,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+5,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+10,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+15,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+20,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+25,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+30,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+35,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+40,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+45,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+50,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+55,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+60,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+65,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+70,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+75,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+80,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+85,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+90,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+95,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+100,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+105,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+110,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+115,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+120,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+125,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+130,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+135,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+140,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+145,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+150,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+155,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+160,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+165,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+170,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+175,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+180,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+185,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+190,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+195,280+135, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-240,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-235,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-230,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-225,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-220,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-215,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-210,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-205,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-200,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-195,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-190,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-185,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-180,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-175,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-170,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-165,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-160,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-155,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-150,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-145,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-140,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-135,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-130,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-125,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-120,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-115,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-110,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-105,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-100,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-95,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-90,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-85,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-80,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-75,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-70,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-65,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-60,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-55,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-50,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-45,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-40,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-35,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-30,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-25,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-20,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-15,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-10,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-5,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+0,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+5,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+10,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+15,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+20,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+25,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+30,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+35,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+40,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+45,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+50,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+55,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+60,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+65,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+70,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+75,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+80,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+85,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+90,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+95,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+100,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+105,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+110,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+115,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+120,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+125,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+130,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+135,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+140,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+145,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+150,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+155,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+160,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+165,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+170,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+175,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+180,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+185,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+190,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+195,280+140, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-240,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-235,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-230,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-225,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-220,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-215,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-210,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-205,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-200,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-195,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-190,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-185,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-180,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-175,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-170,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-165,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-160,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-155,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-150,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-145,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-140,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-135,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-130,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-125,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-120,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-115,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-110,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-105,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-100,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-95,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-90,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-85,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-80,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-75,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-70,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-65,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-60,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-55,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-50,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-45,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-40,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-35,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-30,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-25,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-20,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-15,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-10,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+-5,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+0,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+5,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+10,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+15,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+20,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+25,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+30,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+35,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+40,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+45,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+50,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+55,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+60,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+65,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+70,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+75,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+80,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+85,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+90,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+95,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+100,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+105,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+110,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+115,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+120,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+125,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+130,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+135,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+140,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+145,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+150,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+155,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+160,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+165,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+170,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+175,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+180,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+185,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+190,280+145, 5, 5, Color.BLACK));
+	rects.add(new ColorfulRectangle(400+195,280+145, 5, 5, Color.BLACK));
+}
 	public void mapp() {	
 		int marker;
 		rects.add(new ColorfulRectangle(160,160, 440, 270, Color.BLACK));
@@ -9856,9 +11025,16 @@ public class Explore extends PApplet {
 		for(Entry<ColorfulRectangle,KeyCount> e: doorToKey.entrySet()) {
 		ColorfulRectangle door = e.getKey();
 		KeyCount collectedKeys = e.getValue();
+		ColorfulRectangle Endingdoor1 = e.getKey();
+		KeyCount collectedEndingKeys = e.getValue();
 		
 		if(playerup.intersects(door) && collectedKeys.keys==0) {
 			returnValue = true;
+		}
+		if(finished==true) {
+		if(playerup.intersects(Endingdoor1) && collectedEndingKeys.keys==0) {
+			returnValue = false;
+		}
 		}
 		}
 		return returnValue;
@@ -9875,8 +11051,10 @@ public class Explore extends PApplet {
 		if(playerdown.intersects(door) && collectedKeys.keys==0) {
 			returnValue = true;
 		}
+		if(finished==true) {
 		if(playerdown.intersects(Endingdoor1) && collectedEndingKeys.keys==0) {
 			returnValue = false;
+		}
 		}
 		}
 		return returnValue;
@@ -9936,6 +11114,8 @@ public class Explore extends PApplet {
 					if(noclip==0) {
 						noclip=1;
 					}else if(noclip==1) {
+						noclip=2;
+					}else if(noclip==2) {
 						noclip=2;
 					}else{
 						noclip=0;
@@ -10751,7 +11931,7 @@ public class Explore extends PApplet {
 			x=endingdoorx+movex;
 			y=endingdoory+movey;
 			KeyCount collectedKeys = doorToKey.get(this);
-			System.out.println(collectedEndingKeys);
+			//System.out.println(collectedEndingKeys);
 
 			if(x==player.x && y==player.y && collectedEndingKeys>=1){
 				collectedEndingKeys-=1;

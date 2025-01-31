@@ -18,6 +18,7 @@ import processing.core.PApplet;
 //16/12 blocks
 
 
+
 //FIX NOCLIP, OVERLAPPING OF KEYS AND DOORS
 
 //fix stupid enemy collision
@@ -1468,6 +1469,27 @@ public class Explore extends PApplet {
 
 		weapon.draw();
 		//System.out.println(endingBlockSwitch);
+//88
+		rects.add(new ColorfulRectangle(0,0, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(9,0, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(18,0, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(27,0, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(36,0, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(45,0, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(54,0, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(63,0, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(72,0, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(81,0, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(90,0, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(99,0, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(108,0, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(117,0, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(126,0, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(135,0, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(144,0, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(153,0, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(162,0, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(171,0, 9, 9, Color.WHITE));
 
 
 

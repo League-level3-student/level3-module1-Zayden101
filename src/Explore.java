@@ -1374,7 +1374,7 @@ public class Explore extends PApplet {
 		if(player.x==movex-1550 && player.y==movey+450) {
 			orangekey4collected = true;
 		}
-		if(player.x==movex+700 && player.y==movey-1050) {
+		if(player.x==movex+1450 && player.y==movey-150) {
 			orangekey5collected = true;
 		}
 
@@ -3296,28 +3296,28 @@ public class Explore extends PApplet {
 
 		//MINI DOORS
 		if(door1opened==false) {
-		rects.add(new ColorfulRectangle(500+35,280+-45, 5, 5, Color.YELLOW));
-		rects.add(new ColorfulRectangle(402+35,282+-45, 1, 1, Color.BLACK));
+		rects.add(new ColorfulRectangle(495,135, 9, 9, Color.YELLOW));
+		rects.add(new ColorfulRectangle(498,138, 3, 3, Color.BLACK));
 		}
 		if(door2opened==false) {
 		rects.add(new ColorfulRectangle(252,234, 9, 9, Color.YELLOW));
 		rects.add(new ColorfulRectangle(255,237, 3, 3, Color.BLACK));
 		}
 		if(door3opened==false) {
-		rects.add(new ColorfulRectangle(500+65,280+50, 5, 5, Color.YELLOW));
-		rects.add(new ColorfulRectangle(402+65,282+50, 1, 1, Color.BLACK));
+		rects.add(new ColorfulRectangle(549,306, 9, 9, Color.YELLOW));
+		rects.add(new ColorfulRectangle(552,309, 3, 3, Color.BLACK));
 		}
 		if(door4opened==false) {
-		rects.add(new ColorfulRectangle(500+80,280+20, 5, 5, Color.YELLOW));
-		rects.add(new ColorfulRectangle(402+80,282+20, 1, 1, Color.BLACK));
+		rects.add(new ColorfulRectangle(576,252, 9, 9, Color.YELLOW));
+		rects.add(new ColorfulRectangle(579,255, 3, 3, Color.BLACK));
 		}
 		if(door5opened==false) {
-		rects.add(new ColorfulRectangle(500+95,280+25, 5, 5, Color.YELLOW));
-		rects.add(new ColorfulRectangle(402+95,282+25, 1, 1, Color.BLACK));
+		rects.add(new ColorfulRectangle(603,279, 9, 9, Color.YELLOW));
+		rects.add(new ColorfulRectangle(606,282, 3, 3, Color.BLACK));
 		}
 		if(door6opened==false) {
-		rects.add(new ColorfulRectangle(500+0,280+125, 5, 5, Color.YELLOW));
-		rects.add(new ColorfulRectangle(402+0,282+125, 1, 1, Color.BLACK));
+		rects.add(new ColorfulRectangle(432,423, 9, 9, Color.YELLOW));
+		rects.add(new ColorfulRectangle(435,426, 3, 3, Color.BLACK));
 		}
 		if(door7opened==false) {
 		rects.add(new ColorfulRectangle(162,279, 9, 9, Color.YELLOW));
@@ -3325,8 +3325,8 @@ public class Explore extends PApplet {
 		}
 		
 		if(pinkdoor1opened==false) {
-		rects.add(new ColorfulRectangle(500+-85,280+80, 5, 5, Color.PINK));
-		rects.add(new ColorfulRectangle(402+-85,282+80, 1, 1, Color.BLACK));
+		rects.add(new ColorfulRectangle(279,360, 9, 9, Color.PINK));
+		rects.add(new ColorfulRectangle(282,363, 3, 3, Color.BLACK));
 		}
 		if(pinkdoor2opened==false) {
 		rects.add(new ColorfulRectangle(252,108, 9, 9, Color.PINK));
@@ -3346,24 +3346,24 @@ public class Explore extends PApplet {
 		}
 		
 		if(orangedoor1opened==false) {
-		rects.add(new ColorfulRectangle(500+15,280+135, 5, 5, Color.ORANGE));
-		rects.add(new ColorfulRectangle(402+15,282+135, 1, 1, Color.BLACK));
+		rects.add(new ColorfulRectangle(459,459, 9, 9, Color.ORANGE));
+		rects.add(new ColorfulRectangle(462,462, 3, 3, Color.BLACK));
 		}
 		if(orangedoor2opened==false) {
 		rects.add(new ColorfulRectangle(279,72, 9, 9, Color.ORANGE));
 		rects.add(new ColorfulRectangle(282,75, 3, 3, Color.BLACK));
 		}
 		if(orangedoor3opened==false) {
-		rects.add(new ColorfulRectangle(500+100,280+-60, 5, 5, Color.ORANGE));
-		rects.add(new ColorfulRectangle(402+100,282+-60, 1, 1, Color.BLACK));
+		rects.add(new ColorfulRectangle(613,108, 9, 9, Color.ORANGE));
+		rects.add(new ColorfulRectangle(616,111, 3, 3, Color.BLACK));
 		}
 		if(orangedoor4opened==false) {
 		rects.add(new ColorfulRectangle(126,72, 9, 9, Color.ORANGE));
 		rects.add(new ColorfulRectangle(129,75, 3, 3, Color.BLACK));
 		}
 		if(orangedoor5opened==false) {
-		rects.add(new ColorfulRectangle(500+145,280+135, 5, 5, Color.ORANGE));
-		rects.add(new ColorfulRectangle(402+145,282+135, 1, 1, Color.BLACK));
+		rects.add(new ColorfulRectangle(693,459, 9, 9, Color.ORANGE));
+		rects.add(new ColorfulRectangle(696,462, 3, 3, Color.BLACK));
 		}
 		
 		if(bluedoor1opened==false) {
@@ -3387,8 +3387,8 @@ public class Explore extends PApplet {
 		rects.add(new ColorfulRectangle(111,75, 3, 3, Color.BLACK));
 		}
 
-		rects.add(new ColorfulRectangle(500+45,280+-120, 5, 5, Color.WHITE));
-		rects.add(new ColorfulRectangle(500+40,280+105, 5, 5, Color.WHITE));
+//		rects.add(new ColorfulRectangle(500+45,280+-120, 5, 5, Color.WHITE));
+//		rects.add(new ColorfulRectangle(500+40,280+105, 5, 5, Color.WHITE));
 
 
 
@@ -3396,32 +3396,32 @@ public class Explore extends PApplet {
 		//KEY
 
 		if(key1collected==false) {
-			rects.add(new ColorfulRectangle(500+50,280+-50, 5, 5, Color.YELLOW));
+			rects.add(new ColorfulRectangle(522,126, 9, 9, Color.YELLOW));
 		}
 		if(key2collected==false) {
-			rects.add(new ColorfulRectangle(500+-80,280+55, 5, 5, Color.YELLOW));
+			rects.add(new ColorfulRectangle(288,315, 9, 9, Color.YELLOW));
 		}
 		if(key3collected==false) {
-			rects.add(new ColorfulRectangle(500+-30,280+-55, 5, 5, Color.YELLOW));
+			rects.add(new ColorfulRectangle(378,117, 9, 9, Color.YELLOW));
 		}
 		if(key4collected==false) {
-			rects.add(new ColorfulRectangle(500+-35,280+85, 5, 5, Color.YELLOW));
+			rects.add(new ColorfulRectangle(369,369, 9, 9, Color.YELLOW));
 		}
 		if(key5collected==false) {
-			rects.add(new ColorfulRectangle(500+15,280+50, 5, 5, Color.YELLOW));
+			rects.add(new ColorfulRectangle(459,306, 9, 9, Color.YELLOW));
 		}
 		if(key6collected==false) {
 			rects.add(new ColorfulRectangle(27,144, 9, 9, Color.YELLOW));
 		}
 		if(key7collected==false) {
-			rects.add(new ColorfulRectangle(500+-10,280+-105, 5, 5, Color.YELLOW));
+			rects.add(new ColorfulRectangle(414,27, 9, 9, Color.YELLOW));
 		}
 
 		if(pinkkey1collected==false) {
-			rects.add(new ColorfulRectangle(500+100,280+55, 5, 5, Color.PINK));
+			rects.add(new ColorfulRectangle(612,315, 9, 9, Color.PINK));
 		}
 		if(pinkkey2collected==false) {
-			rects.add(new ColorfulRectangle(500+80,280+125, 5, 5, Color.PINK));
+			rects.add(new ColorfulRectangle(576,441, 9, 9, Color.PINK));
 		}
 		if(pinkkey3collected==false) {
 			rects.add(new ColorfulRectangle(45,234, 9, 9, Color.PINK));
@@ -3437,32 +3437,32 @@ public class Explore extends PApplet {
 			rects.add(new ColorfulRectangle(198,135, 9, 9, Color.ORANGE));
 		}
 		if(orangekey2collected==false) {
-			rects.add(new ColorfulRectangle(500+120,280+15, 5, 5, Color.ORANGE));
+			rects.add(new ColorfulRectangle(648,243, 9, 9, Color.ORANGE));
 		}
 		if(orangekey3collected==false) {
-			rects.add(new ColorfulRectangle(500+145,280+-15, 5, 5, Color.ORANGE));
+			rects.add(new ColorfulRectangle(72,324, 9, 9, Color.ORANGE));
 		}
 		if(orangekey4collected==false) {
 			rects.add(new ColorfulRectangle(153,297, 9, 9, Color.ORANGE));
 		}
 		if(orangekey5collected==false) {
-			rects.add(new ColorfulRectangle(72,324, 9, 9, Color.ORANGE));
+			rects.add(new ColorfulRectangle(693,189, 9, 9, Color.ORANGE));
 		}
 
 		if(bluekey1collected==false) {
 			rects.add(new ColorfulRectangle(297,63, 9, 9, Color.CYAN));
 		}
 		if(bluekey2collected==false) {
-			rects.add(new ColorfulRectangle(500+10,280+120, 5, 5, Color.CYAN));
+			rects.add(new ColorfulRectangle(450,432, 9, 9, Color.CYAN));
 		}
 		if(bluekey3collected==false) {
-			rects.add(new ColorfulRectangle(500+190,280+125, 5, 5, Color.CYAN));
+			rects.add(new ColorfulRectangle(774,441, 9, 9, Color.CYAN));
 		}
 		if(bluekey4collected==false) {
-			rects.add(new ColorfulRectangle(500+165,280+-40, 5, 5, Color.CYAN));
+			rects.add(new ColorfulRectangle(729,144, 9, 9, Color.CYAN));
 		}
 		if(bluekey5collected==false) {
-			rects.add(new ColorfulRectangle(500+180,280+-95, 5, 5, Color.CYAN));
+			rects.add(new ColorfulRectangle(756,45, 9, 9, Color.CYAN));
 		}
 		
 
@@ -10013,36 +10013,12 @@ if(blockplacesize==0) {
 	System.out.println("rects.add(new ColorfulRectangle("+ moXmap + "," + moYmap + ", 9, 9, Color.WHITE));");
 	rects.add(new ColorfulRectangle(moXmap,moYmap, 9, 9, Color.WHITE));
 }else if(blockplacesize==2) {
-	int moXmap = ((mouseX/5)*5)+-movex-400;
-	int moYmap = ((mouseY/5)*5)+-movey-280;
+	int moXmap = ((mouseX/5)*5)+-movex;
+	int moYmap = ((mouseY/5)*5)+-movey;
 
-	System.out.println("rects.add(new ColorfulRectangle(500+"+ moXmap + ",280+" + moYmap + ", 5, 5, Color.WHITE));");
+	System.out.println("rects.add(new ColorfulRectangle("+ moXmap + "," + moYmap + ", 5, 5, Color.WHITE));");
 	rects.add(new ColorfulRectangle(moXmap+movex,moYmap+movey, 5, 5, Color.WHITE));
 }
-		
-	}
-
-	public void mouseWheel() {
-
-
-//		int moX = ((mouseX/50)*50)+-movex;
-//		int moY = ((mouseY/50)*50)+-movey+mouseswheeler;
-
-		//System.out.println("X:" + moX + "   Y:" + moY);
-
-//		System.out.println("rects.add(new ColorfulRectangle("+ "movex+"+ moX +",movey+" + moY + ", 50, 50, Color.WHITE));");
-//		rects.add(new ColorfulRectangle(moX+movex,moY+movey, 50, 50, Color.WHITE));
-
-//		mouseswheeler+=50;
-
-		
-		int moXmap = ((mouseX/9)*9);
-		int moYmap = ((mouseswheeler/9)*9);
-
-		System.out.println("rects.add(new ColorfulRectangle("+ moXmap + "," + moYmap + ", 9, 9, Color.WHITE));");
-		rects.add(new ColorfulRectangle(moXmap,moYmap, 9, 9, Color.WHITE));
-
-		mouseswheeler+=9;
 		
 	}
 

@@ -171,8 +171,7 @@ public class Explore extends PApplet {
 	ColorfulRectangle player = new ColorfulRectangle(350,250,50,50,Color.BLUE);
 
 	List<Rectangle> rects = new ArrayList<Rectangle>();
-	List<Rectangle> elips = new ArrayList<Rectangle>();
-
+	
 	List<Enemy> enemies = new ArrayList<Enemy>();
 
 
@@ -466,7 +465,7 @@ public class Explore extends PApplet {
 		
 		//JOptionPane.showMessageDialog(null, "Arrow keys to move \n*Shift* to surround attack \n*Alt* to shoot bullet (shoots through walls cuz im too lazy to fix it)");
 
-		background(bgColor);
+		//background(bgColor);
 
 		finished=false;
 
@@ -530,6 +529,8 @@ public class Explore extends PApplet {
 		if(mapshown==false) {
 			buildings();
 			buildings2();
+			buildingdarkness();
+
 		}
 
 		playerup.x=player.x;
@@ -9050,34 +9051,7 @@ public class Explore extends PApplet {
 			rects.add(new ColorfulRectangle(movex+-350,movey+-350, 50, 50, Color.DARK_GRAY));
 			rects.add(new ColorfulRectangle(movex+-550,movey+0, 50, 50, Color.DARK_GRAY));
 			rects.add(new ColorfulRectangle(movex+-550,movey+50, 50, 50, Color.DARK_GRAY));
-			
-			
-			rects.add(new ColorfulRectangle(movex+-2350,movey+-1150, 1900, 700, Color.WHITE));
-			
-			rects.add(new ColorfulRectangle(movex+-2350,movey+-450, 1500, 400, Color.WHITE));
-			
-			rects.add(new ColorfulRectangle(movex+-2350,movey+-50, 1450, 1500, Color.WHITE));
-			
-			rects.add(new ColorfulRectangle(movex+-900,movey+750, 950, 700, Color.WHITE));
-
-			rects.add(new ColorfulRectangle(movex+50,movey+1100, 1900, 350, Color.WHITE));
-			
-			rects.add(new ColorfulRectangle(movex+700,movey+650, 1250, 450, Color.WHITE));
-			
-			rects.add(new ColorfulRectangle(movex+1100,movey+250, 850, 400, Color.WHITE));
-			
-			rects.add(new ColorfulRectangle(movex+1200,movey+150, 750, 100, Color.WHITE));
-			
-			rects.add(new ColorfulRectangle(movex+1300,movey+100, 650, 50, Color.WHITE));
-			
-			rects.add(new ColorfulRectangle(movex+1350,movey+-50, 600, 150, Color.WHITE));
-			
-			rects.add(new ColorfulRectangle(movex+1300,movey+-250, 650, 150, Color.WHITE));
-			
-			rects.add(new ColorfulRectangle(movex+1350,movey+-100, 600, 50, Color.WHITE));
-			
-			rects.add(new ColorfulRectangle(movex+1050,movey+-1150, 900, 800, Color.WHITE));
-
+		
 			
 			
 			
@@ -9606,7 +9580,6 @@ public class Explore extends PApplet {
 		rects.add(new ColorfulRectangle(movex+400,movey+-1150, 50, 50, Color.WHITE));
 	}
 
-	
 	public void mappdarkness() {
 	int marker;
 	
@@ -9659,6 +9632,9 @@ public class Explore extends PApplet {
 	
 	rects.add(new ColorfulRectangle(movex+-2350,movey+-1150, 50, 50, Color.WHITE));
 	rects.add(new ColorfulRectangle(movex+-450,movey+-450, 50, 50, Color.WHITE));
+	
+	
+
 
 	}
 
@@ -9686,7 +9662,53 @@ public class Explore extends PApplet {
 	
 	}
 
-	
+	public void buildingdarkness() {
+		
+		stroke(0,0,0);
+		
+		if(wall1==true) {
+		rects.add(new ColorfulRectangle(movex+-850,movey+-700, 500, 400, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-900,movey+-300, 100, 400, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-700,movey+750, 750, 250, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-450,movey+-1000, 500, 300, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+50,movey+-1000, 200, 250, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+50,movey+650, 500, 450, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+550,movey+700, 150, 400, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+500,movey+-50, 600, 700, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+600,movey+-750, 1400, 1050, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-1150,movey+-50, 250, 900, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-1150,movey+850, 200, 550, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-950,movey+800, 50, 400, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-850,movey+750, 150, 100, Color.WHITE));
+
+		}
+		
+		if(wall2==true) {
+		rects.add(new ColorfulRectangle(movex+-2350,movey+-1150, 1900, 700, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-2350,movey+-450, 1500, 400, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-2350,movey+-50, 1200, 1500, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+50,movey+1100, 1900, 350, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+700,movey+650, 1250, 450, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+1100,movey+250, 850, 400, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+1200,movey+150, 750, 100, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+1300,movey+100, 650, 50, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+1350,movey+-50, 600, 150, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+1300,movey+-250, 650, 150, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+1350,movey+-100, 600, 50, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+1050,movey+-1150, 900, 800, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-900,movey+750, 100, 700, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-900,movey+850, 150, 600, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-750,movey+1100, 1550, 450, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-450,movey+-1150, 900, 150, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+250,movey+-1000, 800, 250, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+450,movey+-1150, 600, 150, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+900,movey+-750, 150, 250, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+1300,movey+-350, 650, 100, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-700,movey+1000, 700, 100, Color.BLACK));
+		}
+		
+
+	}
 	
 	
 	boolean playerInterectsBlock() {

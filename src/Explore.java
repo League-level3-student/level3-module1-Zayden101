@@ -377,7 +377,7 @@ public class Explore extends PApplet {
 
 	Map<ColorfulRectangle, KeyCount> doorToKey = new HashMap<ColorfulRectangle, KeyCount>();
 	Map<ColorfulRectangle, KeyCount> keyToKeyCount= new HashMap<ColorfulRectangle, KeyCount>();
-	boolean build = true;
+	boolean build = false;
 	boolean spooky = false;
 	boolean options = false;
 
@@ -500,6 +500,7 @@ public class Explore extends PApplet {
 		if(map==false) {
 			if(nocliped==false) {
 			if(playerInterectsBlock()) {
+				if(mapshown==false) {
 				if(facing==1) {
 					movey-=50;
 				}		
@@ -514,6 +515,7 @@ public class Explore extends PApplet {
 
 				if(facing==4) {
 					movex+=50;
+				}
 				}
 			}
 			}
@@ -570,6 +572,8 @@ public class Explore extends PApplet {
 			stroke(GRAY);
 		}
 
+		if(wall1==false) {
+		if(mapshown==false) {
 		randomxred = randon.nextInt(500);
 		randomyred = randon.nextInt(250);
 		randomxorange = randon.nextInt(500);
@@ -605,7 +609,8 @@ public class Explore extends PApplet {
 		Endingpurple2.draw();
 		Endinggray2.draw();
 		Endingwhite2.draw();
-
+			}
+		}
 
 
 		if(player.x==movex-2350 && player.y==movey-1150) {
@@ -669,6 +674,7 @@ public class Explore extends PApplet {
 			}
 			wall1button.draw();
 
+			if(wall1==false) {
 			ColorfulRectangle wall2button = new ColorfulRectangle(movex+wall2buttonx,movey+wall2buttony,50,50, Color.GREEN);
 			if(player.x==wall2button.x && player.y==wall2button.y) {
 				wall2=false;
@@ -677,6 +683,7 @@ public class Explore extends PApplet {
 			}
 			wall2button.draw();
 		}
+		}
 
 		if(finished==false){
 
@@ -684,6 +691,7 @@ public class Explore extends PApplet {
 
 				door1.draw();
 				door1.update();
+				if(wall1==false) {
 				door2.draw();
 				door2.update();
 				door3.draw();
@@ -692,13 +700,19 @@ public class Explore extends PApplet {
 				door4.update();
 				door5.draw();
 				door5.update();
+				}
+				if(wall2==false) {
 				door6.draw();
 				door6.update();
 				door7.draw();
 				door7.update();
+				}
 				
+				if(wall1==false) {
 				pinkdoor1.draw();
 				pinkdoor1.update();
+				}
+				if(wall2==false) {
 				pinkdoor2.draw();
 				pinkdoor2.update();
 				pinkdoor3.draw();
@@ -707,7 +721,9 @@ public class Explore extends PApplet {
 				pinkdoor4.update();
 				pinkdoor5.draw();
 				pinkdoor5.update();
+				}
 
+				if(wall2==false) {
 				orangedoor1.draw();
 				orangedoor1.update();
 				orangedoor2.draw();
@@ -718,7 +734,9 @@ public class Explore extends PApplet {
 				orangedoor4.update();
 				orangedoor5.draw();
 				orangedoor5.update();
+				}
 
+				if(wall2==false) {
 				bluedoor1.draw();
 				bluedoor1.update();
 				bluedoor2.draw();
@@ -729,24 +747,33 @@ public class Explore extends PApplet {
 				bluedoor4.update();
 				bluedoor5.draw();
 				bluedoor5.update();
-
+				}				
+				
+				
 				key1.draw();
 				key1.update();
 				key2.draw();
 				key2.update();
 				key3.draw();
 				key3.update();
+				if(wall1==false) {
 				key4.draw();
 				key4.update();
+				}
 				key5.draw();
 				key5.update();
+				if(wall2==false) {
 				key6.draw();
 				key6.update();
 				key7.draw();
 				key7.update();
-
+				}
+				
+				if(wall1==false) {
 				pinkkey1.draw();
 				pinkkey1.update();
+				}
+				if(wall2==false) {
 				pinkkey2.draw();
 				pinkkey2.update();
 				pinkkey3.draw();
@@ -755,7 +782,9 @@ public class Explore extends PApplet {
 				pinkkey4.update();
 				pinkkey5.draw();
 				pinkkey5.update();
+				}
 				
+				if(wall2==false) {
 				orangekey1.draw();
 				orangekey1.update();
 				orangekey2.draw();
@@ -766,7 +795,9 @@ public class Explore extends PApplet {
 				orangekey4.update();
 				orangekey5.draw();
 				orangekey5.update();
+				}
 
+				if(wall2==false) {
 				bluekey1.draw();
 				bluekey1.update();
 				bluekey2.draw();
@@ -777,8 +808,15 @@ public class Explore extends PApplet {
 				bluekey4.update();
 				bluekey5.draw();
 				bluekey5.update();
-
+				}
+				//key4
+				//door2
+				//door3
+				//door4
+				//door5
 				
+				
+
 			}
 
 		}
@@ -947,7 +985,6 @@ public class Explore extends PApplet {
 			ColorfulRectangle displayEndinggray = new ColorfulRectangle(660,10,30,30,Color.LIGHT_GRAY);
 			ColorfulRectangle displayEndingwhite = new ColorfulRectangle(660,10,30,30,Color.WHITE);
 
-//System.out.println(colorSwitchdoor);
 			if(colorSwitchdoor==0) {
 				displayEndingred.draw();
 			}else if(colorSwitchdoor==1) {
@@ -1316,6 +1353,7 @@ public class Explore extends PApplet {
 
 
 		if(map==true) {
+			facing=0;
 			mapp();
 			mapp2();
 			mappdarkness();
@@ -8985,6 +9023,7 @@ public class Explore extends PApplet {
 		rects.add(new ColorfulRectangle(movex+-1650,movey+50, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(movex+-1650,movey+0, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(movex+-1550,movey+-50, 50, 50, Color.WHITE));
+		//rects.add(new ColorfulRectangle(movex+600,movey+650, 50, 50, Color.WHITE));
 
 
 		//TOP BORDER
@@ -9068,7 +9107,6 @@ public class Explore extends PApplet {
 			rects.add(new ColorfulRectangle(movex+1000,movey+-650, 50, 50, Color.DARK_GRAY));
 			rects.add(new ColorfulRectangle(movex+200,movey+-800, 50, 50, Color.DARK_GRAY));
 			rects.add(new ColorfulRectangle(movex+0,movey+800, 50, 50, Color.DARK_GRAY));
-			rects.add(new ColorfulRectangle(movex+600,movey+650, 50, 50, Color.DARK_GRAY));
 			rects.add(new ColorfulRectangle(movex+-450,movey+-550, 50, 50, Color.DARK_GRAY));
 			rects.add(new ColorfulRectangle(movex+850,movey+-650, 50, 50, Color.DARK_GRAY));
 			rects.add(new ColorfulRectangle(movex+850,movey+-600, 50, 50, Color.DARK_GRAY));
@@ -9628,12 +9666,7 @@ public class Explore extends PApplet {
 	rects.add(new ColorfulRectangle(9,144, 180, 252, Color.BLACK));
 	rects.add(new ColorfulRectangle(189,252, 36, 144, Color.BLACK));
 	rects.add(new ColorfulRectangle(351,36, 9, 9, Color.BLACK));
-	rects.add(new ColorfulRectangle(225,369, 36, 27, Color.BLACK));
-	
-	rects.add(new ColorfulRectangle(movex+-2350,movey+-1150, 50, 50, Color.WHITE));
-	rects.add(new ColorfulRectangle(movex+-450,movey+-450, 50, 50, Color.WHITE));
-	
-	
+	rects.add(new ColorfulRectangle(225,369, 36, 27, Color.BLACK));	
 
 
 	}
@@ -9677,16 +9710,26 @@ public class Explore extends PApplet {
 		rects.add(new ColorfulRectangle(movex+500,movey+-50, 600, 700, Color.BLACK));
 		rects.add(new ColorfulRectangle(movex+600,movey+-750, 1400, 1050, Color.BLACK));
 		rects.add(new ColorfulRectangle(movex+-1150,movey+-50, 250, 900, Color.BLACK));
-		rects.add(new ColorfulRectangle(movex+-1150,movey+850, 200, 550, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+-950,movey+800, 50, 400, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+-850,movey+750, 150, 100, Color.WHITE));
-
+		rects.add(new ColorfulRectangle(movex+-1150,movey+850, 200, 550, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-950,movey+800, 50, 400, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-850,movey+750, 150, 100, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-1350,movey+-400, 450, 600, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-900,movey+-400, 50, 50, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-900,movey+800, 150, 200, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+500,movey+-900, 50, 50, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+700,movey+-800, 50, 50, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+500,movey+-900, 250, 150, Color.BLACK));
+		
 		}
 		
 		if(wall2==true) {
 		rects.add(new ColorfulRectangle(movex+-2350,movey+-1150, 1900, 700, Color.BLACK));
-		rects.add(new ColorfulRectangle(movex+-2350,movey+-450, 1500, 400, Color.BLACK));
-		rects.add(new ColorfulRectangle(movex+-2350,movey+-50, 1200, 1500, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-900,movey+1000, 150, 400, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-2350,movey+1000, 1450, 450, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-2350,movey+-450, 1000, 1350, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-1350,movey+-450, 450, 50, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-1350,movey+200, 200, 700, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-2350,movey+900, 1350, 100, Color.BLACK));
 		rects.add(new ColorfulRectangle(movex+50,movey+1100, 1900, 350, Color.BLACK));
 		rects.add(new ColorfulRectangle(movex+700,movey+650, 1250, 450, Color.BLACK));
 		rects.add(new ColorfulRectangle(movex+1100,movey+250, 850, 400, Color.BLACK));
@@ -9696,16 +9739,19 @@ public class Explore extends PApplet {
 		rects.add(new ColorfulRectangle(movex+1300,movey+-250, 650, 150, Color.BLACK));
 		rects.add(new ColorfulRectangle(movex+1350,movey+-100, 600, 50, Color.BLACK));
 		rects.add(new ColorfulRectangle(movex+1050,movey+-1150, 900, 800, Color.BLACK));
-		rects.add(new ColorfulRectangle(movex+-900,movey+750, 100, 700, Color.BLACK));
-		rects.add(new ColorfulRectangle(movex+-900,movey+850, 150, 600, Color.BLACK));
 		rects.add(new ColorfulRectangle(movex+-750,movey+1100, 1550, 450, Color.BLACK));
 		rects.add(new ColorfulRectangle(movex+-450,movey+-1150, 900, 150, Color.BLACK));
-		rects.add(new ColorfulRectangle(movex+250,movey+-1000, 800, 250, Color.BLACK));
 		rects.add(new ColorfulRectangle(movex+450,movey+-1150, 600, 150, Color.BLACK));
 		rects.add(new ColorfulRectangle(movex+900,movey+-750, 150, 250, Color.BLACK));
 		rects.add(new ColorfulRectangle(movex+1300,movey+-350, 650, 100, Color.BLACK));
 		rects.add(new ColorfulRectangle(movex+-700,movey+1000, 700, 100, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+450,movey+-1000, 600, 100, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+750,movey+-900, 300, 200, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+300,movey+-1000, 150, 250, Color.BLACK));
+
 		}
+		
+		
 		
 
 	}
@@ -10251,26 +10297,6 @@ if(blockplacesize==0) {
 		}
 
 	}
-
-	class ColorfulEllipse extends Rectangle{
-
-		Color col;
-
-		public ColorfulEllipse(int x, int y, int width, int height, Color col) {
-			super(x, y, width, height);
-			this.col=col;
-		}
-
-
-		void draw(){
-
-			fill(col.getRGB());
-
-			ellipse(x, y, width, height);
-
-		}
-
-	}
 	
 	
 	class Enemy extends ColorfulRectangle{
@@ -10580,7 +10606,7 @@ if(blockplacesize==0) {
 				if(facing==4) {
 					movex+=50;
 				}
-
+				
 			}
 
 		}

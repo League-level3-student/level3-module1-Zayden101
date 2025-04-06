@@ -26,8 +26,11 @@ public class MeetingScheduler {
      */
     public static Schedule getMutualAvailability(Schedule person1, Schedule person2) {
     	
+        HashMap<String, ArrayList<Integer>> a = new HashMap<String, ArrayList<Integer>>();
+
     	
     	
-        return null;
+    	
+    	return null;
     }
 }

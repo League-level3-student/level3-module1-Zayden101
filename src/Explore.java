@@ -464,9 +464,6 @@ public class Explore extends PApplet {
 		keyToKeyCount.put(endingdoor2, endingKeyCount);
 
 		
-		
-		//JOptionPane.showMessageDialog(null, "Arrow keys to move \n*Shift* to surround attack \n*Alt* to shoot bullet (shoots through walls cuz im too lazy to fix it)");
-
 		//background(bgColor);
 
 		finished=false;
@@ -810,10 +807,7 @@ public class Explore extends PApplet {
 				bluekey5.draw();
 				bluekey5.update();
 				}
-
-
 			}
-
 		}
 		if(movex==-100 && movey==1450) {
 			escaped = true;
@@ -943,31 +937,53 @@ public class Explore extends PApplet {
 	}
 	}
 		
+		//ROY
+		ColorfulRectangle teleporterM = new ColorfulRectangle(movex-100,movey+500, 50, 50, Color.BLUE);
+		teleporterM.draw();
+		
+		//GBP
+		ColorfulRectangle teleporterBR = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Color.BLUE);
+		teleporterBR.draw();
+		
+		//WGB
+		ColorfulRectangle teleporterBL = new ColorfulRectangle(movex-1900,movey+1400, 50, 50, Color.BLUE);
+		teleporterBL.draw();
+		
+		//RGB
+		ColorfulRectangle teleporterTL = new ColorfulRectangle(movex+-1750,movey+-1150, 50, 50, Color.BLUE);
+		teleporterTL.draw();
+		
+		//CYM
+		ColorfulRectangle teleporterTR = new ColorfulRectangle(movex+750,movey-750, 50, 50, Color.BLUE);
+		teleporterTR.draw();
+
+		
 		ColorfulRectangle displaykey = new ColorfulRectangle(660,10, 30, 30, Color.YELLOW);
-
 		ColorfulRectangle displaypinkkey = new ColorfulRectangle(510,10, 30, 30, Color.PINK);
-
 		ColorfulRectangle displayorangekey = new ColorfulRectangle(360,10, 30, 30, Color.ORANGE);
-
 		ColorfulRectangle displaybluekey = new ColorfulRectangle(210,10, 30, 30, Color.CYAN);
-
 		ColorfulRectangle displayendingkey = new ColorfulRectangle(6000,10, 30, 30, Color.WHITE);
 		
+		//System.out.println(yellowKeyCount.keys + " " + pinkKeyCount.keys + " " + orangeKeyCount.keys + " " + blueKeyCount.keys);
+		
+		if(mapshown==false) {
 		if(yellowKeyCount.keys>0) {
 		ColorfulRectangle backdisplayyellowkey = new ColorfulRectangle(650,0, 100, 50, Color.BLACK);
-		backdisplayyellowkey.draw();
-		}else if(pinkKeyCount.keys>0) {
+		backdisplayyellowkey.draw();}
+		if(pinkKeyCount.keys>0) {
 		ColorfulRectangle backdisplaypinkkey = new ColorfulRectangle(500,0, 100, 50, Color.BLACK);
-		backdisplaypinkkey.draw();
-		}else if(orangeKeyCount.keys>0) {
+		backdisplaypinkkey.draw();}
+		if(orangeKeyCount.keys>0) {
 		ColorfulRectangle backdisplayorangekey = new ColorfulRectangle(350,0, 100, 50, Color.BLACK);
-		backdisplayorangekey.draw();
-		}else if(blueKeyCount.keys>0) {
+		backdisplayorangekey.draw();}
+		if(blueKeyCount.keys>0) {
 		ColorfulRectangle backdisplaybluekey = new ColorfulRectangle(200,0, 100, 50, Color.BLACK);
-		backdisplaybluekey.draw();
-		}else if(finished==true) {
+		backdisplaybluekey.draw();}
+		if(escaped == false) {
+		if(finished==true) {
 		ColorfulRectangle backdisplayendingkey = new ColorfulRectangle(650,0, 100, 50, Color.BLACK);
-		backdisplayendingkey.draw();
+		backdisplayendingkey.draw();}
+		}
 		}
 
 		
@@ -1008,15 +1024,13 @@ public class Explore extends PApplet {
 		}
 		}
 		
-
+		
+		if(mapshown==false) {
+		
 		//KEY COUNTER
-		if(yellowKeyCount.keys==0) {
-
-
-		}else if(yellowKeyCount.keys==1) {
+		if(yellowKeyCount.keys==1) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(720,0, 10, 50, Color.WHITE);
 			keynum1.draw();
-
 		}else if(yellowKeyCount.keys==2) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(710,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(730,10, 10, 20, Color.WHITE);
@@ -1028,7 +1042,6 @@ public class Explore extends PApplet {
 			keynum3.draw();
 			keynum4.draw();
 			keynum5.draw();
-
 		}else if(yellowKeyCount.keys==3) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(710,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(730,10, 10, 20, Color.WHITE);
@@ -1040,7 +1053,6 @@ public class Explore extends PApplet {
 			keynum3.draw();
 			keynum4.draw();
 			keynum5.draw();
-
 		}else if(yellowKeyCount.keys==4) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(710,0, 10, 30, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(710,20, 30, 10, Color.WHITE);
@@ -1048,7 +1060,6 @@ public class Explore extends PApplet {
 			keynum1.draw();
 			keynum2.draw();
 			keynum3.draw();		
-
 		}else if(yellowKeyCount.keys==5) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(710,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(710,10, 10, 20, Color.WHITE);
@@ -1060,18 +1071,13 @@ public class Explore extends PApplet {
 			keynum3.draw();
 			keynum4.draw();
 			keynum5.draw();
-
 		}
 
 
-
 		//PINK KEY COUNTER
-		if(pinkKeyCount.keys==0) {
-
-		}else if(pinkKeyCount.keys==1) {
+		if(pinkKeyCount.keys==1) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(570,0, 10, 50, Color.WHITE);
 			keynum1.draw();
-
 		}else if(pinkKeyCount.keys==2) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(580,10, 10, 20, Color.WHITE);
@@ -1083,7 +1089,6 @@ public class Explore extends PApplet {
 			keynum3.draw();
 			keynum4.draw();
 			keynum5.draw();
-
 		}else if(pinkKeyCount.keys==3) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(580,10, 10, 20, Color.WHITE);
@@ -1095,7 +1100,6 @@ public class Explore extends PApplet {
 			keynum3.draw();
 			keynum4.draw();
 			keynum5.draw();
-
 		}else if(pinkKeyCount.keys==4) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 10, 30, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(560,20, 30, 10, Color.WHITE);
@@ -1117,22 +1121,10 @@ public class Explore extends PApplet {
 		}
 
 
-
 		//ORANGE KEY COUNTER
-		if(orangeKeyCount.keys==0) {
-//			ColorfulRectangle keynum1 = new ColorfulRectangle(410,0, 30, 10, Color.WHITE);
-//			ColorfulRectangle keynum2 = new ColorfulRectangle(410,10, 10, 30, Color.WHITE);
-//			ColorfulRectangle keynum3 = new ColorfulRectangle(410,40, 30, 10, Color.WHITE);
-//			ColorfulRectangle keynum4 = new ColorfulRectangle(430,10, 10, 30, Color.WHITE);
-//			keynum1.draw();
-//			keynum2.draw();
-//			keynum3.draw();
-//			keynum4.draw();
-
-		}else if(orangeKeyCount.keys==1) {
+		if(orangeKeyCount.keys==1) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(420,0, 10, 50, Color.WHITE);
 			keynum1.draw();
-
 		}else if(orangeKeyCount.keys==2) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(410,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(430,10, 10, 20, Color.WHITE);
@@ -1144,7 +1136,6 @@ public class Explore extends PApplet {
 			keynum3.draw();
 			keynum4.draw();
 			keynum5.draw();
-
 		}else if(orangeKeyCount.keys==3) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(410,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(430,10, 10, 20, Color.WHITE);
@@ -1156,7 +1147,6 @@ public class Explore extends PApplet {
 			keynum3.draw();
 			keynum4.draw();
 			keynum5.draw();
-
 		}else if(orangeKeyCount.keys==4) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(410,0, 10, 30, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(410,20, 30, 10, Color.WHITE);
@@ -1178,22 +1168,10 @@ public class Explore extends PApplet {
 		}
 
 
-
 		//BLUE KEY COUNTER
-		if(blueKeyCount.keys==0) {
-//			ColorfulRectangle keynum1 = new ColorfulRectangle(260,0, 30, 10, Color.WHITE);
-//			ColorfulRectangle keynum2 = new ColorfulRectangle(260,10, 10, 30, Color.WHITE);
-//			ColorfulRectangle keynum3 = new ColorfulRectangle(260,40, 30, 10, Color.WHITE);
-//			ColorfulRectangle keynum4 = new ColorfulRectangle(280,10, 10, 30, Color.WHITE);
-//			keynum1.draw();
-//			keynum2.draw();
-//			keynum3.draw();
-//			keynum4.draw();
-
-		}else if(blueKeyCount.keys==1) {
+		if(blueKeyCount.keys==1) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(270,0, 10, 50, Color.WHITE);
 			keynum1.draw();
-
 		}else if(blueKeyCount.keys==2) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(260,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(280,10, 10, 20, Color.WHITE);
@@ -1205,7 +1183,6 @@ public class Explore extends PApplet {
 			keynum3.draw();
 			keynum4.draw();
 			keynum5.draw();
-
 		}else if(blueKeyCount.keys==3) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(260,0, 30, 10, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(280,10, 10, 20, Color.WHITE);
@@ -1217,7 +1194,6 @@ public class Explore extends PApplet {
 			keynum3.draw();
 			keynum4.draw();
 			keynum5.draw();
-
 		}else if(blueKeyCount.keys==4) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(260,0, 10, 30, Color.WHITE);
 			ColorfulRectangle keynum2 = new ColorfulRectangle(260,20, 30, 10, Color.WHITE);
@@ -1236,26 +1212,15 @@ public class Explore extends PApplet {
 			keynum3.draw();
 			keynum4.draw();
 			keynum5.draw();
-		}else if(blueKeyCount.keys==-1) {
-			//nothing
-		} 
-//System.out.println(blueKeyCount.keys + "  " + totalBlueKeyCollected);
+		}
+		if(escaped == false) {
 		if(finished==true) {
 			//ENDING KEY COUNTER
 			if(collectedEndingKeys==0) {
-//				ColorfulRectangle keynum1 = new ColorfulRectangle(710,0, 30, 10, Color.WHITE);
-//				ColorfulRectangle keynum2 = new ColorfulRectangle(710,10, 10, 30, Color.WHITE);
-//				ColorfulRectangle keynum3 = new ColorfulRectangle(710,40, 30, 10, Color.WHITE);
-//				ColorfulRectangle keynum4 = new ColorfulRectangle(730,10, 10, 30, Color.WHITE);
-//				keynum1.draw();
-//				keynum2.draw();
-//				keynum3.draw();
-//				keynum4.draw();
-
+				//nothing
 			}else if(collectedEndingKeys==1) {
 				ColorfulRectangle keynum1 = new ColorfulRectangle(720,0, 10, 50, Color.WHITE);
 				keynum1.draw();
-
 			}else if(collectedEndingKeys==2) {
 				ColorfulRectangle keynum1 = new ColorfulRectangle(710,0, 30, 10, Color.WHITE);
 				ColorfulRectangle keynum2 = new ColorfulRectangle(730,10, 10, 20, Color.WHITE);
@@ -1267,69 +1232,33 @@ public class Explore extends PApplet {
 				keynum3.draw();
 				keynum4.draw();
 				keynum5.draw();
-
-			}else if(collectedEndingKeys==3) {
-				ColorfulRectangle keynum1 = new ColorfulRectangle(710,0, 30, 10, Color.WHITE);
-				ColorfulRectangle keynum2 = new ColorfulRectangle(730,10, 10, 20, Color.WHITE);
-				ColorfulRectangle keynum3 = new ColorfulRectangle(710,20, 30, 10, Color.WHITE);
-				ColorfulRectangle keynum4 = new ColorfulRectangle(730,30, 10, 20, Color.WHITE);
-				ColorfulRectangle keynum5 = new ColorfulRectangle(710,40, 30, 10, Color.WHITE);
-				keynum1.draw();
-				keynum2.draw();
-				keynum3.draw();
-				keynum4.draw();
-				keynum5.draw();
-
-			}else if(collectedEndingKeys==4) {
-				ColorfulRectangle keynum1 = new ColorfulRectangle(710,0, 10, 30, Color.WHITE);
-				ColorfulRectangle keynum2 = new ColorfulRectangle(710,20, 30, 10, Color.WHITE);
-				ColorfulRectangle keynum3 = new ColorfulRectangle(730,0, 10, 50, Color.WHITE);		
-				keynum1.draw();
-				keynum2.draw();
-				keynum3.draw();		
-
-			}else if(collectedEndingKeys==5) {
-				ColorfulRectangle keynum1 = new ColorfulRectangle(710,0, 30, 10, Color.WHITE);
-				ColorfulRectangle keynum2 = new ColorfulRectangle(710,10, 10, 20, Color.WHITE);
-				ColorfulRectangle keynum3 = new ColorfulRectangle(710,20, 30, 10, Color.WHITE);
-				ColorfulRectangle keynum4 = new ColorfulRectangle(730,30, 10, 20, Color.WHITE);
-				ColorfulRectangle keynum5 = new ColorfulRectangle(710,40, 30, 10, Color.WHITE);
-				keynum1.draw();
-				keynum2.draw();
-				keynum3.draw();
-				keynum4.draw();
-				keynum5.draw();
 			}
 		}
-
+		}
+		}
+		
+		if(mapshown==false) {
 		if(yellowKeyCount.keys<=0) {
-			//yellowKeyCount.keys=-1;
 			displaykey.x=9999;
 		}else {
 			displaykey.draw();
 		}
-
 		if(pinkKeyCount.keys<=0) {
-			//pinkKeyCount.keys=-1;
 			displaypinkkey.x=9999;
 		}else {
 			displaypinkkey.draw();
 		}
-
 		if(orangeKeyCount.keys<=0) {
-			//orangeKeyCount.keys=-1;
 			displayorangekey.x=9999;
 		}else {
 			displayorangekey.draw();
 		}
-
 		if(blueKeyCount.keys<=0) {
-			//blueKeyCount.keys=-1;
 			displaybluekey.x=9999;
 		}else {
 			displaybluekey.draw();
 		}
-
+		if(escaped == false) {
 		if(finished==true) {
 			if(collectedEndingKeys<=0) {
 				collectedEndingKeys=-1;
@@ -1337,7 +1266,8 @@ public class Explore extends PApplet {
 				displayendingkey.draw();
 			}
 		}
-
+		}
+		}
 
 		Ending.draw();
 		Ending.update();
@@ -1362,162 +1292,115 @@ public class Explore extends PApplet {
 		
 		//KEY
 		if(player.x==movex+500 && player.y==movey-500) {
-			key1collected = true;
-		}
+			key1collected = true;}
 		if(player.x==movex-800 && player.y==movey+550) {
-			key2collected = true;
-		}
+			key2collected = true;}
 		if(player.x==movex-300 && player.y==movey-550) {
-			key3collected = true;
-		}
+			key3collected = true;}
 		if(player.x==movex-350 && player.y==movey+850) {
-			key4collected = true;
-		}
+			key4collected = true;}
 		if(player.x==movex+150 && player.y==movey+500) {
-			key5collected = true;
-		}
+			key5collected = true;}
 		if(player.x==movex-2250 && player.y==movey-400) {
-			key6collected = true;
-		}
+			key6collected = true;}
 		if(player.x==movex-100 && player.y==movey-1050) {
-			key7collected = true;
-		}
+			key7collected = true;}
 
 		//PINK KEY
 		if(player.x==movex+1000 && player.y==movey+550) {
-			pinkkey1collected = true;
-		}
+			pinkkey1collected = true;}
 		if(player.x==movex+800 && player.y==movey+1250) {
-			pinkkey2collected = true;
-		}
+			pinkkey2collected = true;}
 		if(player.x==movex-2150 && player.y==movey+100) {
-			pinkkey3collected = true;
-		}
+			pinkkey3collected = true;}
 		if(player.x==movex-800 && player.y==movey-1150) {
-			pinkkey4collected = true;
-		}
+			pinkkey4collected = true;}
 		if(player.x==movex-100 && player.y==movey+1050) {
-			pinkkey5collected = true;
-		}
+			pinkkey5collected = true;}
 
 		//ORANGE KEY
 		if(player.x==movex-1300 && player.y==movey-450) {
-			orangekey1collected = true;
-		}
+			orangekey1collected = true;}
 		if(player.x==movex+1200 && player.y==movey+150) {
-			orangekey2collected = true;
-		}
+			orangekey2collected = true;}
 		if(player.x==movex-2000 && player.y==movey+600) {
-			orangekey3collected = true;
-		}
+			orangekey3collected = true;}
 		if(player.x==movex-1550 && player.y==movey+450) {
-			orangekey4collected = true;
-		}
+			orangekey4collected = true;}
 		if(player.x==movex+1450 && player.y==movey-150) {
-			orangekey5collected = true;
-		}
+			orangekey5collected = true;}
 
 		//BLUE KEY
 		if(player.x==movex-750 && player.y==movey-850) {
-			bluekey1collected = true;
-		}
+			bluekey1collected = true;}
 		if(player.x==movex+100 && player.y==movey+1200) {
-			bluekey2collected = true;
-		}
+			bluekey2collected = true;}
 		if(player.x==movex+1900 && player.y==movey+1250) {
-			bluekey3collected = true;
-		}
+			bluekey3collected = true;}
 		if(player.x==movex+1650 && player.y==movey-400) {
-			bluekey4collected = true;
-		}
+			bluekey4collected = true;}
 		if(player.x==movex+1800 && player.y==movey-950) {
-			bluekey5collected = true;
-		}
+			bluekey5collected = true;}
 
 
 		if(player.x==movex+350 && player.y==movey-450) {
-			door1opened = true;
-		}
+			door1opened = true;}
 		if(player.x==movex+-1000 && player.y==movey+100) {
-			door2opened = true;
-		}
+			door2opened = true;}
 		if(player.x==movex+650 && player.y==movey+500) {
-			door3opened = true;
-		}
+			door3opened = true;}
 		if(player.x==movex+800 && player.y==movey+200) {
-			door4opened = true;
-		}
+			door4opened = true;}
 		if(player.x==movex+950 && player.y==movey+250) {
-			door5opened = true;
-		}
+			door5opened = true;}
 		if(player.x==movex+0 && player.y==movey+1250) {
-			door6opened = true;
-		}
+			door6opened = true;}
 		if(player.x==movex+-1500 && player.y==movey+350) {
-			door7opened = true;
-		}
+			door7opened = true;}
 
 		if(player.x==movex+-850 && player.y==movey+800) {
-			pinkdoor1opened = true;
-		}
+			pinkdoor1opened = true;}
 		if(player.x==movex+-1000 && player.y==movey+-600) {
-			pinkdoor2opened = true;
-		}
+			pinkdoor2opened = true;}
 		if(player.x==movex+-1550 && player.y==movey+350) {
-			pinkdoor3opened = true;
-		}
+			pinkdoor3opened = true;}
 		if(player.x==movex+-600 && player.y==movey+-850) {
-			pinkdoor4opened = true;
-		}
+			pinkdoor4opened = true;}
 		if(player.x==movex+1750 && player.y==movey+-300) {
-			pinkdoor5opened = true;
-		}
+			pinkdoor5opened = true;}
 
 		if(player.x==movex+150 && player.y==movey+1350) {
-			orangedoor1opened = true;
-		}
+			orangedoor1opened = true;}
 		if(player.x==movex+-850 && player.y==movey+-800) {
-			orangedoor2opened = true;
-		}
+			orangedoor2opened = true;}
 		if(player.x==movex+1000 && player.y==movey+-600) {
-			orangedoor3opened = true;
-		}
+			orangedoor3opened = true;}
 		if(player.x==movex+-1700 && player.y==movey+-800) {
-			orangedoor4opened = true;
-		}
+			orangedoor4opened = true;}
 		if(player.x==movex+1450 && player.y==movey+1350) {
-			orangedoor5opened = true;
-		}
+			orangedoor5opened = true;}
 		
 		if(player.x==movex+-2150 && player.y==movey+-1050) {
-			bluedoor1opened = true;
-		}
+			bluedoor1opened = true;}
 		if(player.x==movex+-2200 && player.y==movey+-1150) {
-			bluedoor2opened = true;
-		}
+			bluedoor2opened = true;}
 		if(player.x==movex+-2350 && player.y==movey+-800) {
-			bluedoor3opened = true;
-		}
+			bluedoor3opened = true;}
 		if(player.x==movex+-1900 && player.y==movey+-1150) {
-			bluedoor4opened = true;
-		}
+			bluedoor4opened = true;}
 		if(player.x==movex+-1800 && player.y==movey+-800) {
-			bluedoor5opened = true;
-		}
+			bluedoor5opened = true;}
 
 		weapon.draw();
 		//System.out.println(endingBlockSwitch);
 //88 --
 //54 |		
 
-		
 		//rect(player.x, player.y, player.width, player.height); // Draw player
 
 		if(mapshown==false) {
 			player.draw();
-		}
-
-	}
+		}	}
 	
 	
 	//x:-240/+195     y:-120/+145
@@ -3575,7 +3458,6 @@ public class Explore extends PApplet {
 		//rects.add(new ColorfulRectangle(433+-movex/10,303+-movey/10, 9, 9, Color.RED));
 		//rects.add(new ColorfulRectangle(435+-movex/10,305+-movey/10, 9, 9, Color.BLUE));
 	}
-
 	public void endingBlocks() {
 		int marker;
 
@@ -9764,7 +9646,6 @@ public class Explore extends PApplet {
 	rects.add(new ColorfulRectangle(351,36, 9, 9, Color.BLACK));
 	rects.add(new ColorfulRectangle(225,369, 36, 27, Color.BLACK));	
 
-
 	}
 
 //	rects.add(new ColorfulRectangle(441,81, 99, 126, Color.WHITE));
@@ -9841,18 +9722,16 @@ public class Explore extends PApplet {
 		rects.add(new ColorfulRectangle(movex+450,movey+-1000, 600, 100, Color.BLACK));
 		rects.add(new ColorfulRectangle(movex+750,movey+-900, 300, 200, Color.BLACK));
 		rects.add(new ColorfulRectangle(movex+300,movey+-1000, 150, 250, Color.BLACK));
+		}
 
+		if(escaped==false) {
+		rects.add(new ColorfulRectangle(movex+50,movey+-1850, 900, 650, Color.BLACK));
 		}
 		
-		
-		
-
 	}
 	
 	
 	boolean playerInterectsBlock() {
-
-
 		for(Rectangle r: rects) {
 
 			if(r!=bullet && r!=btv1 && r!=btv2 && r!=bth1 && r!=bth2) {
@@ -9861,18 +9740,15 @@ public class Explore extends PApplet {
 				}
 			}
 		}
-
 		return false;
 	}
 
 
 	boolean enemyInterectsBlock(Enemy e) {
 		for(Rectangle r: rects) {
-			//if(r!=bullet && r!=btv1 && r!=btv2 && r!=bth1 && r!=bth2) {
 			if( r.intersects(e)){
 				return true;
 			}
-			//}
 		}
 		return false;
 	}
@@ -9912,9 +9788,6 @@ public class Explore extends PApplet {
 		}
 		return false;
 	}
-	
-		
-	
 	
 	
 	boolean playerupIntersectsDoorWithoutKey() {
@@ -10136,7 +10009,7 @@ public class Explore extends PApplet {
 				}
 
 			} else if (keyCode == ALT) {
-				
+//				CHANGE BLOCK SIZE (BUILD)
 //				blockplacesize+=1;
 //						if(blockplacesize>2) {
 //						blockplacesize=0;
@@ -10150,7 +10023,7 @@ public class Explore extends PApplet {
 //						}
 						
 						
-						
+//				OPTIONS MENU		
 //				if(options==true) {
 //					if(optionselected == 0) {
 //						NoStroke = false;
@@ -10194,6 +10067,7 @@ public class Explore extends PApplet {
 //						}
 									
 
+//				TOGGLE WALLS/KEYS
 //				}else {
 //				if(wall1==true) {
 //					wall1=false;
@@ -10220,6 +10094,7 @@ public class Explore extends PApplet {
 
 			}else if (keyCode == CONTROL) {
 
+//				TOGGLE FINISHED
 //				if(wall1==true) {
 //					wall1=false;
 //				}else if(wall1==false) {
@@ -10227,74 +10102,74 @@ public class Explore extends PApplet {
 //				}
 
 				
-				finished=true;
-				totalYellowKeyCollected=7;
-				totalPinkKeyCollected=5;
-				totalOrangeKeyCollected=5;
-				totalBlueKeyCollected=5;
-
-				movex=50;
-				movey=-600;
-				collectedEndingKeys=2;
-
-				wall1=false;
-				wall2=false;
-
-				door1.x=10000;
-				door2.x=10000;
-				door3.x=10000;
-				door4.x=10000;
-				door5.x=10000;
-				door6.x=10000;
-				door7.x=10000;
-
-				pinkdoor1.x=10000;
-				pinkdoor2.x=10000;
-				pinkdoor3.x=10000;
-				pinkdoor4.x=10000;
-				pinkdoor5.x=10000;
-
-				orangedoor1.x=10000;
-				orangedoor2.x=10000;
-				orangedoor3.x=10000;
-				orangedoor4.x=10000;
-				orangedoor5.x=10000;
-
-				bluedoor1.x=10000;
-				bluedoor2.x=10000;
-				bluedoor3.x=10000;
-				bluedoor4.x=10000;
-				bluedoor5.x=10000;
-
-
-				key1.x=10000;
-				key2.x=10000;
-				key3.x=10000;
-				key4.x=10000;
-				key5.x=10000;
-				key6.x=10000;
-				key7.x=10000;
-
-				pinkkey1.x=10000;
-				pinkkey2.x=10000;
-				pinkkey3.x=10000;
-				pinkkey4.x=10000;
-				pinkkey5.x=10000;
-
-				orangekey1.x=10000;
-				orangekey2.x=10000;
-				orangekey3.x=10000;
-				orangekey4.x=10000;
-				orangekey5.x=10000;
-
-				bluekey1.x=10000;
-				bluekey2.x=10000;
-				bluekey3.x=10000;
-				bluekey4.x=10000;
-				bluekey5.x=10000;
-				if(build==true){
-					rects.clear();
-				}
+//				finished=true;
+//				totalYellowKeyCollected=7;
+//				totalPinkKeyCollected=5;
+//				totalOrangeKeyCollected=5;
+//				totalBlueKeyCollected=5;
+//
+//				movex=50;
+//				movey=-600;
+//				collectedEndingKeys=2;
+//
+//				wall1=false;
+//				wall2=false;
+//
+//				door1.x=10000;
+//				door2.x=10000;
+//				door3.x=10000;
+//				door4.x=10000;
+//				door5.x=10000;
+//				door6.x=10000;
+//				door7.x=10000;
+//
+//				pinkdoor1.x=10000;
+//				pinkdoor2.x=10000;
+//				pinkdoor3.x=10000;
+//				pinkdoor4.x=10000;
+//				pinkdoor5.x=10000;
+//
+//				orangedoor1.x=10000;
+//				orangedoor2.x=10000;
+//				orangedoor3.x=10000;
+//				orangedoor4.x=10000;
+//				orangedoor5.x=10000;
+//
+//				bluedoor1.x=10000;
+//				bluedoor2.x=10000;
+//				bluedoor3.x=10000;
+//				bluedoor4.x=10000;
+//				bluedoor5.x=10000;
+//
+//
+//				key1.x=10000;
+//				key2.x=10000;
+//				key3.x=10000;
+//				key4.x=10000;
+//				key5.x=10000;
+//				key6.x=10000;
+//				key7.x=10000;
+//
+//				pinkkey1.x=10000;
+//				pinkkey2.x=10000;
+//				pinkkey3.x=10000;
+//				pinkkey4.x=10000;
+//				pinkkey5.x=10000;
+//
+//				orangekey1.x=10000;
+//				orangekey2.x=10000;
+//				orangekey3.x=10000;
+//				orangekey4.x=10000;
+//				orangekey5.x=10000;
+//
+//				bluekey1.x=10000;
+//				bluekey2.x=10000;
+//				bluekey3.x=10000;
+//				bluekey4.x=10000;
+//				bluekey5.x=10000;
+//				if(build==true){
+//					rects.clear();
+//				}
 
 if(showblockmap==false) {
 	showblockmap=true;

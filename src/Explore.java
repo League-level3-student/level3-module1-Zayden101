@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -185,18 +186,6 @@ public class Explore extends PApplet {
 	ColorfulRectangle playerright = new ColorfulRectangle(enemy.x+50,enemy.y,10,10, Color.BLUE);
 
 
-	ColorfulRectangle weapon = new ColorfulRectangle(100005+movex,100005+movey, 40, 40, Color.GRAY);
-
-	int weaponx;
-	int weapony;
-	boolean weaponShot;
-
-	ColorfulRectangle bullet;
-	ColorfulRectangle btv1, btv2;    //bullet trail vertical
-	ColorfulRectangle bth1, bth2;    //bullet trail horizontal
-	//private boolean addlevel1Rects = true;
-	//private boolean addlevel2Rects = true;
-
 	int timer = 60;
 	int timetrack = 80;
 
@@ -214,7 +203,12 @@ public class Explore extends PApplet {
 
 	int wall2buttonx = -900;
 	int wall2buttony = 900;
+	
+	int teleport1colorswitch = 0;
+	int teleport2colorswitch = 0;
+	int teleport3colorswitch = 0;
 
+	boolean teleportavaible = true;
 
 	Door door1 = new Door(movex+350,movey-450,50,50, Color.yellow);
 	Door door2 = new Door(movex+-1000,movey+100,50,50, Color.yellow);
@@ -343,7 +337,6 @@ public class Explore extends PApplet {
 	boolean bluedoor4opened = false;
 	boolean bluedoor5opened = false;
 
-	
 
 	ColorfulRectangle aEndingred2 = new ColorfulRectangle(movex-2350,movey-1150,50,50,Color.RED);
 	ColorfulRectangle aEndingorange2 = new ColorfulRectangle(movex-2350,movey-1150,45,45,Color.ORANGE);
@@ -363,6 +356,11 @@ public class Explore extends PApplet {
 	ColorfulRectangle Endinggray2 = new ColorfulRectangle(movex+randomxgrey+100,movey+randomygrey+750,20,20,Color.LIGHT_GRAY);
 	ColorfulRectangle Endingwhite2 = new ColorfulRectangle(movex+randomxwhite+100,movey+randomywhite+750,15,15,Color.WHITE);
 
+	ColorfulRectangle teleport1RED = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Color.RED);
+	ColorfulRectangle teleport1ORANGE = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Color.ORANGE);
+	ColorfulRectangle teleport1YELLOW = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Color.YELLOW);
+
+	
 	int mouseswheeler = 0;
 
 	int waitTime = 25;
@@ -937,27 +935,78 @@ public class Explore extends PApplet {
 	}
 	}
 		
-		//ROY
-		ColorfulRectangle teleporterM = new ColorfulRectangle(movex-100,movey+500, 50, 50, Color.BLUE);
-		teleporterM.draw();
-		
-		//GBP
-		ColorfulRectangle teleporterBR = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Color.BLUE);
-		teleporterBR.draw();
-		
-		//WGB
-		ColorfulRectangle teleporterBL = new ColorfulRectangle(movex-1900,movey+1400, 50, 50, Color.BLUE);
-		teleporterBL.draw();
-		
-		//RGB
-		ColorfulRectangle teleporterTL = new ColorfulRectangle(movex+-1750,movey+-1150, 50, 50, Color.BLUE);
-		teleporterTL.draw();
-		
-		//CYM
-		ColorfulRectangle teleporterTR = new ColorfulRectangle(movex+750,movey-750, 50, 50, Color.BLUE);
-		teleporterTR.draw();
+		//final glitch door
+//		rects.add(new ColorfulRectangle(movex+-2300,movey+-950, 50, 50, Color.WHITE));
 
 		
+		//black keys 
+//		rects.add(new ColorfulRectangle(movex+-2250,movey+1400, 50, 50, Color.WHITE));
+//		rects.add(new ColorfulRectangle(movex+1350,movey+-350, 50, 50, Color.WHITE));
+
+		//black door
+//		rects.add(new ColorfulRectangle(movex+950,movey+1450, 50, 50, Color.WHITE));
+
+		
+		if(teleportavaible==true) {
+			if(player.x==movex-1000 && player.y==movey-1150) {
+				movex=movex-1800;
+				movey=movey-2550;
+				teleportavaible=false;
+			}else if(player.x==movex+800 && player.y==movey+1400) {
+				movex=movex+1800;
+				movey=movey+2550;
+				teleportavaible=false;
+			}
+		}
+		
+		//ROY
+		ColorfulRectangle teleporter1a = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Color.RED);
+		ColorfulRectangle teleporter1b = new ColorfulRectangle(movex-1000,movey-1150, 50, 50, Color.RED);
+		
+		if(teleport1colorswitch<=19) {
+			teleport1RED.x=movex+800;
+			teleport1RED.y=movey+1400;
+			teleport1ORANGE.x=movex-1000;
+			teleport1ORANGE.y=movey-1150;
+			teleport1YELLOW.x=movex+9999;
+			teleport1YELLOW.y=movey+9999;
+		}else if(teleport1colorswitch<39 && teleport1colorswitch>20) {
+			teleport1ORANGE.x=movex+800;
+			teleport1ORANGE.y=movey+1400;
+			teleport1YELLOW.x=movex-1000;
+			teleport1YELLOW.y=movey-1150;
+			teleport1RED.x=movex+9999;
+			teleport1RED.y=movey+9999;
+		}else if(teleport1colorswitch<59 && teleport1colorswitch>40) {
+			teleport1YELLOW.x=movex+800;
+			teleport1YELLOW.y=movey+1400;
+			teleport1RED.x=movex-1000;
+			teleport1RED.y=movey-1150;
+			teleport1ORANGE.x=movex+9999;
+			teleport1ORANGE.y=movey+9999;
+		}
+		
+		teleport1colorswitch+=1;
+		
+		if(teleport1colorswitch>=60) {
+			teleport1colorswitch=0;
+		}
+						
+		teleport1RED.draw();
+		teleport1ORANGE.draw();
+		teleport1YELLOW.draw();
+		
+		//GBP
+		ColorfulRectangle teleporter2a = new ColorfulRectangle(movex-0,movey+0, 50, 50, Color.BLUE);
+		teleporter2a.draw();
+		ColorfulRectangle teleporter2b = new ColorfulRectangle(movex+0,movey-0, 50, 50, Color.BLUE);
+		teleporter2b.draw();
+		
+		//RGB
+		
+		//CYM
+
+
 		ColorfulRectangle displaykey = new ColorfulRectangle(660,10, 30, 30, Color.YELLOW);
 		ColorfulRectangle displaypinkkey = new ColorfulRectangle(510,10, 30, 30, Color.PINK);
 		ColorfulRectangle displayorangekey = new ColorfulRectangle(360,10, 30, 30, Color.ORANGE);
@@ -1391,7 +1440,6 @@ public class Explore extends PApplet {
 		if(player.x==movex+-1800 && player.y==movey+-800) {
 			bluedoor5opened = true;}
 
-		weapon.draw();
 		//System.out.println(endingBlockSwitch);
 //88 --
 //54 |		
@@ -7672,6 +7720,9 @@ public class Explore extends PApplet {
 	public void buildings() {
 
 		int marker;
+		rects.add(new ColorfulRectangle(movex+1000,movey+1350, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1500,movey+-1000, 50, 50, Color.WHITE));
+		
 		rects.add(new ColorfulRectangle(movex+100,movey+50, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(movex+150,movey+50, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(movex+200,movey+50, 50, 50, Color.WHITE));
@@ -8920,10 +8971,20 @@ public class Explore extends PApplet {
 
 		//BOTTOM BORDER
 		rects.add(new ColorfulRectangle(movex+-2400,movey+1450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+-2350,movey+1450, 4300, 50, Color.WHITE));rects.add(new ColorfulRectangle(movex+1950,movey+1450, 50, 50, Color.WHITE));
+		//rects.add(new ColorfulRectangle(movex+-2350,movey+1450, 4300, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+1450, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1000,movey+1450, 950, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1850,movey+1450, 2800, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-2350,movey+1450, 450, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1950,movey+1500, 50, 50, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-1950,movey+1550, 2000, 50, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+1000,movey+1500, 50, 50, Color.BLACK));
 
 		//RIGHT BORDER
-		rects.add(new ColorfulRectangle(movex+1950,movey+-1150, 50, 2600, Color.WHITE));
+		//rects.add(new ColorfulRectangle(movex+1950,movey+-1150, 50, 2600, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+-1150, 50, 2000, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+900, 50, 450, Color.WHITE));
+
 
 
 		//WALL
@@ -9733,12 +9794,9 @@ public class Explore extends PApplet {
 	
 	boolean playerInterectsBlock() {
 		for(Rectangle r: rects) {
-
-			if(r!=bullet && r!=btv1 && r!=btv2 && r!=bth1 && r!=bth2) {
 				if( r.intersects(player)){
 					return true;
 				}
-			}
 		}
 		return false;
 	}
@@ -9877,6 +9935,8 @@ public class Explore extends PApplet {
 					if(build==true){
 						rects.clear();
 					}
+					
+					teleportavaible=true;
 
 					if(nocliped==false) {
 					if(playerInterectsBlock()) {
@@ -9910,6 +9970,8 @@ public class Explore extends PApplet {
 					if(build==true){
 						rects.clear();
 					}
+					
+					teleportavaible=true;
 
 					if(nocliped==false) {
 					if(playerInterectsBlock()) {
@@ -9942,6 +10004,8 @@ public class Explore extends PApplet {
 					if(build==true){
 						rects.clear();
 					}
+					
+					teleportavaible=true;
 
 					if(nocliped==false) {
 					if(playerInterectsBlock()) {
@@ -9975,6 +10039,8 @@ public class Explore extends PApplet {
 						if(build==true){
 							rects.clear();
 						}
+						
+						teleportavaible=true;
 
 						if(nocliped==false) {
 						if(playerInterectsBlock()) {
@@ -10069,18 +10135,17 @@ public class Explore extends PApplet {
 
 //				TOGGLE WALLS/KEYS
 //				}else {
-//				if(wall1==true) {
-//					wall1=false;
-//				}else if(wall1==false) {
-//					wall1=true;
-//				}
+				if(wall1==true) {
+					wall1=false;
+				}else if(wall1==false) {
+					wall1=true;
+				}
 
-//				if(wall2==true) {
-//					wall2=false;
-//				}else if(wall2==false) {
-//					wall2=true;
-//				}
-//				}
+				if(wall2==true) {
+					wall2=false;
+				}else if(wall2==false) {
+					wall2=true;
+				}
 //				
 //				collectedKeys+=1;
 //				collectedPinkKeys+=1;

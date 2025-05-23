@@ -73,6 +73,7 @@ public class Explore extends PApplet {
 	Integer collectedBlueKeys = 0;
 	Integer collectedEndingKeys = 0;
 	Integer collectedBlackKeys = 0;
+	Integer collectedPurpleKeys = 0;
 	
 	KeyCount yellowKeyCount = new KeyCount();
 	KeyCount pinkKeyCount = new KeyCount();
@@ -80,7 +81,7 @@ public class Explore extends PApplet {
 	KeyCount blueKeyCount = new KeyCount();
 	KeyCount endingKeyCount = new KeyCount();
 	KeyCount blackKeyCount = new KeyCount();
-
+	KeyCount purpleKeyCount = new KeyCount();
 
 
 	int totalYellowKeyCollected = 0;
@@ -89,6 +90,7 @@ public class Explore extends PApplet {
 	int totalBlueKeyCollected = 0;
 	int totalEndingKeyCollected = 0;
 	int totalBlackKeyCollected = 0;
+	int totalPurpleKeyCollected = 0;
 
 
 	int randomxred = 0;
@@ -115,7 +117,7 @@ public class Explore extends PApplet {
 	int noclip = 0;
 	boolean nocliped = false;
 
-
+	boolean secret = false;
 	boolean finished = false;
 	boolean displayEndingkey = false;
 
@@ -175,9 +177,6 @@ public class Explore extends PApplet {
 	boolean wall1 = true;
 	boolean wall2 = true;
 
-
-	boolean spookydead = false;
-
 	int wall1buttonx = 500;
 	int wall1buttony = -150;
 
@@ -198,20 +197,17 @@ public class Explore extends PApplet {
 	Door door6 = new Door(movex+0,movey+1250,50,50,Color.yellow );
 	Door door7 = new Door(movex-1500,movey+350,50,50,Color.yellow);
 
-
 	Door pinkdoor1 = new Door(movex-850,movey+800,50,50, Color.pink);
 	Door pinkdoor2 = new Door(movex-1000,movey-600,50,50, Color.pink);
 	Door pinkdoor3 = new Door(movex-1550,movey+350,50,50, Color.pink);
 	Door pinkdoor4 = new Door(movex-600,movey-850,50,50, Color.pink);
 	Door pinkdoor5 = new Door(movex+1750,movey-300,50,50, Color.pink);
 
-
 	Door orangedoor1 = new Door(movex+150,movey+1350,50,50, Color.orange);
 	Door orangedoor2 = new Door(movex-850,movey-800,50,50, Color.orange);
 	Door orangedoor3 = new Door(movex+1000,movey-600,50,50, Color.orange);
 	Door orangedoor4 = new Door(movex-1700,movey-800,50,50, Color.orange);
 	Door orangedoor5 = new Door(movex+1450,movey+1350,50,50, Color.orange);
-
 
 	Door bluedoor1 = new Door(movex-2150,movey-1050,50,50, Color.cyan);
 	Door bluedoor2 = new Door(movex-2200,movey-1150,50,50, Color.cyan);
@@ -227,6 +223,8 @@ public class Explore extends PApplet {
 	Door blackdoor3 = new Door(movex-1850,movey+1350,50,50, Color.black);
 	Door blackdoor4 = new Door(movex+950,movey+1450,50,50, Color.black);
 
+	Door purpledoor = new Door(movex-950,movey+1150,50,50, Color.magenta);
+
 
 	Key key1 = new Key(movex+500,movey-500,50,50, Color.yellow);
 	Key key2 = new Key(movex-800,movey+550,50,50, Color.yellow);
@@ -240,7 +238,7 @@ public class Explore extends PApplet {
 	Key pinkkey2 = new Key(movex+800,movey+1250,50,50, Color.pink);
 	Key pinkkey3 = new Key(movex-2150,movey+100,50,50, Color.pink);
 	Key pinkkey4 = new Key(movex-800,movey-1150,50,50, Color.pink);
-	Key pinkkey5 = new Key(movex+-100,movey+1050,50,50, Color.pink);
+	Key pinkkey5 = new Key(movex+-100,movey+1100,50,50, Color.pink);
 
 	Key orangekey1 = new Key(movex-1300,movey-450,50,50, Color.orange);
 	Key orangekey2 = new Key(movex+1200,movey+150,50,50, Color.orange);
@@ -254,14 +252,20 @@ public class Explore extends PApplet {
 	Key bluekey4 = new Key(movex+1650,movey-400,50,50, Color.cyan);
 	Key bluekey5 = new Key(movex+1800,movey-950,50,50, Color.cyan);
 
-	Key blackkey1 = new Key(movex-2250,movey+1400,5,5, Color.white);
-	Key blackkey2 = new Key(movex+1350,movey-350,5,5, Color.white);
-	Key blackkey3 = new Key(movex+350,movey-1150,5,5, Color.white);
-	Key blackkey4 = new Key(movex+700,movey+1050,5,5, Color.white);
-//	Key blackkey1 = new Key(movex-2228,movey+1422,5,5, Color.white);
-//	Key blackkey2 = new Key(movex+1372,movey-328,5,5, Color.white);
-//	Key blackkey3 = new Key(movex+372,movey-1128,5,5, Color.white);
-//	Key blackkey4 = new Key(movex+722,movey+1072,5,5, Color.white);
+	Key blackkey1 = new Key(movex-2250,movey+1400,5,5, Color.black);
+	Key blackkey2 = new Key(movex+1350,movey-350,5,5, Color.black);
+	Key blackkey3 = new Key(movex+350,movey-1150,5,5, Color.black);
+	Key blackkey4 = new Key(movex+700,movey+1050,5,5, Color.black);
+	ColorfulRectangle blackkeydisplay1 = new ColorfulRectangle(movex-2228,movey+1422,5,5,Color.white);
+	ColorfulRectangle blackkeydisplay2 = new ColorfulRectangle(movex+1372,movey-328,5,5,Color.white);
+	ColorfulRectangle blackkeydisplay3 = new ColorfulRectangle(movex+372,movey-1128,5,5,Color.white);
+	ColorfulRectangle blackkeydisplay4 = new ColorfulRectangle(movex+722,movey+1072,5,5,Color.white);
+	int blackkeydisplay1x = -2228;
+	int blackkeydisplay2x = 1372;
+	int blackkeydisplay3x = 372;
+	int blackkeydisplay4x = 722;
+
+	Key purplekey = new Key(movex-1500,movey+1100,50,50, Color.magenta);
 
 
 	Ending Ending = new Ending(movex-2350,movey-1150,50,50);
@@ -378,9 +382,7 @@ public class Explore extends PApplet {
 	@Override
 	public void settings() {
 		size(WIDTH, HEIGHT);
-
 	}
-
 
 	@Override
 	public void setup() {
@@ -419,7 +421,10 @@ public class Explore extends PApplet {
 		doorToKey.put(blackdoor1, blackKeyCount);
 		doorToKey.put(blackdoor2, blackKeyCount);
 		doorToKey.put(blackdoor3, blackKeyCount);
+		doorToKey.put(blackdoor4, blackKeyCount);
 		
+		doorToKey.put(purpledoor, purpleKeyCount);
+
 		
 		keyToKeyCount.put(key1, yellowKeyCount);
 		keyToKeyCount.put(key2, yellowKeyCount);
@@ -450,9 +455,14 @@ public class Explore extends PApplet {
 		keyToKeyCount.put(endingdoor1, endingKeyCount);
 		keyToKeyCount.put(endingdoor2, endingKeyCount);
 		
-		keyToKeyCount.put(blackdoor1, blackKeyCount);
-		keyToKeyCount.put(blackdoor2, blackKeyCount);
-		keyToKeyCount.put(blackdoor3, blackKeyCount);
+		keyToKeyCount.put(blackkey1, blackKeyCount);
+		keyToKeyCount.put(blackkey2, blackKeyCount);
+		keyToKeyCount.put(blackkey3, blackKeyCount);
+		keyToKeyCount.put(blackkey4, blackKeyCount);
+		
+		keyToKeyCount.put(purplekey, purpleKeyCount);
+
+
 		
 		//background(bgColor);
 
@@ -484,31 +494,22 @@ public class Explore extends PApplet {
 			}
 		}
 
-
 		if(!map) {
 			if(!nocliped) {
 			if(playerInterectsBlock()) {
 				if(mapshown==true) {
 				if(facing==1) {
-					movey-=50;
-				}		
-
+					movey-=50;}		
 				if(facing==2) {
-					movex-=50;
-				}
-
+					movex-=50;}
 				if(facing==3) {
-					movey+=50;
-				}
-
+					movey+=50;}
 				if(facing==4) {
-					movex+=50;
-				}
+					movex+=50;}
 				}
 			}
 			}
 		}
-		
 		
 		//System.out.println(yellowKeyCount.keys + " " + pinkKeyCount.keys + " " + blackKeyCount.keys);
 		//draw
@@ -521,7 +522,6 @@ public class Explore extends PApplet {
 			buildings();
 			buildings2();
 			buildingdarkness();
-
 		}
 		
 		playerup.x=player.x;
@@ -544,7 +544,6 @@ public class Explore extends PApplet {
 		playerright.x=99999;
 		playerright.y=99999;
 		}
-			
 
 		//System.out.println(nocliped);
 		
@@ -798,14 +797,19 @@ public class Explore extends PApplet {
 				blackkey2.update();
 				blackkey3.draw();
 				blackkey3.update();
+				blackkey4.draw();
+				blackkey4.update();
 				
+				if(secret==true) {
 				blackdoor1.draw();
 				blackdoor1.update();
 				blackdoor2.draw();
 				blackdoor2.update();
 				blackdoor3.draw();
 				blackdoor3.update();
-
+				blackdoor4.draw();
+				blackdoor4.update();
+				}
 				}
 			}
 		}
@@ -937,19 +941,9 @@ public class Explore extends PApplet {
 	}
 	}
 		
-		//final glitch door
-//		rects.add(new ColorfulRectangle(movex+-2300,movey+-950, 50, 50, Color.WHITE));
-
-		
-		//black keys 
-//		rects.add(new ColorfulRectangle(movex+-2250,movey+1400, 50, 50, Color.WHITE));
-//		rects.add(new ColorfulRectangle(movex+1350,movey+-350, 50, 50, Color.WHITE));
-//		rects.add(new ColorfulRectangle(movex+350,movey+-1150, 50, 50, Color.WHITE));
-
-
-		//black door
-//		rects.add(new ColorfulRectangle(movex+950,movey+1450, 50, 50, Color.WHITE));
-
+		if(blackKeyCount.keys==2) {
+			secret=true;
+		}
 		
 		if(teleportavaible==true) {
 			if(player.x==movex-1000 && player.y==movey+1250) {
@@ -963,6 +957,38 @@ public class Explore extends PApplet {
 			}
 		}
 		
+		//rects.add(new ColorfulRectangle(movex+-1500,movey+-1100, 50, 50, Color.WHITE)); PKEY
+		//rects.add(new ColorfulRectangle(movex+-950,movey+1150, 50, 50, Color.WHITE)); PDOOR
+		//border
+		//rects.add(new ColorfulRectangle(movex+-1500,movey+-850, 50, 50, Color.WHITE));
+		//rects.add(new ColorfulRectangle(movex+-1150,movey+-850, 50, 50, Color.WHITE));
+		//rects.add(new ColorfulRectangle(movex+-1900,movey+-850, 50, 50, Color.WHITE));
+		
+		blackkeydisplay1 = new ColorfulRectangle(movex+blackkeydisplay1x,movey+1422,5,5,Color.white);
+		blackkeydisplay2 = new ColorfulRectangle(movex+blackkeydisplay2x,movey-328,5,5,Color.white);
+		blackkeydisplay3 = new ColorfulRectangle(movex+blackkeydisplay3x,movey-1128,5,5,Color.white);
+		blackkeydisplay4 = new ColorfulRectangle(movex+blackkeydisplay4x,movey+1072,5,5,Color.white);
+
+		blackkeydisplay1.draw();
+		blackkeydisplay2.draw();
+		blackkeydisplay3.draw();
+		blackkeydisplay4.draw();
+		
+		if(player.x==movex-2250 && player.y==movey+1400) {
+			blackkeydisplay1x+=9999;
+		}
+		if(player.x==movex+1350 && player.y==movey-350) {
+			blackkeydisplay2x+=9999;
+		}
+		if(player.x==movex+350 && player.y==movey-1150) {
+			blackkeydisplay3x+=9999;
+		}
+		if(player.x==movex+700 && player.y==movey+1050) {
+			blackkeydisplay4x+=9999;
+		}
+
+		
+		if(secret==true) {
 		//ROY
 		ColorfulRectangle teleporter1a = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Color.RED);
 		ColorfulRectangle teleporter1b = new ColorfulRectangle(movex-1000,movey+1250, 50, 50, Color.RED);
@@ -999,13 +1025,13 @@ public class Explore extends PApplet {
 		teleport1RED.draw();
 		teleport1ORANGE.draw();
 		teleport1YELLOW.draw();
-		
-
+		}
 		
 		ColorfulRectangle displaykey = new ColorfulRectangle(660,10, 30, 30, Color.YELLOW);
 		ColorfulRectangle displaypinkkey = new ColorfulRectangle(510,10, 30, 30, Color.PINK);
 		ColorfulRectangle displayorangekey = new ColorfulRectangle(360,10, 30, 30, Color.ORANGE);
 		ColorfulRectangle displaybluekey = new ColorfulRectangle(210,10, 30, 30, Color.CYAN);
+		ColorfulRectangle displayblackkey = new ColorfulRectangle(72,22, 5, 5, Color.WHITE);
 		ColorfulRectangle displayendingkey = new ColorfulRectangle(6000,10, 30, 30, Color.WHITE);
 		
 		//System.out.println(yellowKeyCount.keys + " " + pinkKeyCount.keys + " " + orangeKeyCount.keys + " " + blueKeyCount.keys);
@@ -1029,7 +1055,7 @@ public class Explore extends PApplet {
 		backdisplayendingkey.draw();}
 		}
 		if(blackKeyCount.keys>0) {
-		ColorfulRectangle backdisplayblackkey = new ColorfulRectangle(650,0, 100, 50, Color.BLACK);
+		ColorfulRectangle backdisplayblackkey = new ColorfulRectangle(50,0, 100, 50, Color.BLACK);
 		backdisplayblackkey.draw();}
 		}
 
@@ -1285,43 +1311,43 @@ public class Explore extends PApplet {
 		
 		//BLACK KEY COUNTER
 		if(blackKeyCount.keys==1) {
-			ColorfulRectangle keynum1 = new ColorfulRectangle(570,0, 10, 50, Color.WHITE);
+			ColorfulRectangle keynum1 = new ColorfulRectangle(120,0, 10, 50, Color.WHITE);
 			keynum1.draw();
 		}else if(blackKeyCount.keys==2) {
-			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum2 = new ColorfulRectangle(580,10, 10, 20, Color.WHITE);
-			ColorfulRectangle keynum3 = new ColorfulRectangle(560,20, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum4 = new ColorfulRectangle(560,30, 10, 20, Color.WHITE);
-			ColorfulRectangle keynum5 = new ColorfulRectangle(560,40, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum1 = new ColorfulRectangle(110,0, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum2 = new ColorfulRectangle(130,10, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum3 = new ColorfulRectangle(110,20, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum4 = new ColorfulRectangle(110,30, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum5 = new ColorfulRectangle(110,40, 30, 10, Color.WHITE);
 			keynum1.draw();
 			keynum2.draw();
 			keynum3.draw();
 			keynum4.draw();
 			keynum5.draw();
 		}else if(blackKeyCount.keys==3) {
-			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum2 = new ColorfulRectangle(580,10, 10, 20, Color.WHITE);
-			ColorfulRectangle keynum3 = new ColorfulRectangle(560,20, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum4 = new ColorfulRectangle(580,30, 10, 20, Color.WHITE);
-			ColorfulRectangle keynum5 = new ColorfulRectangle(560,40, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum1 = new ColorfulRectangle(110,0, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum2 = new ColorfulRectangle(130,10, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum3 = new ColorfulRectangle(110,20, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum4 = new ColorfulRectangle(130,30, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum5 = new ColorfulRectangle(110,40, 30, 10, Color.WHITE);
 			keynum1.draw();
 			keynum2.draw();
 			keynum3.draw();
 			keynum4.draw();
 			keynum5.draw();
 		}else if(blackKeyCount.keys==4) {
-			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 10, 30, Color.WHITE);
-			ColorfulRectangle keynum2 = new ColorfulRectangle(560,20, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum3 = new ColorfulRectangle(580,0, 10, 50, Color.WHITE);		
+			ColorfulRectangle keynum1 = new ColorfulRectangle(110,0, 10, 30, Color.WHITE);
+			ColorfulRectangle keynum2 = new ColorfulRectangle(110,20, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum3 = new ColorfulRectangle(130,0, 10, 50, Color.WHITE);		
 			keynum1.draw();
 			keynum2.draw();
 			keynum3.draw();		
 		}else if(blackKeyCount.keys==5) {
-			ColorfulRectangle keynum1 = new ColorfulRectangle(560,0, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum2 = new ColorfulRectangle(560,10, 10, 20, Color.WHITE);
-			ColorfulRectangle keynum3 = new ColorfulRectangle(560,20, 30, 10, Color.WHITE);
-			ColorfulRectangle keynum4 = new ColorfulRectangle(580,30, 10, 20, Color.WHITE);
-			ColorfulRectangle keynum5 = new ColorfulRectangle(560,40, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum1 = new ColorfulRectangle(110,0, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum2 = new ColorfulRectangle(110,10, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum3 = new ColorfulRectangle(110,20, 30, 10, Color.WHITE);
+			ColorfulRectangle keynum4 = new ColorfulRectangle(130,30, 10, 20, Color.WHITE);
+			ColorfulRectangle keynum5 = new ColorfulRectangle(110,40, 30, 10, Color.WHITE);
 			keynum1.draw();
 			keynum2.draw();
 			keynum3.draw();
@@ -1351,6 +1377,11 @@ public class Explore extends PApplet {
 			displaybluekey.x=9999;
 		}else {
 			displaybluekey.draw();
+		}
+		if(blackKeyCount.keys<=0) {
+			displayblackkey.x=9999;
+		}else {
+			displayblackkey.draw();
 		}
 		if(escaped == false) {
 		if(finished==true) {
@@ -3447,7 +3478,7 @@ public class Explore extends PApplet {
 			rects.add(new ColorfulRectangle(288,9, 9, 9, Color.PINK));
 		}
 		if(pinkkey5collected==false) {
-			rects.add(new ColorfulRectangle(414,405, 9, 9, Color.PINK));
+			rects.add(new ColorfulRectangle(414,414, 9, 9, Color.PINK));
 		}
 
 		if(orangekey1collected==false) {
@@ -9027,10 +9058,18 @@ public class Explore extends PApplet {
 		//RIGHT BORDER
 		//rects.add(new ColorfulRectangle(movex+1950,movey+-1150, 50, 2600, Color.WHITE));
 		rects.add(new ColorfulRectangle(movex+1950,movey+-1150, 50, 2000, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+1950,movey+900, 50, 450, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+1950,movey+900, 50, 550, Color.WHITE));
 
+		if(secret==false) {
+		rects.add(new ColorfulRectangle(movex+1950,movey+850, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+950,movey+1450, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1850,movey+1350, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+-1500,movey+-1200, 50, 50, Color.WHITE));
+		}
+		
 		//SECRET BORDER
 		//If 1 black key has been found
+		if(secret==true) {
 		rects.add(new ColorfulRectangle(movex+-1950,movey+1500, 50, 50, Color.BLACK));
 		rects.add(new ColorfulRectangle(movex+-1950,movey+1550, 2000, 50, Color.BLACK));
 		rects.add(new ColorfulRectangle(movex+1000,movey+1500, 50, 50, Color.BLACK));
@@ -9054,7 +9093,7 @@ public class Explore extends PApplet {
 		rects.add(new ColorfulRectangle(movex+1915,movey+-1235, 20, 20, Color.DARK_GRAY));
 		rects.add(new ColorfulRectangle(movex+2015,movey+-285, 20, 20, Color.DARK_GRAY));
 		rects.add(new ColorfulRectangle(movex+2015,movey+-835, 20, 20, Color.DARK_GRAY));
-
+		}
 
 
 		//WALL
@@ -9859,6 +9898,11 @@ public class Explore extends PApplet {
 		rects.add(new ColorfulRectangle(movex+50,movey+-1850, 900, 650, Color.BLACK));
 		}
 		
+		if(secret==false) {
+		rects.add(new ColorfulRectangle(movex+-1000,movey+1100, 200, 200, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+800,movey+1350, 200, 100, Color.BLACK));
+		}
+		
 	}
 	
 	
@@ -10632,6 +10676,7 @@ if(blockplacesize==0) {
 				
 				keyx=-10000;
 				keyy=-10000;
+				
 
 				totalYellowKeyCollected+=1;
 			}

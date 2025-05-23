@@ -109,7 +109,7 @@ public class Explore extends PApplet {
 	int randomygrey = 0;
 	int randomxwhite = 0;
 	int randomywhite = 0;
- 
+
  
 	int colorSwitch2 = 0;
 	int colorSwitchdoor = 0;

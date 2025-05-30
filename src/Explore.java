@@ -265,7 +265,7 @@ public class Explore extends PApplet {
 	int blackkeydisplay3x = 372;
 	int blackkeydisplay4x = 722;
 
-	Key purplekey = new Key(movex-1500,movey+1100,50,50, Color.magenta);
+	Key purplekey = new Key(movex-1500,movey-1100,50,50, Color.magenta);
 
 
 	Ending Ending = new Ending(movex-2350,movey-1150,50,50);
@@ -805,6 +805,16 @@ public class Explore extends PApplet {
 				blackkey3.update();
 				blackkey4.draw();
 				blackkey4.update();
+				purplekey.draw();
+				
+				System.out.println(movex + " " + movey);
+				
+				if(movex>=2250 && movex<=1500 && movey>=1100) {
+					purplekey.update();
+				}
+				//rects.add(new ColorfulRectangle(movex+-1500,movey+-850, 50, 50, Color.WHITE));
+				//rects.add(new ColorfulRectangle(movex+-1150,movey+-850, 50, 50, Color.WHITE));
+				//rects.add(new ColorfulRectangle(movex+-1900,movey+-850, 50, 50, Color.WHITE));
 				
 				if(secret==true) {
 				blackdoor1.draw();
@@ -969,7 +979,8 @@ public class Explore extends PApplet {
 		//rects.add(new ColorfulRectangle(movex+-1500,movey+-850, 50, 50, Color.WHITE));
 		//rects.add(new ColorfulRectangle(movex+-1150,movey+-850, 50, 50, Color.WHITE));
 		//rects.add(new ColorfulRectangle(movex+-1900,movey+-850, 50, 50, Color.WHITE));
-		
+		if(mapshown==false) {
+		if(wall2==false) {
 		blackkeydisplay1 = new ColorfulRectangle(movex+blackkeydisplay1x,movey+1422,5,5,Color.white);
 		blackkeydisplay2 = new ColorfulRectangle(movex+blackkeydisplay2x,movey-328,5,5,Color.white);
 		blackkeydisplay3 = new ColorfulRectangle(movex+blackkeydisplay3x,movey-1128,5,5,Color.white);
@@ -979,6 +990,8 @@ public class Explore extends PApplet {
 		blackkeydisplay2.draw();
 		blackkeydisplay3.draw();
 		blackkeydisplay4.draw();
+		}
+		}
 		
 		if(player.x==movex-2250 && player.y==movey+1400) {
 			blackkeydisplay1x+=9999;
@@ -1106,6 +1119,7 @@ public class Explore extends PApplet {
 		
 		if(mapshown==false) {
 		
+			noStroke();
 		//KEY COUNTER
 		if(yellowKeyCount.keys==1) {
 			ColorfulRectangle keynum1 = new ColorfulRectangle(720,0, 10, 50, Color.WHITE);
@@ -1362,6 +1376,8 @@ public class Explore extends PApplet {
 		}
 
 		}
+		
+		stroke(0,0,0);
 		
 		if(mapshown==false) {
 		if(yellowKeyCount.keys<=0) {

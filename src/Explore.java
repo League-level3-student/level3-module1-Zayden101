@@ -258,11 +258,11 @@ public class Explore extends PApplet {
 	Key blackkey4 = new Key(movex+700,movey+1050,5,5, Color.black);
 	ColorfulRectangle blackkeydisplay1 = new ColorfulRectangle(movex-2228,movey+1422,5,5,Color.white);
 	ColorfulRectangle blackkeydisplay2 = new ColorfulRectangle(movex+1372,movey-328,5,5,Color.white);
-	ColorfulRectangle blackkeydisplay3 = new ColorfulRectangle(movex+372,movey-1128,5,5,Color.white);
+	ColorfulRectangle blackkeydisplay3 = new ColorfulRectangle(movex+472,movey-778,5,5,Color.white);
 	ColorfulRectangle blackkeydisplay4 = new ColorfulRectangle(movex+722,movey+1072,5,5,Color.white);
 	int blackkeydisplay1x = -2228;
 	int blackkeydisplay2x = 1372;
-	int blackkeydisplay3x = 372;
+	int blackkeydisplay3x = 472;
 	int blackkeydisplay4x = 722;
 
 	Key purplekey = new Key(movex-1500,movey-1100,50,50, Color.magenta);
@@ -805,16 +805,11 @@ public class Explore extends PApplet {
 				blackkey3.update();
 				blackkey4.draw();
 				blackkey4.update();
-				purplekey.draw();
+				purplekey.update();
 				
-				System.out.println(movex + " " + movey);
-				
-				if(movex>=2250 && movex<=1500 && movey>=1100) {
-					purplekey.update();
+				if(movex<=2250 && movex>=1500 && movey<=1100) {
+					purplekey.draw();
 				}
-				//rects.add(new ColorfulRectangle(movex+-1500,movey+-850, 50, 50, Color.WHITE));
-				//rects.add(new ColorfulRectangle(movex+-1150,movey+-850, 50, 50, Color.WHITE));
-				//rects.add(new ColorfulRectangle(movex+-1900,movey+-850, 50, 50, Color.WHITE));
 				
 				if(secret==true) {
 				blackdoor1.draw();
@@ -957,7 +952,7 @@ public class Explore extends PApplet {
 	}
 	}
 		
-		if(blackKeyCount.keys==2) {
+		if(blackKeyCount.keys==3) {
 			secret=true;
 		}
 		
@@ -983,7 +978,7 @@ public class Explore extends PApplet {
 		if(wall2==false) {
 		blackkeydisplay1 = new ColorfulRectangle(movex+blackkeydisplay1x,movey+1422,5,5,Color.white);
 		blackkeydisplay2 = new ColorfulRectangle(movex+blackkeydisplay2x,movey-328,5,5,Color.white);
-		blackkeydisplay3 = new ColorfulRectangle(movex+blackkeydisplay3x,movey-1128,5,5,Color.white);
+		blackkeydisplay3 = new ColorfulRectangle(movex+blackkeydisplay3x,movey-778,5,5,Color.white);
 		blackkeydisplay4 = new ColorfulRectangle(movex+blackkeydisplay4x,movey+1072,5,5,Color.white);
 
 		blackkeydisplay1.draw();
@@ -1555,6 +1550,8 @@ public class Explore extends PApplet {
 
 	public void mapp() {	
 		int marker;
+		
+		rects.add(new ColorfulRectangle(333,63, 9, 9, Color.WHITE));
 		
 		rects.add(new ColorfulRectangle(0,0, 9, 9, Color.WHITE));
 		rects.add(new ColorfulRectangle(783,0, 9, 9, Color.WHITE));

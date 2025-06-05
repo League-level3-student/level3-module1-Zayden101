@@ -254,7 +254,7 @@ public class Explore extends PApplet {
 
 	Key blackkey1 = new Key(movex-2250,movey+1400,5,5, Color.black);
 	Key blackkey2 = new Key(movex+1350,movey-350,5,5, Color.black);
-	Key blackkey3 = new Key(movex+350,movey-1150,5,5, Color.black);
+	Key blackkey3 = new Key(movex+450,movey-800,5,5, Color.black);
 	Key blackkey4 = new Key(movex+700,movey+1050,5,5, Color.black);
 	ColorfulRectangle blackkeydisplay1 = new ColorfulRectangle(movex-2228,movey+1422,5,5,Color.white);
 	ColorfulRectangle blackkeydisplay2 = new ColorfulRectangle(movex+1372,movey-328,5,5,Color.white);
@@ -994,7 +994,7 @@ public class Explore extends PApplet {
 		if(player.x==movex+1350 && player.y==movey-350) {
 			blackkeydisplay2x+=9999;
 		}
-		if(player.x==movex+350 && player.y==movey-1150) {
+		if(player.x==movex+450 && player.y==movey-800) {
 			blackkeydisplay3x+=9999;
 		}
 		if(player.x==movex+700 && player.y==movey+1050) {
@@ -1411,13 +1411,14 @@ public class Explore extends PApplet {
 		}
 		}
 
+		if(mapshown==false) {
 		Ending.draw();
-		Ending.update();
-
 		endingdoor1.draw();
-		endingdoor1.update();
-
 		endingdoor2.draw();
+		}
+		
+		Ending.update();
+		endingdoor1.update();
 		endingdoor2.update();
 
 
@@ -4881,7 +4882,7 @@ public class Explore extends PApplet {
 		//If 1 black key has been found
 		if(secret==true) {
 		rects.add(new ColorfulRectangle(movex+-1950,movey+1500, 50, 50, Color.BLACK));
-		rects.add(new ColorfulRectangle(movex+-1950,movey+1550, 2000, 50, Color.BLACK));
+		rects.add(new ColorfulRectangle(movex+-1950,movey+1550, 3000, 50, Color.BLACK));
 		rects.add(new ColorfulRectangle(movex+1000,movey+1500, 50, 50, Color.BLACK));
 
 		rects.add(new ColorfulRectangle(movex+2000,movey+900, 50, 50, Color.BLACK));
@@ -6690,6 +6691,7 @@ if(blockplacesize==0) {
 		
 		public void update() {
 
+			if(mapshown==false) {
 			ColorfulRectangle Endingred = new ColorfulRectangle(x+10,y+10,30,30,Color.RED);
 			ColorfulRectangle Endingorange = new ColorfulRectangle(x+10,y+10,30,30,Color.ORANGE);
 			ColorfulRectangle Endingyellow = new ColorfulRectangle(x+10,y+10,30,30,Color.YELLOW);
@@ -6723,6 +6725,7 @@ if(blockplacesize==0) {
 			if(colorSwitchdoor>=8) {
 				colorSwitchdoor=0;
 			}
+			
 			x=endingdoorx+movex;
 			y=endingdoory+movey;
 			KeyCount collectedKeys = doorToKey.get(this);
@@ -6759,6 +6762,7 @@ if(blockplacesize==0) {
 					movex+=50;
 				}
 
+			}
 			}
 
 		}

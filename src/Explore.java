@@ -798,7 +798,7 @@ public class Explore extends PApplet {
 				blackkey4.draw();
 				blackkey4.update();
 				purplekey.update();
-				
+								
 				if(showPurplekey==true){
 					purplekey.draw();
 				}else if(movex<=2250 && movex>=1500 && movey<=1100) {
@@ -1044,6 +1044,8 @@ public class Explore extends PApplet {
 		ColorfulRectangle displaybluekey = new ColorfulRectangle(210,10, 30, 30, Color.CYAN);
 		ColorfulRectangle displayblackkey = new ColorfulRectangle(72,22, 5, 5, Color.WHITE);
 		ColorfulRectangle displayendingkey = new ColorfulRectangle(6000,10, 30, 30, Color.WHITE);
+		ColorfulRectangle displaypurplekey = new ColorfulRectangle(60,560, 30, 30, Color.MAGENTA);
+
 		
 		//System.out.println(yellowKeyCount.keys + " " + pinkKeyCount.keys + " " + orangeKeyCount.keys + " " + blueKeyCount.keys);
 		
@@ -1068,7 +1070,11 @@ public class Explore extends PApplet {
 		if(blackKeyCount.keys>0) {
 		ColorfulRectangle backdisplayblackkey = new ColorfulRectangle(50,0, 100, 50, Color.BLACK);
 		backdisplayblackkey.draw();}
+		if(purpleKeyCount.keys>0) {
+		ColorfulRectangle backdisplaypurplekey = new ColorfulRectangle(50,550, 100, 50, Color.BLACK);
+		backdisplaypurplekey.draw();}
 		}
+		
 
 		
 		if(finished==true) {
@@ -1367,6 +1373,12 @@ public class Explore extends PApplet {
 			keynum5.draw();
 		}
 
+		//PURPLE KEY COUNTER
+		if(purpleKeyCount.keys==1) {
+			ColorfulRectangle keynum1 = new ColorfulRectangle(120,551, 10, 49, Color.WHITE);
+			keynum1.draw();
+		}
+		
 		}
 		
 		stroke(0,0,0);
@@ -1397,6 +1409,12 @@ public class Explore extends PApplet {
 		}else {
 			displayblackkey.draw();
 		}
+		if(purpleKeyCount.keys<=0) {
+			displaypurplekey.x=9999;
+		}else {
+			displaypurplekey.draw();
+		}
+
 		if(escaped == false) {
 		if(finished==true) {
 			if(collectedEndingKeys<=0) {
@@ -6086,6 +6104,7 @@ public class Explore extends PApplet {
 					wall2=true;
 				}
 //				
+				secret=true;
 //				collectedKeys+=1;
 //				collectedPinkKeys+=1;
 //				collectedOrangeKeys+=1;

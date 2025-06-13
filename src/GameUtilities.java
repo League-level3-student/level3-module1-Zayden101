@@ -12,6 +12,7 @@ public class GameUtilities {
 	
 	public static void endingBlocks(List<Explore.ColorfulRectangle> rects, int movex, int movey, Explore explore) {
 	
+		
 		int marker;
 		int[] endingBlocksX = {-300,-300,-300,0,-50,-400,-350,-300,-300,-1000,-700,-700,-1000,-450,-400,-400,-400,-100,-100,-50,-50,
 				150,200,600,650,450,450,500,1050,1000,950,900,850,1100,600,1050,1150,1150,1250,1700,1850,1000,-50,-50,-500,-450,-400,
@@ -62,11 +63,14 @@ public class GameUtilities {
 			
 
 			for(int i = 0 ; i < endingBlocksX.length; i++) {
-				
+				System.out.println("hi");
+
 				Color c = Color.magenta;
 				
-				
-				rects.add( explore.new ColorfulRectangle(movex+ endingBlocksX[i],movey+ endingBlocksY[i], 50, 50, c)   );
+				System.out.println(movex + " " + movey);
+				System.out.println(endingBlocksX[i]+movex + " " + endingBlocksY[i]+movey);
+
+				rects.add( explore.new ColorfulRectangle(endingBlocksX[i]+movex,endingBlocksY[i]+movey, 50, 50, c)   );
 			}
 		}else {
 			for(Explore.ColorfulRectangle r : rects) {

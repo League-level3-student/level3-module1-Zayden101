@@ -645,7 +645,6 @@ public class Explore extends PApplet {
 			aEndingwhite2.draw();
 		}
 
-
 		if(finished==true) {
 			GameUtilities.endingBlocks(endingRects, movex, movey, this);
 		}
@@ -830,13 +829,14 @@ public class Explore extends PApplet {
 			//System.out.println(escaped);
 		if(escaped==false) {
 			
+			rects.add(new ColorfulRectangle(350, 0, 100, 60, Color.BLACK));
+
 		timer-=1;
 		if(timer<0) {
 			timer=60;
 			timetrack-=1;
 			//TIME 60/65/70
 			//System.out.println("time " + timetrack);
-
 		}
 		if(timetrack>=80) {
 		rects.add(new ColorfulRectangle(360, 0, 30, 10, Color.WHITE));
@@ -1037,7 +1037,7 @@ public class Explore extends PApplet {
 		teleport1ORANGE.draw();
 		teleport1YELLOW.draw();
 		}
-		
+				
 		ColorfulRectangle displaykey = new ColorfulRectangle(660,10, 30, 30, Color.YELLOW);
 		ColorfulRectangle displaypinkkey = new ColorfulRectangle(510,10, 30, 30, Color.PINK);
 		ColorfulRectangle displayorangekey = new ColorfulRectangle(360,10, 30, 30, Color.ORANGE);

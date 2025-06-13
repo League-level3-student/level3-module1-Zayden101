@@ -266,6 +266,7 @@ public class Explore extends PApplet {
 	Key purplekey = new Key(movex-1500,movey-1100,50,50, Color.magenta);
 
 	Ending Ending = new Ending(movex-2350,movey-1150,50,50);
+	SecretEnding SecretEnding = new SecretEnding(movex-850,movey+1250,50,50);
 
 	Random randon = new Random();
 
@@ -729,8 +730,11 @@ public class Explore extends PApplet {
 				bluedoor5.draw();
 				bluedoor5.update();
 				}				
-				
-				
+				if(secret==true){
+					purpledoor.draw();
+					purpledoor.update();
+				}
+			
 				key1.draw();
 				key1.update();
 				key2.draw();
@@ -817,7 +821,7 @@ public class Explore extends PApplet {
 				}
 			}
 		}
-		if(movex==-100 && movey==1450) {
+		if(movex==-100 && movey==1500) {
 			escaped = true;
 		}
 		if(movex==1850 && movey==1450) {
@@ -6687,6 +6691,123 @@ if(blockplacesize==0) {
 
 	}
 
+	class SecretEnding extends ColorfulRectangle{
+
+		int endingx=x;
+		int endingy=y;
+
+		int colorSwitch = 0;
+
+
+		boolean open = false;
+
+		public SecretEnding(int x, int y, int width, int height) {
+
+			super(x, y, width, height, Color.BLACK);
+
+		}
+
+
+		void draw() {
+
+			if(!open) {
+				super.draw();
+			}	
+
+		}
+
+		public void update() {
+
+			x=endingx+movex;
+			y=endingy+movey;
+
+
+			//			ColorfulRectangle Endingred = new ColorfulRectangle(x,y,50,50,Color.RED);
+			//			ColorfulRectangle Endingorange = new ColorfulRectangle(x,y,50,50,Color.ORANGE);
+			//			ColorfulRectangle Endingyellow = new ColorfulRectangle(x,y,50,50,Color.YELLOW);
+			//			ColorfulRectangle Endinggreen = new ColorfulRectangle(x,y,50,50,Color.GREEN);
+			//			ColorfulRectangle Endingblue = new ColorfulRectangle(x,y,50,50,Color.BLUE);
+			//			ColorfulRectangle Endingpurple = new ColorfulRectangle(x,y,50,50,Color.MAGENTA);
+			//			ColorfulRectangle Endinggray = new ColorfulRectangle(x,y,50,50,Color.LIGHT_GRAY);
+			//			ColorfulRectangle Endingwhite = new ColorfulRectangle(x,y,50,50,Color.WHITE);
+
+			ColorfulRectangle SecretEnding1 = new ColorfulRectangle(x,y,50,50,Color.RED);
+			ColorfulRectangle SecretEnding2 = new ColorfulRectangle(x+1,y+1,48,48,Color.MAGENTA);
+			ColorfulRectangle SecretEnding3 = new ColorfulRectangle(x+2,y+2,46,46,Color.ORANGE);
+			ColorfulRectangle SecretEnding4 = new ColorfulRectangle(x+3,y+3,46,46,Color.PINK);
+			ColorfulRectangle SecretEnding5 = new ColorfulRectangle(x+4,y+4,42,42,Color.BLUE);
+			ColorfulRectangle SecretEnding6 = new ColorfulRectangle(x+5,y+5,40,40,Color.YELLOW);
+			ColorfulRectangle SecretEnding7 = new ColorfulRectangle(x+6,y+6,38,38,Color.PINK);
+			ColorfulRectangle SecretEnding8 = new ColorfulRectangle(x+7,y+7,36,36,Color.GREEN);
+			ColorfulRectangle SecretEnding9 = new ColorfulRectangle(x+8,y+8,34,34,Color.BLUE);
+			ColorfulRectangle SecretEnding10 = new ColorfulRectangle(x+9,y+9,32,32,Color.MAGENTA);
+			ColorfulRectangle SecretEnding11 = new ColorfulRectangle(x+10,y+10,30,30,Color.BLUE);
+			ColorfulRectangle SecretEnding12 = new ColorfulRectangle(x+11,y+11,28,28,Color.PINK);
+			ColorfulRectangle SecretEnding13 = new ColorfulRectangle(x+12,y+12,26,26,Color.MAGENTA);
+			ColorfulRectangle SecretEnding14 = new ColorfulRectangle(x+13,y+13,24,24,Color.BLUE);
+			ColorfulRectangle SecretEnding15 = new ColorfulRectangle(x+12,y+12,22,22,Color.PINK);
+			ColorfulRectangle SecretEnding16 = new ColorfulRectangle(x+13,y+13,22,22,Color.MAGENTA);
+			ColorfulRectangle SecretEnding17 = new ColorfulRectangle(x+14,y+14,22,22,Color.BLUE);
+			ColorfulRectangle SecretEnding18 = new ColorfulRectangle(x+15,y+15,20,20,Color.LIGHT_GRAY);
+			ColorfulRectangle SecretEnding19 = new ColorfulRectangle(x+16,y+16,20,20,Color.PINK);
+			ColorfulRectangle SecretEnding20 = new ColorfulRectangle(x+17,y+17,15,15,Color.WHITE);
+
+
+			if(colorSwitch==0) {
+				SecretEnding1.draw();
+			}else if(colorSwitch==1) {
+				SecretEnding2.draw();
+			}else if(colorSwitch==2) {
+				SecretEnding3.draw();
+			}else if(colorSwitch==3) {
+				SecretEnding4.draw();
+			}else if(colorSwitch==4) {
+				SecretEnding5.draw();
+			}else if(colorSwitch==5) {
+				SecretEnding6.draw();
+			}else if(colorSwitch==6) {
+				SecretEnding7.draw();
+			}else if(colorSwitch==7) {
+				SecretEnding8.draw();
+			}else if(colorSwitch==8) {
+				SecretEnding9.draw();
+			}else if(colorSwitch==9) {
+				SecretEnding10.draw();
+			}else if(colorSwitch==10) {
+				SecretEnding11.draw();
+			}else if(colorSwitch==11) {
+				SecretEnding12.draw();
+			}else if(colorSwitch==12) {
+				SecretEnding13.draw();
+			}else if(colorSwitch==13) {
+				SecretEnding14.draw();
+			}else if(colorSwitch==14) {
+				SecretEnding15.draw();
+			}else if(colorSwitch==15) {
+				SecretEnding16.draw();
+			}else if(colorSwitch==16) {
+				SecretEnding17.draw();
+			}else if(colorSwitch==17) {
+				SecretEnding18.draw();
+			}else if(colorSwitch==18) {
+				SecretEnding19.draw();
+			}else if(colorSwitch==19) {
+				SecretEnding20.draw();
+			}
+
+			colorSwitch+=1;
+
+			if(colorSwitch>=20) {
+				colorSwitch=0;
+			}
+
+			if(x==player.x && y==player.y){
+
+			}
+
+		}
+
+	}
 
 
 	class Endingdoor extends ColorfulRectangle{

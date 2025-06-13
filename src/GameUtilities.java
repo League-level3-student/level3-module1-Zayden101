@@ -63,12 +63,12 @@ public class GameUtilities {
 			
 
 			for(int i = 0 ; i < endingBlocksX.length; i++) {
-				System.out.println("hi");
+				//System.out.println("hi");
 
 				Color c = Color.magenta;
 				
-				System.out.println(movex + " " + movey);
-				System.out.println(endingBlocksX[i]+movex + " " + endingBlocksY[i]+movey);
+				//System.out.println(movex + " " + movey);
+				//System.out.println(endingBlocksX[i]+movex + " " + endingBlocksY[i]+movey);
 
 				rects.add( explore.new ColorfulRectangle(endingBlocksX[i]+movex,endingBlocksY[i]+movey, 50, 50, c)   );
 			}

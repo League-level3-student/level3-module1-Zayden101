@@ -266,9 +266,31 @@ public class Explore extends PApplet {
 	Key purplekey = new Key(movex-1500,movey-1100,50,50, Color.magenta);
 
 	Ending Ending = new Ending(movex-2350,movey-1150,50,50);
-	SecretEnding SecretEnding = new SecretEnding(movex-850,movey+1250,50,50);
+	SecretEnding SecretEnding = new SecretEnding(movex+750,movey-100,50,50);
 
 	Random randon = new Random();
+	
+	SecretTeleport st1 = new SecretTeleport(movex-850,movey+1250,50,50);
+	//SecretTeleport st2 = new SecretTeleport(movex-1350,movey+450,50,50);
+	SecretTeleport st3 = new SecretTeleport(movex-1350,movey+350,50,50);
+	//SecretTeleport st4 = new SecretTeleport(movex-2250,movey-100,50,50);
+	//SecretTeleport st5 = new SecretTeleport(movex-2150,movey-350,50,50);
+	SecretTeleport st6 = new SecretTeleport(movex-2150,movey-100,50,50);
+	SecretTeleport st7 = new SecretTeleport(movex-2050,movey-100,50,50);
+	//SecretTeleport st8 = new SecretTeleport(movex-650,movey+1000,50,50);
+	SecretTeleport st9 = new SecretTeleport(movex-350,movey+1000,50,50);
+	//SecretTeleport st10 = new SecretTeleport(movex+1400,movey+400,50,50);
+	SecretTeleport st11 = new SecretTeleport(movex+1400,movey+500,50,50);
+	//SecretTeleport st12 = new SecretTeleport(movex-1750,movey+1150,50,50);
+	//SecretTeleport st13 = new SecretTeleport(movex-1750,movey+1050,50,50);
+	SecretTeleport st14 = new SecretTeleport(movex-1650,movey+1150,50,50);
+	SecretTeleport st15 = new SecretTeleport(movex-1450,movey+1150,50,50);
+	SecretTeleport st16 = new SecretTeleport(movex+1150,movey-350,50,50);
+	SecretTeleport st17 = new SecretTeleport(movex-1750,movey-550,50,50);
+	SecretTeleport st18 = new SecretTeleport(movex-1850,movey-450,50,50);
+	SecretTeleport st19 = new SecretTeleport(movex+1150,movey-500,50,50);
+	SecretTeleport st20 = new SecretTeleport(movex+750,movey-350,50,50);
+	//SecretTeleport st21 = new SecretTeleport(movex+600,movey+50,50,50);
 
 
 	boolean key1collected = false;
@@ -969,6 +991,129 @@ public class Explore extends PApplet {
 			}
 		}
 		
+		 
+		
+		if(secret==true) {
+			rects.add(new ColorfulRectangle(movex+-1400,movey+350, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+-1900,movey+-450, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+550,movey+50, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+700,movey+-400, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+1250,movey+450, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+1450,movey+450, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+1350,movey+400, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+1350,movey+350, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+-350,movey+1050, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+-1900,movey+1150, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+-1350,movey+900, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+-1300,movey+950, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+-1300,movey+1050, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+-1400,movey+1150, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+-1750,movey+1000, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+-1700,movey+1150, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+-2100,movey+-350, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+-2000,movey+-100, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+-1000,movey+-50, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+1150,movey+-550, 50, 50, Color.WHITE));
+			rects.add(new ColorfulRectangle(movex+1250,movey+-550, 50, 50, Color.WHITE));
+
+			
+			SecretEnding.draw();
+			SecretEnding.update();
+			
+			st1.draw();
+			st1.update();
+//			st2.draw();
+//			st2.update();
+			st3.draw();
+			st3.update();
+//			st4.draw();
+//			st4.update();
+//			st5.draw();
+//			st5.update();
+			st6.draw();
+			st6.update();
+			st7.draw();
+			st7.update();
+//			st8.draw();
+//			st8.update();
+			st9.draw();
+			st9.update();
+//			st10.draw();
+//			st10.update();
+			st11.draw();
+			st11.update();
+//			st12.draw();
+//			st12.update();
+//			st13.draw();
+//			st13.update();
+			st14.draw();
+			st14.update();
+			st15.draw();
+			st15.update();
+			st16.draw();
+			st16.update();
+			st17.draw();
+			st17.update();
+			st18.draw();
+			st18.update();
+			st19.draw();
+			st19.update();
+			st20.draw();
+			st20.update();
+//			st21.draw();
+//			st21.update();
+		
+			if(movex==1200 && movey==-1000) {
+				movex=1700;
+				movey=-200;
+			}
+			if(movex==1700 && movey==-100) {
+				movex=2500;
+				movey=600;
+			}
+			if(movex==2500 && movey==350) {
+				movex=2200;
+				movey=800;
+			}
+			if(movex==2200 && movey==700) {
+				movex=-700;
+				movey=650;
+			}
+			if(movex==-800 && movey==750) {
+				movex=2100;
+				movey=-900;
+			}
+			if(movex==-800 && movey==750) {
+				movex=2100;
+				movey=-900;
+			}
+			if(movex==1800 && movey==-900) {
+				movex=2100;
+				movey=700;
+			}
+			if(movex==2100 && movey==800) {
+				movex=1000;
+				movey=-750;
+			}
+			if(movex==700 && movey==-750) {
+				movex=-900;
+				movey=750;
+			}
+			if(movex==-800 && movey==600) {
+				movex=2600;
+				movey=350;
+			}
+			if(movex==2400 && movey==350) {
+				movex=-1050;
+				movey=-150;
+			}
+			if(movex==-1050 && movey==-250) {
+				movex=2100;
+				movey=-800;
+			}
+		}
+		System.out.println(movex + " " + movey);
+		
 		//rects.add(new ColorfulRectangle(movex+-1500,movey+-1100, 50, 50, Color.WHITE)); PKEY
 		//rects.add(new ColorfulRectangle(movex+-950,movey+1150, 50, 50, Color.WHITE)); PDOOR
 		//border
@@ -1001,13 +1146,10 @@ public class Explore extends PApplet {
 		if(player.x==movex+700 && player.y==movey+1050) {
 			blackkeydisplay4x+=9999;
 		}
-
 		
 		if(secret==true) {
-		//ROY
-		ColorfulRectangle teleporter1a = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Color.RED);
-		ColorfulRectangle teleporter1b = new ColorfulRectangle(movex-1000,movey+1250, 50, 50, Color.RED);
-		
+		new ColorfulRectangle(movex+800,movey+1400, 50, 50, Color.RED);
+		new ColorfulRectangle(movex-1000,movey+1250, 50, 50, Color.RED);
 		if(teleport1colorswitch<=19) {
 			teleport1RED.x=movex+800;
 			teleport1RED.y=movey+1400;
@@ -1444,7 +1586,6 @@ public class Explore extends PApplet {
 		Ending.update();
 		endingdoor1.update();
 		endingdoor2.update();
-
 
 		if(map==true) {
 			facing=0;
@@ -6809,6 +6950,107 @@ if(blockplacesize==0) {
 
 	}
 
+	
+	class SecretTeleport extends ColorfulRectangle{
+
+		int telex=x;
+		int teley=y;
+
+		int colorSwitch = 0;
+
+
+		boolean open = false;
+
+		public SecretTeleport(int x, int y, int width, int height) {
+
+			super(x, y, width, height, Color.BLACK);
+
+		}
+
+
+		void draw() {
+
+			if(!open) {
+				super.draw();
+			}	
+
+		}
+
+		public void update() {
+
+			x=telex+movex;
+			y=teley+movey;
+
+
+			//			ColorfulRectangle Endingred = new ColorfulRectangle(x,y,50,50,Color.RED);
+			//			ColorfulRectangle Endingorange = new ColorfulRectangle(x,y,50,50,Color.ORANGE);
+			//			ColorfulRectangle Endingyellow = new ColorfulRectangle(x,y,50,50,Color.YELLOW);
+			//			ColorfulRectangle Endinggreen = new ColorfulRectangle(x,y,50,50,Color.GREEN);
+			//			ColorfulRectangle Endingblue = new ColorfulRectangle(x,y,50,50,Color.BLUE);
+			//			ColorfulRectangle Endingpurple = new ColorfulRectangle(x,y,50,50,Color.MAGENTA);
+			//			ColorfulRectangle Endinggray = new ColorfulRectangle(x,y,50,50,Color.LIGHT_GRAY);
+			//			ColorfulRectangle Endingwhite = new ColorfulRectangle(x,y,50,50,Color.WHITE);
+
+			ColorfulRectangle SecretEnding1 = new ColorfulRectangle(x,y,50,50,Color.BLACK);
+			ColorfulRectangle SecretEnding2 = new ColorfulRectangle(x,y,50,50,Color.BLACK);
+			ColorfulRectangle SecretEnding3 = new ColorfulRectangle(x,y,50,50,Color.BLACK);
+			ColorfulRectangle SecretEnding4 = new ColorfulRectangle(x,y,50,50,Color.BLACK);
+			ColorfulRectangle SecretEnding5 = new ColorfulRectangle(x,y,50,50,Color.BLACK);
+			ColorfulRectangle SecretEnding6 = new ColorfulRectangle(x,y,50,50,Color.BLACK);
+			ColorfulRectangle SecretEnding7 = new ColorfulRectangle(x,y,50,50,Color.BLACK);
+			ColorfulRectangle SecretEnding8 = new ColorfulRectangle(x,y,50,50,Color.WHITE);
+			ColorfulRectangle SecretEnding9 = new ColorfulRectangle(x,y,50,50,Color.WHITE);
+			ColorfulRectangle SecretEnding10 = new ColorfulRectangle(x,y,50,50,Color.WHITE);
+			ColorfulRectangle SecretEnding11 = new ColorfulRectangle(x,y,50,50,Color.WHITE);
+			ColorfulRectangle SecretEnding12 = new ColorfulRectangle(x,y,50,50,Color.WHITE);
+			ColorfulRectangle SecretEnding13 = new ColorfulRectangle(x,y,50,50,Color.WHITE);
+			ColorfulRectangle SecretEnding14 = new ColorfulRectangle(x,y,50,50,Color.WHITE);
+
+
+			if(colorSwitch==0) {
+				SecretEnding1.draw();
+			}else if(colorSwitch==1) {
+				SecretEnding2.draw();
+			}else if(colorSwitch==2) {
+				SecretEnding3.draw();
+			}else if(colorSwitch==3) {
+				SecretEnding4.draw();
+			}else if(colorSwitch==4) {
+				SecretEnding5.draw();
+			}else if(colorSwitch==5) {
+				SecretEnding6.draw();
+			}else if(colorSwitch==6) {
+				SecretEnding7.draw();
+			}else if(colorSwitch==7) {
+				SecretEnding8.draw();
+			}else if(colorSwitch==8) {
+				SecretEnding9.draw();
+			}else if(colorSwitch==9) {
+				SecretEnding10.draw();
+			}else if(colorSwitch==10) {
+				SecretEnding11.draw();
+			}else if(colorSwitch==11) {
+				SecretEnding12.draw();
+			}else if(colorSwitch==12) {
+				SecretEnding13.draw();
+			}else if(colorSwitch==13) {
+				SecretEnding14.draw();
+			}
+			colorSwitch+=1;
+
+			if(colorSwitch>=14) {
+				colorSwitch=0;
+			}
+
+			if(x==player.x && y==player.y){
+
+			}
+
+		}
+
+	}
+
+	
 
 	class Endingdoor extends ColorfulRectangle{
 

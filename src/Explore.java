@@ -389,6 +389,7 @@ public class Explore extends PApplet {
 	boolean spooky = false;
 	boolean options = false;
 	boolean showPurplekey = false;
+	boolean showTeleport = false;
 
 	boolean NoStroke;
 	boolean NoUIBackground;
@@ -991,9 +992,18 @@ public class Explore extends PApplet {
 			}
 		}
 		
-		 
-		
+		if(mapshown==false) {
 		if(secret==true) {
+			st1.draw();
+			st1.update();
+		}
+		}
+		
+		if(movex==1200 && movey==-1000) {
+			showTeleport=true;
+		}
+		
+		if(showTeleport==true) {
 			rects.add(new ColorfulRectangle(movex+-1400,movey+350, 50, 50, Color.WHITE));
 			rects.add(new ColorfulRectangle(movex+-1900,movey+-450, 50, 50, Color.WHITE));
 			rects.add(new ColorfulRectangle(movex+550,movey+50, 50, 50, Color.WHITE));
@@ -1020,8 +1030,6 @@ public class Explore extends PApplet {
 			SecretEnding.draw();
 			SecretEnding.update();
 			
-			st1.draw();
-			st1.update();
 //			st2.draw();
 //			st2.update();
 			st3.draw();
@@ -1111,8 +1119,17 @@ public class Explore extends PApplet {
 				movex=2100;
 				movey=-800;
 			}
+			if(movex==2000 && movey==-900) {
+				movex=-250;
+				movey=200;
+			}
+			if(movex==-400 && movey==350) {
+				movex=-1700;
+				movey=3400;
+			}
 		}
-		System.out.println(movex + " " + movey);
+		
+		//System.out.println(movex + " " + movey);
 		
 		//rects.add(new ColorfulRectangle(movex+-1500,movey+-1100, 50, 50, Color.WHITE)); PKEY
 		//rects.add(new ColorfulRectangle(movex+-950,movey+1150, 50, 50, Color.WHITE)); PDOOR
@@ -1178,10 +1195,12 @@ public class Explore extends PApplet {
 		if(teleport1colorswitch>=60) {
 			teleport1colorswitch=0;
 		}
-						
+		
+		if(mapshown==false) {
 		teleport1RED.draw();
 		teleport1ORANGE.draw();
 		teleport1YELLOW.draw();
+		}
 		}
 				
 		ColorfulRectangle displaykey = new ColorfulRectangle(660,10, 30, 30, Color.YELLOW);
@@ -1707,7 +1726,8 @@ public class Explore extends PApplet {
 
 		if(mapshown==false) {
 			player.draw();
-		}	}
+		}	
+		}
 	
 	
 	//x:-240/+195     y:-120/+145
@@ -6162,6 +6182,7 @@ public class Explore extends PApplet {
 			}
 			if (keyCode == SHIFT) {
 				//att=1;
+				if(showTeleport==false) {
 				if(finished==false) {
 				if(map==false) {
 					map=true;
@@ -6170,6 +6191,7 @@ public class Explore extends PApplet {
 				}else if(map==true) {
 					map=false;
 					mapshown=false;
+				}
 				}
 				}
 				if(build==true){

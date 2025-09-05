@@ -34,7 +34,7 @@ public class Explore extends PApplet {
 	boolean emliv = false;     //enemy alive
 	boolean emliv2 = false;     //enemy2 alive
 	int attx = 0;
-	boolean emliv3 = false;     //enemy3 alive
+	boolean emliv3 = false;     //enemy3 live
 
 
 	boolean playerDead = false;

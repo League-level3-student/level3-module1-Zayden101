@@ -224,10 +224,13 @@ public class Explore extends PApplet {
 	Door purpledoor = new Door(movex-950,movey+1150,50,50, Color.magenta);
 
 
+	
 	Key key1 = new Key(movex+500,movey-500,50,50, Color.yellow);
-	Key key2 = new Key(movex-800,movey+550,50,50, Color.yellow);
-	Key key3 = new Key(movex-300,movey-550,50,50, Color.yellow);
-	Key key4 = new Key(movex-350,movey+850,50,50, Color.yellow);
+	Key key2a = new Key(movex-800,movey+550,50,50, Color.yellow);
+	Key key2b = new Key(movex-100,movey+500,50,50, Color.yellow);
+	Key key3a = new Key(movex-300,movey-550,50,50, Color.yellow);
+	Key key3b = new Key(movex-650,movey-250,50,50, Color.yellow);
+	Key key4 = new Key(movex-350,movey+850,50,50, Color.yellow);	
 	Key key5 = new Key(movex+150,movey+500,50,50, Color.yellow);
 	Key key6 = new Key(movex-2250,movey-400,50,50, Color.yellow);
 	Key key7 = new Key(movex-100,movey-1050,50,50, Color.yellow);
@@ -271,18 +274,11 @@ public class Explore extends PApplet {
 	Random randon = new Random();
 	
 	SecretTeleport st1 = new SecretTeleport(movex-850,movey+1250,50,50);
-	//SecretTeleport st2 = new SecretTeleport(movex-1350,movey+450,50,50);
 	SecretTeleport st3 = new SecretTeleport(movex-1350,movey+350,50,50);
-	//SecretTeleport st4 = new SecretTeleport(movex-2250,movey-100,50,50);
-	//SecretTeleport st5 = new SecretTeleport(movex-2150,movey-350,50,50);
 	SecretTeleport st6 = new SecretTeleport(movex-2150,movey-100,50,50);
 	SecretTeleport st7 = new SecretTeleport(movex-2050,movey-100,50,50);
-	//SecretTeleport st8 = new SecretTeleport(movex-650,movey+1000,50,50);
 	SecretTeleport st9 = new SecretTeleport(movex-350,movey+1000,50,50);
-	//SecretTeleport st10 = new SecretTeleport(movex+1400,movey+400,50,50);
 	SecretTeleport st11 = new SecretTeleport(movex+1400,movey+500,50,50);
-	//SecretTeleport st12 = new SecretTeleport(movex-1750,movey+1150,50,50);
-	//SecretTeleport st13 = new SecretTeleport(movex-1750,movey+1050,50,50);
 	SecretTeleport st14 = new SecretTeleport(movex-1650,movey+1150,50,50);
 	SecretTeleport st15 = new SecretTeleport(movex-1450,movey+1150,50,50);
 	SecretTeleport st16 = new SecretTeleport(movex+1150,movey-350,50,50);
@@ -290,7 +286,6 @@ public class Explore extends PApplet {
 	SecretTeleport st18 = new SecretTeleport(movex-1850,movey-450,50,50);
 	SecretTeleport st19 = new SecretTeleport(movex+1150,movey-500,50,50);
 	SecretTeleport st20 = new SecretTeleport(movex+750,movey-350,50,50);
-	//SecretTeleport st21 = new SecretTeleport(movex+600,movey+50,50,50);
 
 
 	boolean key1collected = false;
@@ -374,6 +369,8 @@ public class Explore extends PApplet {
 
 	int waitTime = 25;
 
+	int stageVariation = 0;
+	
 	boolean escaped = false;
 	
 	String enemy1upDisplay = "";
@@ -449,8 +446,10 @@ public class Explore extends PApplet {
 
 		
 		keyToKeyCount.put(key1, yellowKeyCount);
-		keyToKeyCount.put(key2, yellowKeyCount);
-		keyToKeyCount.put(key3, yellowKeyCount);
+		keyToKeyCount.put(key2a, yellowKeyCount);
+		keyToKeyCount.put(key2b, yellowKeyCount);
+		keyToKeyCount.put(key3a, yellowKeyCount);
+		keyToKeyCount.put(key3b, yellowKeyCount);
 		keyToKeyCount.put(key4, yellowKeyCount);
 		keyToKeyCount.put(key5, yellowKeyCount);
 		keyToKeyCount.put(key6, yellowKeyCount);
@@ -487,12 +486,16 @@ public class Explore extends PApplet {
 		//background(bgColor);
 
 		finished=false;
-
+		
+		stageVariation = randon.nextInt(3); //0-2
+		System.out.println(stageVariation);
+				
 	}
 
 	@Override
 	public void draw() {
 		background(bgColor);
+
 
 		int marker;
 
@@ -507,6 +510,10 @@ public class Explore extends PApplet {
 			}
 		}
 
+		
+
+		
+		
 		if(finished==false) {
 			if(mapshown==false) {
 				emeny.draw();
@@ -753,13 +760,30 @@ public class Explore extends PApplet {
 					purpledoor.draw();
 					purpledoor.update();
 				}
-			
+				
+				if(stageVariation==0) {
+					key2a.draw();
+					key2a.update();
+					key3a.draw();
+					key3a.update();
+				} else if(stageVariation==1) {
+					key2b.draw();
+					key2b.update();
+					key3b.draw();
+					key3b.update();
+//				key5.x=movex-1100; key5.y=movey+100;
+//				key6.x=movex-2250; key6.y=movey-400;
+//				key7.x=movex-100; key7.y=movey-1050;
+				} else if(stageVariation==2) {
+					key2a.draw();
+					key2a.update();
+					key3b.draw();
+					key3b.update();
+//				key5.x=movex-1300; key5.y=movey-350;
+				}
+
 				key1.draw();
 				key1.update();
-				key2.draw();
-				key2.update();
-				key3.draw();
-				key3.update();
 				if(wall1==false) {
 				key4.draw();
 				key4.update();
@@ -1026,30 +1050,16 @@ public class Explore extends PApplet {
 			SecretEnding.draw();
 			SecretEnding.update();
 			
-//			st2.draw();
-//			st2.update();
 			st3.draw();
 			st3.update();
-//			st4.draw();
-//			st4.update();
-//			st5.draw();
-//			st5.update();
 			st6.draw();
 			st6.update();
 			st7.draw();
 			st7.update();
-//			st8.draw();
-//			st8.update();
 			st9.draw();
 			st9.update();
-//			st10.draw();
-//			st10.update();
 			st11.draw();
 			st11.update();
-//			st12.draw();
-//			st12.update();
-//			st13.draw();
-//			st13.update();
 			st14.draw();
 			st14.update();
 			st15.draw();
@@ -1064,8 +1074,6 @@ public class Explore extends PApplet {
 			st19.update();
 			st20.draw();
 			st20.update();
-//			st21.draw();
-//			st21.update();
 		
 			if(movex==1200 && movey==-1000) {
 				movex=1700;
@@ -9478,8 +9486,7 @@ public class Explore extends PApplet {
 
 		int marker2;
 	}
-
-
+	
 	public void buildings2() {
 
 		rects.add(new ColorfulRectangle(movex+-2300,movey+350, 50, 50, Color.WHITE));

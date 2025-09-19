@@ -226,12 +226,15 @@ public class Explore extends PApplet {
 
 	
 	Key key1 = new Key(movex+500,movey-500,50,50, Color.yellow);
-	Key key2a = new Key(movex-800,movey+550,50,50, Color.yellow);
-	Key key2b = new Key(movex-100,movey+500,50,50, Color.yellow);
-	Key key3a = new Key(movex-300,movey-550,50,50, Color.yellow);
-	Key key3b = new Key(movex-650,movey-250,50,50, Color.yellow);
-	Key key4 = new Key(movex-350,movey+850,50,50, Color.yellow);	
-	Key key5 = new Key(movex+150,movey+500,50,50, Color.yellow);
+	Key key2a = new Key(movex-800,movey+550,50,50, Color.yellow); //Used in 0,2
+	Key key2b = new Key(movex-100,movey+500,50,50, Color.yellow); //Used in 1
+	Key key3a = new Key(movex-300,movey-550,50,50, Color.yellow); //Used in 0
+	Key key3b = new Key(movex-650,movey-250,50,50, Color.yellow);  //Used in 1
+	Key key3c = new Key(movex+200,movey+100,50,50, Color.yellow);  //Used in 2
+	Key key4 = new Key(movex-350,movey+850,50,50, Color.yellow);
+	Key key5a = new Key(movex+150,movey+500,50,50, Color.yellow); //Used in 0
+	Key key5b = new Key(movex-1100,movey+100,50,50, Color.yellow); //Used in 1
+	Key key5c = new Key(movex-1300,movey-350,50,50, Color.yellow); //Used in 2
 	Key key6 = new Key(movex-2250,movey-400,50,50, Color.yellow);
 	Key key7 = new Key(movex-100,movey-1050,50,50, Color.yellow);
 
@@ -450,8 +453,11 @@ public class Explore extends PApplet {
 		keyToKeyCount.put(key2b, yellowKeyCount);
 		keyToKeyCount.put(key3a, yellowKeyCount);
 		keyToKeyCount.put(key3b, yellowKeyCount);
+		keyToKeyCount.put(key3c, yellowKeyCount);
 		keyToKeyCount.put(key4, yellowKeyCount);
-		keyToKeyCount.put(key5, yellowKeyCount);
+		keyToKeyCount.put(key5a, yellowKeyCount);
+		keyToKeyCount.put(key5b, yellowKeyCount);
+		keyToKeyCount.put(key5c, yellowKeyCount);
 		keyToKeyCount.put(key6, yellowKeyCount);
 		keyToKeyCount.put(key7, yellowKeyCount);
 		
@@ -762,40 +768,71 @@ public class Explore extends PApplet {
 				}
 				
 				if(stageVariation==0) {
+					key1.draw();
+					key1.update();
 					key2a.draw();
 					key2a.update();
 					key3a.draw();
 					key3a.update();
+					key5a.draw();
+					key5a.update();
+					
+					if(wall1==false) {
+					key4.draw();
+					key4.update();
+					}
+					
+					if(wall2==false) {
+					key6.draw();
+					key6.update();
+					key7.draw();
+					key7.update();
+					}
 				} else if(stageVariation==1) {
+					key1.draw();
+					key1.update();
 					key2b.draw();
 					key2b.update();
 					key3b.draw();
 					key3b.update();
-//				key5.x=movex-1100; key5.y=movey+100;
-//				key6.x=movex-2250; key6.y=movey-400;
-//				key7.x=movex-100; key7.y=movey-1050;
+					
+					if(wall1==false) {
+					key4.draw();
+					key4.update();
+					key5b.draw();
+					key5b.update();
+					}
+					
+					if(wall2==false) {
+					key6.draw();
+					key6.update();
+					key7.draw();
+					key7.update();
+					}
 				} else if(stageVariation==2) {
+					key1.draw();
+					key1.update();
 					key2a.draw();
 					key2a.update();
-					key3b.draw();
-					key3b.update();
-//				key5.x=movex-1300; key5.y=movey-350;
+					key3c.draw();
+					key3c.update();
+					
+					if(wall1==false) {
+					key4.draw();
+					key4.update();
+					key5c.draw();
+					key5c.update();
+					}
+					
+					if(wall2==false) {
+					key6.draw();
+					key6.update();
+					key7.draw();
+					key7.update();
+					}
 				}
 
-				key1.draw();
-				key1.update();
-				if(wall1==false) {
-				key4.draw();
-				key4.update();
-				}
-				key5.draw();
-				key5.update();
-				if(wall2==false) {
-				key6.draw();
-				key6.update();
-				key7.draw();
-				key7.update();
-				}
+				
 				if(wall1==false) {
 				pinkkey1.draw();
 				pinkkey1.update();
@@ -1622,6 +1659,7 @@ public class Explore extends PApplet {
 		}
 		
 		//KEY
+		if(stageVariation==0) {
 		if(player.x==movex+500 && player.y==movey-500) {
 			key1collected = true;}
 		if(player.x==movex-800 && player.y==movey+550) {
@@ -1636,6 +1674,40 @@ public class Explore extends PApplet {
 			key6collected = true;}
 		if(player.x==movex-100 && player.y==movey-1050) {
 			key7collected = true;}
+		}
+		if(stageVariation==1) {
+		if(player.x==movex+500 && player.y==movey-500) {
+			key1collected = true;}
+		if(player.x==movex-100 && player.y==movey+500) {
+			key2collected = true;}
+		if(player.x==movex-650 && player.y==movey-250) {
+			key3collected = true;}
+		if(player.x==movex-350 && player.y==movey+850) {
+			key4collected = true;}
+		if(player.x==movex-1100 && player.y==movey+100) {
+			key5collected = true;}
+		if(player.x==movex-2250 && player.y==movey-400) {
+			key6collected = true;}
+		if(player.x==movex-100 && player.y==movey-1050) {
+			key7collected = true;}
+		}
+
+		if(stageVariation==2) {
+		if(player.x==movex+500 && player.y==movey-500) {
+			key1collected = true;}
+		if(player.x==movex-800 && player.y==movey+550) {
+			key2collected = true;}
+		if(player.x==movex+200 && player.y==movey+100) {
+			key3collected = true;}
+		if(player.x==movex-350 && player.y==movey+850) {
+			key4collected = true;}
+		if(player.x==movex-1300 && player.y==movey-350) {
+			key5collected = true;}
+		if(player.x==movex-2250 && player.y==movey-400) {
+			key6collected = true;}
+		if(player.x==movex-100 && player.y==movey-1050) {
+			key7collected = true;}
+		}
 
 		//PINK KEY
 		if(player.x==movex+1000 && player.y==movey+550) {
@@ -3651,28 +3723,75 @@ public class Explore extends PApplet {
 
 
 		//KEY
+		
+		if(stageVariation==0) {
+			if(key1collected==false) {
+				rects.add(new ColorfulRectangle(522,126, 9, 9, Color.YELLOW));
+			}
+			if(key2collected==false) {
+				rects.add(new ColorfulRectangle(288,315, 9, 9, Color.YELLOW));
+			}
+			if(key3collected==false) {
+				rects.add(new ColorfulRectangle(378,117, 9, 9, Color.YELLOW));
+			}
+			if(key4collected==false) {
+				rects.add(new ColorfulRectangle(369,369, 9, 9, Color.YELLOW));
+			}
+			if(key5collected==false) {
+				rects.add(new ColorfulRectangle(459,306, 9, 9, Color.YELLOW));
+			}
+			if(key6collected==false) {
+				rects.add(new ColorfulRectangle(27,144, 9, 9, Color.YELLOW));
+			}
+			if(key7collected==false) {
+				rects.add(new ColorfulRectangle(414,27, 9, 9, Color.YELLOW));
+			}
+		} else if(stageVariation==1) {
+			if(key1collected==false) {
+				rects.add(new ColorfulRectangle(522,126, 9, 9, Color.YELLOW));
+			}
+			if(key2collected==false) {
+				rects.add(new ColorfulRectangle(414,306, 9, 9, Color.YELLOW));
+			}
+			if(key3collected==false) {
+				rects.add(new ColorfulRectangle(315,171, 9, 9, Color.YELLOW));
+			}
+			if(key4collected==false) {
+				rects.add(new ColorfulRectangle(369,369, 9, 9, Color.YELLOW));
+			}
+			if(key5collected==false) {
+				rects.add(new ColorfulRectangle(234,234, 9, 9, Color.YELLOW));
+			}
+			if(key6collected==false) {
+				rects.add(new ColorfulRectangle(27,144, 9, 9, Color.YELLOW));
+			}
+			if(key7collected==false) {
+				rects.add(new ColorfulRectangle(414,27, 9, 9, Color.YELLOW));
+			}
+		}if(stageVariation==2) {
+			if(key1collected==false) {
+				rects.add(new ColorfulRectangle(522,126, 9, 9, Color.YELLOW));
+			}
+			if(key2collected==false) {
+				rects.add(new ColorfulRectangle(288,315, 9, 9, Color.YELLOW));
+			}
+			if(key3collected==false) {
+				rects.add(new ColorfulRectangle(468,234, 9, 9, Color.YELLOW));
+			}
+			if(key4collected==false) {
+				rects.add(new ColorfulRectangle(369,369, 9, 9, Color.YELLOW));
+			}
+			if(key5collected==false) {
+				rects.add(new ColorfulRectangle(198,153, 9, 9, Color.YELLOW));
+			}
+			if(key6collected==false) {
+				rects.add(new ColorfulRectangle(27,144, 9, 9, Color.YELLOW));
+			}
+			if(key7collected==false) {
+				rects.add(new ColorfulRectangle(414,27, 9, 9, Color.YELLOW));
+			}
+		}
 
-		if(key1collected==false) {
-			rects.add(new ColorfulRectangle(522,126, 9, 9, Color.YELLOW));
-		}
-		if(key2collected==false) {
-			rects.add(new ColorfulRectangle(288,315, 9, 9, Color.YELLOW));
-		}
-		if(key3collected==false) {
-			rects.add(new ColorfulRectangle(378,117, 9, 9, Color.YELLOW));
-		}
-		if(key4collected==false) {
-			rects.add(new ColorfulRectangle(369,369, 9, 9, Color.YELLOW));
-		}
-		if(key5collected==false) {
-			rects.add(new ColorfulRectangle(459,306, 9, 9, Color.YELLOW));
-		}
-		if(key6collected==false) {
-			rects.add(new ColorfulRectangle(27,144, 9, 9, Color.YELLOW));
-		}
-		if(key7collected==false) {
-			rects.add(new ColorfulRectangle(414,27, 9, 9, Color.YELLOW));
-		}
 
 		if(pinkkey1collected==false) {
 			rects.add(new ColorfulRectangle(612,315, 9, 9, Color.PINK));
@@ -10470,7 +10589,6 @@ public class Explore extends PApplet {
 									
 
 //				TOGGLE WALLS/KEYS
-//				}else {
 				if(wall1==true) {
 					wall1=false;
 				}else if(wall1==false) {
@@ -10482,8 +10600,8 @@ public class Explore extends PApplet {
 				}else if(wall2==false) {
 					wall2=true;
 				}
-//				
-				secret=true;
+//			
+//				secret=true;
 //				collectedKeys+=1;
 //				collectedPinkKeys+=1;
 //				collectedOrangeKeys+=1;

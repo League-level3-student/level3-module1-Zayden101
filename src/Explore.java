@@ -1635,6 +1635,7 @@ public class Explore extends PApplet {
 		if(movex==-100 && movey==1450) {
 			movex=-1700;
 			movey=3400;
+			finished=false;
 		}
 		
 		if(mapshown==false) {

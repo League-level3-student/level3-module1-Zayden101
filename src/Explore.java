@@ -32,9 +32,7 @@ public class Explore extends PApplet {
 	int y1 = 0;
 	
 	boolean emliv = false;     //enemy alive
-	boolean emliv2 = false;     //enemy2 alive
 	int attx = 0;
-	boolean emliv3 = false;     //enemy3 live
 
 
 	boolean playerDead = false;
@@ -43,10 +41,6 @@ public class Explore extends PApplet {
 
 	int enemyRandomMove=4;
 
-	int enemyRandomMove1=4;
-	int enemyRandomMove2=4;
-	int enemyRandomMove3=4;
-
 	int wait = 0;
 
 	int movex = 0;
@@ -54,13 +48,6 @@ public class Explore extends PApplet {
 
 	int enemymovex = 0;
 	int enemymovey = 0;
-
-	int enemy2movex = 0;
-	int enemy2movey = 0;
-
-	int enemy3movex = 0;
-	int enemy3movey = 0;
-
 
 	int atmovx = 50;
 	int atmovy = 50;
@@ -157,8 +144,11 @@ public class Explore extends PApplet {
 
 
 	Enemy emeny = new Enemy(100,250,50,50);
+	//Enemy emeny2 = new Enemy(-1300,-150,50,50);
+
 
 	ColorfulRectangle enemy = new ColorfulRectangle(100,250,50,50,Color.RED);
+	//ColorfulRectangle enemy2 = new ColorfulRectangle(-1300,-150,50,50,Color.RED);
 	
 	ColorfulRectangle playerup = new ColorfulRectangle(enemy.x,enemy.y-50,10,10,Color.BLUE);
 	ColorfulRectangle playerdown = new ColorfulRectangle(enemy.x,enemy.y+50,10,10, Color.BLUE);
@@ -520,7 +510,6 @@ public class Explore extends PApplet {
 			}
 		}
 
-		
 
 		
 		
@@ -528,6 +517,9 @@ public class Explore extends PApplet {
 			if(mapshown==false) {
 				emeny.draw();
 				emeny.update();
+				//emeny2.draw();
+				//emeny2.update();
+
 			}
 		}
 

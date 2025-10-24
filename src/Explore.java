@@ -229,7 +229,8 @@ public class Explore extends PApplet {
 	Key key7 = new Key(movex-100,movey-1050,50,50, Color.yellow);
 
 	Key pinkkey1 = new Key(movex+1000,movey+550,50,50, Color.pink);
-	Key pinkkey2 = new Key(movex+800,movey+1250,50,50, Color.pink);
+	Key pinkkey2a = new Key(movex+800,movey+1250,50,50, Color.pink);
+	Key pinkkey2b = new Key(movex+750,movey-750,50,50, Color.pink);
 	Key pinkkey3a = new Key(movex-2150,movey+100,50,50, Color.pink);
 	Key pinkkey3b = new Key(movex-1850,movey-100,50,50, Color.pink);
 	Key pinkkey4 = new Key(movex-800,movey-1150,50,50, Color.pink);
@@ -378,7 +379,7 @@ public class Explore extends PApplet {
 
 	Map<ColorfulRectangle, KeyCount> doorToKey = new HashMap<ColorfulRectangle, KeyCount>();
 	Map<ColorfulRectangle, KeyCount> keyToKeyCount= new HashMap<ColorfulRectangle, KeyCount>();
-	boolean build = true;
+	boolean build = false;
 	boolean options = false;
 	boolean showPurplekey = false;
 	boolean showTeleport = false;
@@ -454,7 +455,8 @@ public class Explore extends PApplet {
 		keyToKeyCount.put(key7, yellowKeyCount);
 		
 		keyToKeyCount.put(pinkkey1, pinkKeyCount);
-		keyToKeyCount.put(pinkkey2, pinkKeyCount);
+		keyToKeyCount.put(pinkkey2a, pinkKeyCount);
+		keyToKeyCount.put(pinkkey2b, pinkKeyCount);
 		keyToKeyCount.put(pinkkey3a, pinkKeyCount);
 		keyToKeyCount.put(pinkkey3b, pinkKeyCount);
 		keyToKeyCount.put(pinkkey4, pinkKeyCount);
@@ -510,7 +512,7 @@ public class Explore extends PApplet {
 			}
 		}
 
-
+		//System.out.println(movex + " " + movey);
 		
 		
 		if(finished==false) {
@@ -677,6 +679,12 @@ public class Explore extends PApplet {
 
 		if(finished==true) {
 			endingBlocks();
+			yellowKeyCount.keys=0;
+			pinkKeyCount.keys=0;	
+			orangeKeyCount.keys=0;	
+			blueKeyCount.keys=0;	
+			blackKeyCount.keys=0;	
+			purpleKeyCount.keys=0;	
 		}
 
 		if(mapshown==false) {
@@ -714,18 +722,16 @@ public class Explore extends PApplet {
 				door4.update();
 				door5.draw();
 				door5.update();
+
+				pinkdoor1.draw();
+				pinkdoor1.update();
 				}
 				if(wall2==false) {
 				door6.draw();
 				door6.update();
 				door7.draw();
 				door7.update();
-				}
-				if(wall1==false) {
-				pinkdoor1.draw();
-				pinkdoor1.update();
-				}
-				if(wall2==false) {
+					
 				pinkdoor2.draw();
 				pinkdoor2.update();
 				pinkdoor3.draw();
@@ -734,8 +740,7 @@ public class Explore extends PApplet {
 				pinkdoor4.update();
 				pinkdoor5.draw();
 				pinkdoor5.update();
-				}
-				if(wall2==false) {
+
 				orangedoor1.draw();
 				orangedoor1.update();
 				orangedoor2.draw();
@@ -746,8 +751,7 @@ public class Explore extends PApplet {
 				orangedoor4.update();
 				orangedoor5.draw();
 				orangedoor5.update();
-				}
-				if(wall2==false) {
+
 				bluedoor1.draw();
 				bluedoor1.update();
 				bluedoor2.draw();
@@ -784,6 +788,8 @@ public class Explore extends PApplet {
 					key6.update();
 					key7.draw();
 					key7.update();
+					pinkkey2a.draw();
+					pinkkey2a.update();
 					pinkkey3a.draw();
 					pinkkey3a.update();
 					bluekey5a.draw();
@@ -809,6 +815,8 @@ public class Explore extends PApplet {
 					key6.update();
 					key7.draw();
 					key7.update();
+					pinkkey2b.draw();
+					pinkkey2b.update();
 					pinkkey3b.draw();
 					pinkkey3b.update();
 					bluekey5a.draw();
@@ -834,6 +842,9 @@ public class Explore extends PApplet {
 					key6.update();
 					key7.draw();
 					key7.update();
+					pinkkey2b.draw();
+					pinkkey2b.update();
+
 					pinkkey3b.draw();
 					pinkkey3b.update();
 					bluekey5b.draw();
@@ -847,14 +858,11 @@ public class Explore extends PApplet {
 				pinkkey1.update();
 				}
 				if(wall2==false) {
-				pinkkey2.draw();
-				pinkkey2.update();
 				pinkkey4.draw();
 				pinkkey4.update();
 				pinkkey5.draw();
 				pinkkey5.update();
-				}
-				if(wall2==false) {
+
 				orangekey1.draw();
 				orangekey1.update();
 				orangekey2.draw();
@@ -865,8 +873,7 @@ public class Explore extends PApplet {
 				orangekey4.update();
 				orangekey5.draw();
 				orangekey5.update();
-				}
-				if(wall2==false) {
+
 				bluekey1.draw();
 				bluekey1.update();
 				bluekey2.draw();
@@ -875,8 +882,7 @@ public class Explore extends PApplet {
 				bluekey3.update();
 				bluekey4.draw();
 				bluekey4.update();
-				}
-				if(wall2==false) {
+
 				blackkey1.draw();
 				blackkey1.update();
 				blackkey2.draw();
@@ -1718,8 +1724,14 @@ public class Explore extends PApplet {
 		//PINK KEY
 		if(player.x==movex+1000 && player.y==movey+550) {
 			pinkkey1collected = true;}
+		if(stageVariation==0) {
 		if(player.x==movex+800 && player.y==movey+1250) {
 			pinkkey2collected = true;}
+		}
+		if(stageVariation==1 || stageVariation==2) {
+		if(player.x==movex+750 && player.y==movey-750) {
+			pinkkey2collected = true;}
+		}
 		if(stageVariation==0) {
 		if(player.x==movex-2150 && player.y==movey+100) {
 			pinkkey3collected = true;}
@@ -1730,7 +1742,7 @@ public class Explore extends PApplet {
 		}	
 		if(player.x==movex-800 && player.y==movey-1150) {
 			pinkkey4collected = true;}
-		if(player.x==movex-100 && player.y==movey+1050) {
+		if(player.x==movex-100 && player.y==movey+1100) {
 			pinkkey5collected = true;}
 
 		//ORANGE KEY
@@ -3854,9 +3866,14 @@ public class Explore extends PApplet {
 		if(pinkkey1collected==false) {
 			rects.add(new ColorfulRectangle(612,315, 9, 9, Color.PINK));
 		}
+		if(stageVariation==0) {
 		if(pinkkey2collected==false) {
 			rects.add(new ColorfulRectangle(576,441, 9, 9, Color.PINK));
-		}
+		}}
+		if(stageVariation==1 || stageVariation==2) {
+		if(pinkkey2collected==false) {
+			rects.add(new ColorfulRectangle(567,81, 9, 9, Color.PINK));
+		}}
 		if(stageVariation==0) {
 		if(pinkkey3collected==false) {
 			rects.add(new ColorfulRectangle(45,234, 9, 9, Color.PINK));
@@ -10575,6 +10592,7 @@ public class Explore extends PApplet {
 					}
 					}
 					
+					
 					teleportavaible=true;
 
 					if(nocliped==false) {
@@ -10612,7 +10630,7 @@ public class Explore extends PApplet {
 					}
 					}
 					
-					teleportavaible=true;
+					//teleportavaible=true;
 
 					if(nocliped==false) {
 					if(playerInterectsBlock()) {
@@ -10648,7 +10666,7 @@ public class Explore extends PApplet {
 					}
 					}
 					
-					teleportavaible=true;
+					//teleportavaible=true;
 
 					if(nocliped==false) {
 					if(playerInterectsBlock()) {
@@ -10685,7 +10703,7 @@ public class Explore extends PApplet {
 						}
 						}
 						
-						teleportavaible=true;
+						//teleportavaible=true;
 
 						if(nocliped==false) {
 						if(playerInterectsBlock()) {

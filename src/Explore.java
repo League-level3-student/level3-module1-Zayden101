@@ -39,15 +39,12 @@ public class Explore extends PApplet {
 
 	int facing;
 
-	int enemyRandomMove=4;
 
 	int wait = 0;
 
 	int movex = 0;
 	int movey = 0;
 
-	int enemymovex = 0;
-	int enemymovey = 0;
 
 	int atmovx = 50;
 	int atmovy = 50;
@@ -144,16 +141,12 @@ public class Explore extends PApplet {
 
 
 	Enemy emeny = new Enemy(100,250,50,50);
-	//Enemy emeny2 = new Enemy(-1300,-150,50,50);
-
-
-	ColorfulRectangle enemy = new ColorfulRectangle(100,250,50,50,Color.RED);
-	//ColorfulRectangle enemy2 = new ColorfulRectangle(-1300,-150,50,50,Color.RED);
+	Enemy emeny2 = new Enemy(-1300,-150,50,50);
 	
-	ColorfulRectangle playerup = new ColorfulRectangle(enemy.x,enemy.y-50,10,10,Color.BLUE);
-	ColorfulRectangle playerdown = new ColorfulRectangle(enemy.x,enemy.y+50,10,10, Color.BLUE);
-	ColorfulRectangle playerleft = new ColorfulRectangle(enemy.x-50,enemy.y,10,10, Color.BLUE);
-	ColorfulRectangle playerright = new ColorfulRectangle(enemy.x+50,enemy.y,10,10, Color.BLUE);
+	ColorfulRectangle playerup = new ColorfulRectangle(player.x,player.y-50,10,10,Color.BLUE);
+	ColorfulRectangle playerdown = new ColorfulRectangle(player.x,player.y+50,10,10, Color.BLUE);
+	ColorfulRectangle playerleft = new ColorfulRectangle(player.x-50,player.y,10,10, Color.BLUE);
+	ColorfulRectangle playerright = new ColorfulRectangle(player.x+50,player.y,10,10, Color.BLUE);
 
 
 	int timer = 60;
@@ -519,8 +512,8 @@ public class Explore extends PApplet {
 			if(mapshown==false) {
 				emeny.draw();
 				emeny.update();
-				//emeny2.draw();
-				//emeny2.update();
+				emeny2.draw();
+				emeny2.update();
 
 			}
 		}
@@ -10738,7 +10731,7 @@ public class Explore extends PApplet {
 				if(build==true){
 					rects.clear();
 				}
-
+								
 			} else if (keyCode == ALT) {
 //				CHANGE BLOCK SIZE (BUILD)
 				blockplacesize+=1;
@@ -10752,8 +10745,7 @@ public class Explore extends PApplet {
 						}else if(blockplacesize==2) {
 						System.out.println("5");
 						}
-						
-						
+												
 //				OPTIONS MENU		
 //				if(options==true) {
 //					if(optionselected == 0) {
@@ -10842,6 +10834,7 @@ public class Explore extends PApplet {
 				}else if(stageVariation==2) {
 				System.out.println("2");
 				}
+				
 
 //				finished=true;
 //				totalYellowKeyCollected=7;
@@ -11010,6 +11003,8 @@ if(blockplacesize==0) {
 
 		int emovedx;
 		int emovedy;
+		
+		int enemyRandomMove=4;
 
 		ColorfulRectangle enemyup = new ColorfulRectangle(x,y-50,10,10,Color.RED);
 		ColorfulRectangle enemydown = new ColorfulRectangle(x,y+50,10,10, Color.RED);
@@ -11026,15 +11021,12 @@ if(blockplacesize==0) {
 
 		public Enemy(int x, int y, int width, int height) {
 
-
 			super(x, y, width, height, Color.RED);
 
 			direction.add(enemyup);
 			direction.add(enemydown);
 			direction.add(enemyright);
 			direction.add(enemyleft);
-
-
 
 		}
 		void draw() {
@@ -11090,11 +11082,6 @@ if(blockplacesize==0) {
 		}
 
 		public void update() {
-
-			if(!alive){
-				x=-10000;
-				y=-10000;
-			}
 
 			if(x==player.x && y==player.y) {
 				movex=0;

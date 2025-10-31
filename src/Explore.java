@@ -39,9 +39,6 @@ public class Explore extends PApplet {
 
 	int facing;
 
-
-	int wait = 0;
-
 	int movex = 0;
 	int movey = 0;
 
@@ -141,8 +138,7 @@ public class Explore extends PApplet {
 
 
 	Enemy emeny = new Enemy(100,250,50,50);
-	//Enemy emeny2 = new Enemy(-1300,-150,50,50);
-	Enemy emeny2 = new Enemy(-200,-150,50,50);
+	Enemy emeny2 = new Enemy(-1300,-150,50,50);
 
 	ColorfulRectangle playerup = new ColorfulRectangle(player.x,player.y-50,10,10,Color.BLUE);
 	ColorfulRectangle playerdown = new ColorfulRectangle(player.x,player.y+50,10,10, Color.BLUE);
@@ -11007,6 +11003,7 @@ if(blockplacesize==0) {
 		int emovedy = y;
 		
 		int enemyRandomMove=4;
+		int wait = 0;
 
 		ColorfulRectangle enemyup = new ColorfulRectangle(x,y-50,10,10,Color.RED);
 		ColorfulRectangle enemydown = new ColorfulRectangle(x,y+50,10,10, Color.RED);

@@ -141,8 +141,9 @@ public class Explore extends PApplet {
 
 
 	Enemy emeny = new Enemy(100,250,50,50);
-	Enemy emeny2 = new Enemy(-1300,-150,50,50);
-	
+	//Enemy emeny2 = new Enemy(-1300,-150,50,50);
+	Enemy emeny2 = new Enemy(-200,-150,50,50);
+
 	ColorfulRectangle playerup = new ColorfulRectangle(player.x,player.y-50,10,10,Color.BLUE);
 	ColorfulRectangle playerdown = new ColorfulRectangle(player.x,player.y+50,10,10, Color.BLUE);
 	ColorfulRectangle playerleft = new ColorfulRectangle(player.x-50,player.y,10,10, Color.BLUE);
@@ -512,9 +513,10 @@ public class Explore extends PApplet {
 			if(mapshown==false) {
 				emeny.draw();
 				emeny.update();
+				if(wall1==false) {
 				emeny2.draw();
 				emeny2.update();
-
+				}
 			}
 		}
 
@@ -11001,8 +11003,8 @@ if(blockplacesize==0) {
 
 		int enemyfacing = 0;
 
-		int emovedx;
-		int emovedy;
+		int emovedx = x;
+		int emovedy = y;
 		
 		int enemyRandomMove=4;
 
@@ -11096,7 +11098,6 @@ if(blockplacesize==0) {
 			enemyleft.y=y;
 			enemyright.x=x+50;
 			enemyright.y=y;
-
 
 			x=movex+emovedx;
 			y=movey+emovedy;

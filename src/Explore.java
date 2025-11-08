@@ -34,17 +34,10 @@ public class Explore extends PApplet {
 	boolean emliv = false;     //enemy alive
 	int attx = 0;
 
-
-	boolean playerDead = false;
-
 	int facing;
 
 	int movex = 0;
 	int movey = 0;
-
-
-	int atmovx = 50;
-	int atmovy = 50;
 
 	Integer collectedKeys = 0;
 	Integer collectedPinkKeys = 0;
@@ -102,10 +95,8 @@ public class Explore extends PApplet {
 
 	boolean map = false;
 	boolean mapshown = false;
+	boolean menushown = false
 	
-	boolean option = false;
-	int optionselected = 1;
-
 	int arandomxred = 0;
 	int arandomyred = 0;
 	int arandomxorange = 0;
@@ -125,12 +116,8 @@ public class Explore extends PApplet {
 
 	int endingBlockSwitch = 0;
 
-	//int endswitch = 1;
-
-	int count=-2400;
-
-
 	ColorfulRectangle player = new ColorfulRectangle(350,250,50,50,Color.BLUE);
+	//ColorfulRectangle player = new ColorfulRectangle(850,500,50,50,Color.BLUE);
 
 	List<Rectangle> rects = new ArrayList<Rectangle>();
 	
@@ -261,18 +248,18 @@ public class Explore extends PApplet {
 	Random randon = new Random();
 	
 	SecretTeleport st1 = new SecretTeleport(movex-850,movey+1250,50,50);
-	SecretTeleport st3 = new SecretTeleport(movex-1350,movey+350,50,50);
-	SecretTeleport st6 = new SecretTeleport(movex-2150,movey-100,50,50);
-	SecretTeleport st7 = new SecretTeleport(movex-2050,movey-100,50,50);
-	SecretTeleport st9 = new SecretTeleport(movex-350,movey+1000,50,50);
-	SecretTeleport st11 = new SecretTeleport(movex+1400,movey+500,50,50);
-	SecretTeleport st14 = new SecretTeleport(movex-1650,movey+1150,50,50);
-	SecretTeleport st15 = new SecretTeleport(movex-1450,movey+1150,50,50);
-	SecretTeleport st16 = new SecretTeleport(movex+1150,movey-350,50,50);
-	SecretTeleport st17 = new SecretTeleport(movex-1750,movey-550,50,50);
-	SecretTeleport st18 = new SecretTeleport(movex-1850,movey-450,50,50);
-	SecretTeleport st19 = new SecretTeleport(movex+1150,movey-500,50,50);
-	SecretTeleport st20 = new SecretTeleport(movex+750,movey-350,50,50);
+	SecretTeleport st2 = new SecretTeleport(movex-1350,movey+350,50,50);
+	SecretTeleport st3 = new SecretTeleport(movex-2150,movey-100,50,50);
+	SecretTeleport st4 = new SecretTeleport(movex-2050,movey-100,50,50);
+	SecretTeleport st5 = new SecretTeleport(movex-350,movey+1000,50,50);
+	SecretTeleport st6 = new SecretTeleport(movex+1400,movey+500,50,50);
+	SecretTeleport st7 = new SecretTeleport(movex-1650,movey+1150,50,50);
+	SecretTeleport st8 = new SecretTeleport(movex-1450,movey+1150,50,50);
+	SecretTeleport st9 = new SecretTeleport(movex+1150,movey-350,50,50);
+	SecretTeleport st10 = new SecretTeleport(movex-1750,movey-550,50,50);
+	SecretTeleport st11 = new SecretTeleport(movex-1850,movey-450,50,50);
+	SecretTeleport st12 = new SecretTeleport(movex+1150,movey-500,50,50);
+	SecretTeleport st13 = new SecretTeleport(movex+750,movey-350,50,50);
 
 
 	boolean key1collected = false;
@@ -558,14 +545,14 @@ public class Explore extends PApplet {
 		
 		
 		if(nocliped==true) {
-		playerup.x=99999;
-		playerup.y=99999;
-		playerdown.x=99999;
-		playerdown.y=99999;
-		playerleft.x=99999;
-		playerleft.y=99999;
-		playerright.x=99999;
-		playerright.y=99999;
+		playerup.x=9999;
+		playerup.y=9999;
+		playerdown.x=9999;
+		playerdown.y=9999;
+		playerleft.x=9999;
+		playerleft.y=9999;
+		playerright.x=9999;
+		playerright.y=9999;
 		}
 
 		//System.out.println(nocliped);
@@ -1034,6 +1021,7 @@ public class Explore extends PApplet {
 		}
 	}
 	}
+
 		
 		if(blackKeyCount.keys==3) {
 			secret=true;
@@ -1089,30 +1077,30 @@ public class Explore extends PApplet {
 			SecretEnding.draw();
 			SecretEnding.update();
 			
+			st2.draw();
+			st2.update();
 			st3.draw();
 			st3.update();
+			st4.draw();
+			st4.update();
+			st5.draw();
+			st5.update();
 			st6.draw();
 			st6.update();
 			st7.draw();
 			st7.update();
+			st8.draw();
+			st8.update();
 			st9.draw();
 			st9.update();
+			st10.draw();
+			st10.update();
 			st11.draw();
 			st11.update();
-			st14.draw();
-			st14.update();
-			st15.draw();
-			st15.update();
-			st16.draw();
-			st16.update();
-			st17.draw();
-			st17.update();
-			st18.draw();
-			st18.update();
-			st19.draw();
-			st19.update();
-			st20.draw();
-			st20.update();
+			st12.draw();
+			st12.update();
+			st13.draw();
+			st13.update();
 		
 			if(movex==1200 && movey==-1000) {
 				movex=1700;
@@ -1193,6 +1181,7 @@ public class Explore extends PApplet {
 		blackkeydisplay4.draw();
 		}
 		}
+		
 		
 		if(player.x==movex-2250 && player.y==movey+1400) {
 			blackkeydisplay1x+=9999;
@@ -1661,18 +1650,31 @@ public class Explore extends PApplet {
 			movedelay-=1;
 		}
 		
+//		Key pinkkey2a = new Key(movex+800,movey+1250,50,50, Color.pink);
+//		Key pinkkey2b = new Key(movex+750,movey-750,50,50, Color.pink);
+//		Key pinkkey3a = new Key(movex-2150,movey+100,50,50, Color.pink);
+//		Key pinkkey3b = new Key(movex-1850,movey-100,50,50, Color.pink);
+//		Key bluekey5a = new Key(movex+1800,movey-950,50,50, Color.cyan);
+//		Key bluekey5b = new Key(movex+1750,movey-700,50,50, Color.cyan);
+
+		
 		//KEY
 		if(stageVariation==0) {
 		if(player.x==movex+500 && player.y==movey-500) {
 			key1collected = true;}
 		if(player.x==movex-800 && player.y==movey+550) {
-			key2collected = true;}
+			key2collected = true;
+			key2b.x=9999;}
 		if(player.x==movex-300 && player.y==movey-550) {
-			key3collected = true;}
+			key3collected = true;
+			key3b.x=9999;
+			key3c.x=9999;}
 		if(player.x==movex-350 && player.y==movey+850) {
 			key4collected = true;}
 		if(player.x==movex+150 && player.y==movey+500) {
-			key5collected = true;}
+			key5collected = true;
+			key5b.x=9999;
+			key5c.x=9999;}
 		if(player.x==movex-2250 && player.y==movey-400) {
 			key6collected = true;}
 		if(player.x==movex-100 && player.y==movey-1050) {
@@ -1682,13 +1684,18 @@ public class Explore extends PApplet {
 		if(player.x==movex+500 && player.y==movey-500) {
 			key1collected = true;}
 		if(player.x==movex-100 && player.y==movey+500) {
-			key2collected = true;}
+			key2collected = true;
+			key2a.x=9999;}
 		if(player.x==movex-650 && player.y==movey-250) {
-			key3collected = true;}
+			key3collected = true;
+			key3a.x=9999;
+			key3c.x=9999;}
 		if(player.x==movex-350 && player.y==movey+850) {
 			key4collected = true;}
 		if(player.x==movex-1100 && player.y==movey+100) {
-			key5collected = true;}
+			key5collected = true;
+			key5a.x=9999;
+			key5c.x=9999;}
 		if(player.x==movex-2250 && player.y==movey-400) {
 			key6collected = true;}
 		if(player.x==movex-100 && player.y==movey-1050) {
@@ -1699,13 +1706,18 @@ public class Explore extends PApplet {
 		if(player.x==movex+500 && player.y==movey-500) {
 			key1collected = true;}
 		if(player.x==movex-800 && player.y==movey+550) {
-			key2collected = true;}
+			key2collected = true;
+			key2b.x=9999;}
 		if(player.x==movex+200 && player.y==movey+100) {
-			key3collected = true;}
+			key3collected = true;
+			key3a.x=9999;
+			key3b.x=9999;}
 		if(player.x==movex-350 && player.y==movey+850) {
 			key4collected = true;}
 		if(player.x==movex-1300 && player.y==movey-350) {
-			key5collected = true;}
+			key5collected = true;
+			key5a.x=9999;
+			key5b.x=9999;}
 		if(player.x==movex-2250 && player.y==movey-400) {
 			key6collected = true;}
 		if(player.x==movex-100 && player.y==movey-1050) {
@@ -1718,18 +1730,22 @@ public class Explore extends PApplet {
 		if(stageVariation==0) {
 		if(player.x==movex+800 && player.y==movey+1250) {
 			pinkkey2collected = true;}
+			pinkkey2b.x=9999;
 		}
 		if(stageVariation==1 || stageVariation==2) {
 		if(player.x==movex+750 && player.y==movey-750) {
-			pinkkey2collected = true;}
+			pinkkey2collected = true;
+			pinkkey2a.x=9999;}
 		}
 		if(stageVariation==0) {
 		if(player.x==movex-2150 && player.y==movey+100) {
-			pinkkey3collected = true;}
+			pinkkey3collected = true;
+			pinkkey3b.x=9999;}
 		}
 		if(stageVariation==1 || stageVariation==2) {
 		if(player.x==movex-1850 && player.y==movey-100) {
-			pinkkey3collected = true;}
+			pinkkey3collected = true;
+			pinkkey3a.x=9999;}
 		}	
 		if(player.x==movex-800 && player.y==movey-1150) {
 			pinkkey4collected = true;}
@@ -1760,10 +1776,12 @@ public class Explore extends PApplet {
 		if(stageVariation==0 || stageVariation==1) {
 		if(player.x==movex+1800 && player.y==movey-950) {
 			bluekey5collected = true;}
+			bluekey5b.x=9999;
 		}
 		if(stageVariation==2) {
 		if(player.x==movex+1750 && player.y==movey-700) {
-			bluekey5collected = true;}
+			bluekey5collected = true;
+			bluekey5a.x=9999;}
 		}
 
 		if(player.x==movex+350 && player.y==movey-450) {
@@ -10729,7 +10747,7 @@ public class Explore extends PApplet {
 				if(build==true){
 					rects.clear();
 				}
-								
+												
 			} else if (keyCode == ALT) {
 //				CHANGE BLOCK SIZE (BUILD)
 				blockplacesize+=1;
@@ -10764,7 +10782,7 @@ public class Explore extends PApplet {
 //					if(optionselected>3) {
 //						optionselected=0;
 //					}
-					
+//					
 //					int OptionsMenu = JOptionPane.showOptionDialog(null, "Options", "Title", 0, JOptionPane.INFORMATION_MESSAGE, null,
 //							new String[] { "No Stroke", "No UI Background", "Switch BG Color"}, null);
 //
@@ -11210,7 +11228,7 @@ if(blockplacesize==0) {
 		}
 
 		public void update() {
-
+			
 			x=keyx+movex;
 			y=keyy+movey;
 
@@ -11221,10 +11239,9 @@ if(blockplacesize==0) {
 				
 				keyCount.keys+=1;
 				
-				keyx=-10000;
-				keyy=-10000;
+				keyx=+9999;
+				keyy=+9999;
 				
-
 				totalYellowKeyCollected+=1;
 			}
 
@@ -11275,10 +11292,10 @@ if(blockplacesize==0) {
 			KeyCount collectedKeys = doorToKey.get(this);
 			if(x==player.x && y==player.y && collectedKeys.keys>=1){
 				collectedKeys.keys-=1;
-				doorx=-10000;
-				doory=-10000;
-				Doorin.x=-10000;
-				Doorin.y=-10000;
+				doorx=+9999;
+				doory=+9999;
+				Doorin.x=+9999;
+				Doorin.y=+9999;
 
 			}else if(x==player.x && y==player.y && collectedKeys.keys==0){
 				if(facing==1) {

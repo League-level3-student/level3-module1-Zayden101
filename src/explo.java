@@ -30,23 +30,7 @@ public class explo  {
 		//System.out.println(y);
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		
 		
 		
@@ -60,10 +44,4 @@ public class explo  {
 		
 		
 	}
-	
 }
-
-
-
-
-

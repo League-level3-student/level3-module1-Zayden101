@@ -97,6 +97,7 @@ public class Explore extends PApplet {
 	boolean mapshown = false;
 	boolean menushown = true;
 	boolean pausedshown = false;
+	boolean optionsshown = false;
 	
 	int arandomxred = 0;
 	int arandomyred = 0;
@@ -339,9 +340,6 @@ public class Explore extends PApplet {
 	ColorfulRectangle teleport1ORANGE = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Color.ORANGE);
 	ColorfulRectangle teleport1YELLOW = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Color.YELLOW);
 
-	
-	int mouseswheeler = 0;
-
 	int waitTime = 25;
 
 	int stageVariation = 0;
@@ -491,8 +489,8 @@ public class Explore extends PApplet {
 		}
 
 		//System.out.println(movex + " " + movey);
-		if(pausedshown==false) {
-		if(menushown==false) {
+		if(!menushown && !optionsshown && !pausedshown && !mapshown) {
+
 			if(finished==false) {
 				if(mapshown==false) {
 					emeny.draw();
@@ -503,7 +501,6 @@ public class Explore extends PApplet {
 					}
 				}
 			}
-		}
 		}
 
 		if(!map) {
@@ -536,20 +533,18 @@ public class Explore extends PApplet {
 		}else if(pausedshown==true) {
 			noStroke();
 			pausedBlocks();
+		}else if(optionsshown==true) {
+			noStroke();
+			optionsBlocks();
 		}else{
 			stroke(0,0,0);
 		}
 		
 
-		
-		if(pausedshown==false) {
-			if(menushown==false) {
-				if(mapshown==false) {
+		if(!menushown && !optionsshown && !pausedshown && !mapshown) {
 					buildings();
 					buildings2();
 					buildingdarkness();
-				}
-			}
 		}
 		
 		playerup.x=player.x;
@@ -590,8 +585,7 @@ public class Explore extends PApplet {
 //		}
 
 		if(wall1==false) {
-		if(mapshown==false) {
-		if(pausedshown==false) {
+		if(!menushown && !optionsshown && !pausedshown && !mapshown) {
 		randomxred = randon.nextInt(500);
 		randomyred = randon.nextInt(250);
 		randomxorange = randon.nextInt(500);
@@ -628,7 +622,6 @@ public class Explore extends PApplet {
 		Endinggray2.draw();
 		Endingwhite2.draw();
 			}
-		}
 		}
 
 		if(player.x==movex-2350 && player.y==movey-1150) {
@@ -685,8 +678,7 @@ public class Explore extends PApplet {
 			purpleKeyCount.keys=0;	
 		}
 
-		if(pausedshown==false) {
-		if(mapshown==false) {
+		if(!menushown && !optionsshown && !pausedshown && !mapshown) {
 			ColorfulRectangle wall1button = new ColorfulRectangle(movex+wall1buttonx,movey+wall1buttony,50,50, Color.GREEN);
 			if(player.x==wall1button.x && player.y==wall1button.y) {
 				wall1=false;
@@ -705,14 +697,9 @@ public class Explore extends PApplet {
 			wall2button.draw();
 		}
 		}
-		}
 
-		if(menushown==false) {
-		
-		if(pausedshown==false) {
-			
-		if(finished==false){
-
+		if(!menushown && !optionsshown && !pausedshown && !mapshown) {
+		if(finished==false) {
 			if(mapshown==false) {
 
 				door1.draw();
@@ -917,7 +904,6 @@ public class Explore extends PApplet {
 			}
 		}
 		}
-		}
 		if(movex==-100 && movey==1500) {
 			escaped = true;
 		}
@@ -1066,8 +1052,7 @@ public class Explore extends PApplet {
 				teleportavaible=false;
 			}
 		}
-		
-		if(mapshown==false) {
+		if(!menushown && !optionsshown && !pausedshown && !mapshown) {
 		if(secret==true) {
 			st1.draw();
 			st1.update();
@@ -1189,8 +1174,7 @@ public class Explore extends PApplet {
 		}
 		
 		//System.out.println(movex + " " + movey);
-		
-		if(mapshown==false) {
+		if(!menushown && !optionsshown && !pausedshown && !mapshown) {
 		if(wall2==false) {
 		blackkeydisplay1 = new ColorfulRectangle(movex+blackkeydisplay1x,movey+1422,5,5,Color.white);
 		blackkeydisplay2 = new ColorfulRectangle(movex+blackkeydisplay2x,movey-328,5,5,Color.white);
@@ -1250,7 +1234,7 @@ public class Explore extends PApplet {
 			teleport1colorswitch=0;
 		}
 		
-		if(mapshown==false) {
+		if(!menushown && !optionsshown && !pausedshown && !mapshown) {
 		teleport1RED.draw();
 		teleport1ORANGE.draw();
 		teleport1YELLOW.draw();
@@ -1334,7 +1318,7 @@ public class Explore extends PApplet {
 		}
 		
 		
-		if(mapshown==false) {
+		if(!menushown && !optionsshown && !pausedshown && !mapshown) {
 		
 			noStroke();
 		//KEY COUNTER
@@ -1600,11 +1584,11 @@ public class Explore extends PApplet {
 		
 		}
 		
-		if(menushown==false && pausedshown==false) {
+		if(!menushown && !optionsshown && !pausedshown) {
 		stroke(0,0,0);
 		}
 		
-		if(mapshown==false) {
+		if(!menushown && !optionsshown && !pausedshown && !mapshown) {
 		if(yellowKeyCount.keys<=0) {
 			displaykey.x=9999;
 		}else {
@@ -1653,7 +1637,7 @@ public class Explore extends PApplet {
 			finished=false;
 		}
 		
-		if(mapshown==false) {
+		if(!menushown && !optionsshown && !pausedshown && !mapshown) {
 		Ending.draw();
 		endingdoor1.draw();
 		endingdoor2.draw();
@@ -1854,12 +1838,8 @@ public class Explore extends PApplet {
 //54 |		
 
 		//rect(player.x, player.y, player.width, player.height); // Draw player
-		if(menushown==false) {
-		if(pausedshown==false) {
-		if(mapshown==false) {
+		if(!menushown && !optionsshown && !pausedshown && !mapshown) {
 			player.draw();
-		}	
-		}
 		}
 
 	}
@@ -11228,6 +11208,8 @@ public class Explore extends PApplet {
 	
 	public void pausedBlocks() {
 		//OPTIONS BACKGROUND
+		//X 200-600
+		//Y 150-250
 		rects.add(new ColorfulRectangle(200,150, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(250,150, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(300,150, 50, 50, Color.WHITE));
@@ -11373,95 +11355,151 @@ public class Explore extends PApplet {
 		rects.add(new ColorfulRectangle(558,225, 9, 9, Color.BLACK));
 		rects.add(new ColorfulRectangle(549,225, 9, 9, Color.BLACK));
 		//RESUME BACKGROUND
-		rects.add(new ColorfulRectangle(150,300, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(150,350, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(150,400, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(150,450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(200,450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(200,300, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(250,300, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(300,300, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(350,300, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(400,300, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(450,300, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(500,300, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(550,300, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(600,300, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(600,350, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(600,400, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(600,450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(550,450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(500,450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(450,450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(400,450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(350,450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(300,450, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(250,450, 50, 50, Color.WHITE));
+		//X 200-600
+		//Y 350-450
+		rects.add(new ColorfulRectangle(200,350, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(250,350, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(300,350, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(350,350, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(400,350, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(450,350, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(500,350, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(550,350, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(200,400, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(250,400, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(300,400, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(350,400, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(400,400, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(450,400, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(500,400, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(550,400, 50, 50, Color.WHITE));
 		//R
-
+		rects.add(new ColorfulRectangle(252,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(243,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(234,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(225,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(216,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(216,369, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(216,378, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(216,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(216,396, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(216,405, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(216,423, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(216,414, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(252,369, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(252,378, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(252,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(243,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(234,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(225,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(243,396, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(243,405, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(252,414, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(252,423, 9, 9, Color.BLACK));
 		//E
-		rects.add(new ColorfulRectangle(315,360, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(306,360, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(288,360, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(279,360, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(279,360, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(279,369, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(279,378, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(279,387, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(288,387, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(297,387, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(297,387, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(306,387, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(279,396, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(279,405, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(279,414, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(279,423, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(288,423, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(297,423, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(306,423, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(315,423, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(297,360, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(315,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(306,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(288,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(279,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(279,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(279,369, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(279,378, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(279,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(288,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(297,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(297,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(306,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(279,396, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(279,405, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(279,414, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(279,423, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(288,423, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(297,423, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(306,423, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(315,423, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(297,360, 9, 9, Color.BLACK));
 		//S
-		rects.add(new ColorfulRectangle(378,360, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(369,360, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(360,360, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(351,360, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(342,369, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(342,378, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(351,387, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(360,387, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(360,396, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(369,396, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(378,405, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(378,414, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(369,423, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(360,423, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(351,423, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(342,423, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(378,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(369,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(360,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(351,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(342,369, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(342,378, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(351,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(360,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(360,396, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(369,396, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(378,405, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(378,414, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(369,423, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(360,423, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(351,423, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(342,423, 9, 9, Color.BLACK));
 		//U
-		rects.add(new ColorfulRectangle(414,369, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(414,360, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(414,378, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(414,387, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(414,396, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(414,405, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(414,414, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(423,423, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(432,423, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(441,423, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(450,414, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(450,405, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(450,396, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(450,387, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(450,378, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(450,369, 9, 9, Color.WHITE));
-		rects.add(new ColorfulRectangle(450,360, 9, 9, Color.WHITE));
+		rects.add(new ColorfulRectangle(414,369, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(414,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(414,378, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(414,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(414,396, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(414,405, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(414,414, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(423,423, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(432,423, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(441,423, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(450,414, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(450,405, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(450,396, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(450,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(450,378, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(450,369, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(450,360, 9, 9, Color.BLACK));
 		//M
-		
+		rects.add(new ColorfulRectangle(477,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(477,369, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(477,378, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(477,396, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(477,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(477,405, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(477,414, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(477,423, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(486,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(495,369, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(495,378, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(495,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(504,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(513,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(513,369, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(513,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(513,378, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(513,396, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(513,405, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(513,414, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(513,423, 9, 9, Color.BLACK));
 		//E
-		
+		rects.add(new ColorfulRectangle(540,369, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(540,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(549,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(558,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(567,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(576,360, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(540,378, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(540,396, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(540,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(549,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(558,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(567,387, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(540,405, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(540,414, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(540,423, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(549,423, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(558,423, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(567,423, 9, 9, Color.BLACK));
+		rects.add(new ColorfulRectangle(576,423, 9, 9, Color.BLACK));
 	}
 
+	public void optionsBlocks() {
+		
+	}
 	
 	boolean playerInterectsBlock() {
 		for(Rectangle r: rects) {
@@ -11841,8 +11879,8 @@ public class Explore extends PApplet {
 				rects.clear();
 				
 //				BUILD
-				build=true;
-				nocliped=true;
+//				build=true;
+//				nocliped=true;
 	
 				
 //				TOGGLE FINISHED
@@ -11951,10 +11989,19 @@ if(showblockmap==false) {
 		if(mouseX>275 && mouseX<525 && mouseY>400 && mouseY<500) {
 			menushown=false;
 		}
-		
-		//PAUSED RESUME
-		
 		//PAUSED OPTIONS
+		//X 200-600
+		//Y 150-250
+		if(mouseX>200 && mouseX<600 && mouseY>150 && mouseY<250) {
+			pausedshown=false;
+			optionsshown=true;
+		}
+		//PAUSED RESUME
+		//X 200-600
+		//Y 350-450
+		if(mouseX>200 && mouseX<600 && mouseY>350 && mouseY<450) {
+			pausedshown=false;
+		}
 		
 		if(build==true) {
 if(blockplacesize==0) {

@@ -1030,7 +1030,6 @@ public class Explore extends PApplet {
 
 		if(!Stroke) {
 			noStroke();
-			System.out.println("noStroke");
 		}
 		
 		if(blackKeyCount.keys==3) {
@@ -11670,7 +11669,7 @@ public class Explore extends PApplet {
 		rects.add(new ColorfulRectangle(333,81, 9, 9, Color.GREEN));
 		rects.add(new ColorfulRectangle(333,72, 9, 9, Color.GREEN));
 		}
-		//X
+		//X MARK
 		if(Stroke==false) {
 		rects.add(new ColorfulRectangle(297,72, 9, 9, Color.RED));
 		rects.add(new ColorfulRectangle(306,90, 9, 9, Color.RED));
@@ -11685,8 +11684,22 @@ public class Explore extends PApplet {
 		rects.add(new ColorfulRectangle(333,81, 9, 9, Color.RED));
 		rects.add(new ColorfulRectangle(297,117, 9, 9, Color.RED));
 		rects.add(new ColorfulRectangle(333,117, 9, 9, Color.RED));
-
 		}
+		
+		//BG COLOR
+		rects.add(new ColorfulRectangle(movex+450,movey+50, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+500,movey+50, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+550,movey+50, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+600,movey+50, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+650,movey+50, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+700,movey+50, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+450,movey+100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+500,movey+100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+550,movey+100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+600,movey+100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+650,movey+100, 50, 50, Color.WHITE));
+		rects.add(new ColorfulRectangle(movex+700,movey+100, 50, 50, Color.WHITE));
+
 	}
 	
 	boolean playerInterectsBlock() {
@@ -11898,10 +11911,12 @@ public class Explore extends PApplet {
 					if(playerleftInterectsBlock()==false) {
 						if(movedelay<=0) {
 						movex+=50;
+						
 						facing=2;
 						movedelay=1;
 						}
 					}
+					
 
 					if(nocliped==true) {
 					if(build==true){
@@ -12064,7 +12079,7 @@ public class Explore extends PApplet {
 
 			}else if (keyCode == CONTROL) {
 
-//				pausedshown=true;
+				pausedshown=true;
 				
 //				rects.clear();
 				
@@ -12073,17 +12088,17 @@ public class Explore extends PApplet {
 //				nocliped=true;
 				
 //				STAGE VARIATION
-				stageVariation+=1;
-				if(stageVariation>2) {
-					stageVariation=0;
-				}
-				if(stageVariation==0) {
-				System.out.println("0");
-				}else if(stageVariation==1) {
-				System.out.println("1");
-				}else if(stageVariation==2) {
-				System.out.println("2");
-				}
+//				stageVariation+=1;
+//				if(stageVariation>2) {
+//					stageVariation=0;
+//				}
+//				if(stageVariation==0) {
+//				System.out.println("0");
+//				}else if(stageVariation==1) {
+//				System.out.println("1");
+//				}else if(stageVariation==2) {
+//				System.out.println("2");
+//				}
 	
 //				TOGGLE FINISHED
 //				if(wall1==true) {

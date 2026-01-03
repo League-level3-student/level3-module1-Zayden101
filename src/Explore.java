@@ -9475,13 +9475,13 @@ public class Explore extends PApplet {
 		//SECRET BORDER
 		if(secret==true) {
 		rects.add(new ColorfulRectangle(movex+-1950,movey+1500, 50, 50, bgColor));
-		rects.add(new ColorfulRectangle(movex+-1950,movey+1550, 3000, 50, Color.bgColor));
-		rects.add(new ColorfulRectangle(movex+1000,movey+1500, 50, 50, Color.bgColor));
+		rects.add(new ColorfulRectangle(movex+-1950,movey+1550, 3000, 50, bgColor));
+		rects.add(new ColorfulRectangle(movex+1000,movey+1500, 50, 50, bgColor));
 
-		rects.add(new ColorfulRectangle(movex+2000,movey+900, 50, 50, Color.bgColor));
-		rects.add(new ColorfulRectangle(movex+2050,movey-1300, 50, 2250, Color.bgColor));
-		rects.add(new ColorfulRectangle(movex-1550,movey-1300, 3650, 50, Color.bgColor));
-		rects.add(new ColorfulRectangle(movex+-1550,movey+-1250, 50, 50, Color.bgColor));
+		rects.add(new ColorfulRectangle(movex+2000,movey+900, 50, 50, bgColor));
+		rects.add(new ColorfulRectangle(movex+2050,movey-1300, 50, 2250, bgColor));
+		rects.add(new ColorfulRectangle(movex-1550,movey-1300, 3650, 50, bgColor));
+		rects.add(new ColorfulRectangle(movex+-1550,movey+-1250, 50, 50, bgColor));
 		}
 
 

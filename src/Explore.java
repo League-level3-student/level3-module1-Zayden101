@@ -8241,9 +8241,6 @@ public class Explore extends PApplet {
 
 	public void buildings() {
 
-		rects.add(new ColorfulRectangle(movex+50,movey+200, 50, 50, Color.WHITE));
-		rects.add(new ColorfulRectangle(movex+50,movey+100, 50, 50, Color.WHITE));
-
 		int marker;
 		rects.add(new ColorfulRectangle(movex+1000,movey+1350, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(movex+-1500,movey+-1000, 50, 50, Color.WHITE));
@@ -12553,24 +12550,6 @@ if(showblockmap==false) {
 			else if(Stroke==true) {Stroke=false;}
 		}
 		//COLOR (OPTIONS)
-		//RED
-		//X: 657-675
-		//Y: 63-99
-		//YELLOW
-		//X: 684-701
-		//Y: 63-99
-		//GREEN
-		//X: 711-729
-		//Y: 63-99
-		//BLUE
-		//X: 657-675
-		//Y: 108-144
-		//MAGENTA
-		//X: 684-701
-		//Y: 108-144
-		//BLACK
-		//X: 711-729
-		//Y: 108-144
 		if(mouseX>657 && mouseX<675 && mouseY>63 && mouseY<99 && optionsshown) {
 		chosenBGcolor=1;
 		}else if(mouseX>684 && mouseX<701 && mouseY>63 && mouseY<99 && optionsshown) {
@@ -12820,7 +12799,6 @@ if(blockplacesize==0) {
 			}
 			
 			//CODE TO SEE WHAT SPACE IS EMPTY, AND REDIRECT ENEMY IF KEY IS IN THE WAY.
-			System.out.println(enemyrightInterectsKey() + " " + intersectsBlock(enemyright));
 
 			//System.out.println("up: " + intersectsBlock(enemyup) + "  down: " + intersectsBlock(enemydown) + "  right: " + intersectsBlock(enemyright) + "  left: " + intersectsBlock(enemyleft));
 
@@ -12837,42 +12815,63 @@ if(blockplacesize==0) {
 						for (int i = 0; i < 100; i++) {
 							enemyRandomMove = new Random().nextInt(4);
 							//System.out.println(enemyRandomMove);
+							
+							if(enemyupInterectsKey()) {
+								if(!intersectsBlock(enemydown)) {
+									enemyfacing=2;
+								}else if(!intersectsBlock(enemyright)) {
+									enemyfacing=3;
+								}else if(!intersectsBlock(enemyleft)) {
+									enemyfacing=4;
+								}
+							}
+							if(enemydownInterectsKey()) {
+								if(!intersectsBlock(enemyup)) {
+									enemyfacing=1;
+								}else if(!intersectsBlock(enemyright)) {
+									enemyfacing=3;
+								}else if(!intersectsBlock(enemyleft)) {
+									enemyfacing=4;
+								}
+							}
+							if(enemyrightInterectsKey()) {
+								if(!intersectsBlock(enemyleft)) {
+									enemyfacing=4;
+								}else if(!intersectsBlock(enemyup)) {
+									enemyfacing=1;
+								}else if(!intersectsBlock(enemydown)) {
+									enemyfacing=2;
+								}
+							}
+							if(enemyleftInterectsKey()) {
+								if(!intersectsBlock(enemyright)) {
+									enemyfacing=3;
+								}else if(!intersectsBlock(enemyup)) {
+									enemyfacing=1;
+								}else if(!intersectsBlock(enemydown)) {
+									enemyfacing=2;
+								}
+							}
 
-							if(enemyfacing!=2) {
-								if(!intersectsBlock(enemyup) && !enemyupInterectsKey()) {
-									if(enemyRandomMove==0) {
-										emovedy-=50;
-										enemyfacing=1;
-										break;
-									}
-								}
+							if(enemyfacing!=2 && !intersectsBlock(enemyup) && !enemyupInterectsKey() && enemyRandomMove==0) {
+								emovedy-=50;
+								enemyfacing=1;
+								break;
 							}
-							if(enemyfacing!=1) {
-								if(!intersectsBlock(enemydown) && !enemyupInterectsKey()) {
-									if(enemyRandomMove==1) {
-										emovedy+=50;
-										enemyfacing=2;	
-										break;
-									}
-								}
+							if(enemyfacing!=1 && !intersectsBlock(enemydown) && !enemydownInterectsKey() && enemyRandomMove==1) {
+								emovedy+=50;
+								enemyfacing=2;	
+								break;
 							}
-							if(enemyfacing!=4) {
-								if(!intersectsBlock(enemyright) && !enemyupInterectsKey()) {
-									if(enemyRandomMove==2) {
-										emovedx+=50;
-										enemyfacing=3;
-										break;
-									}
-								}
+							if(enemyfacing!=4 && !intersectsBlock(enemyright) && !enemyrightInterectsKey() && enemyRandomMove==2) {
+								emovedx+=50;
+								enemyfacing=3;
+								break;
 							}
-							if(enemyfacing!=3) {
-								if(!intersectsBlock(enemyleft) && !enemyupInterectsKey()) {
-									if(enemyRandomMove==3) {
-										emovedx-=50;
-										enemyfacing=4;
-										break;
-									}
-								}
+							if(enemyfacing!=3 && !intersectsBlock(enemyleft) && !enemyleftInterectsKey() && enemyRandomMove==3) {
+								emovedx-=50;
+								enemyfacing=4;
+								break;
 							}
 
 						}

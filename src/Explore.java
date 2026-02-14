@@ -34,9 +34,6 @@ public class Explore extends PApplet {
 	int x1 = 0;
 	int y1 = 0;
 	
-	boolean emliv = false;     //enemy alive
-	int attx = 0;
-
 	int facing;
 
 	int movex = 0;
@@ -114,8 +111,13 @@ public class Explore extends PApplet {
 
 	List<Rectangle> rects = new ArrayList<Rectangle>();
 	
+	List<Rectangle> enemyBorder = new ArrayList<Rectangle>();
+	
 	List<Key> keys = new ArrayList<Key>();
 	
+	List<Door> doors = new ArrayList<Door>();
+
+		
 	Enemy emeny = new Enemy(100,250,50,50);
 	Enemy emeny2 = new Enemy(-1300,-150,50,50);
 	Enemy emeny3 = new Enemy(-2150,-100,50,50);
@@ -218,7 +220,6 @@ public class Explore extends PApplet {
 	Key bluekey5a = new Key(movex+1800,movey-950,50,50, Color.cyan);
 	Key bluekey5b = new Key(movex+1750,movey-700,50,50, Color.cyan);
 
-
 	Key blackkey1 = new Key(movex-2250,movey+1400,5,5, Color.black);
 	Key blackkey2 = new Key(movex+1350,movey-350,5,5, Color.black);
 	Key blackkey3 = new Key(movex+450,movey-800,5,5, Color.black);
@@ -253,7 +254,6 @@ public class Explore extends PApplet {
 	SecretTeleport st12 = new SecretTeleport(movex+1150,movey-500,50,50);
 	SecretTeleport st13 = new SecretTeleport(movex+750,movey-350,50,50);
 
-
 	boolean key1collected = false;
 	boolean key2collected = false;
 	boolean key3collected = false;
@@ -279,7 +279,6 @@ public class Explore extends PApplet {
 	boolean bluekey3collected = false;
 	boolean bluekey4collected = false;
 	boolean bluekey5collected = false;
-	
 	
 	boolean door1opened = false;
 	boolean door2opened = false;
@@ -362,7 +361,7 @@ public class Explore extends PApplet {
 	boolean Stroke = true;
 	int chosenBGcolor = 6; //| 1=red | 2=orange | 3=yellow | 4=green | 5=blue | 6=black |
 	int chosenBGcolorOutline = 6; //| 1=red | 2=orange | 3=yellow | 4=green | 5=blue | 6=black |
-	int enemyDifficulty = 2; //| 1=easy | 2=medium | 3=hard | 4=extream |
+	int enemyDifficulty = 2; //| 1=easy | 2=medium | 3=hard | 4=extreme |
 	int chosenEnemyDifficultyOutline = 2; //| 1=green | 2=yellow | 3=red | 4=magenta |
 
 	int blockplacesize = 0;
@@ -502,6 +501,33 @@ public class Explore extends PApplet {
 		keys.add(blackkey2);
 		keys.add(blackkey3);
 		keys.add(blackkey4);
+		
+		doors.add(door1);
+		doors.add(door2);
+		doors.add(door3);
+		doors.add(door4);
+		doors.add(door5);
+		doors.add(door6);
+		doors.add(door7);
+		doors.add(pinkdoor1);
+		doors.add(pinkdoor2);
+		doors.add(pinkdoor3);
+		doors.add(pinkdoor4);
+		doors.add(pinkdoor5);
+		doors.add(orangedoor1);
+		doors.add(orangedoor2);
+		doors.add(orangedoor3);
+		doors.add(orangedoor4);
+		doors.add(orangedoor5);
+		doors.add(bluedoor1);
+		doors.add(bluedoor2);
+		doors.add(bluedoor3);
+		doors.add(bluedoor4);
+		doors.add(bluedoor5);
+		doors.add(blackdoor1);
+		doors.add(blackdoor2);
+		doors.add(blackdoor3);
+		doors.add(blackdoor4);
 	}
 
 	@Override
@@ -515,6 +541,14 @@ public class Explore extends PApplet {
 		//PLAYER 1=up, 2=left, 3=down, 4=right
 
 		for(Rectangle r : rects) {
+			if(r instanceof ColorfulRectangle) {
+				((ColorfulRectangle) r).draw();
+			}else {
+				rect(r.x, r.y, r.width, r.height);
+			}
+		}
+		
+		for(Rectangle r : enemyBorder) {
 			if(r instanceof ColorfulRectangle) {
 				((ColorfulRectangle) r).draw();
 			}else {
@@ -557,6 +591,7 @@ public class Explore extends PApplet {
 		if(build==false || nocliped==false){
 			rects.clear();
 		}	
+		enemyBorder.clear();
 		
 		if(menushown==true) {
 			noStroke();
@@ -8263,6 +8298,37 @@ public class Explore extends PApplet {
 	public void buildings() {
 
 		int marker;
+		enemyBorder.add(new ColorfulRectangle(movex+-1000,movey+-50, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+-1100,movey+0, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+-1100,movey+50, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+-1100,movey+100, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+-1300,movey+50, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+-1300,movey+100, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+350,movey+200, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+400,movey+200, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+400,movey+250, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+400,movey+300, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+350,movey+300, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+300,movey+300, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+300,movey+250, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+-650,movey+150, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+-650,movey+200, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+-650,movey+250, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+250,movey+500, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+200,movey+500, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+150,movey+500, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+100,movey+-600, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+-800,movey+-450, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+-400,movey+-500, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+0,movey+-600, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+600,movey+650, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+0,movey+800, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+-1300,movey+-300, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+-1300,movey+-350, 50, 50, Color.RED));
+		enemyBorder.add(new ColorfulRectangle(movex+-1300,movey+-250, 50, 50, Color.RED));
+
+
+		
 		rects.add(new ColorfulRectangle(movex+1000,movey+1350, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(movex+-1500,movey+-1000, 50, 50, Color.WHITE));
 		
@@ -11833,8 +11899,7 @@ public class Explore extends PApplet {
 					if(nocliped==true && build==true) {
 						rects.clear();
 					}
-					
-					
+										
 					teleportavaible=true;
 
 					if(nocliped==false && playerInterectsBlock()) {
@@ -11952,27 +12017,27 @@ public class Explore extends PApplet {
 			}
 			if (keyCode == SHIFT) {
 				//att=1;
-				if(!pausedshown && !menushown && !optionsshown && !showTeleport && !finished) {
-				if(map==false) {
-					map=true;
-					mapshown=true;
-					facing=-1;
-				}else if(map==true) {
-					map=false;
-					mapshown=false;
-				}
-				}
-				if(build==true){
-					rects.clear();
-				}
-				
-//				if(build && nocliped) {
-//				build=false;
-//				nocliped=false;
-//				}else {
-//				build=true;
-//				nocliped=true;
+//				if(!pausedshown && !menushown && !optionsshown && !showTeleport && !finished) {
+//				if(map==false) {
+//					map=true;
+//					mapshown=true;
+//					facing=-1;
+//				}else if(map==true) {
+//					map=false;
+//					mapshown=false;
 //				}
+//				}
+//				if(build==true){
+//					rects.clear();
+//				}
+				
+				if(build && nocliped) {
+				build=false;
+				nocliped=false;
+				}else {
+				build=true;
+				nocliped=true;
+				}
 
 												
 			} else if (keyCode == ALT) {
@@ -12051,18 +12116,18 @@ public class Explore extends PApplet {
 
 			}else if (keyCode == CONTROL) {
 
-//				pausedshown=true;
+				pausedshown=true;
 				
 //				rects.clear();
 				
 //				BUILD
-				if(build && nocliped) {
-				build=false;
-				nocliped=false;
-				}else {
-				build=true;
-				nocliped=true;
-				}
+//				if(build && nocliped) {
+//				build=false;
+//				nocliped=false;
+//				}else {
+//				build=true;
+//				nocliped=true;
+//				}
 				
 //				STAGE VARIATION
 //				stageVariation+=1;
@@ -12236,6 +12301,12 @@ if(showblockmap==false) {
 
 		if(build==true) {
 if(blockplacesize==0) {
+	//ENEMY BORDER
+	int moX = ((mouseX/50)*50)+-movex;
+	int moY = ((mouseY/50)*50)+-movey;
+	System.out.println("enemyBorder.add(new ColorfulRectangle("+ "movex+"+ moX +",movey+" + moY + ", 50, 50, Color.RED));");
+	rects.add(new ColorfulRectangle(moX+movex,moY+movey, 50, 50, Color.RED));
+
 	//MAP
 //	int moX = ((mouseX/50)*50)+-movex;
 //	int moY = ((mouseY/50)*50)+-movey;
@@ -12243,10 +12314,10 @@ if(blockplacesize==0) {
 //	rects.add(new ColorfulRectangle(moX+movex,moY+movey, 50, 50, Color.WHITE));
 
 	//MENU
-	int moX = ((mouseX/50)*50);
-	int moY = ((mouseY/50)*50);
-	System.out.println("rects.add(new ColorfulRectangle("+ moX +"," + moY + ", 50, 50, Color.WHITE));");
-	rects.add(new ColorfulRectangle(moX,moY, 50, 50, Color.WHITE));
+//	int moX = ((mouseX/50)*50);
+//	int moY = ((mouseY/50)*50);
+//	System.out.println("rects.add(new ColorfulRectangle("+ moX +"," + moY + ", 50, 50, Color.WHITE));");
+//	rects.add(new ColorfulRectangle(moX,moY, 50, 50, Color.WHITE));
 }else if(blockplacesize==1) {
 	int moX = ((mouseX/10)*10);
 	int moY = ((mouseY/10)*10);
@@ -12326,16 +12397,22 @@ if(blockplacesize==0) {
 		
 		int enemyRandomMove=4;
 		int wait = 0;
+		int waitSpeed = 150;
 
 		ColorfulRectangle enemyup = new ColorfulRectangle(x,y-50,10,10,Color.RED);
 		ColorfulRectangle enemydown = new ColorfulRectangle(x,y+50,10,10, Color.RED);
-		ColorfulRectangle enemyleft = new ColorfulRectangle(x-50,y,10,10, Color.RED);
-		ColorfulRectangle enemyright = new ColorfulRectangle(x+50,y,10,10, Color.RED);
+		ColorfulRectangle enemyleft = new ColorfulRectangle(x-25,y,10,10, Color.RED);
+		ColorfulRectangle enemyright = new ColorfulRectangle(x+25,y,10,10, Color.RED);
 
-		ColorfulRectangle enemyup_green = new ColorfulRectangle(x,y-10,10,10,Color.GREEN);
+		ColorfulRectangle enemyup_green = new ColorfulRectangle(x,y-50,10,10,Color.GREEN);
 		ColorfulRectangle enemydown_green = new ColorfulRectangle(x,y+50,10,10, Color.GREEN);
-		ColorfulRectangle enemyleft_green = new ColorfulRectangle(x-10,y,10,10, Color.GREEN);
+		ColorfulRectangle enemyleft_green = new ColorfulRectangle(x-50,y,10,10, Color.GREEN);
 		ColorfulRectangle enemyright_green = new ColorfulRectangle(x+50,y,10,10, Color.GREEN);
+
+		ColorfulRectangle enemyup_yellow = new ColorfulRectangle(x,y-50,20,20,Color.YELLOW);
+		ColorfulRectangle enemydown_yellow = new ColorfulRectangle(x,y+50,20,20, Color.YELLOW);
+		ColorfulRectangle enemyleft_yellow = new ColorfulRectangle(x-50,y,20,20, Color.YELLOW);
+		ColorfulRectangle enemyright_yellow = new ColorfulRectangle(x+50,y,20,20, Color.YELLOW);
 
 
 		List<ColorfulRectangle> direction = new ArrayList<ColorfulRectangle>();
@@ -12399,6 +12476,7 @@ if(blockplacesize==0) {
 			}
 			return false;
 		}
+		
 		//ENEMY VS KEY
 		boolean enemyupInterectsKey() {
 			for(Key r: keys) {
@@ -12435,45 +12513,163 @@ if(blockplacesize==0) {
 			}
 			return false;
 		}
+		
+		//ENEMY VS DOOR
+		boolean enemyupInterectsDoor() {
+			for(Door r: doors) {
+				if( r.intersects(enemyup)){
+					return true;
+				}
+			}
+			return false;
+		}
+
+		boolean enemydownInterectsDoor() {
+			for(Door r: doors) {
+				if( r.intersects(enemydown)){
+					return true;
+				}
+			}
+			return false;
+		}
+
+		boolean enemyleftInterectsDoor() {
+			for(Door r: doors) {
+				if( r.intersects(enemyleft)){
+					return true;
+				}
+			}
+			return false;
+		}
+
+		boolean enemyrightInterectsDoor() {
+			for(Door r: doors) {
+				if( r.intersects(enemyright)){
+					return true;
+				}
+			}
+			return false;
+		}
+		
+		//ENENY VS BORDER
+		boolean enemyupInterectsBorder() {
+			for(Rectangle r: enemyBorder) {
+				if( r.intersects(enemyup)){
+					return true;
+				}
+			}
+			return false;
+		}
+
+		boolean enemydownInterectsBorder() {
+			for(Rectangle r: enemyBorder) {
+				if( r.intersects(enemydown)){
+					return true;
+				}
+			}
+			return false;
+		}
+		
+		boolean enemyleftInterectsBorder() {
+			for(Rectangle r: enemyBorder) {
+				if( r.intersects(enemyleft)){
+					return true;
+				}
+			}
+			return false;
+		}
+		
+		boolean enemyrightInterectsBorder() {
+			for(Rectangle r: enemyBorder) {
+				if( r.intersects(enemyright)){
+					return true;
+				}
+			}
+			return false;
+		}
+
 
 
 		public void update() {
 
 			if(x==player.x && y==player.y) {
-				movex=0;
-				movey=0;
+				movex=0;		movey=0;
 			}
 
 			enemyup.x=x;		enemyup.y=y-50;
 			enemydown.x=x;		enemydown.y=y+50;
 			enemyleft.x=x-50;	enemyleft.y=y;
 			enemyright.x=x+50;	enemyright.y=y;
+			
+			enemyup_green.x=x;			enemyup_green.y=y-50;
+			enemydown_green.x=x;		enemydown_green.y=y+50;
+			enemyleft_green.x=x-50;		enemyleft_green.y=y;
+			enemyright_green.x=x+50;	enemyright_green.y=y;
+			
+			enemyup_yellow.x=x-5;		enemyup_yellow.y=y-55;
+			enemydown_yellow.x=x-5;		enemydown_yellow.y=y+45;
+			enemyleft_yellow.x=x-55;	enemyleft_yellow.y=y-5;
+			enemyright_yellow.x=x+45;	enemyright_yellow.y=y-5;
 
-			x=movex+emovedx;
-			y=movey+emovedy;
+			x=movex+emovedx;	y=movey+emovedy;
 
+			
 			if(intersectsBlock(enemydown) && intersectsBlock(enemyright) && intersectsBlock(enemyleft)) {
 				enemyfacing=1;
+				enemyup_yellow.draw();
 			}
 			if(intersectsBlock(enemyup) && intersectsBlock(enemyright) && intersectsBlock(enemyleft)) {
 				enemyfacing=2;
+				enemydown_yellow.draw();
 			}
 			if(intersectsBlock(enemyup) && intersectsBlock(enemydown) && intersectsBlock(enemyleft)) {
 				enemyfacing=3;
+				enemyright_yellow.draw();
 			}
 			if(intersectsBlock(enemyup) && intersectsBlock(enemydown) && intersectsBlock(enemyright)) {
 				enemyfacing=4;
+				enemyleft_yellow.draw();
 			}
 			
-			//CODE TO SEE WHAT SPACE IS EMPTY, AND REDIRECT ENEMY IF KEY IS IN THE WAY.
-
+			
+			if(enemyupInterectsBlock() || enemyupInterectsKey() || enemyupInterectsBorder()) {
+				enemyup.draw();
+			}else {
+				enemyup_green.draw();
+			}
+			if(enemydownInterectsBlock() || enemydownInterectsKey() || enemydownInterectsBorder()) {
+				enemydown.draw();
+			}else {
+				enemydown_green.draw();
+			}
+			if(enemyleftInterectsBlock() || enemyleftInterectsKey() || enemyleftInterectsBorder()) {
+				enemyleft.draw();
+			}else {
+				enemyleft_green.draw();
+			}
+			if(enemyrightInterectsBlock() || enemyrightInterectsKey() || enemyrightInterectsBorder()) {
+				enemyright.draw();
+			}else {
+				enemyright_green.draw();
+			}
+			
 			//System.out.println("up: " + intersectsBlock(enemyup) + "  down: " + intersectsBlock(enemydown) + "  right: " + intersectsBlock(enemyright) + "  left: " + intersectsBlock(enemyleft));
 
+			if(enemyDifficulty == 1) {
+				waitSpeed = 200;
+			}else if(enemyDifficulty == 2) {
+				waitSpeed = 150;
+			}else if(enemyDifficulty == 3) {
+				waitSpeed = 75;
+			}else if(enemyDifficulty == 4) {
+				waitSpeed = 10;
+			}
+			
 			if(enemymove == true) {
 
 				wait+=1;
 
-				if(wait>=150) {
+				if(wait>=waitSpeed) {
 					wait=0;
 
 					
@@ -12520,22 +12716,22 @@ if(blockplacesize==0) {
 								}
 							}
 
-							if(enemyfacing!=2 && !intersectsBlock(enemyup) && !enemyupInterectsKey() && enemyRandomMove==0) {
+							if(enemyfacing!=2 && !intersectsBlock(enemyup) && !enemyupInterectsKey() && !enemyupInterectsDoor() && !enemyupInterectsBorder() && enemyRandomMove==0) {
 								emovedy-=50;
 								enemyfacing=1;
 								break;
 							}
-							if(enemyfacing!=1 && !intersectsBlock(enemydown) && !enemydownInterectsKey() && enemyRandomMove==1) {
+							if(enemyfacing!=1 && !intersectsBlock(enemydown) && !enemydownInterectsKey() && !enemydownInterectsDoor() && !enemydownInterectsBorder() && enemyRandomMove==1) {
 								emovedy+=50;
 								enemyfacing=2;	
 								break;
 							}
-							if(enemyfacing!=4 && !intersectsBlock(enemyright) && !enemyrightInterectsKey() && enemyRandomMove==2) {
+							if(enemyfacing!=4 && !intersectsBlock(enemyright) && !enemyrightInterectsKey() && !enemyrightInterectsDoor() && !enemyrightInterectsBorder() && enemyRandomMove==2) {
 								emovedx+=50;
 								enemyfacing=3;
 								break;
 							}
-							if(enemyfacing!=3 && !intersectsBlock(enemyleft) && !enemyleftInterectsKey() && enemyRandomMove==3) {
+							if(enemyfacing!=3 && !intersectsBlock(enemyleft) && !enemyleftInterectsKey() && !enemyleftInterectsDoor() && !enemyleftInterectsBorder() && enemyRandomMove==3) {
 								emovedx-=50;
 								enemyfacing=4;
 								break;

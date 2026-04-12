@@ -8322,7 +8322,7 @@ public class Explore extends PApplet {
 		enemyBorder.add(new ColorfulRectangle(movex+300,movey+300, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+300,movey+250, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+100,movey+-600, 50, 50, EnemyBorderColor));
-		enemyBorder.add(new ColorfulRectangle(movex+-800,movey+-450, 50, 50, EnemyBorderColor));
+		enemyBorder.add(new ColorfulRectangle(movex+-800,movey+-400, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-400,movey+-500, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+0,movey+-600, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+600,movey+650, 50, 50, EnemyBorderColor));
@@ -10973,6 +10973,10 @@ public class Explore extends PApplet {
 		rects.add(new ColorfulRectangle(270,252, 27, 36, Color.RED));
 		//Extra Hard
 		rects.add(new ColorfulRectangle(306,252, 27, 36, Color.MAGENTA));
+		
+		//???
+		rects.add(new ColorfulRectangle(450,200, 300, 100, Color.WHITE));
+
 	}
 	
 	boolean playerInterectsBlock() {
@@ -11532,7 +11536,7 @@ if(blockplacesize==0) { //0
 	//ENEMY BORDER
 //	int moX = ((mouseX/50)*50)+-movex;
 //	int moY = ((mouseY/50)*50)+-movey;
-//	System.out.println("enemyBorder.add(new ColorfulRectangle("+ "movex+"+ moX +",movey+" + moY + ", 50, 50, Color.RED));");
+//	System.out.println("enemyBorder.add(new ColorfulRectangle("+ "movex+"+ moX +",movey+" + moY + ", 50, 50, EnemyBorderColor));");
 //	rects.add(new ColorfulRectangle(moX+movex,moY+movey, 50, 50, Color.RED));
 
 	//MAP

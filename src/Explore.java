@@ -1,5 +1,5 @@
 
-
+//ADD GRAYSCALE AS AN OPTION
 
 import java.awt.Color;
 import java.awt.Rectangle;
@@ -8335,7 +8335,8 @@ public class Explore extends PApplet {
 		enemyBorder.add(new ColorfulRectangle(movex+-1500,movey+-400, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1450,movey+-400, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1400,movey+-400, 50, 50,EnemyBorderColor));
-		enemyBorder.add(new ColorfulRectangle(movex+-1900,movey+350, 50, 50, EnemyBorderColor));
+		enemyBorder.add(new ColorfulRectangle(movex+-2050,movey+350, 50, 50, EnemyBorderColor));
+		enemyBorder.add(new ColorfulRectangle(movex+-2050,movey+400, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1700,movey+450, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1450,movey+300, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1950,movey+300, 50, 50, EnemyBorderColor));
@@ -10604,7 +10605,7 @@ public class Explore extends PApplet {
 		rects.add(new ColorfulRectangle(225,198, 9, 36, Color.BLACK));
 		rects.add(new ColorfulRectangle(171,198, 9, 36, Color.BLACK));
 		rects.add(new ColorfulRectangle(189,126, 9, 18, Color.BLACK));
-		rects.add(new ColorfulRectangle(171,63, 9, 27, Color.BLACK));
+		rects.add(new ColorfulRectangle(171,63, 9, 36, Color.BLACK));
 		rects.add(new ColorfulRectangle(207,153, 9, 18, Color.BLACK));
 		rects.add(new ColorfulRectangle(207,126, 9, 18, Color.BLACK));
 		rects.add(new ColorfulRectangle(189,153, 9, 18, Color.BLACK));
@@ -12412,6 +12413,11 @@ if(blockplacesize==0) { //0
 			if(!open) {
 				super.draw();
 			}	
+			
+			if(Stroke) {
+				stroke(bgColor.getRGB());
+			}
+
 		}
 
 		@Override
@@ -12424,7 +12430,7 @@ if(blockplacesize==0) { //0
 		}
 		
 		public void update() {
-
+			
 			if(mapshown==false) {
 			ColorfulRectangle Endingred = new ColorfulRectangle(x+10,y+10,30,30,Color.RED);
 			ColorfulRectangle Endingorange = new ColorfulRectangle(x+10,y+10,30,30,Color.ORANGE);

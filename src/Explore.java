@@ -40,14 +40,14 @@ public class Explore extends PApplet {
 	Purple: 45
 	*/
 	
-	Color grayYellow = new Color(220,220,220);
+	Color grayYellow = new Color(200,200,200);
 	Color grayPink = new Color(170,170,170);
 	Color grayOrange = new Color(120,120,120);
 	Color grayCyan = new Color(70,70,70);
-	Color grayRed = new Color(195,195,195);
+	Color grayRed = new Color(185,185,185);
 	Color grayGreen = new Color(145,145,145);
 	Color grayBlue = new Color(95,95,95);
-	Color grayPurple = new Color(45,45,45);
+	Color grayMagenta = new Color(45,45,45);
 
 	Color Yellow = new Color(255,255,0);
 	Color Pink = new Color(255,180,200);
@@ -55,8 +55,10 @@ public class Explore extends PApplet {
 	Color Cyan = new Color(0,255,255);
 	Color Red = new Color(255,0,0);
 	Color Green = new Color(255,0,255);
-	Color Blue = new Color(95,95,95);
-	Color Purple = new Color(45,45,45);
+	Color Blue = new Color(0,0,255);
+	Color Magenta = new Color(255,0,255);
+	Color Black = new Color(0,0,0);
+
 
 	//int bgColor = color(31, 0, 48);
 
@@ -137,7 +139,7 @@ public class Explore extends PApplet {
 
 	int endingBlockSwitch = 0;
 
-	ColorfulRectangle player = new ColorfulRectangle(350,250,50,50,Color.BLUE);
+	ColorfulRectangle player = new ColorfulRectangle(350,250,50,50,Blue,grayBlue);
 	//ColorfulRectangle player = new ColorfulRectangle(850,500,50,50,Color.BLUE);
 
 	List<Rectangle> rects = new ArrayList<Rectangle>();
@@ -182,81 +184,81 @@ public class Explore extends PApplet {
 
 	boolean teleportavaible = true;
 
-	Door door1 = new Door(movex+350,movey-450,50,50, Color.yellow);
-	Door door2 = new Door(movex+-1000,movey+100,50,50, Color.yellow);
-	Door door3 = new Door(movex+650,movey+500,50,50, Color.yellow);
-	Door door4 = new Door(movex+800,movey+200,50,50, Color.yellow);
-	Door door5 = new Door(movex+950,movey+250,50,50,Color.yellow);
-	Door door6 = new Door(movex+0,movey+1250,50,50,Color.yellow );
-	Door door7 = new Door(movex-1500,movey+350,50,50,Color.yellow);
+	Door door1 = new Door(movex+350,movey-450,50,50,Yellow,grayYellow);
+	Door door2 = new Door(movex+-1000,movey+100,50,50,Yellow,grayYellow);
+	Door door3 = new Door(movex+650,movey+500,50,50,Yellow,grayYellow);
+	Door door4 = new Door(movex+800,movey+200,50,50,Yellow,grayYellow);
+	Door door5 = new Door(movex+950,movey+250,50,50,Yellow,grayYellow);
+	Door door6 = new Door(movex+0,movey+1250,50,50,Yellow,grayYellow);
+	Door door7 = new Door(movex-1500,movey+350,50,50,Yellow,grayYellow);
 
-	Door pinkdoor1 = new Door(movex-850,movey+800,50,50, Color.pink);
-	Door pinkdoor2 = new Door(movex-1000,movey-600,50,50, Color.pink);
-	Door pinkdoor3 = new Door(movex-1550,movey+350,50,50, Color.pink);
-	Door pinkdoor4 = new Door(movex-600,movey-850,50,50, Color.pink);
-	Door pinkdoor5 = new Door(movex+1750,movey-300,50,50, Color.pink);
+	Door pinkdoor1 = new Door(movex-850,movey+800,50,50,Pink,grayPink);
+	Door pinkdoor2 = new Door(movex-1000,movey-600,50,50,Pink,grayPink);
+	Door pinkdoor3 = new Door(movex-1550,movey+350,50,50,Pink,grayPink);
+	Door pinkdoor4 = new Door(movex-600,movey-850,50,50,Pink,grayPink);
+	Door pinkdoor5 = new Door(movex+1750,movey-300,50,50,Pink,grayPink);
 
-	Door orangedoor1 = new Door(movex+150,movey+1350,50,50, Color.orange);
-	Door orangedoor2 = new Door(movex-850,movey-800,50,50, Color.orange);
-	Door orangedoor3 = new Door(movex+1000,movey-600,50,50, Color.orange);
-	Door orangedoor4 = new Door(movex-1700,movey-800,50,50, Color.orange);
-	Door orangedoor5 = new Door(movex+1450,movey+1350,50,50, Color.orange);
+	Door orangedoor1 = new Door(movex+150,movey+1350,50,50,Orange,grayOrange);
+	Door orangedoor2 = new Door(movex-850,movey-800,50,50,Orange,grayOrange);
+	Door orangedoor3 = new Door(movex+1000,movey-600,50,50,Orange,grayOrange);
+	Door orangedoor4 = new Door(movex-1700,movey-800,50,50,Orange,grayOrange);
+	Door orangedoor5 = new Door(movex+1450,movey+1350,50,50,Orange,grayOrange);
 
-	Door bluedoor1 = new Door(movex-2150,movey-1050,50,50, Color.cyan);
-	Door bluedoor2 = new Door(movex-2200,movey-1150,50,50, Color.cyan);
-	Door bluedoor3 = new Door(movex-2350,movey-800,50,50, Color.cyan);
-	Door bluedoor4 = new Door(movex-1900,movey-1150,50,50, Color.cyan);
-	Door bluedoor5 = new Door(movex-1800,movey-800,50,50, Color.cyan);
+	Door bluedoor1 = new Door(movex-2150,movey-1050,50,50,Cyan,grayCyan);
+	Door bluedoor2 = new Door(movex-2200,movey-1150,50,50,Cyan,grayCyan);
+	Door bluedoor3 = new Door(movex-2350,movey-800,50,50,Cyan,grayCyan);
+	Door bluedoor4 = new Door(movex-1900,movey-1150,50,50,Cyan,grayCyan);
+	Door bluedoor5 = new Door(movex-1800,movey-800,50,50,Cyan,grayCyan);
 
 	Endingdoor endingdoor1 = new Endingdoor(movex+450,movey-1200,50,50);
 	Endingdoor endingdoor2 = new Endingdoor(movex+400,movey+1050,50,50);
 
-	Door blackdoor1 = new Door(movex+1950,movey+850,50,50, Color.black);
-	Door blackdoor2 = new Door(movex-1500,movey-1200,50,50, Color.black);
-	Door blackdoor3 = new Door(movex-1850,movey+1350,50,50, Color.black);
-	Door blackdoor4 = new Door(movex+950,movey+1450,50,50, Color.black);
+	Door blackdoor1 = new Door(movex+1950,movey+850,50,50,Black,Black);
+	Door blackdoor2 = new Door(movex-1500,movey-1200,50,50,Black,Black);
+	Door blackdoor3 = new Door(movex-1850,movey+1350,50,50,Black,Black);
+	Door blackdoor4 = new Door(movex+950,movey+1450,50,50,Black,Black);
 
-	Door purpledoor = new Door(movex-950,movey+1150,50,50, Color.magenta);
+	Door purpledoor = new Door(movex-950,movey+1150,50,50,Magenta,grayMagenta);
 
 
-	Key key1 = new Key(movex+500,movey-500,50,50, Color.yellow);
-	Key key2a = new Key(movex-800,movey+550,50,50, Color.yellow); //Used in 0,2
-	Key key2b = new Key(movex-100,movey+500,50,50, Color.yellow); //Used in 1
-	Key key3a = new Key(movex-300,movey-550,50,50, Color.yellow); //Used in 0
-	Key key3b = new Key(movex-650,movey-250,50,50, Color.yellow);  //Used in 1
-	Key key3c = new Key(movex+200,movey+100,50,50, Color.yellow);  //Used in 2
-	Key key4 = new Key(movex-350,movey+850,50,50, Color.yellow);
-	Key key5a = new Key(movex+150,movey+500,50,50, Color.yellow); //Used in 0
-	Key key5b = new Key(movex-1100,movey+100,50,50, Color.yellow); //Used in 1
-	Key key5c = new Key(movex-1300,movey-350,50,50, Color.yellow); //Used in 2
-	Key key6 = new Key(movex-2250,movey-400,50,50, Color.yellow);
-	Key key7 = new Key(movex-100,movey-1050,50,50, Color.yellow);
+	Key key1 = new Key(movex+500,movey-500,50,50,Yellow,grayYellow);
+	Key key2a = new Key(movex-800,movey+550,50,50,Yellow,grayYellow); //Used in 0,2
+	Key key2b = new Key(movex-100,movey+500,50,50,Yellow,grayYellow); //Used in 1
+	Key key3a = new Key(movex-300,movey-550,50,50,Yellow,grayYellow); //Used in 0
+	Key key3b = new Key(movex-650,movey-250,50,50,Yellow,grayYellow);  //Used in 1
+	Key key3c = new Key(movex+200,movey+100,50,50,Yellow,grayYellow);  //Used in 2
+	Key key4 = new Key(movex-350,movey+850,50,50,Yellow,grayYellow);
+	Key key5a = new Key(movex+150,movey+500,50,50,Yellow,grayYellow); //Used in 0
+	Key key5b = new Key(movex-1100,movey+100,50,50,Yellow,grayYellow); //Used in 1
+	Key key5c = new Key(movex-1300,movey-350,50,50,Yellow,grayYellow); //Used in 2
+	Key key6 = new Key(movex-2250,movey-400,50,50,Yellow,grayYellow);
+	Key key7 = new Key(movex-100,movey-1050,50,50,Yellow,grayYellow);
 
-	Key pinkkey1 = new Key(movex+1000,movey+550,50,50, Color.pink);
-	Key pinkkey2a = new Key(movex+800,movey+1250,50,50, Color.pink);
-	Key pinkkey2b = new Key(movex+750,movey-750,50,50, Color.pink);
-	Key pinkkey3a = new Key(movex-2150,movey+100,50,50, Color.pink);
-	Key pinkkey3b = new Key(movex-1850,movey-100,50,50, Color.pink);
-	Key pinkkey4 = new Key(movex-800,movey-1150,50,50, Color.pink);
-	Key pinkkey5 = new Key(movex+-100,movey+1100,50,50, Color.pink);
+	Key pinkkey1 = new Key(movex+1000,movey+550,50,50,Pink,grayPink);
+	Key pinkkey2a = new Key(movex+800,movey+1250,50,50,Pink,grayPink);
+	Key pinkkey2b = new Key(movex+750,movey-750,50,50,Pink,grayPink);
+	Key pinkkey3a = new Key(movex-2150,movey+100,50,50,Pink,grayPink);
+	Key pinkkey3b = new Key(movex-1850,movey-100,50,50,Pink,grayPink);
+	Key pinkkey4 = new Key(movex-800,movey-1150,50,50,Pink,grayPink);
+	Key pinkkey5 = new Key(movex+-100,movey+1100,50,50,Pink,grayPink);
 
-	Key orangekey1 = new Key(movex-1300,movey-450,50,50, Color.orange);
-	Key orangekey2 = new Key(movex+1200,movey+150,50,50, Color.orange);
-	Key orangekey3 = new Key(movex-2000,movey+600,50,50, Color.orange);
-	Key orangekey4 = new Key(movex-1550,movey+450,50,50, Color.orange);
-	Key orangekey5 = new Key(movex+1450,movey-150,50,50, Color.orange);
+	Key orangekey1 = new Key(movex-1300,movey-450,50,50,Orange,grayOrange);
+	Key orangekey2 = new Key(movex+1200,movey+150,50,50,Orange,grayOrange);
+	Key orangekey3 = new Key(movex-2000,movey+600,50,50,Orange,grayOrange);
+	Key orangekey4 = new Key(movex-1550,movey+450,50,50,Orange,grayOrange);
+	Key orangekey5 = new Key(movex+1450,movey-150,50,50,Orange,grayOrange);
 	
-	Key bluekey1 = new Key(movex-750,movey-850,50,50, Color.cyan);
-	Key bluekey2 = new Key(movex+100,movey+1200,50,50, Color.cyan);
-	Key bluekey3 = new Key(movex+1900,movey+1250,50,50, Color.cyan);
-	Key bluekey4 = new Key(movex+1650,movey-400,50,50, Color.cyan);
-	Key bluekey5a = new Key(movex+1800,movey-950,50,50, Color.cyan);
-	Key bluekey5b = new Key(movex+1750,movey-700,50,50, Color.cyan);
+	Key bluekey1 = new Key(movex-750,movey-850,50,50,Cyan,grayCyan);
+	Key bluekey2 = new Key(movex+100,movey+1200,50,50,Cyan,grayCyan);
+	Key bluekey3 = new Key(movex+1900,movey+1250,50,50,Cyan,grayCyan);
+	Key bluekey4 = new Key(movex+1650,movey-400,50,50,Cyan,grayCyan);
+	Key bluekey5a = new Key(movex+1800,movey-950,50,50,Cyan,grayCyan);
+	Key bluekey5b = new Key(movex+1750,movey-700,50,50,Cyan,grayCyan);
 
-	Key blackkey1 = new Key(movex-2250,movey+1400,5,5, Color.black);
-	Key blackkey2 = new Key(movex+1350,movey-350,5,5, Color.black);
-	Key blackkey3 = new Key(movex+450,movey-800,5,5, Color.black);
-	Key blackkey4 = new Key(movex+700,movey+1050,5,5, Color.black);
+	Key blackkey1 = new Key(movex-2250,movey+1400,5,5,Black,Black);
+	Key blackkey2 = new Key(movex+1350,movey-350,5,5,Black,Black);
+	Key blackkey3 = new Key(movex+450,movey-800,5,5,Black,Black);
+	Key blackkey4 = new Key(movex+700,movey+1050,5,5,Black,Black);
 	ColorfulRectangle blackkeydisplay1 = new ColorfulRectangle(movex-2228,movey+1422,5,5,Color.white);
 	ColorfulRectangle blackkeydisplay2 = new ColorfulRectangle(movex+1372,movey-328,5,5,Color.white);
 	ColorfulRectangle blackkeydisplay3 = new ColorfulRectangle(movex+472,movey-778,5,5,Color.white);
@@ -266,7 +268,7 @@ public class Explore extends PApplet {
 	int blackkeydisplay3x = 472;
 	int blackkeydisplay4x = 722;
 
-	Key purplekey = new Key(movex-1500,movey-1100,50,50, Color.magenta);
+	Key purplekey = new Key(movex-1500,movey-1100,50,50,Magenta,grayMagenta);
 
 	Ending Ending = new Ending(movex-2350,movey-1150,50,50);
 	SecretEnding SecretEnding = new SecretEnding(movex+750,movey-100,50,50);
@@ -11696,15 +11698,27 @@ if(blockplacesize==0) { //0
 	class ColorfulRectangle extends Rectangle{
 
 		Color col;
+		Color grayCol;
 
+		public ColorfulRectangle(int x, int y, int width, int height, Color col, Color grayCol) {
+			super(x, y, width, height);
+			this.col=col;
+			this.grayCol=grayCol;
+		}	
 		public ColorfulRectangle(int x, int y, int width, int height, Color col) {
 			super(x, y, width, height);
 			this.col=col;
+			this.grayCol=col;
 		}
 
 		void draw(){
+			
+			if(GrayScale) {
+				fill(col.getRGB());
+			}else {
+				fill(grayCol.getRGB());
+			}
 
-			fill(col.getRGB());
 
 			rect(x, y, width, height);
 
@@ -12095,9 +12109,9 @@ if(blockplacesize==0) { //0
 
 		boolean collected = false;
 
-		public Key(int x, int y, int width, int height, Color color) {
+		public Key(int x, int y, int width, int height, Color color, Color grayColor) {
 
-			super(x, y, width, height, color);
+			super(x, y, width, height, color, grayColor);
 
 		}
 
@@ -12148,9 +12162,10 @@ if(blockplacesize==0) { //0
 		int doory=y;
 		Color innerColor;
 		boolean open = false;
-
-		public Door(int x, int y, int width, int height, Color color) {
-			super(x, y, width, height, Color.WHITE);
+	ColorfulRectangle Doorin;
+			
+		public Door(int x, int y, int width, int height, Color color, Color grayColor) {
+			super(x, y, width, height, Color.WHITE, grayColor);
 			this.innerColor = color;
 		}
 
@@ -12158,7 +12173,10 @@ if(blockplacesize==0) { //0
 		void draw() {
 
 			if(!open) {
-				super.draw();
+				fill(Color.WHITE.getRGB());
+				rect(x, y, width, height);
+				Doorin = new ColorfulRectangle(x+10,y+10,30,30,innerColor,grayCol);
+				Doorin.draw();
 			}	
 		}
 
@@ -12173,8 +12191,7 @@ if(blockplacesize==0) { //0
 		
 		public void update() {
 
-			ColorfulRectangle Doorin = new ColorfulRectangle(x+10,y+10,30,30,innerColor);
-			Doorin.draw();
+		
 
 			x=doorx+movex;
 			y=doory+movey;

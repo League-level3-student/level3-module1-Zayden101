@@ -28,33 +28,22 @@ public class Explore extends PApplet {
 	Color bgColorOutline = new Color(0,0,0);
 	Color enemyDifficultyOutline = new Color(0,0,0);
 	
-	/*
-	Yellow: 220
-	Pink: 170
-	Orange: 120
-	Blue: 70
-
-	Red:195
-	Green: 145
-	Player Blue: 95
-	Purple: 45
-	*/
 	
 	Color grayYellow = new Color(200,200,200);
-	Color grayPink = new Color(170,170,170);
+	Color grayPink = new Color(165,165,165);
 	Color grayOrange = new Color(120,120,120);
 	Color grayCyan = new Color(70,70,70);
 	Color grayRed = new Color(185,185,185);
-	Color grayGreen = new Color(145,145,145);
-	Color grayBlue = new Color(95,95,95);
-	Color grayMagenta = new Color(45,45,45);
+	Color grayGreen = new Color(95,95,95);
+	Color grayBlue = new Color(150,150,150);
+	Color grayMagenta = new Color(170,170,170);
 
 	Color Yellow = new Color(255,255,0);
 	Color Pink = new Color(255,180,200);
 	Color Orange = new Color(255,165,0);
 	Color Cyan = new Color(0,255,255);
 	Color Red = new Color(255,0,0);
-	Color Green = new Color(255,0,255);
+	Color Green = new Color(0,255,0);
 	Color Blue = new Color(0,0,255);
 	Color Magenta = new Color(255,0,255);
 	Color Black = new Color(0,0,0);
@@ -184,6 +173,7 @@ public class Explore extends PApplet {
 
 	boolean teleportavaible = true;
 
+	
 	Door door1 = new Door(movex+350,movey-450,50,50,Yellow,grayYellow);
 	Door door2 = new Door(movex+-1000,movey+100,50,50,Yellow,grayYellow);
 	Door door3 = new Door(movex+650,movey+500,50,50,Yellow,grayYellow);
@@ -344,27 +334,27 @@ public class Explore extends PApplet {
 	boolean showPurplekey = false;
 	boolean showTeleport = false;
 
-	ColorfulRectangle aEndingred2 = new ColorfulRectangle(movex-2350,movey-1150,50,50,Color.RED);
-	ColorfulRectangle aEndingorange2 = new ColorfulRectangle(movex-2350,movey-1150,45,45,Color.ORANGE);
-	ColorfulRectangle aEndingyellow2 = new ColorfulRectangle(movex-2350,movey-1150,40,40,Color.YELLOW);
-	ColorfulRectangle aEndinggreen2 = new ColorfulRectangle(movex-2350,movey-1150,35,35,Color.GREEN);
-	ColorfulRectangle aEndingblue2 = new ColorfulRectangle(movex-2350,movey-1150,30,30,Color.BLUE);
-	ColorfulRectangle aEndingpurple2 = new ColorfulRectangle(movex-2350,movey-1150,25,25,Color.MAGENTA);
+	ColorfulRectangle aEndingred2 = new ColorfulRectangle(movex-2350,movey-1150,50,50,Red,grayRed);
+	ColorfulRectangle aEndingorange2 = new ColorfulRectangle(movex-2350,movey-1150,45,45,Orange,grayOrange);
+	ColorfulRectangle aEndingyellow2 = new ColorfulRectangle(movex-2350,movey-1150,40,40,Yellow,grayYellow);
+	ColorfulRectangle aEndinggreen2 = new ColorfulRectangle(movex-2350,movey-1150,35,35,Green,grayGreen);
+	ColorfulRectangle aEndingblue2 = new ColorfulRectangle(movex-2350,movey-1150,30,30,Blue,grayBlue);
+	ColorfulRectangle aEndingpurple2 = new ColorfulRectangle(movex-2350,movey-1150,25,25,Magenta,grayMagenta);
 	ColorfulRectangle aEndinggray2 = new ColorfulRectangle(movex-2350,movey-1150,20,20,Color.LIGHT_GRAY);
 	ColorfulRectangle aEndingwhite2 = new ColorfulRectangle(movex-2350,movey-1150,15,15,Color.WHITE);
 	
-	ColorfulRectangle Endingred2 = new ColorfulRectangle(movex+randomxred+100,movey+randomyred+750,50,50,Color.RED);
-	ColorfulRectangle Endingorange2 = new ColorfulRectangle(movex+randomxorange+100,movey+randomyorange+750,45,45,Color.ORANGE);
-	ColorfulRectangle Endingyellow2 = new ColorfulRectangle(movex+randomxyellow+100,movey+randomyyellow+750,40,40,Color.YELLOW);
-	ColorfulRectangle Endinggreen2 = new ColorfulRectangle(movex+randomxgreen+100,movey+randomygreen+750,35,35,Color.GREEN);
-	ColorfulRectangle Endingblue2 = new ColorfulRectangle(movex+randomxblue+100,movey+randomyblue+750,30,30,Color.BLUE);
-	ColorfulRectangle Endingpurple2 = new ColorfulRectangle(movex+randomxpurple+100,movey+randomypurple+750,25,25,Color.MAGENTA);
+	ColorfulRectangle Endingred2 = new ColorfulRectangle(movex+randomxred+100,movey+randomyred+750,50,50,Red,grayRed);
+	ColorfulRectangle Endingorange2 = new ColorfulRectangle(movex+randomxorange+100,movey+randomyorange+750,45,45,Orange,grayOrange);
+	ColorfulRectangle Endingyellow2 = new ColorfulRectangle(movex+randomxyellow+100,movey+randomyyellow+750,40,40,Yellow,grayYellow);
+	ColorfulRectangle Endinggreen2 = new ColorfulRectangle(movex+randomxgreen+100,movey+randomygreen+750,35,35,Green,grayGreen);
+	ColorfulRectangle Endingblue2 = new ColorfulRectangle(movex+randomxblue+100,movey+randomyblue+750,30,30,Blue,grayBlue);
+	ColorfulRectangle Endingpurple2 = new ColorfulRectangle(movex+randomxpurple+100,movey+randomypurple+750,25,25,Magenta,grayMagenta);
 	ColorfulRectangle Endinggray2 = new ColorfulRectangle(movex+randomxGRAY+100,movey+randomyGRAY+750,20,20,Color.LIGHT_GRAY);
 	ColorfulRectangle Endingwhite2 = new ColorfulRectangle(movex+randomxwhite+100,movey+randomywhite+750,15,15,Color.WHITE);
 
-	ColorfulRectangle teleport1RED = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Color.RED);
-	ColorfulRectangle teleport1ORANGE = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Color.ORANGE);
-	ColorfulRectangle teleport1YELLOW = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Color.YELLOW);
+	ColorfulRectangle teleport1RED = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Red,grayRed);
+	ColorfulRectangle teleport1ORANGE = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Orange,grayOrange);
+	ColorfulRectangle teleport1YELLOW = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Yellow,grayYellow);
 
 	int waitTime = 25;
 
@@ -734,7 +724,7 @@ public class Explore extends PApplet {
 			collectedEndingKeys=2;
 		}
 
-		if(finished==true) {
+		if(finished==true && !optionsshown && !pausedshown) {
 			arandomxred = randon.nextInt(4300);
 			arandomyred = randon.nextInt(3100);
 			arandomxorange = randon.nextInt(4300);
@@ -771,7 +761,7 @@ public class Explore extends PApplet {
 			aEndingwhite2.draw();
 		}
 
-		if(finished==true) {
+		if(finished==true && !optionsshown && !pausedshown) {
 			endingBlocks();
 			yellowKeyCount.keys=0;
 			pinkKeyCount.keys=0;	
@@ -782,7 +772,7 @@ public class Explore extends PApplet {
 		}
 
 		if(!menushown && !optionsshown && !pausedshown && !mapshown) {
-			ColorfulRectangle wall1button = new ColorfulRectangle(movex+wall1buttonx,movey+wall1buttony,50,50, Color.GREEN);
+			ColorfulRectangle wall1button = new ColorfulRectangle(movex+wall1buttonx,movey+wall1buttony,50,50, Green,grayGreen);
 			if(player.x==wall1button.x && player.y==wall1button.y) {
 				wall1=false;
 				wall1buttonx=10000;
@@ -791,7 +781,7 @@ public class Explore extends PApplet {
 			wall1button.draw();
 
 			if(wall1==false) {
-			ColorfulRectangle wall2button = new ColorfulRectangle(movex+wall2buttonx,movey+wall2buttony,50,50, Color.GREEN);
+			ColorfulRectangle wall2button = new ColorfulRectangle(movex+wall2buttonx,movey+wall2buttony,50,50, Green,grayGreen);
 			if(player.x==wall2button.x && player.y==wall2button.y) {
 				wall2=false;
 				wall2buttonx=10000;
@@ -1009,7 +999,7 @@ public class Explore extends PApplet {
 			showPurplekey = true;
 		}
 		
-		if(finished==true) {
+		if(finished==true && !optionsshown && !pausedshown) {
 			//System.out.println(timer);
 			//System.out.println(escaped);
 		if(escaped==false) {
@@ -1289,8 +1279,8 @@ public class Explore extends PApplet {
 		}
 		
 		if(secret==true) {
-		new ColorfulRectangle(movex+800,movey+1400, 50, 50, Color.RED);
-		new ColorfulRectangle(movex-1000,movey+1250, 50, 50, Color.RED);
+		new ColorfulRectangle(movex+800,movey+1400, 50, 50, Red,grayRed);
+		new ColorfulRectangle(movex-1000,movey+1250, 50, 50, Red,grayRed);
 		if(teleport1colorswitch<=19) {
 			teleport1RED.x=movex+800;
 			teleport1RED.y=movey+1400;
@@ -1327,13 +1317,13 @@ public class Explore extends PApplet {
 		}
 		}
 				
-		ColorfulRectangle displaykey = new ColorfulRectangle(660,10, 30, 30, Color.YELLOW);
-		ColorfulRectangle displaypinkkey = new ColorfulRectangle(510,10, 30, 30, Color.PINK);
-		ColorfulRectangle displayorangekey = new ColorfulRectangle(360,10, 30, 30, Color.ORANGE);
-		ColorfulRectangle displaybluekey = new ColorfulRectangle(210,10, 30, 30, Color.CYAN);
+		ColorfulRectangle displaykey = new ColorfulRectangle(660,10, 30, 30, Yellow,grayYellow);
+		ColorfulRectangle displaypinkkey = new ColorfulRectangle(510,10, 30, 30, Pink,grayPink);
+		ColorfulRectangle displayorangekey = new ColorfulRectangle(360,10, 30, 30, Orange,grayOrange);
+		ColorfulRectangle displaybluekey = new ColorfulRectangle(210,10, 30, 30, Cyan,grayCyan);
 		ColorfulRectangle displayblackkey = new ColorfulRectangle(72,22, 5, 5, Color.WHITE);
 		ColorfulRectangle displayendingkey = new ColorfulRectangle(6000,10, 30, 30, Color.WHITE);
-		ColorfulRectangle displaypurplekey = new ColorfulRectangle(60,560, 30, 30, Color.MAGENTA);
+		ColorfulRectangle displaypurplekey = new ColorfulRectangle(60,560, 30, 30, Magenta,grayMagenta);
 
 		
 		//System.out.println(yellowKeyCount.keys + " " + pinkKeyCount.keys + " " + orangeKeyCount.keys + " " + blueKeyCount.keys);
@@ -1368,12 +1358,12 @@ public class Explore extends PApplet {
 		
 		if(finished==true) {
 			if(collectedEndingKeys>=1) {
-			ColorfulRectangle displayEndingred = new ColorfulRectangle(660,10,30,30,Color.RED);
-			ColorfulRectangle displayEndingorange = new ColorfulRectangle(660,10,30,30,Color.ORANGE);
-			ColorfulRectangle displayEndingyellow = new ColorfulRectangle(660,10,30,30,Color.YELLOW);
-			ColorfulRectangle displayEndinggreen = new ColorfulRectangle(660,10,30,30,Color.GREEN);
-			ColorfulRectangle displayEndingblue = new ColorfulRectangle(660,10,30,30,Color.BLUE);
-			ColorfulRectangle displayEndingpurple = new ColorfulRectangle(660,10,30,30,Color.MAGENTA);
+			ColorfulRectangle displayEndingred = new ColorfulRectangle(660,10,30,30,Red,grayRed);
+			ColorfulRectangle displayEndingorange = new ColorfulRectangle(660,10,30,30,Orange,grayOrange);
+			ColorfulRectangle displayEndingyellow = new ColorfulRectangle(660,10,30,30,Yellow,grayYellow);
+			ColorfulRectangle displayEndinggreen = new ColorfulRectangle(660,10,30,30,Green,grayGreen);
+			ColorfulRectangle displayEndingblue = new ColorfulRectangle(660,10,30,30,Blue,grayBlue);
+			ColorfulRectangle displayEndingpurple = new ColorfulRectangle(660,10,30,30,Magenta,grayMagenta);
 			ColorfulRectangle displayEndinggray = new ColorfulRectangle(660,10,30,30,Color.LIGHT_GRAY);
 			ColorfulRectangle displayEndingwhite = new ColorfulRectangle(660,10,30,30,Color.WHITE);
 
@@ -1726,7 +1716,7 @@ public class Explore extends PApplet {
 		endingdoor1.update();
 		endingdoor2.update();
 
-		if(map==true) {
+		if(map==true && !optionsshown && !pausedshown) {
 			facing=0;
 			mapp();
 			mapp2();
@@ -11759,7 +11749,7 @@ if(blockplacesize==0) { //0
 
 		public Enemy(int x, int y, int width, int height) {
 
-			super(x, y, width, height, Color.RED);
+			super(x, y, width, height, Red,grayRed);
 
 			direction.add(enemyup);
 			direction.add(enemydown);
@@ -12541,13 +12531,14 @@ if(blockplacesize==0) { //0
 		
 		public void update() {
 			
-			if(mapshown==false) {
-			ColorfulRectangle Endingred = new ColorfulRectangle(x+10,y+10,30,30,Color.RED);
-			ColorfulRectangle Endingorange = new ColorfulRectangle(x+10,y+10,30,30,Color.ORANGE);
-			ColorfulRectangle Endingyellow = new ColorfulRectangle(x+10,y+10,30,30,Color.YELLOW);
-			ColorfulRectangle Endinggreen = new ColorfulRectangle(x+10,y+10,30,30,Color.GREEN);
-			ColorfulRectangle Endingblue = new ColorfulRectangle(x+10,y+10,30,30,Color.BLUE);
-			ColorfulRectangle Endingpurple = new ColorfulRectangle(x+10,y+10,30,30,Color.MAGENTA);
+			if(mapshown==false && !optionsshown && !pausedshown) {
+							
+			ColorfulRectangle Endingred = new ColorfulRectangle(x+10,y+10,30,30,Red,grayRed);
+			ColorfulRectangle Endingorange = new ColorfulRectangle(x+10,y+10,30,30,Orange,grayOrange);
+			ColorfulRectangle Endingyellow = new ColorfulRectangle(x+10,y+10,30,30,Yellow,grayYellow);
+			ColorfulRectangle Endinggreen = new ColorfulRectangle(x+10,y+10,30,30,Green,grayGreen);
+			ColorfulRectangle Endingblue = new ColorfulRectangle(x+10,y+10,30,30,Blue,grayBlue);
+			ColorfulRectangle Endingpurple = new ColorfulRectangle(x+10,y+10,30,30,Magenta,grayMagenta);
 			ColorfulRectangle Endinggray = new ColorfulRectangle(x+10,y+10,30,30,Color.LIGHT_GRAY);
 			ColorfulRectangle Endingwhite = new ColorfulRectangle(x+10,y+10,30,30,Color.WHITE);
 

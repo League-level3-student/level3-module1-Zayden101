@@ -200,7 +200,7 @@ public class Explore extends PApplet {
 	Door bluedoor4 = new Door(movex-1900,movey-1150,50,50,Cyan,grayCyan);
 	Door bluedoor5 = new Door(movex-1800,movey-800,50,50,Cyan,grayCyan);
 
-	Endingdoor endingdoor1 = new Endingdoor(movex+450,movey-1200,50,50);
+	Endingdoor endingdoor1 = new Endingdoor(movex+451,movey-1199,49,49);
 	Endingdoor endingdoor2 = new Endingdoor(movex+400,movey+1050,50,50);
 
 	Door blackdoor1 = new Door(movex+1950,movey+850,50,50,Black,Black);
@@ -390,6 +390,8 @@ public class Explore extends PApplet {
 	int enemyDifficulty = 2; //| 1=easy | 2=medium | 3=hard | 4=extreme |
 	int chosenEnemyDifficultyOutline = 2; //| 1=green | 2=yellow | 3=red | 4=magenta |
 	boolean GrayScale = true;
+	boolean FlashingLights = true;
+
 
 	int blockplacesize = 0;
 	
@@ -1253,7 +1255,7 @@ public class Explore extends PApplet {
 		}
 		
 		//System.out.println(movex + " " + movey);
-		if(!menushown && !optionsshown && !pausedshown && !mapshown && !wall2) {
+		if(!menushown && !optionsshown && !pausedshown && !mapshown && !wall2 && !finished) {
 		blackkeydisplay1 = new ColorfulRectangle(movex+blackkeydisplay1x,movey+1422,5,5,Color.white);
 		blackkeydisplay1.draw();
 		blackkeydisplay2 = new ColorfulRectangle(movex+blackkeydisplay2x,movey-328,5,5,Color.white);
@@ -8348,8 +8350,8 @@ public class Explore extends PApplet {
 		enemyBorder.add(new ColorfulRectangle(movex+-800,movey+-400, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-400,movey+-500, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+0,movey+-600, 50, 50, EnemyBorderColor));
-		enemyBorder.add(new ColorfulRectangle(movex+600,movey+650, 50, 50, EnemyBorderColor));
-		enemyBorder.add(new ColorfulRectangle(movex+0,movey+850, 50, 50, EnemyBorderColor));
+		enemyBorder.add(new ColorfulRectangle(movex+550,movey+650, 50, 50, EnemyBorderColor));
+		enemyBorder.add(new ColorfulRectangle(movex+0,movey+750, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-2100,movey+-450, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-2200,movey+-300, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1650,movey+-400, 50, 50, EnemyBorderColor));
@@ -8365,6 +8367,7 @@ public class Explore extends PApplet {
 		enemyBorder.add(new ColorfulRectangle(movex+-1950,movey+300, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1350,movey+200, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1350,movey+250, 50, 50, EnemyBorderColor));
+		enemyBorder.add(new ColorfulRectangle(movex+-1300,movey+0, 50, 50, EnemyBorderColor));
 		
 		rects.add(new ColorfulRectangle(movex+1000,movey+1350, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(movex+-1500,movey+-1000, 50, 50, Color.WHITE));
@@ -10466,7 +10469,6 @@ public class Explore extends PApplet {
 		
 	}
 
-	
 	public void mappdarkness() {
 	int marker;
 	if(wall1==true) {
@@ -11054,6 +11056,10 @@ public class Explore extends PApplet {
 		rects.add(new ColorfulRectangle(729,261, 9, 18, Color.RED));
 		rects.add(new ColorfulRectangle(729,216, 9, 18, Color.RED));
 		}
+		
+		//FLASHING LIGHTS
+		rects.add(new ColorfulRectangle(50,350, 300, 100, Color.WHITE));
+
 	}
 	
 	boolean playerInterectsBlock() {
@@ -12533,14 +12539,14 @@ if(blockplacesize==0) { //0
 			
 			if(mapshown==false && !optionsshown && !pausedshown) {
 							
-			ColorfulRectangle Endingred = new ColorfulRectangle(x+10,y+10,30,30,Red,grayRed);
-			ColorfulRectangle Endingorange = new ColorfulRectangle(x+10,y+10,30,30,Orange,grayOrange);
-			ColorfulRectangle Endingyellow = new ColorfulRectangle(x+10,y+10,30,30,Yellow,grayYellow);
-			ColorfulRectangle Endinggreen = new ColorfulRectangle(x+10,y+10,30,30,Green,grayGreen);
-			ColorfulRectangle Endingblue = new ColorfulRectangle(x+10,y+10,30,30,Blue,grayBlue);
-			ColorfulRectangle Endingpurple = new ColorfulRectangle(x+10,y+10,30,30,Magenta,grayMagenta);
-			ColorfulRectangle Endinggray = new ColorfulRectangle(x+10,y+10,30,30,Color.LIGHT_GRAY);
-			ColorfulRectangle Endingwhite = new ColorfulRectangle(x+10,y+10,30,30,Color.WHITE);
+			ColorfulRectangle Endingred = new ColorfulRectangle(x+9,y+9,30,30,Red,grayRed);
+			ColorfulRectangle Endingorange = new ColorfulRectangle(x+9,y+9,30,30,Orange,grayOrange);
+			ColorfulRectangle Endingyellow = new ColorfulRectangle(x+9,y+9,30,30,Yellow,grayYellow);
+			ColorfulRectangle Endinggreen = new ColorfulRectangle(x+9,y+9,30,30,Green,grayGreen);
+			ColorfulRectangle Endingblue = new ColorfulRectangle(x+9,y+9,30,30,Blue,grayBlue);
+			ColorfulRectangle Endingpurple = new ColorfulRectangle(x+9,y+9,30,30,Magenta,grayMagenta);
+			ColorfulRectangle Endinggray = new ColorfulRectangle(x+9,y+9,30,30,Color.LIGHT_GRAY);
+			ColorfulRectangle Endingwhite = new ColorfulRectangle(x+9,y+9,30,30,Color.WHITE);
 
 
 			if(colorSwitchdoor==0) {

@@ -1,6 +1,4 @@
-
-//ADD GRAYSCALE AS AN OPTION
-
+ 
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.Stroke;
@@ -1330,29 +1328,29 @@ public class Explore extends PApplet {
 		
 		//System.out.println(yellowKeyCount.keys + " " + pinkKeyCount.keys + " " + orangeKeyCount.keys + " " + blueKeyCount.keys);
 		
-		if(mapshown==false) {
+		if(!mapshown && !optionsshown) {
 		if(yellowKeyCount.keys>0) {
-		ColorfulRectangle backdisplayyellowkey = new ColorfulRectangle(650,0, 100, 50, Color.BLACK);
+		ColorfulRectangle backdisplayyellowkey = new ColorfulRectangle(650,0, 100, 50, bgColor);
 		backdisplayyellowkey.draw();}
 		if(pinkKeyCount.keys>0) {
-		ColorfulRectangle backdisplaypinkkey = new ColorfulRectangle(500,0, 100, 50, Color.BLACK);
+		ColorfulRectangle backdisplaypinkkey = new ColorfulRectangle(500,0, 100, 50, bgColor);
 		backdisplaypinkkey.draw();}
 		if(orangeKeyCount.keys>0) {
-		ColorfulRectangle backdisplayorangekey = new ColorfulRectangle(350,0, 100, 50, Color.BLACK);
+		ColorfulRectangle backdisplayorangekey = new ColorfulRectangle(350,0, 100, 50, bgColor);
 		backdisplayorangekey.draw();}
 		if(blueKeyCount.keys>0) {
-		ColorfulRectangle backdisplaybluekey = new ColorfulRectangle(200,0, 100, 50, Color.BLACK);
+		ColorfulRectangle backdisplaybluekey = new ColorfulRectangle(200,0, 100, 50, bgColor);
 		backdisplaybluekey.draw();}
 		if(escaped == false) {
 		if(finished==true) {
-		ColorfulRectangle backdisplayendingkey = new ColorfulRectangle(650,0, 100, 50, Color.BLACK);
+		ColorfulRectangle backdisplayendingkey = new ColorfulRectangle(650,0, 100, 50, bgColor);
 		backdisplayendingkey.draw();}
 		}
 		if(blackKeyCount.keys>0) {
-		ColorfulRectangle backdisplayblackkey = new ColorfulRectangle(50,0, 100, 50, Color.BLACK);
+		ColorfulRectangle backdisplayblackkey = new ColorfulRectangle(50,0, 100, 50, bgColor);
 		backdisplayblackkey.draw();}
 		if(purpleKeyCount.keys>0) {
-		ColorfulRectangle backdisplaypurplekey = new ColorfulRectangle(50,550, 100, 50, Color.BLACK);
+		ColorfulRectangle backdisplaypurplekey = new ColorfulRectangle(50,550, 100, 50, bgColor);
 		backdisplaypurplekey.draw();}
 		}
 		
@@ -8364,7 +8362,7 @@ public class Explore extends PApplet {
 		enemyBorder.add(new ColorfulRectangle(movex+-2050,movey+400, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1700,movey+450, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1450,movey+300, 50, 50, EnemyBorderColor));
-		enemyBorder.add(new ColorfulRectangle(movex+-1950,movey+300, 50, 50, EnemyBorderColor));
+//		enemyBorder.add(new ColorfulRectangle(movex+-1950,movey+300, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1350,movey+200, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1350,movey+250, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1300,movey+0, 50, 50, EnemyBorderColor));
@@ -11338,6 +11336,7 @@ public class Explore extends PApplet {
 //					rects.clear();
 //				}
 				
+				//BUILD MODE
 				if(build && nocliped) {
 				build=false;
 				nocliped=false;
@@ -11362,49 +11361,6 @@ public class Explore extends PApplet {
 						}else if(blockplacesize==3) {
 						System.out.println("5");
 						}
-												
-//				OPTIONS MENU		
-//				if(options==true) {
-//					if(optionselected == 0) {
-//						NoStroke = false;
-//						NoUIBackground = false;
-//					}else if(optionselected == 1) {
-//						NoStroke = true;
-//						NoUIBackground = false;
-//					}else if(optionselected == 2) {
-//						NoUIBackground = true;
-//						NoStroke = false;
-//					}else if(optionselected == 3) {
-//						NoStroke = true;
-//						NoUIBackground = true;
-//					}
-//					optionselected+=1;
-//
-//					if(optionselected>3) {
-//						optionselected=0;
-//					}
-//					
-//					int OptionsMenu = JOptionPane.showOptionDialog(null, "Options", "Title", 0, JOptionPane.INFORMATION_MESSAGE, null,
-//							new String[] { "No Stroke", "No UI Background", "Switch BG Color"}, null);
-//
-//						if (OptionsMenu==0) {
-//						if(NoStroke==false) {
-//							NoStroke=true;
-//						}else if (NoStroke==true) {
-//							NoStroke=false;
-//						}
-//						
-//						}else if (OptionsMenu==1) {
-//						if(NoUIBackground==false) {
-//							NoUIBackground=true;
-//						}else if (NoUIBackground==true) {
-//							NoUIBackground=false;
-//						}
-//													
-//						}else if (OptionsMenu==2) {
-//							String bcolorg = JOptionPane.showInputDialog("still working on");
-//							bgColor = color(0,0,0);
-//						}
 									
 
 //				WALLS OFF
@@ -11430,6 +11386,7 @@ public class Explore extends PApplet {
 				optionsshown=false;
 				}
 				
+
 //				rects.clear();
 				
 //				BUILD
@@ -11583,7 +11540,7 @@ if(showblockmap==false) {
 			if(GrayScale==false) {GrayScale=true;}
 			else if(GrayScale==true) {GrayScale=false;}
 		}else {
-			noDoubleClickOptions=true;
+			noDoubleClickOptions=false;
 		}
 		//COLOR (OPTIONS)
 		if(mouseX>657 && mouseX<675 && mouseY>63 && mouseY<99 && optionsshown) {
@@ -11626,10 +11583,10 @@ if(showblockmap==false) {
 		if(build==true) {
 if(blockplacesize==0) { //0
 	//ENEMY BORDER
-//	int moX = ((mouseX/50)*50)+-movex;
-//	int moY = ((mouseY/50)*50)+-movey;
-//	System.out.println("enemyBorder.add(new ColorfulRectangle("+ "movex+"+ moX +",movey+" + moY + ", 50, 50, EnemyBorderColor));");
-//	rects.add(new ColorfulRectangle(moX+movex,moY+movey, 50, 50, Color.RED));
+	int moX = ((mouseX/50)*50)+-movex;
+	int moY = ((mouseY/50)*50)+-movey;
+	System.out.println("enemyBorder.add(new ColorfulRectangle("+ "movex+"+ moX +",movey+" + moY + ", 50, 50, EnemyBorderColor));");
+	rects.add(new ColorfulRectangle(moX+movex,moY+movey, 50, 50, Color.RED));
 
 	//MAP
 //	int moX = ((mouseX/50)*50)+-movex;
@@ -11638,10 +11595,10 @@ if(blockplacesize==0) { //0
 //	rects.add(new ColorfulRectangle(moX+movex,moY+movey, 50, 50, Color.WHITE));
 
 	//MENU
-	int moX = ((mouseX/50)*50);
-	int moY = ((mouseY/50)*50);
-	System.out.println("rects.add(new ColorfulRectangle("+ moX +"," + moY + ", 50, 50, Color.WHITE));");
-	rects.add(new ColorfulRectangle(moX,moY, 50, 50, Color.WHITE));
+//	int moX = ((mouseX/50)*50);
+//	int moY = ((mouseY/50)*50);
+//	System.out.println("rects.add(new ColorfulRectangle("+ moX +"," + moY + ", 50, 50, Color.WHITE));");
+//	rects.add(new ColorfulRectangle(moX,moY, 50, 50, Color.WHITE));
 }else if(blockplacesize==1) {
 	int moX = ((mouseX/10)*10);
 	int moY = ((mouseY/10)*10);

@@ -12294,7 +12294,7 @@ if(blockplacesize==0) { //0
 			ColorfulRectangle Endinggray = new ColorfulRectangle(x+15,y+15,20,20,Color.LIGHT_GRAY);
 			ColorfulRectangle Endingwhite = new ColorfulRectangle(x+17,y+17,15,15,Color.WHITE);
 
-
+			if(FlashingLights && !mapshown && !optionsshown && !pausedshown) {
 			if(colorSwitch==0) {
 				Endingred.draw();
 			}else if(colorSwitch==1) {
@@ -12310,6 +12310,16 @@ if(blockplacesize==0) { //0
 			}else if(colorSwitch==6) {
 				Endinggray.draw();
 			}else if(colorSwitch==7) {
+				Endingwhite.draw();
+			}
+			}else if(!FlashingLights && !mapshown && !optionsshown && !pausedshown) {
+				Endingred.draw();
+				Endingorange.draw();
+				Endingyellow.draw();
+				Endinggreen.draw();
+				Endingblue.draw();
+				Endingpurple.draw();
+				Endinggray.draw();
 				Endingwhite.draw();
 			}
 
@@ -12378,7 +12388,7 @@ if(blockplacesize==0) { //0
 			ColorfulRectangle SecretEnding19 = new ColorfulRectangle(x+16,y+16,20,20,Color.PINK);
 			ColorfulRectangle SecretEnding20 = new ColorfulRectangle(x+17,y+17,15,15,Color.WHITE);
 
-
+			if(FlashingLights) {
 			if(colorSwitch==0) {
 				SecretEnding1.draw();
 			}else if(colorSwitch==1) {
@@ -12421,10 +12431,32 @@ if(blockplacesize==0) { //0
 				SecretEnding20.draw();
 			}
 
-			colorSwitch+=1;
+				colorSwitch+=1;
 
-			if(colorSwitch>=20) {
-				colorSwitch=0;
+				if(colorSwitch>=20) {
+					colorSwitch=0;
+				}
+			}else if(!FlashingLights){
+				SecretEnding1.draw();
+				SecretEnding2.draw();
+				SecretEnding3.draw();
+				SecretEnding4.draw();
+				SecretEnding5.draw();
+				SecretEnding6.draw();
+				SecretEnding7.draw();
+				SecretEnding8.draw();
+				SecretEnding9.draw();
+				SecretEnding10.draw();
+				SecretEnding11.draw();
+				SecretEnding12.draw();
+				SecretEnding13.draw();
+				SecretEnding14.draw();
+				SecretEnding15.draw();
+				SecretEnding16.draw();
+				SecretEnding17.draw();
+				SecretEnding18.draw();
+				SecretEnding19.draw();
+				SecretEnding20.draw();
 			}
 
 			if(x==player.x && y==player.y){

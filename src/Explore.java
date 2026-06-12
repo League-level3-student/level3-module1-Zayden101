@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
 
 import processing.core.PApplet;
 
+//FIX SECRET ENDING OBJECTS SHOWING WHEN PAUSED MENU IS UP // FIX ENDING BLOCKS HAVING COLOR WHEN COLOR OPTION IS OFF
+
 //16/12 blocks
 
 public class Explore extends PApplet {
@@ -353,6 +355,15 @@ public class Explore extends PApplet {
 	ColorfulRectangle teleport1RED = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Red,grayRed);
 	ColorfulRectangle teleport1ORANGE = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Orange,grayOrange);
 	ColorfulRectangle teleport1YELLOW = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Yellow,grayYellow);
+	
+	ColorfulRectangle teleport1REDNoFlash1 = new ColorfulRectangle(movex+800,movey+1400, 50, 50, Red,grayRed);
+	ColorfulRectangle teleport1ORANGENoFlash1 = new ColorfulRectangle(movex+810,movey+1410, 30, 30, Orange,grayOrange);
+	ColorfulRectangle teleport1YELLOWNoFlash1 = new ColorfulRectangle(movex+820,movey+1420, 10, 10, Yellow,grayYellow);
+	
+	ColorfulRectangle teleport1REDNoFlash2 = new ColorfulRectangle(movex-1000,movey+1250, 50, 50, Red,grayRed);
+	ColorfulRectangle teleport1ORANGENoFlash2 = new ColorfulRectangle(movex-990,movey+1260, 30, 30, Orange,grayOrange);
+	ColorfulRectangle teleport1YELLOWNoFlash2 = new ColorfulRectangle(movex-980,movey+1270, 10, 10, Yellow,grayYellow);
+
 
 	int waitTime = 25;
 
@@ -1280,6 +1291,7 @@ public class Explore extends PApplet {
 		if(secret) {
 		new ColorfulRectangle(movex+800,movey+1400, 50, 50, Red,grayRed);
 		new ColorfulRectangle(movex-1000,movey+1250, 50, 50, Red,grayRed);
+		if(FlashingLights) {
 		if(teleport1colorswitch<=19) {
 			teleport1RED.x=movex+800;
 			teleport1RED.y=movey+1400;
@@ -1308,8 +1320,29 @@ public class Explore extends PApplet {
 		if(teleport1colorswitch>=60) {
 			teleport1colorswitch=0;
 		}
+		}if(!FlashingLights && !menushown && !optionsshown && !pausedshown && !mapshown) {
+			teleport1REDNoFlash1.x=movex+800;
+			teleport1REDNoFlash1.y=movey+1400;
+			teleport1REDNoFlash1.draw();
+			teleport1ORANGENoFlash1.x=movex+810;
+			teleport1ORANGENoFlash1.y=movey+1410;
+			teleport1ORANGENoFlash1.draw();
+			teleport1YELLOWNoFlash1.x=movex+820;
+			teleport1YELLOWNoFlash1.y=movey+1420;
+			teleport1YELLOWNoFlash1.draw();
+			
+			teleport1REDNoFlash2.x=movex-1000;
+			teleport1REDNoFlash2.y=movey+1250;
+			teleport1REDNoFlash2.draw();
+			teleport1ORANGENoFlash2.x=movex-990;
+			teleport1ORANGENoFlash2.y=movey+1260;
+			teleport1ORANGENoFlash2.draw();
+			teleport1YELLOWNoFlash2.x=movex-980;
+			teleport1YELLOWNoFlash2.y=movey+1270;
+			teleport1YELLOWNoFlash2.draw();
+		}
 		
-		if(!menushown && !optionsshown && !pausedshown && !mapshown) {
+		if(!menushown && !optionsshown && !pausedshown && !mapshown && FlashingLights) {
 		teleport1RED.draw();
 		teleport1ORANGE.draw();
 		teleport1YELLOW.draw();
@@ -1355,7 +1388,7 @@ public class Explore extends PApplet {
 		
 
 		
-		if(finished==true) {
+		if(finished && !menushown && !optionsshown && !pausedshown && !mapshown) {
 			if(collectedEndingKeys>=1) {
 			ColorfulRectangle displayEndingred = new ColorfulRectangle(660,10,30,30,Red,grayRed);
 			ColorfulRectangle displayEndingorange = new ColorfulRectangle(660,10,30,30,Orange,grayOrange);
@@ -1383,9 +1416,12 @@ public class Explore extends PApplet {
 			}else if(colorSwitchdoor==7) {
 				displayEndingwhite.draw();
 			}
-
-			colorSwitchdoor+=1;
-
+			if(FlashingLights) {
+				colorSwitchdoor+=1;
+			}else if(!FlashingLights) {
+				colorSwitchdoor=6;
+			}
+				
 			if(colorSwitchdoor>=8) {
 				colorSwitchdoor=0;
 			}
@@ -5168,7 +5204,6 @@ public class Explore extends PApplet {
 		buildings2ChangeColorRect520 = new ColorfulRectangle(movex+1350,movey+-300, 50, 50, Color.MAGENTA);
 		buildings2ChangeColorRect521 = new ColorfulRectangle(movex+1400,movey+-350, 50, 50, Color.MAGENTA);
 
-
 		if(endingBlockSwitch<10) {
 			buildings2ChangeColorRect1.col = Color.MAGENTA;
 			buildings2ChangeColorRect2.col = Color.MAGENTA;
@@ -6218,7 +6253,12 @@ public class Explore extends PApplet {
 			rects.add(buildings2ChangeColorRect521);
 
 
-			endingBlockSwitch+=1;
+			if(FlashingLights) {
+				endingBlockSwitch+=1;
+			}else if(!FlashingLights) {
+				endingBlockSwitch=5;
+			}
+			
 		}else if(endingBlockSwitch>=10 && endingBlockSwitch<20) {
 			buildings2ChangeColorRect1.col = Color.PINK;
 			buildings2ChangeColorRect2.col = Color.PINK;
@@ -8323,7 +8363,6 @@ public class Explore extends PApplet {
 		if(endingBlockSwitch==30) {
 			endingBlockSwitch=0;
 		}
-
 
 	}
 
@@ -12626,8 +12665,11 @@ if(blockplacesize==0) { //0
 			}else if(colorSwitchdoor==7) {
 				Endingwhite.draw();
 			}
-
-			colorSwitchdoor+=1;
+			if(FlashingLights) {
+				colorSwitchdoor+=1;
+			}else if(!FlashingLights) {
+				colorSwitchdoor=6;
+			}
 
 			if(colorSwitchdoor>=8) {
 				colorSwitchdoor=0;

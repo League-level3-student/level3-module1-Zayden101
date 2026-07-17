@@ -266,6 +266,7 @@ public class Explore extends PApplet {
 	Ending Ending = new Ending(movex-2350,movey-1150,50,50);
 	SecretEnding SecretEnding = new SecretEnding(movex+750,movey-100,1,1);
 
+	Boolean secEnd = false;
 	Random randon = new Random();
 	
 	SecretTeleport st1 = new SecretTeleport(movex-850,movey+1250,50,50);
@@ -597,7 +598,7 @@ public class Explore extends PApplet {
 		}
 
 		//System.out.println(movex + " " + movey);
-		if(!menushown && !optionsshown && !pausedshown && !mapshown && !finished) {
+		if(!menushown && !optionsshown && !pausedshown && !mapshown && !finished && !secEnd) {
 			emeny.draw(); 
 			emeny.update();
 				if(!wall1) {
@@ -1193,6 +1194,8 @@ public class Explore extends PApplet {
 			
 			SecretEnding.draw();
 			SecretEnding.update();
+			
+			secEnd=true;
 			
 			st1.draw(); st1.update();
 			st2.draw(); st2.update();
@@ -12544,7 +12547,7 @@ if(blockplacesize==0) { //0
 			ColorfulRectangle SecretEnding13 = new ColorfulRectangle(x,y,50,50,Color.WHITE);
 			ColorfulRectangle SecretEnding14 = new ColorfulRectangle(x,y,50,50,Color.WHITE);
 
-			if(!menushown && !optionsshown && !pausedshown && !mapshown) {
+			if(!menushown && !optionsshown && !pausedshown && !mapshown && FlashingLights) {
 			if(colorSwitch==0) {
 				SecretEnding1.draw();
 			}else if(colorSwitch==1) {
@@ -12580,6 +12583,27 @@ if(blockplacesize==0) { //0
 				colorSwitch=0;
 			}
 			}
+			
+			if(!menushown && !optionsshown && !pausedshown && !mapshown && !FlashingLights) {
+				 SecretEnding1 = new ColorfulRectangle(x+15,y+15,20,20,Color.WHITE);
+				 SecretEnding2 = new ColorfulRectangle(x+15,y+15,20,20,Color.WHITE);
+				 SecretEnding3 = new ColorfulRectangle(x+15,y+15,20,20,Color.WHITE);
+				 SecretEnding4 = new ColorfulRectangle(x+15,y+15,20,20,Color.WHITE);
+				 SecretEnding5 = new ColorfulRectangle(x+15,y+15,20,20,Color.WHITE);
+				 SecretEnding6 = new ColorfulRectangle(x+15,y+15,20,20,Color.WHITE);
+				 SecretEnding7 = new ColorfulRectangle(x+15,y+15,20,20,Color.WHITE);
+					
+				 SecretEnding1.draw();
+				 SecretEnding2.draw();
+				 SecretEnding3.draw();
+				 SecretEnding4.draw();
+				 SecretEnding5.draw();
+				 SecretEnding6.draw();
+				 SecretEnding7.draw();
+
+			}
+			
+			
 
 			if(x==player.x && y==player.y){
 

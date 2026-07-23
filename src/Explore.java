@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 import processing.core.PApplet;
 
-//FIX SECRET ENDING OBJECTS SHOWING WHEN PAUSED MENU IS UP // FIX ENDING BLOCKS HAVING COLOR WHEN COLOR OPTION IS OFF
+//WORK ON PROPER WIN SCREEN
 
 //16/12 blocks
 
@@ -26,6 +26,9 @@ public class Explore extends PApplet {
 	static final int WIDTH = 800; //800
 	static final int HEIGHT = 600; //600
 
+	//600-450
+	//1000-750
+	
 	Color bgColor = new Color(0,0,0);
 	Color EnemyBorderColor = new Color(0,0,0);
 	Color bgColorOutline = new Color(0,0,0);
@@ -60,9 +63,19 @@ public class Explore extends PApplet {
 	int y1 = 0;
 	
 	int facing;
+	
+	int ScreenSizeMovex = 0;
+	int ScreenSizeMovey = 0;
 
+//	int movex = 0-100;
+//	int movey = 0-50;
+	
 	int movex = 0;
 	int movey = 0;
+	
+//	int movex = 0+100;
+//	int movey = 0+50;
+
 
 	Integer collectedKeys = 0;
 	Integer collectedPinkKeys = 0;
@@ -131,8 +144,9 @@ public class Explore extends PApplet {
 
 	int endingBlockSwitch = 0;
 
+//	ColorfulRectangle player = new ColorfulRectangle(250,200,50,50,Blue,grayBlue);
 	ColorfulRectangle player = new ColorfulRectangle(350,250,50,50,Blue,grayBlue);
-	//ColorfulRectangle player = new ColorfulRectangle(850,500,50,50,Color.BLUE);
+//	ColorfulRectangle player = new ColorfulRectangle(450,300,50,50,Blue,grayBlue);
 
 	List<Rectangle> rects = new ArrayList<Rectangle>();
 	
@@ -404,6 +418,7 @@ public class Explore extends PApplet {
 	int chosenEnemyDifficultyOutline = 2; //| 1=green | 2=yellow | 3=red | 4=magenta |
 	boolean GrayScale = true;
 	boolean FlashingLights = true; //true
+	int ScreenSize = 2;
 
 
 	int blockplacesize = 0;
@@ -1983,7 +1998,14 @@ public class Explore extends PApplet {
 		}else if(enemyInfo == false){
 			EnemyBorderColor = bgColor;
 		}
-		
+				
+		if(ScreenSize == 1) {
+			
+		}else if(ScreenSize == 2) {
+			
+		}else if(ScreenSize == 3) {
+			
+		}
 
 //88 --
 //54 |		

@@ -406,7 +406,7 @@ public class Explore extends PApplet {
 	boolean build = false; //false
 	int noclip = 0;
 	boolean nocliped = false; //false
-	boolean enemyInfo = false;
+	boolean enemyInfo = false; //false
 	
 	//MENUS
 	boolean map = false;
@@ -4088,94 +4088,94 @@ public class Explore extends PApplet {
 
 		//MINI DOORS
 		if(door1opened==false) {
-		rects.add(new ColorfulRectangle(495,135, 9, 9, Color.YELLOW));
+		rects.add(new ColorfulRectangle(495,135, 9, 9, Yellow,grayYellow));
 		rects.add(new ColorfulRectangle(498,138, 3, 3, Color.BLACK));
 		}
 		if(door2opened==false) {
-		rects.add(new ColorfulRectangle(252,234, 9, 9, Color.YELLOW));
+		rects.add(new ColorfulRectangle(252,234, 9, 9, Yellow,grayYellow));
 		rects.add(new ColorfulRectangle(255,237, 3, 3, Color.BLACK));
 		}
 		if(door3opened==false) {
-		rects.add(new ColorfulRectangle(549,306, 9, 9, Color.YELLOW));
+		rects.add(new ColorfulRectangle(549,306, 9, 9, Yellow,grayYellow));
 		rects.add(new ColorfulRectangle(552,309, 3, 3, Color.BLACK));
 		}
 		if(door4opened==false) {
-		rects.add(new ColorfulRectangle(576,252, 9, 9, Color.YELLOW));
+		rects.add(new ColorfulRectangle(576,252, 9, 9, Yellow,grayYellow));
 		rects.add(new ColorfulRectangle(579,255, 3, 3, Color.BLACK));
 		}
 		if(door5opened==false) {
-		rects.add(new ColorfulRectangle(603,279, 9, 9, Color.YELLOW));
+		rects.add(new ColorfulRectangle(603,279, 9, 9, Yellow,grayYellow));
 		rects.add(new ColorfulRectangle(606,282, 3, 3, Color.BLACK));
 		}
 		if(door6opened==false) {
-		rects.add(new ColorfulRectangle(432,423, 9, 9, Color.YELLOW));
+		rects.add(new ColorfulRectangle(432,423, 9, 9, Yellow,grayYellow));
 		rects.add(new ColorfulRectangle(435,426, 3, 3, Color.BLACK));
 		}
 		if(door7opened==false) {
-		rects.add(new ColorfulRectangle(162,279, 9, 9, Color.YELLOW));
+		rects.add(new ColorfulRectangle(162,279, 9, 9, Yellow,grayYellow));
 		rects.add(new ColorfulRectangle(165,282, 3, 3, Color.BLACK));
 		}
 		
 		if(pinkdoor1opened==false) {
-		rects.add(new ColorfulRectangle(279,360, 9, 9, Color.PINK));
+		rects.add(new ColorfulRectangle(279,360, 9, 9, Pink,grayPink));
 		rects.add(new ColorfulRectangle(282,363, 3, 3, Color.BLACK));
 		}
 		if(pinkdoor2opened==false) {
-		rects.add(new ColorfulRectangle(252,108, 9, 9, Color.PINK));
+		rects.add(new ColorfulRectangle(252,108, 9, 9, Pink,grayPink));
 		rects.add(new ColorfulRectangle(255,111, 3, 3, Color.BLACK));
 		}
 		if(pinkdoor3opened==false) {
-		rects.add(new ColorfulRectangle(153,279, 9, 9, Color.PINK));
+		rects.add(new ColorfulRectangle(153,279, 9, 9, Pink,grayPink));
 		rects.add(new ColorfulRectangle(156,282, 3, 3, Color.BLACK));
 		}
 		if(pinkdoor4opened==false) {
-		rects.add(new ColorfulRectangle(324,63, 9, 9, Color.PINK));
+		rects.add(new ColorfulRectangle(324,63, 9, 9, Pink,grayPink));
 		rects.add(new ColorfulRectangle(327,66, 3, 3, Color.BLACK));
 		}
 		if(pinkdoor5opened==false) {
-		rects.add(new ColorfulRectangle(747,162, 9, 9, Color.PINK));
+		rects.add(new ColorfulRectangle(747,162, 9, 9, Pink,grayPink));
 		rects.add(new ColorfulRectangle(750,165, 3, 3, Color.BLACK));
 		}
 		
 		if(orangedoor1opened==false) {
-		rects.add(new ColorfulRectangle(459,459, 9, 9, Color.ORANGE));
+		rects.add(new ColorfulRectangle(459,459, 9, 9, Orange,grayOrange));
 		rects.add(new ColorfulRectangle(462,462, 3, 3, Color.BLACK));
 		}
 		if(orangedoor2opened==false) {
-		rects.add(new ColorfulRectangle(279,72, 9, 9, Color.ORANGE));
+		rects.add(new ColorfulRectangle(279,72, 9, 9, Orange,grayOrange));
 		rects.add(new ColorfulRectangle(282,75, 3, 3, Color.BLACK));
 		}
 		if(orangedoor3opened==false) {
-		rects.add(new ColorfulRectangle(613,108, 9, 9, Color.ORANGE));
+		rects.add(new ColorfulRectangle(613,108, 9, 9, Orange,grayOrange));
 		rects.add(new ColorfulRectangle(616,111, 3, 3, Color.BLACK));
 		}
 		if(orangedoor4opened==false) {
-		rects.add(new ColorfulRectangle(126,72, 9, 9, Color.ORANGE));
+		rects.add(new ColorfulRectangle(126,72, 9, 9, Orange,grayOrange));
 		rects.add(new ColorfulRectangle(129,75, 3, 3, Color.BLACK));
 		}
 		if(orangedoor5opened==false) {
-		rects.add(new ColorfulRectangle(693,459, 9, 9, Color.ORANGE));
+		rects.add(new ColorfulRectangle(693,459, 9, 9, Orange,grayOrange));
 		rects.add(new ColorfulRectangle(696,462, 3, 3, Color.BLACK));
 		}
 		
 		if(bluedoor1opened==false) {
-		rects.add(new ColorfulRectangle(45,27, 9, 9, Color.CYAN));
+		rects.add(new ColorfulRectangle(45,27, 9, 9, Cyan,grayCyan));
 		rects.add(new ColorfulRectangle(48,30, 3, 3, Color.BLACK));
 		}
 		if(bluedoor2opened==false) {
-		rects.add(new ColorfulRectangle(36,9, 9, 9, Color.CYAN));
+		rects.add(new ColorfulRectangle(36,9, 9, 9, Cyan,grayCyan));
 		rects.add(new ColorfulRectangle(39,12, 3, 3, Color.BLACK));
 		}
 		if(bluedoor3opened==false) {
-		rects.add(new ColorfulRectangle(9,72, 9, 9, Color.CYAN));
+		rects.add(new ColorfulRectangle(9,72, 9, 9, Cyan,grayCyan));
 		rects.add(new ColorfulRectangle(12,75, 3, 3, Color.BLACK));
 		}
 		if(bluedoor4opened==false) {
-		rects.add(new ColorfulRectangle(90,9, 9, 9, Color.CYAN));
+		rects.add(new ColorfulRectangle(90,9, 9, 9, Cyan,grayCyan));
 		rects.add(new ColorfulRectangle(93,12, 3, 3, Color.BLACK));
 		}
 		if(bluedoor5opened==false) {
-		rects.add(new ColorfulRectangle(108,72, 9, 9, Color.CYAN));
+		rects.add(new ColorfulRectangle(108,72, 9, 9, Cyan,grayCyan));
 		rects.add(new ColorfulRectangle(111,75, 3, 3, Color.BLACK));
 		}
 
@@ -4189,135 +4189,135 @@ public class Explore extends PApplet {
 		
 		if(stageVariation==0) {
 			if(key1collected==false) {
-				rects.add(new ColorfulRectangle(522,126, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(522,126, 9, 9, Yellow,grayYellow));
 			}
 			if(key2collected==false) {
-				rects.add(new ColorfulRectangle(288,315, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(288,315, 9, 9, Yellow,grayYellow));
 			}
 			if(key3collected==false) {
-				rects.add(new ColorfulRectangle(378,117, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(378,117, 9, 9, Yellow,grayYellow));
 			}
 			if(key4collected==false) {
-				rects.add(new ColorfulRectangle(369,369, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(369,369, 9, 9, Yellow,grayYellow));
 			}
 			if(key5collected==false) {
-				rects.add(new ColorfulRectangle(459,306, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(459,306, 9, 9, Yellow,grayYellow));
 			}
 			if(key6collected==false) {
-				rects.add(new ColorfulRectangle(27,144, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(27,144, 9, 9, Yellow,grayYellow));
 			}
 			if(key7collected==false) {
-				rects.add(new ColorfulRectangle(414,27, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(414,27, 9, 9, Yellow,grayYellow));
 			}
 		} else if(stageVariation==1) {
 			if(key1collected==false) {
-				rects.add(new ColorfulRectangle(522,126, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(522,126, 9, 9, Yellow,grayYellow));
 			}
 			if(key2collected==false) {
-				rects.add(new ColorfulRectangle(414,306, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(414,306, 9, 9, Yellow,grayYellow));
 			}
 			if(key3collected==false) {
-				rects.add(new ColorfulRectangle(315,171, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(315,171, 9, 9, Yellow,grayYellow));
 			}
 			if(key4collected==false) {
-				rects.add(new ColorfulRectangle(369,369, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(369,369, 9, 9, Yellow,grayYellow));
 			}
 			if(key5collected==false) {
-				rects.add(new ColorfulRectangle(234,234, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(234,234, 9, 9, Yellow,grayYellow));
 			}
 			if(key6collected==false) {
-				rects.add(new ColorfulRectangle(27,144, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(27,144, 9, 9, Yellow,grayYellow));
 			}
 			if(key7collected==false) {
-				rects.add(new ColorfulRectangle(414,27, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(414,27, 9, 9, Yellow,grayYellow));
 			}
 		}if(stageVariation==2) {
 			if(key1collected==false) {
-				rects.add(new ColorfulRectangle(522,126, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(522,126, 9, 9, Yellow,grayYellow));
 			}
 			if(key2collected==false) {
-				rects.add(new ColorfulRectangle(288,315, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(288,315, 9, 9, Yellow,grayYellow));
 			}
 			if(key3collected==false) {
-				rects.add(new ColorfulRectangle(468,234, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(468,234, 9, 9, Yellow,grayYellow));
 			}
 			if(key4collected==false) {
-				rects.add(new ColorfulRectangle(369,369, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(369,369, 9, 9, Yellow,grayYellow));
 			}
 			if(key5collected==false) {
-				rects.add(new ColorfulRectangle(198,153, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(198,153, 9, 9, Yellow,grayYellow));
 			}
 			if(key6collected==false) {
-				rects.add(new ColorfulRectangle(27,144, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(27,144, 9, 9, Yellow,grayYellow));
 			}
 			if(key7collected==false) {
-				rects.add(new ColorfulRectangle(414,27, 9, 9, Color.YELLOW));
+				rects.add(new ColorfulRectangle(414,27, 9, 9, Yellow,grayYellow));
 			}
 		}
 
 
 		if(pinkkey1collected==false) {
-			rects.add(new ColorfulRectangle(612,315, 9, 9, Color.PINK));
+			rects.add(new ColorfulRectangle(612,315, 9, 9, Pink,grayPink));
 		}
 		if(stageVariation==0) {
 		if(pinkkey2collected==false) {
-			rects.add(new ColorfulRectangle(576,441, 9, 9, Color.PINK));
+			rects.add(new ColorfulRectangle(576,441, 9, 9, Pink,grayPink));
 		}}
 		if(stageVariation==1 || stageVariation==2) {
 		if(pinkkey2collected==false) {
-			rects.add(new ColorfulRectangle(567,81, 9, 9, Color.PINK));
+			rects.add(new ColorfulRectangle(567,81, 9, 9, Pink,grayPink));
 		}}
 		if(stageVariation==0) {
 		if(pinkkey3collected==false) {
-			rects.add(new ColorfulRectangle(45,234, 9, 9, Color.PINK));
+			rects.add(new ColorfulRectangle(45,234, 9, 9, Pink,grayPink));
 		}}
 		if(stageVariation==1 || stageVariation==2) {
 		if(pinkkey3collected==false) {
-			rects.add(new ColorfulRectangle(99,198, 9, 9, Color.PINK));
+			rects.add(new ColorfulRectangle(99,198, 9, 9, Pink,grayPink));
 		}}
 		if(pinkkey4collected==false) {
-			rects.add(new ColorfulRectangle(288,9, 9, 9, Color.PINK));
+			rects.add(new ColorfulRectangle(288,9, 9, 9, Pink,grayPink));
 		}
 		if(pinkkey5collected==false) {
-			rects.add(new ColorfulRectangle(414,414, 9, 9, Color.PINK));
+			rects.add(new ColorfulRectangle(414,414, 9, 9, Pink,grayPink));
 		}
 
 		if(orangekey1collected==false) {
-			rects.add(new ColorfulRectangle(198,135, 9, 9, Color.ORANGE));
+			rects.add(new ColorfulRectangle(198,135, 9, 9, Orange,grayOrange));
 		}
 		if(orangekey2collected==false) {
-			rects.add(new ColorfulRectangle(648,243, 9, 9, Color.ORANGE));
+			rects.add(new ColorfulRectangle(648,243, 9, 9, Orange,grayOrange));
 		}
 		if(orangekey3collected==false) {
-			rects.add(new ColorfulRectangle(72,324, 9, 9, Color.ORANGE));
+			rects.add(new ColorfulRectangle(72,324, 9, 9, Orange,grayOrange));
 		}
 		if(orangekey4collected==false) {
-			rects.add(new ColorfulRectangle(153,297, 9, 9, Color.ORANGE));
+			rects.add(new ColorfulRectangle(153,297, 9, 9, Orange,grayOrange));
 		}
 		if(orangekey5collected==false) {
-			rects.add(new ColorfulRectangle(693,189, 9, 9, Color.ORANGE));
+			rects.add(new ColorfulRectangle(693,189, 9, 9, Orange,grayOrange));
 		}
 
 		if(bluekey1collected==false) {
-			rects.add(new ColorfulRectangle(297,63, 9, 9, Color.CYAN));
+			rects.add(new ColorfulRectangle(297,63, 9, 9, Cyan,grayCyan));
 		}
 		if(bluekey2collected==false) {
-			rects.add(new ColorfulRectangle(450,432, 9, 9, Color.CYAN));
+			rects.add(new ColorfulRectangle(450,432, 9, 9, Cyan,grayCyan));
 		}
 		if(bluekey3collected==false) {
-			rects.add(new ColorfulRectangle(774,441, 9, 9, Color.CYAN));
+			rects.add(new ColorfulRectangle(774,441, 9, 9, Cyan,grayCyan));
 		}
 		if(bluekey4collected==false) {
-			rects.add(new ColorfulRectangle(729,144, 9, 9, Color.CYAN));
+			rects.add(new ColorfulRectangle(729,144, 9, 9, Cyan,grayCyan));
 		}
 		if(stageVariation==0 || stageVariation==1) {
 		if(bluekey5collected==false) {
-			rects.add(new ColorfulRectangle(756,45, 9, 9, Color.CYAN));
+			rects.add(new ColorfulRectangle(756,45, 9, 9, Cyan,grayCyan));
 		}
 		}
 		if(stageVariation==2) {
 		if(bluekey5collected==false) {
-			rects.add(new ColorfulRectangle(747,90, 9, 9, Color.CYAN));
+			rects.add(new ColorfulRectangle(747,90, 9, 9, Cyan,grayCyan));
 		}
 		}
 		
@@ -8607,6 +8607,8 @@ public class Explore extends PApplet {
 	public void buildings() {
 
 		int marker;
+		
+		if(!finished) {
 		enemyBorder.add(new ColorfulRectangle(movex+-1000,movey+-50, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1100,movey+0, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1100,movey+50, 50, 50, EnemyBorderColor));
@@ -8638,10 +8640,10 @@ public class Explore extends PApplet {
 		enemyBorder.add(new ColorfulRectangle(movex+-2050,movey+400, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1700,movey+450, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1450,movey+300, 50, 50, EnemyBorderColor));
-//		enemyBorder.add(new ColorfulRectangle(movex+-1950,movey+300, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1350,movey+200, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1350,movey+250, 50, 50, EnemyBorderColor));
 		enemyBorder.add(new ColorfulRectangle(movex+-1300,movey+0, 50, 50, EnemyBorderColor));
+		}
 		
 		rects.add(new ColorfulRectangle(movex+1000,movey+1350, 50, 50, Color.WHITE));
 		rects.add(new ColorfulRectangle(movex+-1500,movey+-1000, 50, 50, Color.WHITE));
@@ -12925,13 +12927,13 @@ if(blockplacesize==0) { //0
 			x=telex+movex;
 			y=teley+movey;
 
-			ColorfulRectangle SecretEnding1 = new ColorfulRectangle(x,y,50,50,Color.BLACK);
-			ColorfulRectangle SecretEnding2 = new ColorfulRectangle(x,y,50,50,Color.BLACK);
-			ColorfulRectangle SecretEnding3 = new ColorfulRectangle(x,y,50,50,Color.BLACK);
-			ColorfulRectangle SecretEnding4 = new ColorfulRectangle(x,y,50,50,Color.BLACK);
-			ColorfulRectangle SecretEnding5 = new ColorfulRectangle(x,y,50,50,Color.BLACK);
-			ColorfulRectangle SecretEnding6 = new ColorfulRectangle(x,y,50,50,Color.BLACK);
-			ColorfulRectangle SecretEnding7 = new ColorfulRectangle(x,y,50,50,Color.BLACK);
+			ColorfulRectangle SecretEnding1 = new ColorfulRectangle(x,y,50,50,bgColor);
+			ColorfulRectangle SecretEnding2 = new ColorfulRectangle(x,y,50,50,bgColor);
+			ColorfulRectangle SecretEnding3 = new ColorfulRectangle(x,y,50,50,bgColor);
+			ColorfulRectangle SecretEnding4 = new ColorfulRectangle(x,y,50,50,bgColor);
+			ColorfulRectangle SecretEnding5 = new ColorfulRectangle(x,y,50,50,bgColor);
+			ColorfulRectangle SecretEnding6 = new ColorfulRectangle(x,y,50,50,bgColor);
+			ColorfulRectangle SecretEnding7 = new ColorfulRectangle(x,y,50,50,bgColor);
 			ColorfulRectangle SecretEnding8 = new ColorfulRectangle(x,y,50,50,Color.WHITE);
 			ColorfulRectangle SecretEnding9 = new ColorfulRectangle(x,y,50,50,Color.WHITE);
 			ColorfulRectangle SecretEnding10 = new ColorfulRectangle(x,y,50,50,Color.WHITE);
